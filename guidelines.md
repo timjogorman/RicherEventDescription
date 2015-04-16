@@ -82,7 +82,7 @@ Research Projects Agency.
 
 In our examples, words in *brackets* are to be annotated with
 the type of annotation or attribute under discussion. The brackets
-represent the proper span. Spans of text in \{Curly Brackets\} represent
+represent the proper span. Spans of text in **Curly Brackets** represent
 TIMEX3 annotations which are marked, even if not being discussed explicitly
 in the example.
 
@@ -95,7 +95,7 @@ Where the first line is the actual sentence, Item A is the first EVENT
 or TIMEX3, Item B is the second EVENT or TIMEX3, and BEFORE (or CONTAINS,
 OVERLAP, etc) is the TYPE of the LINK, described in Section \ref{tlinktypes}.
 
-Also, *brackets* indicate Entities and EVENTs, and \{curly brackets\
+Also, *brackets* indicate Entities and EVENTs, and **curly brackets\
 indicate TIMEX3s.
 
 ## Markables and Entity Relations Stage
@@ -403,7 +403,7 @@ and ``occurred\textquotedbl{}:
 - After undergoing extensive *transformation*, Sochi is nearly
 *ready* to *host* the *Olympic Games*.
 
-- At \{that time\}, he also experienced rectal *pressure*
+- At **that time**, he also experienced rectal *pressure*
 / *fullness* and occasionally had *hematochezia*.
 
 - The *earthquake* occurred during the *parade*.
@@ -479,9 +479,7 @@ is not covered by these guidelines but we will be investigating whether
 building on PropBank annotation of gaps might be helpful.
 
 
-\subsection{\label{syntacticheads}Selecting Proper Spans of Annotation
-
-\label{eventheads
+#### Selecting Proper Spans of Annotation
 
 Once you have decided that a given phrase or word qualifies as an
 EVENT or ENTITY, you'll need to decide what `span' (section of the
@@ -525,7 +523,7 @@ we will annotate everything except pronoun nouns using a single word,
 resulting in spans such as: 
 \begin{examples
 - The 7.6-magnitude *earthquake* caused severe *damage* to multiple
-*buildings* last \{July\}.
+*buildings* last **July**.
 - The *U.S.* *President* *maintained* his *stance* on
 the civil *war*.
 \end{examples
@@ -813,7 +811,7 @@ split up. Figure \ref{fig:Affixes-which-can} lists a collection of
 morphemes which should be treated as forming a single word (from Santorini
 XXXXXXX).
  
-| Hyphenated Words | 
+| Hyphenated Words |  |  |  |  |
 |-------|-------|-------|---------|------|----------|
 | aorto- | ante- | anti- |  arch- | ambi- | -able |
 |-ahol   | -aholic | -ation | axio- | be- | bi- | 
@@ -821,11 +819,7 @@ XXXXXXX).
 | circum- | cis- | colo- | contra- | cortico- | cran- |
 | crypto- | -centric | -cracy | -crat | de- | deca- |
 | demi | dis- | -dom | eco- | electro- | ennea- |
-
-
--esque
-
--ette
+| -esque | -ette
 
 ex-
 
@@ -1071,7 +1065,7 @@ When you mark each entity or event, you will need to label basic features
 on the events and entities. 
 
 
-\subsection{Entity Features -- Polarity and Modality
+#### Entity Features -- Polarity and Modality
 
 The majority of ENTITYs will be of the polarity POS for ``positive'',
 meaning that they are actual entities. This is the default value.
@@ -1226,7 +1220,7 @@ As with HYPOTHETICAL, use Uncertain/Hedged only when the sheer existence
 of the entity (not its role in the sentence) has been placed in doubt.
 
 
-\subsection{Event Polarity and Modality
+#### Event Polarity and Modality
 
 In order to express the polarity of an EVENT, the ``polarity'' attribute
 of an event is specified. Polarity in this schema is relatively straightforward,
@@ -1391,7 +1385,7 @@ it seems extremely likely.
 One final note: In order to mark something as UNCertain, there must
 be evidence in the text itself. So:
 
-- \{Yesterday\}, I was *abducted* by aliens and a prominent
+- **Yesterday**, I was *abducted* by aliens and a prominent
 politician who was not at all *corrupt*.
 
 In this case, the annotator knows that both the abduction and the
@@ -1638,7 +1632,7 @@ annotations.
 \color{black} 
 
 
-\subsection{\label{eventfeatures}Event DocTimeRel
+#### \label{eventfeatures}Event DocTimeRel
 
 DocTimeRel is short for ``Document Creation Time Relation'', and
 represents the temporal relation between the EVENT in question and
@@ -1875,7 +1869,7 @@ or BEFORE/OVERLAP conditions, as in:
 Russia\textquotedbl{
 
 
-\subsection{Event Type, Aspect and Implicitness
+#### Event Type, Aspect and Implicitness
 
 
 #### Annotating contextual aspect of EVENTs
@@ -1886,13 +1880,13 @@ two aspects give information about the temporal relations in the document,
 not about the grammatical forms used to express them.
 
 
-\paragraph*{N/A
+###### N/A
 
 N/A is our default value for contextual aspect, and simply represents
 that a given EVENT is not intermittent, and is true consistently.
 
 
-\paragraph*{INT - Intermittent
+###### INT - Intermittent
 
 INT is used in situations where there may be a series of smaller events
 within a single EVENT, rather than a single, constant event. Those
@@ -1943,7 +1937,7 @@ EVENTs which occur on a timeline, we use the ``type'' marker. It
 has three values: ``N/A'', ``ASP'', and ``EVI\textquotedbl{}. 
 
 
-\paragraph*{N/A
+###### N/A
 
 \textquotedbl{}N/A'' is the default value, and represents the vast
 majority of EVENTs in the schema, and unless explicitly mentioned
@@ -1967,7 +1961,7 @@ will be an EVENT of type N/A, with a span of ``*recurrence*'',
 as shown above. No ALINK annotations will be made here.
 
 
-\paragraph*{ASP - Aspectual
+###### ASP - Aspectual
 
 The next EVENT type is ASP, which is used to indicate an event whose
 function is to emphasize or code the aspect of a later event, like
@@ -2022,7 +2016,7 @@ If an EVENT cannot be paraphrased using any of the words above, it
 is not aspectual.
 
 
-\paragraph*{EVI - Evidential
+###### EVI - Evidential
 
 The other EVENT type is EVI. EVI EVENTs are a little bit strange,
 in that they are not technically relevant to the patient, but they
@@ -2076,7 +2070,7 @@ but rather, ENTITYs which are interpreted in context as representing
 an EVENT.
 
 
-\paragraph*{Default -- Explicit
+###### Default -- Explicit
 
 This is the default value, and corresponds to an EVENT whose span
 itself represents an EVENT:
@@ -2084,7 +2078,7 @@ itself represents an EVENT:
 - There was an *attack* last week.
 
 
-\paragraph*{Implicit
+###### Implicit
 
 The other possibility is an EVENT whose span looks like it should
 only be a ENTITY, but which nonetheless represents an implicit EVENT
@@ -2107,7 +2101,7 @@ please mark each METONYMIC EVENT both as an EVENT with the METONYMIC
 type specified, and as an ENTITY.
 
 
-\subsection{Annotating degree of EVENTs
+#### Annotating degree of EVENTs
 
 In order to express an incomplete degree of an EVENT, the ``degree''
 of an event is specified.
@@ -2143,7 +2137,7 @@ been ``a little'' of an event, or a large (but not complete) change:
 activities. (LTL)
 
 
-\subsection{Marking Difficult annotations
+#### Marking Difficult annotations
 
 The RED schema includes a method for you, the annotator, to highlight
 annotations which are particularly difficult to make, or which they
@@ -2172,7 +2166,7 @@ ago'', ``at this time'' and ``early March\textquotedbl{}. In addition,
 specific dates are annotated as TIMEX3 objects as well.
 
 
-\subsection{Identifying and Annotating TIMEX3s
+#### Identifying and Annotating TIMEX3s
 
 Our approach to marking TIMEX3s is identical to that used in ISO-TimeML,
 and these guidelines are heavily based on the standard established
@@ -2194,15 +2188,15 @@ some cases, follow) a temporal expression are to be left unmarked,
 \textit{even when they seem to provide additional context for interpreting
 the TIMEX3}. For example:
 
-- During \{the month of July\}, she will come visit.
+- During **the month of July**, she will come visit.
 
-- From \{May 1st\} to \{the 3rd\}, she will refrain from eating
+- From **May 1st** to **the 3rd**, she will refrain from eating
 solid food.
 
-- After \{tomorrow\}, she should be OK to walk with crutches.
+- After **tomorrow**, she should be OK to walk with crutches.
 
-- He'll come in for a follow up \{two days\} after his surgery,
-and again \{the next week\}.
+- He'll come in for a follow up **two days** after his surgery,
+and again **the next week**.
 
 These prepositions (referred to as SIGNALs in ISO-TimeML), although
 important in the interpretation of the meaning of the temporal expressions,
@@ -2212,15 +2206,15 @@ extracted later.
 Note that post-expression adverbs (often ``ago'') are still captured
 in our spans, so:
 
-- Patient s/p lumpectomy \{2 yrs ago\
+- Patient s/p lumpectomy **2 yrs ago\
 
 For the most part, if you have two separate temporal expressions,
 they'll be two separate TIMEX3s, but two adjacent TIMEX3s which together
 specify a single time can be treated as a single span. Look at the
 contrast in \Next:
 
-- \a. I'll come by to check on her at \{3:30pm Tuesday\} \b{.
-I'll come by to check on her at \{3:30pm\} and on \{Tuesday\
+- \a. I'll come by to check on her at **3:30pm Tuesday** \b{.
+I'll come by to check on her at **3:30pm** and on **Tuesday\
 
 In (b), we know that the doctor is referring to two different timepoints,
 so we mark two TIMEX3s, whereas in (a), the ``3:30pm'' and ``Tuesday''
@@ -2229,43 +2223,43 @@ combine to specify a single timepoint.
 The only exception to this rule is when the two temporally connected
 TIMEX3s are syntactically separated, as below:
 
-- On \{Tuesday\}, I'll come by to check on her at \{3:30pm\}.
+- On **Tuesday**, I'll come by to check on her at **3:30pm**.
 
-- She'll come in for another consult \{the day\} after \{tomorrow\}.
+- She'll come in for another consult **the day** after **tomorrow**.
 
 In these cases, mark two separate TIMEX3s, even though they combine
 to specify one timepoint. The sole exception to this rule comes with
 long-form times:
 
-- Mr. Mullins arrived at \{5 minutes to five\}.
+- Mr. Mullins arrived at **5 minutes to five**.
 
 But in medical texts, these are extremely rare.
 
 As one might imagine, TIMEX3s which are separated by a conjunction
 are to be treated separately as well:
 
-- She should be fine for discharge on \{Tuesday\} or \{Wednesday\}.
+- She should be fine for discharge on **Tuesday** or **Wednesday**.
 
-- He will come in on \{the 1st\} and \{the 5th\} for followups.
+- He will come in on **the 1st** and **the 5th** for followups.
 
 Finally, please include in the TIMEX3 span things like time zone identifiers,
 time offsets, or other information which provides information which
 is helpful in establishing the point of time being discussed.
 
-- He posted \{Jan. 5th, 2013 at 6:00pm -700 UTC\}\textquotedbl{
+- He posted **Jan. 5th, 2013 at 6:00pm -700 UTC**\textquotedbl{
 
-- We'll talk at \{5pm Mountain\
+- We'll talk at **5pm Mountain\
 
-- She called around \{2pm (MDT)\
+- She called around **2pm (MDT)\
 
-- His email was sent at \{6:59pm (-500)\}.
+- His email was sent at **6:59pm (-500)**.
 
-- Our meeting \{tomorrow\} is at \{9pm Eastern/8pm Central\}.
+- Our meeting **tomorrow** is at **9pm Eastern/8pm Central**.
 
-- The collapse occurred \{at 2am, plus or minus an hour or so\}.
+- The collapse occurred **at 2am, plus or minus an hour or so**.
 
 
-\subsection{Annotating TIMEX3 class
+#### Annotating TIMEX3 class
 
 Note that in the examples below, if there are multiple TIMEX3s, only
 those which are of the indicated class will be marked.
@@ -2274,46 +2268,46 @@ those which are of the indicated class will be marked.
 #### DATE
 
 The majority of TIMEX3 annotations you make will be of the class DATE.
-DATE represents dates. These can be calendar dates (such as \{January
-4\}) and other verbal expressions which can be mapped to calendar
-dates either concretely (such as \{Last week\}, \{This month\}, \{next
-Friday\}, or \{this time\}), or in a more fuzzy sense (\{lately\},
-\{the past\}).
+DATE represents dates. These can be calendar dates (such as **January
+4**) and other verbal expressions which can be mapped to calendar
+dates either concretely (such as **Last week**, **This month**, **next
+Friday**, or **this time**), or in a more fuzzy sense (**lately**,
+**the past**).
 
 - MRI of the brain without and with gadolinium contrast utilizing
-tumor followup protocol compared with prior studies of \{29, February
-2005\} and \{28, January 2005\}.
+tumor followup protocol compared with prior studies of **29, February
+2005** and **28, January 2005**.
 
 - His anterior chest rash has not reoccurred since the PCN VK
-was discontinued \{24-hours ago\}.
+was discontinued **24-hours ago**.
 
-- At \{this time\}, we see no reason to discontinue the treatment.
+- At **this time**, we see no reason to discontinue the treatment.
 
-- The last cyclosporine level was 373 in \{January\}. His dose
+- The last cyclosporine level was 373 in **January**. His dose
 was adjusted downward to 300-mg twice-daily. A cyclosporine level
-will be repeated on \{Friday morning\}.
+will be repeated on **Friday morning**.
 
 - I stated that if there is no other evidence of any disease recurrence,
-in \{approximately one-month's time\} we would proceed with approximately
+in **approximately one-month's time** we would proceed with approximately
 six-months worth of adjuvant therapy.
 
-- The form was signed and scanned on \{December 29, 2009\}.
+- The form was signed and scanned on **December 29, 2009**.
 
-- I would probably restart her furosemide \{tomorrow morning\}.
+- I would probably restart her furosemide **tomorrow morning**.
 
-- She came in \{a couple months ago\}.
+- She came in **a couple months ago**.
 
-- She had an appendectomy \{two-to-three years ago\}.
+- She had an appendectomy **two-to-three years ago**.
 
 - Mr. Zegler was seen in the Hamilton University Medical Center
-with Dr. Carr \{the middle of December 2009\}.
+with Dr. Carr **the middle of December 2009**.
 
-- Carotid artery disease, last checked \{greater than two years\
+- Carotid artery disease, last checked **greater than two years\
 prior.
 
-- After \{next week\}, we will see where her pain level is.
+- After **next week**, we will see where her pain level is.
 
-- \{June 6, 2008\}, through \{October 6, 2008\}, treated with
+- **June 6, 2008**, through **October 6, 2008**, treated with
 FOLFOX.
 
 As mentioned above, DATE is also used for very generic sorts of TIMEX3s,
@@ -2323,30 +2317,30 @@ for instance, expressions like ``the past'', ``lately'', ``the
 future'', or even ``previously'', would be TIMEX3s of the type
 DATE:
 
-- She has experienced heavy bleeding in \{the past\}.
+- She has experienced heavy bleeding in **the past**.
 
-- She complains that she's felt tired \{lately\}.
+- She complains that she's felt tired **lately**.
 
-- \{Recently\}, she has had several episodes of syncope.
+- **Recently**, she has had several episodes of syncope.
 
-- He wasn't sure he wanted surgery at \{that point\}.
+- He wasn't sure he wanted surgery at **that point**.
 
 
 #### TIME
 
 TIME is used for specific time points within a day, for instance,
-\{3:00PM\} or \{23:45\}, and once again can be relative (as in example
+**3:00PM** or **23:45**, and once again can be relative (as in example
 \NNext):
 
-- The patient's MRI is scheduled for \{5:30pm\
+- The patient's MRI is scheduled for **5:30pm\
 
-- Following the patient's latest seizure \{20 minutes ago\}, we
+- Following the patient's latest seizure **20 minutes ago**, we
 are re-evaluating her medications.
 
-- At \{the time of consultation\} there is no operative report
+- At **the time of consultation** there is no operative report
 or pathology available.
 
-- Surgery will need to be completed by \{2:45\} to have the biopsy
+- Surgery will need to be completed by **2:45** to have the biopsy
 to the lab sooner.
 
 Put differently, temporal expressions which give minute-by-minute
@@ -2358,35 +2352,35 @@ detail is marked with DATE.
 
 Sometimes, you will be given a single temporal expression interpreted
 as reflecting a span of time, rather than a point. These are things
-like ``for \{24 hours\}'' or ``All of February'', and these are
+like ``for **24 hours**'' or ``All of February'', and these are
 marked with the class DURATION.
 
-- The patient continuously experienced nausea for \{nearly two
-weeks\}.
+- The patient continuously experienced nausea for **nearly two
+weeks**.
 
-- For \{the next 12 hours\}, we will lower the patient's morphine
+- For **the next 12 hours**, we will lower the patient's morphine
 drip and then we will re-evaluate his pain.
 
-- Since \{August\}, she has not had any episodes.
+- Since **August**, she has not had any episodes.
 
-- Patient did well \{overnight\}.
+- Patient did well **overnight**.
 
-- During \{the last 12 months\}, she's been nauseous frequently.
+- During **the last 12 months**, she's been nauseous frequently.
 
-- Since \{February 18th\}, he hasn't seen his doctor.
+- Since **February 18th**, he hasn't seen his doctor.
 
-- In \{the last week\}, his pain has significantly worsened.
+- In **the last week**, his pain has significantly worsened.
 
-- He has been doing this for \{five years\}.
+- He has been doing this for **five years**.
 
 - I stated that if there is no other evidence of any disease recurrence,
-in approximately one-month's time we would proceed with \{approximately
-six-months\} worth of adjuvant therapy.
+in approximately one-month's time we would proceed with **approximately
+six-months** worth of adjuvant therapy.
 
-- In \{the time\} between now and the 15th, she should attend
+- In **the time** between now and the 15th, she should attend
 physical therapy whenever possible.
 
-Note that in \Last, both \{now\} and \{the 15th\} would also be TIMEX3s,
+Note that in \Last, both **now** and **the 15th** would also be TIMEX3s,
 but of type DATE.
 
 Remember again that more abstract temporal expressions (``lately'',
@@ -2399,7 +2393,7 @@ Finally, remember that two dates can be used to construct a duration,
 but, because each represents a single point in time (rather than duration),
 both will still be labeled DATE, rather than DURATION:
 
-- From \{May 1st\}$_{\text{DATE}}$ to \{the 3rd\}$_{\text{DATE}}$,
+- From **May 1st**$_{\text{DATE}}$ to **the 3rd**$_{\text{DATE}}$,
 she will refrain from eating solid food.
 
 
@@ -2409,12 +2403,12 @@ Although it may seem odd at first, expressions like ``Twice'', ``four
 times'', and ``18 times in the month of May'' are all TIMEX3s.
 These are annotated with the QUANTIFIER class.
 
-- The patient vomited \{twice\} before the surgery.
+- The patient vomited **twice** before the surgery.
 
-- We have seen Mr. Lastname \{three times\} for his ulcerative
+- We have seen Mr. Lastname **three times** for his ulcerative
 colitis.
 
-- On \{two to three incidents\} she has had blood in the stools.
+- On **two to three incidents** she has had blood in the stools.
 
 Note that Quantifier only applies for number of occurrences of an
 EVENT, not for quantifiers like ``She has \textit{two} eyes'' or
@@ -2430,15 +2424,15 @@ designate specific temporal spans (``The time before the surgery'',
 are TIMEX3s, marked with the class PREPOSTEXP. Usage of this TIMEX3
 is discussed in more detail in Section \ref{prepostexp}.
 
-- Patient underwent a partial hemicolectomy in July 2009. \{Postoperative\
+- Patient underwent a partial hemicolectomy in July 2009. **Postoperative\
 scarring noted during exam.
 
-- The patient exhibits \{post-exposure\} changes.
+- The patient exhibits **post-exposure** changes.
 
 These will not always begin with ``pre-'' or ``post-\textquotedbl{}.
 Terms like ``intraoperatively'' are PREPOSTEXP as well, as in \Next:
 
-- \{Intraoperatively\}, there were no difficulties securing his
+- **Intraoperatively**, there were no difficulties securing his
 airway. He received 4 liters of crystalloid, made 300 mL of urine
 and estimated blood loss was 50 mL. He received a dose of DDAVP in
 the OR out of concern for uremic platelet dysfunction.
@@ -2446,7 +2440,7 @@ the OR out of concern for uremic platelet dysfunction.
 And sometimes, you will have bare expressions which clearly express
 the PREPOSTEXP meaning, but do not contain the whole expression.
 
-- Pulmonary recommendations for \{pre\}, \{peri\} and \{postop\
+- Pulmonary recommendations for **pre**, **peri** and **postop\
 were made.
 
 
@@ -2459,27 +2453,27 @@ from QUANTIFIER (``twice'') which only gives a quantifier, and different
 from DURATION (``all week'') which only gives a timespan.
 
 Even though most sets could be interpreted as a QUANTIFIER and a DATE/TIME
-juxtaposed, we should mark them as a single span (``\{twice monthly\}''
-rather than ``\{twice\} \{monthly\}'').
+juxtaposed, we should mark them as a single span (``**twice monthly**''
+rather than ``**twice** **monthly**'').
 
-- Will administer Lariam \{twice daily\}.
+- Will administer Lariam **twice daily**.
 
-- Patient has checked into the ER \{roughly three times a month\}.
+- Patient has checked into the ER **roughly three times a month**.
 
-- We will proceed with \{weekly\} consultations to monitor the
+- We will proceed with **weekly** consultations to monitor the
 patient's condition.
 
-- Mirtazapine REMERON 7.5-mg tablet 1 tablet by mouth \{every
-bedtime\}.
+- Mirtazapine REMERON 7.5-mg tablet 1 tablet by mouth **every
+bedtime**.
 
-- Simvastatin ZOCOR 20-mg tablet 1 tablet by mouth \{one-time
-daily\}.
+- Simvastatin ZOCOR 20-mg tablet 1 tablet by mouth **one-time
+daily**.
 
 TIMEX3s of type SET should always be TLINKed to EVENTs using the TLINKs
 of the type OVERLAP.
 
 
-\subsection{TIMEX3s vs. Temporal Manner Adverbs
+#### TIMEX3s vs. Temporal Manner Adverbs
 
 Although TIMEX3s are generally uncontroversial and straightforward,
 there is one ambiguity which merits further discussion. First, consider
@@ -2487,14 +2481,14 @@ the below examples:
 
 - He *stopped* the polar bear's *rampage* quickly.
 
-- He *stopped* the polar bear's *rampage* in \{twenty
-minutes\}.
+- He *stopped* the polar bear's *rampage* in **twenty
+minutes**.
 
 In \LLast, ``quickly'' is quite clearly not a TIMEX3. It is not
 placeable on a timeline, it cannot be normalized to a date or time,
 and really, it doesn't tell us much about time, but about the stopping.
-Compare this to \{twenty minutes\}, which is clearly temporal. We
-know that \{twenty minutes\} entirely contains the stopping, and that
+Compare this to **twenty minutes**, which is clearly temporal. We
+know that **twenty minutes** entirely contains the stopping, and that
 it refers, on the timeline, to a period of 20 60-second intervals
 beginning at the point on which he started trying to stop the rampage.
 
@@ -2528,7 +2522,7 @@ otherwise be possible. Humans, reading the text down the road, can
 always understand and interpret as a manner adverb, if it's helpful.
 
 
-\subsection{DOCTIME and SECTIONTIME Annotation
+#### DOCTIME and SECTIONTIME Annotation
 
 Because all of these annotations are linking the EVENTs and TIMEX3s
 to the time of patient service, it is important that we specify what
@@ -2564,7 +2558,7 @@ SECTIONTIME, as all that follows it will be true as of this new timestamp.
 
 
 
-\subsection{TIMEX3 Normalization
+#### TIMEX3 Normalization
 
 A completely separate annotation pass, occurring after RED annotation
 is completed, is TIMEX3 ``normalization'', where the natural language
@@ -2574,16 +2568,16 @@ and connections between TIMEX3s, and is done using a wholly different
 schema and set of annotators. As a part of the TIMEX3 normalization
 process, we might gain information like the following:
 
-- We'll see her again on \{April 18th, 2009\} during her \{2pm\
-appointment \a. \{April 18th, 2009\} == 04/18/2009 \b{.} \{2pm\
+- We'll see her again on **April 18th, 2009** during her **2pm\
+appointment \a. **April 18th, 2009** == 04/18/2009 \b{.} **2pm\
 == 4/18/2009 1400 *Time Zone Unknown*
 
-- \{Next Tuesday\} there will be further peace talks. \a. \{Next
-Tuesday\} = ``The next Tuesday after *DocTime*''. \b{.} If
-DocTime was 7/6/14, then \{Next Tuesday\} == 7/8/14
+- **Next Tuesday** there will be further peace talks. \a. **Next
+Tuesday** = ``The next Tuesday after *DocTime*''. \b{.} If
+DocTime was 7/6/14, then **Next Tuesday** == 7/8/14
 
-- There was another attack \{three weeks after the bombing\}.
-\a. \{three weeks after the bombing\} == ``At the time exactly three
+- There was another attack **three weeks after the bombing**.
+\a. **three weeks after the bombing** == ``At the time exactly three
 weeks after the EVENT *bombing*'' \b{.} If we know that the
 bombing was on June 1st, we can then infer that the attack was on
 the 22nd.
@@ -2593,11 +2587,11 @@ task of determining and specifying the relative and absolute meaning
 of TIMEX3s. Thus, we have no need to make TLINKs which serve only
 to demonstrate TIMEX3 meanings, such as:
 
-- I'm seeing her \{today\}, for the third time in \{2013\}. \a.
-{*}\{2013\} CONTAINS \{today\
+- I'm seeing her **today**, for the third time in **2013**. \a.
+{*}**2013** CONTAINS **today\
 
-- They fought \{Friday\}, and again \{yesterday\}. \a. {*} \{Friday\
-BEFORE \{yesterday\
+- They fought **Friday**, and again **yesterday**. \a. {*} **Friday\
+BEFORE **yesterday\
 
 Because relations between TIMEX3s serve only to clarify these relationships
 which will be clarified in normalization, we prohibit all TIMEX3 to
@@ -2617,7 +2611,7 @@ instead should select the entire paragraph or section which is repeated
 and mark with DUPLICATE.
 
 
-\subsection{Guidelines for finding DUPLICATE text
+#### Guidelines for finding DUPLICATE text
 
 As to avoid throwing out otherwise good data, DUPLICATE does have
 a few hard and fast laws of usage to keep in mind:
@@ -2680,7 +2674,7 @@ al. 2004 (\cite{poesio2004centering}), Poesio 1997 (\cite{poesio1997conversation
 and Savova et al. 2011 (\cite{savova2011anaphoric}).
 
 
-\subsection{IDENTITY and APPOSITION of ENTITIES
+#### IDENTITY and APPOSITION of ENTITIES
 
 
 #### IDENTICAL 
@@ -2806,7 +2800,7 @@ If both ENTITYs have the same level of specificity, select the left-most
 ENTITY as the head.
 
 
-\subsection{\label{bridgingsection}WHOLE/PART
+#### \label{bridgingsection}WHOLE/PART
 
 Two entities exist in a WHOLE/PART relationship if one can be thought
 of as part of the other, larger composite entity. These can be simple
@@ -2868,7 +2862,7 @@ or SET/MEMBER instead. }%
 
 
 
-\subsection{\label{sub:SET-MEMBER}SET-MEMBER
+#### \label{sub:SET-MEMBER}SET-MEMBER
 
 A SET-MEMBER relationship exists when one entity or event can be thought
 of as one or several members of a larger group. SET-MEMBER relations
@@ -2899,7 +2893,7 @@ Any number of MEMBERs may be included in a SET/MEMBER relation, although
 only one Entity is allowed to fill the SET slot.
 
 
-\subsection{BRIDGING
+#### BRIDGING
 
 If you are unable to use one of the previously discussed links, but
 it is apparent that some sort of link exists which entails that the
@@ -2939,7 +2933,7 @@ should be passed up the chain, so that a better way to handle those
 cases can be found.
 
 
-\subsection{General Guidelines for Annotating Coreference
+#### General Guidelines for Annotating Coreference
 
 \label{corefguidelines
 
@@ -3371,18 +3365,18 @@ To give a realistic example, imagine the following sentence:
 
 - The patient was to meet with oncology this month.
 
-The EVENT *meet* is clearly related to the TIMEX3 \{this month\},
-because *meet* will occur during \{this month\}, giving you more
+The EVENT *meet* is clearly related to the TIMEX3 **this month**,
+because *meet* will occur during **this month**, giving you more
 specificity than the followup just occurring after document time.
 That is one kind of relationship -- temporal containment. So here,
 you would create a TLINK annotation, insert *meet* into the ``target''
-slot, \{this month\} into the ``source'' slot, and select CONTAINS
-as the relation. By doing so, \{this month\} is established as a narrative
+slot, **this month** into the ``source'' slot, and select CONTAINS
+as the relation. By doing so, **this month** is established as a narrative
 container anchor, which may contain additional EVENTs later on in
 the note. So, the finished annotation would look like:
 
-- The patient was to meet with oncology this month. \a. \{this
-month\} CONTAINS *meet*
+- The patient was to meet with oncology this month. \a. **this
+month** CONTAINS *meet*
 
 This is not the only kind of link, however. In this annotation task
 we are attempting to get not only a sense of the timeline of events,
@@ -3408,13 +3402,13 @@ in the following temporal links:
 
 - Napoleon was exiled to Elba in 1814. This has little to do with
 Mr. Chen's rash and subsequent leg pain, which both developed after
-his surgery in 2009. \a. \{1814\} CONTAINS *exiled* \b{.} \{2009\
-CONTAINS *surgery* \b{.} \{2009\} CONTAINS *rash* \b{.
-\{2009\} CONTAINS *pain* \b{.} \{1814\} BEFORE *surgery*
-\b{.} \{1814\} BEFORE *rash* \b{.} \{1814\} BEFORE *pain*
+his surgery in 2009. \a. **1814** CONTAINS *exiled* \b{.} **2009\
+CONTAINS *surgery* \b{.} **2009** CONTAINS *rash* \b{.
+**2009** CONTAINS *pain* \b{.} **1814** BEFORE *surgery*
+\b{.} **1814** BEFORE *rash* \b{.} **1814** BEFORE *pain*
 \b{.} *exiled* BEFORE *pain* \b{.} *exiled* BEFORE *rash*
 \b{.} *exiled* BEFORE *surgery* \b{.} *exiled* BEFORE
-\{2009\} \b{.} *surgery* BEFORE *rash* \b{.} *surgery*
+**2009** \b{.} *surgery* BEFORE *rash* \b{.} *surgery*
 BEFORE *pain* \b{.} *rash* BEFORE *pain*
 
 As we can see, not only is the temporal linking of Napoleon's exile
@@ -3442,27 +3436,27 @@ try to link all EVENTs to a narrative container, and then link those
 containers so that the contained EVENTs can be linked by inference.
 
 Using narrative containers, we can return to the example above, but
-simply put all of the items into two temporal buckets, \{1814\} and
-\{2009\}, and then \textit{infer from the known relation between the
+simply put all of the items into two temporal buckets, **1814** and
+**2009**, and then \textit{infer from the known relation between the
 containers} the relations between the items which reside within them:
 
 - Napoleon was exiled to Elba in 1814. This has little to do with
 Mr. Chen's rash and subsequent leg pain, which both developed after
-his surgery in 2009. \a. \{1814\} CONTAINS *exiled* \b{.} \{2009\
-CONTAINS *surgery* \b{.} \{2009\} CONTAINS *rash* \b{.
-\{2009\} CONTAINS *pain* \b{.} *surgery* BEFORE *rash*
+his surgery in 2009. \a. **1814** CONTAINS *exiled* \b{.} **2009\
+CONTAINS *surgery* \b{.} **2009** CONTAINS *rash* \b{.
+**2009** CONTAINS *pain* \b{.} *surgery* BEFORE *rash*
 \b{.} *rash* BEFORE *pain*
 
 In doing so, we can cut the number of required TLINKs in half, while
 still capturing all of the information of the fully-expanded version
 using straightforward temporal inference.
 
-Note that we have not made the TLINK: \{1814\} BEFORE \{2009\}. TIMEX3s
+Note that we have not made the TLINK: **1814** BEFORE **2009**. TIMEX3s
 will never be linked together; this information is captured in post-processing
 of your annotations.
 
 
-\subsection{Expressing Narrative Containers
+#### Expressing Narrative Containers
 
 You should think of all documents as starting with three implicit
 narrative containers, marked by DocTimeRel. One bucket contains all
@@ -3531,7 +3525,7 @@ in mind, as to avoid wasting effort marking temporal relations which
 are already captured straightforwardly.
 
 
-\subsection{EVENTs as Containers
+#### EVENTs as Containers
 
 \label{eventcon
 
@@ -3615,7 +3609,7 @@ scarring  &  & remove \tabularnewline
 
 
 
-\subsection{Single-bounded narrative containers
+#### Single-bounded narrative containers
 
 Although so far we've been discussing the idea of containment (and
 thus, the CONTAINS and CONTAINS-SUBEVENT TLINKs) when discussing narrative
@@ -3636,7 +3630,7 @@ and even BEFORE, and the metaphor of the narrative container is still
 useful in annotating these situations.
 
 
-\subsection{Nested Narrative Containers
+#### Nested Narrative Containers
 
 \label{russiandolls
 
@@ -3676,7 +3670,7 @@ place mild tachycardia and initial incision using two more TLINKs.
 Then, finally, the initial incision, with the smallest duration of
 all, CONTAINS-SUBEVENT bled significantly. Example \Next shows all
 the TLINKs required to fully annotate this sentence, representing
-*EVENTs* in brackets and \{TIMEX3s\} in curly braces:
+*EVENTs* in brackets and **TIMEX3s** in curly braces:
 
 \begin{figure*
 \centerline{ \mbox{\includegraphics[width=3in]{nested}} } \caption{Schematic view of Example \ref{nestedexample} as a Venn diagram
@@ -3686,12 +3680,12 @@ the TLINKs required to fully annotate this sentence, representing
 \end{figure*
 
 
-- \label{nestedexample} \{December 19th\}: The patient underwent
+- \label{nestedexample} **December 19th**: The patient underwent
 an *MRI* and *EKG* as well as emergency *surgery*. During
 the *procedure*, the patient experienced mild *tachycardia*,
 and she also *bled* significantly during the initial *incision*.
-\a. \{December 19th\} CONTAINS *MRI* \b{.} \{December 19th\
-CONTAINS *EKG* \c{.} \{December 19th\} CONTAINS *surgery*
+\a. **December 19th** CONTAINS *MRI* \b{.} **December 19th\
+CONTAINS *EKG* \c{.} **December 19th** CONTAINS *surgery*
 \a. *surgery* CONTAINS *tachycardia* \b{.} *surgery*
 CONTAINS-SUBEVENT *incision* \a. *incision* CONTAINS-SUBEVENT
 *bled*
@@ -3715,19 +3709,19 @@ a TIMEX3, and follows once again our rule of nesting smaller temporal
 spans inside larger ones. See example \Next below, showing both an
 example sentence and all the TLINKs needed to annotate it:
 
-- \label{nestedtimexes}\{December 28th\}: The patient experienced
-a *stroke* at \{approximately 9:30am\}, during her *surgery*.
-\a. *stroke* OVERLAP \{approximately 9:30am\} \b{.} \{December
-28th\} CONTAINS *surgery* \a. *surgery* CONTAINS *stroke*
-\b{.} *surgery* CONTAINS \{approximately 9:30am\
+- \label{nestedtimexes}**December 28th**: The patient experienced
+a *stroke* at **approximately 9:30am**, during her *surgery*.
+\a. *stroke* OVERLAP **approximately 9:30am** \b{.} **December
+28th** CONTAINS *surgery* \a. *surgery* CONTAINS *stroke*
+\b{.} *surgery* CONTAINS **approximately 9:30am\
 
-Here, we have an overarching container (\{December 28th\}) which CONTAINS
-*surgery*. The surgery then CONTAINS both *stroke* and \{approximately
-9:30am\}. Then, to complete the annotation, we'd mark that *stroke*
-OVERLAPs \{approximately 9:30am\}.
+Here, we have an overarching container (**December 28th**) which CONTAINS
+*surgery*. The surgery then CONTAINS both *stroke* and **approximately
+9:30am**. Then, to complete the annotation, we'd mark that *stroke*
+OVERLAPs **approximately 9:30am**.
 
 
-\subsection{Choosing the Anchors of Narrative Containers
+#### Choosing the Anchors of Narrative Containers
 
 When creating narrative containers as discussed above, you will need
 to choose either a TIMEX3 or an EVENT to be the ``anchor'' of the
@@ -3786,7 +3780,7 @@ in all situations where we have an event/sub-event relation (as between
 \end{itemize
 \end{enumerate
 
-\subsection{Ordering within narrative containers
+#### Ordering within narrative containers
 
 Because of the difficulty of capturing detail within a given narrative
 container, not all relations between EVENTs will be captured. For
@@ -3835,7 +3829,7 @@ certain. Now, let's discuss the different types of TLINK available
 to annotators.
 
 
-\subsection{When to TLINK
+#### When to TLINK
 
 \label{tlinkrules
 
@@ -3873,10 +3867,10 @@ done if the result will be more informative than just analyzing the
 DocTimeRels. See \Next, showing an example sentence and the TLINKs
 required to annotate it:
 
-- \{December 19th\}: The patient underwent an *EKG* as well
+- **December 19th**: The patient underwent an *EKG* as well
 as emergency *surgery*. During the *surgery*, the patient
 experienced another *MI*, and repeated *tachycardia*. \a.
-\{December 19th\} CONTAINS *EKG* \b{.} \{December 19th\} CONTAINS
+**December 19th** CONTAINS *EKG* \b{.} **December 19th** CONTAINS
 *surgery* \b{.} *surgery* CONTAINS *MI* \b{.} *surgery*
 CONTAINS *tachycardia*
 
@@ -4031,7 +4025,7 @@ on with your life.
 \color{black
 
 
-\subsection{TLINK sub-types
+#### TLINK sub-types
 
 \label{tlinktypes
 
@@ -4052,10 +4046,10 @@ BEFORE is fairly straightforward and simply orders two events in time.
 BEFORE *surgery*
 
 - His anterior chest *rash* has not *reoccurred* since
-the *PCN* VK was *discontinued* \{24-hours ago\}. \a. *discontinued*
+the *PCN* VK was *discontinued* **24-hours ago**. \a. *discontinued*
 BEFORE *reoccurred*$_{NEG}$ \b{.} *rash* BEFORE *reoccurred*$_{NEG}$
 \c{.} (*rash* ENDS-ON *discontinued*) -- Discussed below.
-\c{.} \{24-hours ago\} OVERLAP *discontinued*
+\c{.} **24-hours ago** OVERLAP *discontinued*
 
 It is worth noting that in \Last, *PCN* will be linked to *discontinued*
 using an ALINK of the type TERMINATES, described in Section \ref{alinks}.
@@ -4092,27 +4086,27 @@ Y, it is assumed that there is also an OVERLAP relation between the
 two. You should only use CONTAINS when you are sure that the nature
 of the overlap is one of complete containment.
 
-- In \{2007\}, 15 people were *killed* outside Mumbai. \a.
-\{2007\} CONTAINS *killed*
+- In **2007**, 15 people were *killed* outside Mumbai. \a.
+**2007** CONTAINS *killed*
 
 - During the US-led *invasion*, reporters *rode* along
 with actual military units. \a. *invasion* CONTAINS *rode*
 
-- \{March 2005\} - Patient underwent *appendectomy* \a. \{March
-2005\} CONTAINS *appendectomy*
+- **March 2005** - Patient underwent *appendectomy* \a. **March
+2005** CONTAINS *appendectomy*
 
-- *Levaquin* 750 mg p.o. q. day (will *restart* \{today\})
-\a. \{today\} CONTAINS *restart*
+- *Levaquin* 750 mg p.o. q. day (will *restart* **today**)
+\a. **today** CONTAINS *restart*
 
 - *Comparison* is made with prior MRI head *examination*
-without and with gadolinium from \{10-23-03\}. \a. \{10-23-03\} CONTAINS
+without and with gadolinium from **10-23-03**. \a. **10-23-03** CONTAINS
 *examination*
 
-- An ENT performed the * my* during \{Friday\}'s *surgery*.
-\a. \{Friday\} CONTAINS *surgery*
+- An ENT performed the * my* during **Friday**'s *surgery*.
+\a. **Friday** CONTAINS *surgery*
 
-- *Gengraf* 300-mg p.o. b.i.d. (*decreased* in \{early
-June\}) \a. \{early June\} CONTAINS *decreased*
+- *Gengraf* 300-mg p.o. b.i.d. (*decreased* in **early
+June**) \a. **early June** CONTAINS *decreased*
 
 In addition, we have made one specific regulation involving the use
 of CONTAINS: All test results or observations are to be linked to
@@ -4123,10 +4117,10 @@ ability, we realize that the tumor likely existed before the CT scan
 which revealed it, but from a machine-learning perspective, it is
 important to have that consistency. So, in a section like:
 
-- *Colonoscopy* (\{January 7, 2010\}): Fair/adequate *prep.*,
+- *Colonoscopy* (**January 7, 2010**): Fair/adequate *prep.*,
 Limited *Colonoscopy* to the distal sigmoid due to an obstructive
-*lesion*. Diminutive *polyps* of the rectosigmoid. \a. \{January
-7, 2010\} CONTAINS *Colonoscopy* \b{.} *Colonoscopy* CONTAINS
+*lesion*. Diminutive *polyps* of the rectosigmoid. \a. **January
+7, 2010** CONTAINS *Colonoscopy* \b{.} *Colonoscopy* CONTAINS
 *lesion* \b{.} *Colonoscopy* CONTAINS *polyps*
 
 \vspace{0.25cm
@@ -4181,16 +4175,16 @@ representation of the larger EVENT's type, it is a sub-event.
 - There were 5 different *skirmishes* during the marathon
 *battle*. \a. *battle* CONTAINS-SUBEVENT *skirmishes*
 
-- During \{Friday's\} *surgery*, the patient's heartrate *spiked*
+- During **Friday's** *surgery*, the patient's heartrate *spiked*
 during the initial *incision*. \a. *surgery* CONTAINS-SUBEVENT
-*incision* \b{.} *surgery* CONTAINS *spiked* \c{.} \{Friday\
+*incision* \b{.} *surgery* CONTAINS *spiked* \c{.} **Friday\
 CONTAINS *surgery*
 
 - The *tornado* was accompanied by high *winds* and multiple
 funnel *clouds*. \a. *tornado* CONTAINS-SUBEVENT *winds*
 \b{.} *tornado* CONTAINS-SUBEVENT *clouds*
 
-- *Colonoscopy* (\{January 7, 2010\}): Fair/adequate *prep.*,
+- *Colonoscopy* (**January 7, 2010**): Fair/adequate *prep.*,
 Limited *Colonoscopy* to the distal sigmoid due to an obstructive
 *lesion*. Diminutive *polyps* of the rectosigmoid. \a. *Colonoscopy*
 CONTAINS-SUBEVENT *prep.*
@@ -4202,9 +4196,9 @@ instances, the relationship is simply containment:
 - There was a *thunderstorm* during the marathon *battle*.
 \a. *battle* CONTAINS *thunderstorm*
 
-- During \{Friday's\} *surgery*, the patient's heartrate *spiked*
+- During **Friday's** *surgery*, the patient's heartrate *spiked*
 when she *fell* off the table. \a. *surgery* CONTAINS *fell*
-\b{.} *surgery* CONTAINS *spiked* \c{.} \{Friday\} CONTAINS
+\b{.} *surgery* CONTAINS *spiked* \c{.} **Friday** CONTAINS
 *surgery* \d{.} (*spiked* BEGINS-ON *fell*) -- Discussed
 below in Section \ref{corefannotation}.
 
@@ -4254,16 +4248,16 @@ climate change just a few hundred miles away. \a. *struck* OVERLAP
 *chemotherapy*. \a. *chemotherapy* OVERLAP *MI*
 
 - The patient had some rectal *itching* and mild *pain*
-\{today\}, mostly \{this morning\}. \a. \{today\} CONTAINS *itching*
-\b{.} \{today\} CONTAINS *pain* \b{.} \{this morning\} OVERLAP
-*itching* \b{.} \{this morning\} OVERLAP *pain*
+**today**, mostly **this morning**. \a. **today** CONTAINS *itching*
+\b{.} **today** CONTAINS *pain* \b{.} **this morning** OVERLAP
+*itching* \b{.} **this morning** OVERLAP *pain*
 
 - He does have a history of peri-rectal *abscess* with his
 last round of *chemotherapy*. \a. *chemotherapy* OVERLAP
 *abscess*
 
-- She is not *interested* in pursuing chemotherapy at \{this
-time\}. \a. \{this time\} OVERLAP *interested*$_{NEG}$
+- She is not *interested* in pursuing chemotherapy at **this
+time**. \a. **this time** OVERLAP *interested*$_{NEG}$
 
 In short, OVERLAP is meant for situations where two events overlap
 in some way, but where you are not sure (or do not have enough information
@@ -4272,8 +4266,8 @@ to tell) whether there is containment of the events' boundaries.
 OVERLAP is also used for linking TIMEX3s of type SET with other EVENTs,
 as in \Next:
 
-- We will keep her on rate-control *medications* 100 mg \{twice
-daily\} \a. \{twice daily\} OVERLAP *medications*
+- We will keep her on rate-control *medications* 100 mg **twice
+daily** \a. **twice daily** OVERLAP *medications*
 
 \vspace{0.25cm
  \fbox{ %
@@ -4311,11 +4305,11 @@ usually be marked with BEFORE instead.
 
 Note that BEGINS-ON is to be used only where there is no causal relationship.
 
-- \{2008\} marked the *start* of the rebels' brutal *campaign*
-\a. *start* BEGINS-ON \{2008\
+- **2008** marked the *start* of the rebels' brutal *campaign*
+\a. *start* BEGINS-ON **2008\
 
-- She has had Abdominal *Cramping* since \{January\}. \a.
-*Cramping* BEGINS-ON \{January\
+- She has had Abdominal *Cramping* since **January**. \a.
+*Cramping* BEGINS-ON **January\
 
 - He reports intermittent chest *pain* since his prior *MI*.
 \a. *MI* BEFORE *pain*
@@ -4338,8 +4332,8 @@ ENDS-ON *cold*
 Note that ENDS-ON can be used in concert with BEGINS-ON to mark a
 duration.
 
-- She was on *chemo* from \{March\} through \{July\}. \a.
-*chemo* BEGINS-ON \{March\} \b{.} *chemo* ENDS-ON \{July\
+- She was on *chemo* from **March** through **July**. \a.
+*chemo* BEGINS-ON **March** \b{.} *chemo* ENDS-ON **July\
 
 
 #### SIMULTANEOUS
@@ -4453,7 +4447,7 @@ later. Only mark SIMULTANEOUS for non-coreferent EVENTs.}%
 
 
 
-\subsection{Expressing TLINK Types in Point Algebra
+#### Expressing TLINK Types in Point Algebra
 
 A more precise (although perhaps more esoteric) way to express temporal
 relations is using point algebra. In the style of Allen 1983 b\cite{Allen:1983:MKT:182.358434},
@@ -4484,7 +4478,7 @@ For OVERLAP, which EVENT starts first is not recoverable from the
 annotation without prior knowledge of both A- and B-.
 
 
-\subsection{Annotating polarity of TLINKs
+#### Annotating polarity of TLINKs
 
 \label{TLINKPolarity} Polarity of TLINKs is identical to polarity
 in EVENTs, although naturally the applications will differ slightly.
@@ -4507,21 +4501,21 @@ POS TLINKs.
 TLINKs are marked as NEG only when they are both explicitly asserted
 \textit{and} asserted to be false.
 
-- The *bombing* did not take place on \{the 18th\} as expected,
-but on \{the 24th\}. \a. \{18th\} CONTAINS -- NEG *bombing* \b{.
-\{24th\} CONTAINS -- POS *bombing*
+- The *bombing* did not take place on **the 18th** as expected,
+but on **the 24th**. \a. **18th** CONTAINS -- NEG *bombing* \b{.
+**24th** CONTAINS -- POS *bombing*
 
 - The *earthquake* did not cause the *fire*, instead,
 *it* was caused by an electrical *short* . \a. *earthquake*
 BEFORE/CAUSES -- NEG *fire* \b{.} *short* BEFORE/CAUSES --
 POS *it* \b{.} *earthquake* BEFORE -- POS *fire*
 
-- The *meeting* was not on \{Thursday\}. \a. \{Thursday\
+- The *meeting* was not on **Thursday**. \a. **Thursday\
 CONTAINS -- NEG *meeting*
 
 It is important to contrast these with the below:
 
-- The *meeting* on \{Thursday\} didn't occur. \a. \{Thursday\
+- The *meeting* on **Thursday** didn't occur. \a. **Thursday\
 CONTAINS -- POS *meeting*$_{\text{ACTUAL, NEG}}$
 
 In the negated TLINKs, the EVENTs themselves are not negated, but
@@ -4549,7 +4543,7 @@ carefully before creation.}%
 
 
 
-\subsection{Annotating contextual modality of TLINKs
+#### Annotating contextual modality of TLINKs
 
 \label{linkmodality} \label{TLINKModality} TLINKs can take the same
 contextual modalities as EVENTs: ACT, UNC, HYP, and GEN. These modalities,
@@ -4591,13 +4585,13 @@ is very important that these uncertain temporal relations be included
 as part of the timeline, but be marked so that they can be easily
 differentiated from known facts.
 
-- He likely *escaped* on the \{18th\} during a \{guard change\},
-although authorities cannot be sure. \a. \{18th\} CONTAINS *guard
+- He likely *escaped* on the **18th** during a **guard change**,
+although authorities cannot be sure. \a. **18th** CONTAINS *guard
 change* <ACTUAL> \b{.} *guard change* CONTAINS *escaped*
 <UNCERTAIN>
 
-- The chairman will, in all likelihood, *step* down on \{Monday\}.
-\a. \{Monday\} CONTAINS *step* <UNCERTAIN>
+- The chairman will, in all likelihood, *step* down on **Monday**.
+\a. **Monday** CONTAINS *step* <UNCERTAIN>
 
 - We have every reason to expect that her incision will *heal*
 before her *tournament*. \a. *heal* BEFORE *tournament*
@@ -4617,7 +4611,7 @@ Again, this is unrelated to the modality of the EVENTs, and is only
 when the temporal relation itself is hypothetical, theoretical, or
 otherwise dependent on an external factor.
 
-- Her *surgery* may take place on the \{18th\}. \a. \{18th\
+- Her *surgery* may take place on the **18th**. \a. **18th\
 CONTAINS *surgery* <HYPOTHETICAL>
 
 - If the *explosion* was caused by a natural gas *leak*,
@@ -4625,9 +4619,9 @@ the insurance will not *cover* the *reconstruction*. \a.
 *leak* BEFORE/CAUSE *explosion* <HYPOTHETICAL> \b{.} *explosion*
 BEFORE/PRECONDITIONS *reconstruction* <ACTUAL>
 
-- Obama's *visit*, if *it* occurs on a \{weekday\}, is
+- Obama's *visit*, if *it* occurs on a **weekday**, is
 expected to cause traffic *headaches*. \a. *it* OVERLAPS/CAUSE
-*headaches* <HYPOTHETICAL> \b{.} \{weekday\} CONTAINS *it*
+*headaches* <HYPOTHETICAL> \b{.} **weekday** CONTAINS *it*
 <HYPOTHETICAL>
 
 Great caution must be exercised before marking a relation itself as
@@ -4657,17 +4651,17 @@ information when no specific information is yet available.
 Generic temporal information (which is true in any document) is marked
 with GENERIC:
 
-- *Attacks* in the region generally don't occur on \{Holy
-days\} \a. \{Holy days\} CONTAINS *attacks*$_{\text{NEG}}$ <GENERIC>
+- *Attacks* in the region generally don't occur on **Holy
+days** \a. **Holy days** CONTAINS *attacks*$_{\text{NEG}}$ <GENERIC>
 
-- US Presidential *Elections* are held on the \{Tuesday after
-the first Monday in November\} \a. \{Tuesday after the first Monday
-in November\} CONTAINS *Elections* <GENERIC>
+- US Presidential *Elections* are held on the **Tuesday after
+the first Monday in November** \a. **Tuesday after the first Monday
+in November** CONTAINS *Elections* <GENERIC>
 
 ... but remember that specific mentions do not get <GENERIC>:
 
-- The last US Presidential *Election* was held on \{November
-4th, 2008\} \a. \{November 4th, 2008\} CONTAINS *Election* <ACTUAL>
+- The last US Presidential *Election* was held on **November
+4th, 2008** \a. **November 4th, 2008** CONTAINS *Election* <ACTUAL>
 
 \vspace{0.5cm
  \fbox{ %
@@ -4727,7 +4721,7 @@ EVENTs, we use three annotation types for causally linked EVENTS:
 BEFORE/CAUSES, OVERLAP/CAUSES, and BEFORE/PRECONDITIONS.
 
 
-\subsection{Distinguishing ``Cause'' from ``Precondition''
+#### Distinguishing ``Cause'' from ``Precondition''
 
 In our view of causality, we claim that ``X CAUSES Y'' if (and only
 if), according to the writer, the particular EVENT Y was \textit{inevitable
@@ -4768,7 +4762,7 @@ In \Last, it is the case that the destruction would not have happened
 without the earthquake, and that once the earthquake began (and through
 its duration, hence OVERLAP/CAUSES), the destruction was inevitable.
 
-- Although *it* took \{many years\}, the *discovery* of
+- Although *it* took **many years**, the *discovery* of
 *Uranium* outside *Moab* would eventually *revitalize*
 the local *economy*. \label{moaburanium} \a. *discovery*
 BEFORE/CAUSE *revitalize* \b{.} *it* IDENTICAL *revitalize*
@@ -4843,7 +4837,7 @@ a matter of understanding the temporal nature of each, and creating
 the proper annotations.
 
 
-\subsection{Causality Annotation Rules and Regulations
+#### Causality Annotation Rules and Regulations
 
 Because causality is a difficult concept, easy to over- or under-apply,
 we do have some specific guidelines below which you should use to
@@ -4942,8 +4936,8 @@ causing event (e.g. of *ambush* in \Last).
 
 TIMEX3s cannot be in CAUSES or PRECONDITIONS links:
 
-- The vault will be *opened* on \{June 24th\}. \a. \{June
-24th\} CONTAINS *opened*
+- The vault will be *opened* on **June 24th**. \a. **June
+24th** CONTAINS *opened*
 
 Even if the humans (or mechanisms) controlling the vault's opening
 will not allow it to happen until the 24th, ultimately, it is not
@@ -5049,9 +5043,9 @@ CAUSE the extent.
 For quoted speech or reporting, assume that the narrator or writer
 is reliable, unless otherwise indicated:
 
-- On \{Sunday\}, he *said*, *one* of the *bombs* *wrecked*
+- On **Sunday**, he *said*, *one* of the *bombs* *wrecked*
 the family's home. \a. *one* OVERLAPS/CAUSES *wrecked* \b{.
-\{Sunday\} CONTAINS *wrecked* \b{.} *bombs* SET/MEMBER *one*
+**Sunday** CONTAINS *wrecked* \b{.} *bombs* SET/MEMBER *one*
 
 - *Frank* *claims* that an *alien* mind-control *beam*
 made *him* *rob* the *bank*. \a. *beam* OVERLAP/CAUSES
@@ -5111,8 +5105,8 @@ annotation, to allow us to communicate the foundational role of earlier
 causation in the eventual outcome:
 
 - *He* was *jailed* after *pleading* guilty in *court*
-following a series of *burglaries* and *muggings* in \{November
-2013\}. \a. *burglaries* BEFORE/PRECONDITIONS *pleading*
+following a series of *burglaries* and *muggings* in **November
+2013**. \a. *burglaries* BEFORE/PRECONDITIONS *pleading*
 \b{.} *muggings* BEFORE/PRECONDITIONS *pleading* \b{.} *pleading*
 BEFORE/CAUSES *jailed*
 
@@ -5187,7 +5181,7 @@ and on pessimism (that the attacks would be successful).
 Similarly:
 
 - *She* *drank* *Diet Mountain Dew* like *water*,
-and \{now\} *she* has *cancer*. \a. (Because DocTimeRel differs,
+and **now** *she* has *cancer*. \a. (Because DocTimeRel differs,
 no TLINK between *drank* and *cancer* is needed) \b{.} *She*
 IDENTICAL *she*
 
@@ -5197,7 +5191,7 @@ link, but no causality is asserted firmly (nor easily inferable).
 Thus, the link should not be created.
 
 
-\subsection{Causation and Precondition TLINK Use
+#### Causation and Precondition TLINK Use
 
 If, even after evaluating the EVENTs in light of the regulations above,
 you belive there to be a markable causal relationship, you must choose
@@ -5385,7 +5379,7 @@ concepts and information were synthesized from Poesio et al. 2004
 and Savova et al. 2011 (\cite{savova2011anaphoric}).
 
 
-\subsection{IDENTITY
+#### IDENTITY
 
 Two events have an IDENTICAL relation if they refer to the same event
 in space and time. The IDENTICAL relation has several important semantic
@@ -5400,7 +5394,7 @@ WHOLE/PART and SET/MEMBER, which are directional by defition.
 A is IDENT to C. . 
 \end{itemize
 
-\subsection{\label{sub:SET-MEMBER-1}SET-MEMBER
+#### \label{sub:SET-MEMBER-1}SET-MEMBER
 
 A SET-MEMBER relationship exists when one event can be thought of
 as being an instane of a larger set of events. In annotating this
@@ -5425,7 +5419,7 @@ Thanksgiving, and today the lucky convict he *\textsubscript{MEMBER
 pardoned* was named Ginny Fawell. 
 \end{examples
 
-\subsection{BRIDGING
+#### BRIDGING
 
 As with entities, if you are unable to use one of the previously discussed
 links, but it is apparent that some sort of coreference link exists
@@ -5449,7 +5443,7 @@ Friday, the most disheartening part of the already-terrible *earthquake*.
 BRIDGING *collapsed*
 
 
-\subsection{General Guidelines for Annotating Coreference
+#### General Guidelines for Annotating Coreference
 
 \label{corefguidelines-1
 
@@ -5539,7 +5533,7 @@ But unlike TLINKs, no matter the circumstance, an ALINK should never
 cross a sentence boundary.
 
 
-\subsection{ALINK sub-types
+#### ALINK sub-types
 
 There are four different aspectual relations used in the schema, CONTINUES,
 INITIATES, REINITIATES, and TERMINATES.
@@ -5574,8 +5568,8 @@ out for any cardiac involvement. \a. *continue* CONTINUES *monitor*
 INITIATES is used when an aspectual event indicates the start or initiation
 of another event:
 
-- \{2008\} marked the *start* of the rebels' brutal *campaign*.
-\a. *start* BEGINS-ON \{2008\} \b{.} *start* INITIATES *campaign*
+- **2008** marked the *start* of the rebels' brutal *campaign*.
+\a. *start* BEGINS-ON **2008** \b{.} *start* INITIATES *campaign*
 
 - Patient will *begin* a high-fiber *diet* upon *release*.
 \a. *begin* INITIATES *diet* \b{.} *begin* BEGINS-ON
@@ -5598,14 +5592,14 @@ event will be restarted or reinitiated:
 *violence* throughout the city. \a. *resurrecting* REINITIATES
 *violence*
 
-- *Levaquin* 750 mg p.o. q. day (will *restart* \{today\})
-\a. *restart* REINITIATES *Levaquin* \b{.} \{today\} CONTAINS
+- *Levaquin* 750 mg p.o. q. day (will *restart* **today**)
+\a. *restart* REINITIATES *Levaquin* \b{.} **today** CONTAINS
 *restart*
 
 - His anterior chest *rash* has not *reoccurred* since
-the *PCN* VK was *discontinued* \{24-hours ago\}. \a. *discontinued*
+the *PCN* VK was *discontinued* **24-hours ago**. \a. *discontinued*
 TERMINATES *PCN* \b{.} *discontinued* BEFORE *reoccurred*$_{NEG}$
-\b{.} *discontinued* OVERLAP \{24-hours ago\
+\b{.} *discontinued* OVERLAP **24-hours ago\
 
 As with INITIATES, reinitiates carries an implied sort of causality.
 This causality need not be marked, so long as the ALINK is present.
@@ -5687,7 +5681,7 @@ relation.
 ###Special Cases, Constructions and Edge Cases
 
 
-\subsection{Metaphorical and Figurative Language
+#### Metaphorical and Figurative Language
 
 You may be asked to annotate some particularly natural natural language
 speech. In such discourse, you'll find metaphorical expressions, figures
@@ -5698,7 +5692,7 @@ When you find such expressions and phrases, we encourage you take
 them at face value, and annotate them naively, as would a non-native
 speaker who doesn't fully understand what's going on. Take, for instance:
 
-- *John* *kicked* the *bucket* \{last week\}.
+- *John* *kicked* the *bucket* **last week**.
 
 - *She*'s *off* *her* *rocker*.
 
@@ -5727,7 +5721,7 @@ text as it stands and allow humans to parse as we do best.
 \color{blue
 
 
-\subsection{Exclamations, Interjections, and Emphatics!
+#### Exclamations, Interjections, and Emphatics!
 
 Natural language data, especially chats, emails, and discussion forum
 data, is full of emphatics, interjections, and exclamations which
@@ -5785,7 +5779,7 @@ but those exclamations or interjections which don't fit the linguistic
 mold can safely be discarded.
 
 
-\subsection{Annotating Sarcasm
+#### Annotating Sarcasm
 
 Detection of sarcasm is not among RED's goals at the moment, but the
 detection of EVENTs, ENTITYs and TIMEX3s within sarcastic speech is.
@@ -5810,7 +5804,7 @@ hurt our models more than the data would help. \color{black
 \color{blue
 
 
-\subsection{Metaphorical and Figurative Language (MkII)
+#### Metaphorical and Figurative Language (MkII)
 
 You may be asked to annotate some particularly natural natural language
 speech. In such discourse, you'll find metaphorical expressions, figures
@@ -5832,7 +5826,7 @@ the note, it should not be marked.
 
 Take, for instance:
 
-- *John* *kicked* the bucket \{last week\}.
+- *John* *kicked* the bucket **last week**.
 
 - *She*'s *off* *her* rocker.
 
@@ -5877,11 +5871,11 @@ out.
 - *That* *flew* right over *my* *head*, better
 *rephrase*.
 
-- *I* *trained* for \{two hours\} \{today\}. *Practice*
+- *I* *trained* for **two hours** **today**. *Practice*
 makes perfect!
 
 - *He*'s *rolling* in the *dough*. He *made* *\$50k*
-\{last week\}!
+**last week**!
 
 In the first two idioms, ``head'' does have a concrete referent
 (the speaker's physical head), although it is not literally exploding
@@ -5899,7 +5893,7 @@ text as it stands and allow humans to parse as we do best.
 
 
 
-\subsection{Intent and Purpose
+#### Intent and Purpose
 
 \label{desiderative
 
@@ -5946,7 +5940,7 @@ and the needed event, etc. Whenever it's unclear, default to OVERLAP
 - Before that, I *wanted* to *come* back
 
 
-\subsection{Requesting, Asking, Promising
+#### Requesting, Asking, Promising
 
 As with wanting, and needing, requests usually aren't direct causation.
 Even if it seems unlikely that someone will decline the request, we
@@ -5955,7 +5949,7 @@ form of causation, treat is as PRECONDITION (this should almost always
 be BEFORE/PRECONDITION).
 
 
-\subsection{Restatement, reframing, equating
+#### Restatement, reframing, equating
 
 Sometimes, events will be followed by another event, that can be interpreted
 as a restatement of the last mention:
@@ -5974,7 +5968,7 @@ to be consistent with later events; all TLINK and other relations,
 if at all possible, should be linked to the first of the two elements.
 
 
-\subsection{Avoiding Inference in Temporal Relations
+#### Avoiding Inference in Temporal Relations
 
 One thing to keep in mind when annotating is that you, being human
 with even basic understanding of the world and of the way that medicine
@@ -6067,7 +6061,7 @@ based on your understanding of the world.
 \color{blue} 
 
 
-\subsection{Inference and Coreference
+#### Inference and Coreference
 
 Unlike with Temporal Relations, Coreference is largely dependent on
 human inference, as there are fewer grammatical cues to identity,
@@ -6082,7 +6076,7 @@ it is for temporal relations.
 \color{black
 
 
-\subsection{Discussions, Generalizations, and other EVENTs which aren't on the
+#### Discussions, Generalizations, and other EVENTs which aren't on the
 timeline
 
 \label{discussion
@@ -6197,7 +6191,7 @@ making a statement. Here, you'd have an ACTUAL *concerned*, HYPOTHETICAL
 *chemotherapy* and *FOLFOX*, both HYPOTHETICAL.
 
 
-\subsection{Pre- and Post- expressions (preoperative, post-treatment, intraoperatively,
+#### Pre- and Post- expressions (preoperative, post-treatment, intraoperatively,
 etc.)
 
 \label{prepostexp
@@ -6221,15 +6215,15 @@ function much like other narrative container anchors.
 
 First, an easy example:
 
-- Patient underwent a partial *hemicolectomy* in \{July 2009\}.
-\{Postoperative\} *scarring* *noted* during *exam*. \a.
-\{July 2009\} CONTAINS *hemicolectomy* \b{.} *hemicolectomy*
+- Patient underwent a partial *hemicolectomy* in **July 2009**.
+**Postoperative** *scarring* *noted* during *exam*. \a.
+**July 2009** CONTAINS *hemicolectomy* \b{.} *hemicolectomy*
 BEFORE *exam* \b{.} *exam* CONTAINS *noted* \b{.} *hemicolectomy*
-BEFORE \{Postoperative\} \b{.} \{Postoperative\} CONTAINS *scarring*
-\b{.} \{Postoperative\} BEGINS-ON *surgery*
+BEFORE **Postoperative** \b{.} **Postoperative** CONTAINS *scarring*
+\b{.} **Postoperative** BEGINS-ON *surgery*
 
 Here, you can see that there is a large amount of temporal information
-expressed here, but most important is the \{postoperative\} TIMEX3
+expressed here, but most important is the **postoperative** TIMEX3
 and the two associated TLINKs. The scarring is TLINKed to postoperative
 with CONTAINS because the scarring occurs during the span of time
 which ``postoperative'' designates. Then, we mark that postoperative
@@ -6239,24 +6233,24 @@ of the postoperative period.
 This is relatively straightforward, but there is not always an explicit
 reference to the surgery in the note:
 
-- Patient is in *recovery*, no \{post-operative\} *changes*.
-\a. \{post-operative\}$_{prepostexp}$ CONTAINS *changes*$_{\text{NEG}}$
-\b{.} \{post-operative\}$_{prepostexp}$ CONTAINS *recovery*
+- Patient is in *recovery*, no **post-operative** *changes*.
+\a. **post-operative**$_{prepostexp}$ CONTAINS *changes*$_{\text{NEG}}$
+\b{.} **post-operative**$_{prepostexp}$ CONTAINS *recovery*
 
 Here, we have no EVENT for the operation which we can TLINK the *changes*
-to. In this situation, \{postoperative\} would still be a TIMEX3,
+to. In this situation, **postoperative** would still be a TIMEX3,
 and it would CONTAIN the *changes*. Post-operative here stands
 in for the span of time following the surgery, allowing us to capture
 that the lack of changes occurred following the unmentioned procedure.
 Let's look at another example:
 
-- The patient's \{preoperative\} *health* is *good*, and
-\{next week\}'s *tonsillectomy* should proceed without *difficulty*$_{NEG,HYP}$.
-\a. \{preoperative\} CONTAINS *health* \b{.} \{preoperative\
-CONTAINS *good* \b{.} \{preoperative\} ENDS-ON *tonsillectomy*
-\b{.} \{next week\} CONTAINS *tonsillectomy*
+- The patient's **preoperative** *health* is *good*, and
+**next week**'s *tonsillectomy* should proceed without *difficulty*$_{NEG,HYP}$.
+\a. **preoperative** CONTAINS *health* \b{.} **preoperative\
+CONTAINS *good* \b{.} **preoperative** ENDS-ON *tonsillectomy*
+\b{.} **next week** CONTAINS *tonsillectomy*
 
-The surgery introduced by \{preoperative\} will presumably occur in
+The surgery introduced by **preoperative** will presumably occur in
 the future (given the tenses in the sentence). The *health* and
 *good* EVENTs are occurring at the document time, so they have
 a DocTimeRel of OVERLAP, and then finally the TLINK shows us that
@@ -6265,7 +6259,7 @@ is not linked to *tonsillectomy*$_{ACTUAL}$, because we cannot
 link HYP Events to ACTUAL Events.
 
 
-\subsection{Annotating the word ``plan'' or ``plans\textquotedbl{}
+#### Annotating the word ``plan'' or ``plans\textquotedbl{}
 
 \textquotedbl{}Plan'' is a temporally difficult word. In some cases,
 it is clearly temporally relevant:
@@ -6275,7 +6269,7 @@ followed by a CT scan. We're hoping to implement this plan in the
 next few weeks.
 
 In this case, it is clearly an EVENT, as it needs to be implemented
-at a specific time and TLINKed with \{next few weeks\}. But in some
+at a specific time and TLINKed with **next few weeks**. But in some
 cases, its status as an EVENT is more ambiguous.
 
 - I have explained this plan to both Miss Mullins and the primary
@@ -6292,7 +6286,7 @@ should always be marking `plan' (or `plans') as an EVENT. This rule
 applies to both verbs and nouns, where relevant.
 
 
-\subsection{Annotating ``prior'' and ``at the same time\textquotedbl{}
+#### Annotating ``prior'' and ``at the same time\textquotedbl{}
 
 \textquotedbl{}Prior'', ``at the same time'', and other related
 temporal indicator words or phrases are often complicated in their
@@ -6305,8 +6299,8 @@ The most common mistake made by new annotators is to consider ``prior''
 itself to be a TIMEX3. It is, of course, a word carrying considerable
 temporal information, but it is not a TIMEX3. Prior is a marker of
 a temporal relationship, like the words ``before'' or ``during'',
-rather than an explicit reference to a time or date (like \{Yesterday\},
-\{Last weekend\} or \{2pm\}). As such, the word ``prior'' itself
+rather than an explicit reference to a time or date (like **Yesterday**,
+**Last weekend** or **2pm**). As such, the word ``prior'' itself
 will never be a TIMEX3, although, as shown below, it will occasionally
 show up as part of a longer temporal expression.
 
@@ -6332,8 +6326,8 @@ Example \Last is identical to \LLast, except for a syntactic change
 pulling the ``prior to her MI'' to the front of the sentence. Once
 again, prior indicates the given TLINK.
 
-- *Omeprazole* should be taken \{1 hour\} prior to *meals*.
-\a. \{1 hour\} OVERLAP *Omeprazole* \b{.} \{1 hour\} BEFORE
+- *Omeprazole* should be taken **1 hour** prior to *meals*.
+\a. **1 hour** OVERLAP *Omeprazole* \b{.} **1 hour** BEFORE
 *meals*
 
 Note that here, ``1 hour prior to meals'' is itself a temporal expression
@@ -6370,11 +6364,11 @@ OVERLAP *removed* \a. *hysterectomy* OVERLAP *removed*
 In \Last, again, ``at the same time'' is left unmarked.
 
 - I met with the patient at 2pm today, and told her I'd *check*
-in at \{the same time tomorrow\}. \a. \{the same time tomorrow\
+in at **the same time tomorrow**. \a. **the same time tomorrow\
 CONTAINS *check*
 
 \Last shows one of the relatively rare uses of ``at the same time''
-as a TIMEX3. Here, \{the same time tomorrow\} is a TIMEX3, which CONTAINS
+as a TIMEX3. Here, **the same time tomorrow** is a TIMEX3, which CONTAINS
 *check*.
 
 - There is good evidence that this procedure will improve her
@@ -6386,7 +6380,7 @@ a turn of phrase used to separate opposing statements, rather than
 indicating a worthwhile temporal link.
 
 
-\subsection{Negation and Causation
+#### Negation and Causation
 
 There is often an issue with negative counterfactuals, where the causation
 is essentially what would happen if the event happened. As the second
@@ -6400,7 +6394,7 @@ driver because it might *affect* his job. \a. *press* BEFORE/CAUSE
 *affect*
 
 
-\subsection{Discerning OVERLAP/CAUSE vs OVERLAP/PRECONDITIONS
+#### Discerning OVERLAP/CAUSE vs OVERLAP/PRECONDITIONS
 
 If you are pondering this boundary, then the causing event is probably
 some sort of state or condition leading to another event. If causation
@@ -6531,7 +6525,7 @@ first EVENT is aspectually linked) \end{itemize*}
 \end{multicols} \pagebreak{
 
 
-\subsection{Default Values
+#### Default Values
 
 Some of the attributes of EVENTs, TLINKs, TIMEX3s and ALINKs have
 default values, which will automatically be entered by the annotation
