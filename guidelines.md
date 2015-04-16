@@ -69,41 +69,20 @@ designed simply for that purpose.
 
 ### Acknowledgements
 
-* The project is based on work supported by Award R01LM010090 from the
+The project is based on work supported by Award R01LM010090 from the
 National Library Of Medicine, and by DARPA FA-8750-13-2-0045, subaward
 560215 (via LDC) DEFT: Deep Exploration and Filtering of Text\textquotedbl{}.
 The content is solely the responsibility of the authors and does not
 necessarily represent the official views of the National Library Of
 Medicine, the National Institutes of Health, or the Defense Advanced
-Research Projects Agency. *
-
-
-### About the examples in this guide
-
-In our examples, words in *brackets* are to be annotated with
-the type of annotation or attribute under discussion. The brackets
-represent the proper span. Spans of text in **Curly Brackets** represent
-TIMEX3 annotations which are marked, even if not being discussed explicitly
-in the example.
-
-In these guidelines, relations will be represented with the below
-format:
-
-- Item A comes before Item B \a. (Item A) BEFORE (Item B)
-
-Where the first line is the actual sentence, Item A is the first EVENT
-or TIMEX3, Item B is the second EVENT or TIMEX3, and BEFORE (or CONTAINS,
-OVERLAP, etc) is the TYPE of the LINK, described in Section \ref{tlinktypes}.
-
-Also, *italics* indicate Entities and EVENTs, and **bold**
-indicate TIMEX3s.
+Research Projects Agency.
 
 ## Markables and Entity Relations Stage
 
 There are two different kinds of actions done during the first stage
-of annotation. One is the annotation of events, entities and times,
-differentiating things worth keeping track of from other words in
-the text. The other annotation being done is entity relationships
+of annotation. One is the annotation of events, entities and times, where you will be 
+differentiating what is worth keeping track of, and marking those events, entities and times
+with characteristic attributes. The other annotation being done is relationships between entities
 -- coreference, part/whole relations, set/member relations and bridging
 relations between entities.
 
@@ -111,25 +90,20 @@ These exist in the same stage precisely so that the anotation
 of both may be done at the same time. When initally learning to annotate,
 however, one is encouraged to start by annotating entities and events
 first, and then adding entity coreference links. As one gains competence
-at the task, you are encouraged to attempt to interleaf these tasks
-into a single read through the document; section XXXXXXX details the
-pre-annotation which annotators actually will encounter in context,
-and discuss how to interact with it. 
+at the task, you are encouraged to attempt to combine these tasks as much as possible.
 
 
 ### Marking Entities and Events
 
 
-#### Finding-Entities-and}Finding Entities and Events
+#### Finding Entities and Events
 
 The first and most fundamental task in the first stage of annotation
-is to label EVENT and ENTITY instances. Conceptually,
-you are invited to split up the act of annotating EVENTs
-and ENTITYs into two parts -- the first part being the decision
-about whether something should be annotated, and the second part being
-the decision about what exact span of words you should mark to designate
-it. This section focuses only upon that first question. 
-
+is to label EVENT and ENTITY instances. When first annotating, one should 
+thing of each such labelling act as **two** decisions: the first part being the decision
+about *whether* something should be annotated, and the second part being
+the decision about *what exact span of words* you should mark to designate
+it. 
 
 ##### What is an EVENT
 
@@ -160,8 +134,7 @@ a bath" does not constitute a separate "take" event and "bath"
 event, but rather combine to jointly signal the bath-taking event. 
 
 A second definitional question emerges with states and properties.
-Consider the range of circumstances from XXX to XXXX, in which XX
-is very eventive and YYYY very non-eventive:
+Consider the range of circumstances below ,ranging from very eventive to not eventive at all:
 
 - The walls **yellowed** during the fire.
 - We came home to find the door **opened**.
@@ -170,27 +143,14 @@ is very eventive and YYYY very non-eventive:
 
 Hopefully the reader will agree that the last example is dramatically
 less "eventive" than the other instances. Yet naturally, all states
-\emph{exist} on a timeline, so mere existence on a timeline is not
-suffifient for this. Yet the span on the timeline in example XXX is
-a speciifc type -- it is an *property* of the entity in question, and thereofre might be considered to not have any sort
-of temporal proeprties separate from the canary itself. 
-
-In general, we will consider a state eventive if it is not inherent
-\emph{and }if it has a clear moment of occurrence or emergence. *I
-saw the door was open* is not simply a state that might not permanently
-be true, but a state which elicits the implication of other events. 
-
-"`
-insert figure here
-"`
-
+*exist* on a timeline, so mere existence on a timeline is not
+suffient for this. However, the first two examples above do more than potentially having starts and ends; the 
+mention itself implies, to many readers, an event initiating the start of the attribute.
 
 Adjectives used as mere specifiers, to label or refer to particular
-people, should be viewed with skepticism in this regard. "I saw
-the door was open" evokes an act of opening; "He walked through
-the open door" does not. \emph{This will be one of the difficult
-boundary-lines in our annotation task, and one should check with other
-annotators whenever possible to build concensus.
+people, should therefore be viewed with skepticism in this regard. "I came home and saw
+the door was open" evokes an act of someon opening it; "He walked through
+the open door" does not.  (We anticipate this to be a difficult distinction, however, and invite you to post edge cases in the forum.)
 
 
 ##### What is an ENTITY
@@ -219,7 +179,7 @@ but looking at why we have it and what we are trying to avoid. On
 one hand, we don't want to keep track of every single noun ever mentioned
 in a discourse:
 
-- *I* went down the *street* to the local *food* and *drug*
+- :no_entry: *I* went down the *street* to the local *food* and *drug*
 *store* and talked to the *meat* *guy* in *their*
 *deli * *section*.
 
