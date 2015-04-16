@@ -179,16 +179,14 @@ but looking at why we have it and what we are trying to avoid. On
 one hand, we don't want to keep track of every single noun ever mentioned
 in a discourse:
 
-- :no_entry: *I* went down the *street* to the local *food* and *drug*
+- :no_entry_sign: *I* went down the *street* to the local *food* and *drug*
 *store* and talked to the *meat* *guy* in *their*
 *deli * *section*.
 
-A general way of thinking of this is that we usually don't want to
-be keeping track of "hot dog" in "hot dog stand". Yet the
-important issue is that if you were tracking a story about tainted
-hot dogs, then knowing whether the "hot dog" in a particulra hot
-dog stand is part of a set of "tainted hot dogs" is an important
-part of understanding what the document would be saying. How can we
+A good slogan for this is that we don't want to
+be keeping track of "hot dog" in "hot dog stand". This, however, is complicated by the 
+fact that if one were reading a story about tainted hot dogs, we *do* want that information. 
+We are NOT solving that problem by looking for "important" participants, as that is far too difficult a task.  So how can we
 tell the difference?
 
 Our distinction will be essentially that anything which seems to be
@@ -196,14 +194,15 @@ a plausible candidate for reference will be worth marking, and anything
 coreferent with a referential thing in the document is *also*
 worth marking. In practice, all salient arguments -- direct object,
 subjects, etc. -- that represent real entities with the world should
-pass this bar. Nouns modifying other nouns, pertainymic adjectives,
-etc. will be more tricky:
-\begin{examples
-- Indian *food* is wonderful \$\textbackslash{}leftarrow\$ is not
-introducing "India" as a topic of discussion
-- The *Indian* *PM* is visiting *DC* \$\textbackslash{}leftarrow\$
-many would consider "India" accessed here
-\end{examples
+pass this bar, and nouns doing "noun compounding" that are merely specifying the type of thing they are referring to will not.  The exception to this is that if such a specifying term refers to a unique entity in the world -- notably a country -- you can always annotate it:
+
+- The *Indian* *PM* is visiting *DC* 
+
+Even with those, if one would not really consider it a direct reference to the country itself, one can even leave those out, as in:
+
+- Indian *food* is wonderful 
+
+
 Some of these will be edge cases which you will learn over time (tune
 your instincts at the end of this section). But here are some hard
 and fast rules:
@@ -214,17 +213,13 @@ then this mention, too, must be treated as referential. *This
 is one of the only times that your other annotation decisions should
 be factored into current decisions*! 
 - Entities that validly have other entity-coreference relations (discussed
-below) such as PART-WHOLE or SET-MEMBER are also relevant and should
+below) such as PART-WHOLE or SET-MEMBER are also "made relevant" even if otherwise not referential, and should
 be annotated. 
 - You can almost always assume that a subject or object, *if they
 refer to an entity at all*, will be referential. 
-\end{itemize
-This idea that something must be referring to an entity is important.
-If a Verb+Object pair collectively constitute an event -- "tell
-the truth", "take a bath" -- then generally refers to an event
-alone. The exception -- complex typing instances like "run a marathon"
-or "send a text" in which the event also can be thought of as
-an entity -- are covered below. 
+
+:bang_bang: Remember that something must be referring to an entity.  Specifically, if a verb-object pair collectively constitute an event -- "tell
+the truth", "take a bath" -- then do not consider them to also imply an entity. Exceptions involving both entity and event readings are covered under the "Complex Types" section.
 
 
 #####  Distinguishing EVENT from ENTITY
