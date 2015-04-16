@@ -95,7 +95,7 @@ Where the first line is the actual sentence, Item A is the first EVENT
 or TIMEX3, Item B is the second EVENT or TIMEX3, and BEFORE (or CONTAINS,
 OVERLAP, etc) is the TYPE of the LINK, described in Section \ref{tlinktypes}.
 
-Also, {[}brackets{]} indicate Entities and EVENTs, and \{curly brackets\}
+Also, {[}brackets{]} indicate Entities and EVENTs, and \{curly brackets\
 indicate TIMEX3s.
 
 ## Markables and Entity Relations Stage
@@ -120,7 +120,7 @@ and discuss how to interact with in.
 ### Marking Entities and Events
 
 
-\subsection{\label{sub:Finding-Entities-and}Finding Entities and Events}
+#### Finding-Entities-and}Finding Entities and Events
 
 The first and most fundamental task in the first stage of annotation
 is to label \textsc{event} and \textsc{entity} instances. Conceptually,
@@ -131,19 +131,14 @@ the decision about what exact span of words you should mark to designate
 it. This section focuses only upon that first question. 
 
 
-\subsubsection{What is an EVENT}
+##### What is an EVENT
 
 We define an event as any occurrence, actions, processes or event
-states which deserve a place upon a timeline%
-\footnote{This is roughly the Neo-Davidsonian concept of an \textit{eventuality}XXXPArsonsXXXX,
-although we will rule out many semantically light verbs or non-eventive
-states that might nevertheless be eventualities in many Neo-Davidsonian
-treatments.%
-}, and could have any syntactic realization -- as verbs, nominalizations,
+states which deserve a place upon a timeline, and could have any syntactic realization -- as verbs, nominalizations,
 nouns, or even adjectives. It is important that one make the event/non-event
 determination independently of syntax: we will consider syntactic
-considerations for what the span of annotation will be, but \emph{not
-for whether or not to consider something to be an event at all.} Instead,
+considerations for what the span of annotation will be, but not
+for whether or not to consider something to be an event at all. Instead,
 at this stage you should focus on the semantic questions of what is
 actually happening, asking whether the words you are considering constitute
 a sequences of changes, transitions or states occurring in the world
@@ -154,9 +149,9 @@ grammatical encoding of relationships between elements. For verbs,
 many of the non-eventive cases will therefore be grammaticalized verbs
 such as ``go'', ``seem'', ``have'', etc. -- for example, there
 is only one verb in example \ref{Your-dog-see} below:
-\begin{examples}
+\begin{examples
 \item \label{Your-dog-see}Your dog \textbf{seems to have eaten} the cupcakes.
-\end{examples}
+\end{examples
 In a more general sense, one can think of that criterion as being
 about distinguishing whether a particular mention (like ``have''
 or ``seems'' above) constitutes its own event, or merely helps constitute
@@ -167,12 +162,12 @@ event, but rather combine to jointly signal the bath-taking event.
 A second definitional question emerges with states and properties.
 Consider the range of circumstances from XXX to XXXX, in which XX
 is very eventive and YYYY very non-eventive:
-\begin{examples}
+\begin{examples
 \item The walls \textbf{yellowed }during the fire.
 \item We came home to find the door \textbf{opened}.
 \item We came home to find the door \textbf{open}.
 \item I own a\textbf{ yellow} canary
-\end{examples}
+\end{examples
 Hopefully the reader will agree that the last example is dramatically
 less ``eventive'' than the other instances. Yet naturally, all states
 \emph{exist} on a timeline, so mere existence on a timeline is not
@@ -186,10 +181,10 @@ In general, we will consider a state eventive if it is not inherent
 saw the door was open'' is not simply a state that might not permanently
 be true, but a state which elicits the implication of other events. 
 
-\begin{figure*}
+\begin{figure*
 \includegraphics[width=0.7\columnwidth]{/home/tim/Pictures/CroftStateModel}\caption{from Croft Force dynamics and directed change in event lexicalization
-and argument realization:8}
-\end{figure*}
+and argument realization:8
+\end{figure*
 
 
 Adjectives used as mere specifiers, to label or refer to particular
@@ -197,10 +192,10 @@ people, should be viewed with skepticism in this regard. ``I saw
 the door was open'' evokes an act of opening; ``He walked through
 the open door'' does not. \emph{This will be one of the difficult
 boundary-lines in our annotation task, and one should check with other
-annotators whenever possible to build concensus.}
+annotators whenever possible to build concensus.
 
 
-\subsubsection{What is an ENTITY}
+##### What is an ENTITY
 
 For ENTITY annotation, we will be going through the text, finding
 all instances of things that consistute an ENTITY -- a participant,
@@ -225,11 +220,11 @@ a term is \emph{referential. }This can be understood in some ways
 but looking at why we have it and what we are trying to avoid. On
 one hand, we don't want to keep track of every single noun ever mentioned
 in a discourse:
-\begin{examples}
-\item {[}I{]} went down the {[}street{]} to the local {[}food{]} and {[}drug{]}
-{[}store{]} and talked to the {[}meat{]} {[}guy{]} in {[}their{]}
+\begin{examples
+\item {[}I{]} went down the {[}street{]} to the local {[}food{]} and {[}drug{]
+{[}store{]} and talked to the {[}meat{]} {[}guy{]} in {[}their{]
 {[}deli {]} {[}section{]}.
-\end{examples}
+\end{examples
 A general way of thinking of this is that we usually don't want to
 be keeping track of ``hot dog'' in ``hot dog stand''. Yet the
 important issue is that if you were tracking a story about tainted
@@ -245,27 +240,27 @@ coreferent with a referential thing in the document is \emph{also
 subjects, etc. -- that represent real entities with the world should
 pass this bar. Nouns modifying other nouns, pertainymic adjectives,
 etc. will be more tricky:
-\begin{examples}
+\begin{examples
 \item Indian {[}food{]} is wonderful \$\textbackslash{}leftarrow\$ is not
 introducing ``India'' as a topic of discussion
 \item The {[}Indian{]} {[}PM{]} is visiting {[}DC{]} \$\textbackslash{}leftarrow\$
 many would consider ``India'' accessed here
-\end{examples}
+\end{examples
 Some of these will be edge cases which you will learn over time (tune
 your instincts at the end of this section). But here are some hard
 and fast rules:
-\begin{itemize}
+\begin{itemize
 \item If the thing that the words refer to is identical to another mention
 in the document that is clearly ``referential'' in this sense above,
 then this mention, too, must be treated as referential. \emph{This
 is one of the only times that your other annotation decisions should
-be factored into current decisions! }
+be factored into current decisions! 
 \item Entities that validly have other entity-coreference relations (discussed
 below) such as PART-WHOLE or SET-MEMBER are also relevant and should
 be annotated. 
 \item You can almost always assume that a subject or object, \emph{if they
 refer to an entity at all, }will be referential. 
-\end{itemize}
+\end{itemize
 This idea that something must be referring to an entity is important.
 If a Verb+Object pair collectively constitute an event -- ``tell
 the truth'', ``take a bath'' -- then generally refers to an event
@@ -274,7 +269,7 @@ or ``send a text'' in which the event also can be thought of as
 an entity -- are covered below. 
 
 
-\subsubsection{Distinguishing EVENT from ENTITY (and when something can be both)}
+#####  Distinguishing EVENT from ENTITY
 
 Certain phenomena have characteristics of both events and entities.
 Ongoing processes may often have referential characteristics -- a
@@ -316,7 +311,7 @@ those dates are different, you're likely looking at a metonymic event,
 discussed below.
 
 
-\subsubsection{Complex Types}
+##### Complex Types
 
 It is worth emphasizing that is it not the case that the world is
 cleanly seperable into events and entities at all times. In an abstracted
@@ -328,20 +323,22 @@ written down somewhere -- and the complex of what it does to the world.
 These kinds of patterns can be viewed as complex types (XXXX Pustejovsky
 XXX), having characteristics of both entities and events. 
 
-Our goal in actual annotation is to do this consistently; for you
-to remember the 
+For most things, we will default to events.  Especially with *statements*, with *messages*, and with 
+other ways of packaging information, try to default to treating them as events, and to only use them as
+entities when the context specifically depands an entity treatment. For communication events, the contexts for using 
+entities should be references to literal stored forms of the communication (such as stored texts, where one's emails live, etc.).  
 
+For laws, contracts and rules, you can treat them as both entities and events. 
 
-\subsubsection{When is an ENTITY also an EVENT?}
+##### When is an ENTITY also an EVENT?
 
-\label{when_is_an_entity}
 
 It is also worth noting that in some of those edge cases, we have
 an entity which carries with it an implied EVENT. For instance:
 
 \ex. ``Make sure to eat something before your vitamins.''
 
-\ex. ``Loperamide helped to calm her stomach\textquotedbl{}
+\ex. ``Loperamide helped to calm her stomach\textquotedbl{
 
 This is an example of an implicit, or what we call metonymic, event,
 in which ``vitamins'' stands in for ``taking your vitamins'',
@@ -355,10 +352,10 @@ as ENTITYs since these events can corefer with ENTITYs or with EVENTs.
 These are realized as \textit{both} EVENTs and ENTITYs, so that relations
 can be made to both. Consider \Next.
 
-\ex. The nearby pipe {[}bomb{]} disrupted the festival. The {[}explosion{]}
+\ex. The nearby pipe {[}bomb{]} disrupted the festival. The {[}explosion{]
 from the {[}device{]} was heard for miles. \a. {[}bomb{]}$_{EVENT,METONYMIC}$
 IDENTICAL {[}explosion{]} \b{.} {[}bomb{]}$_{ENTITY}$ IDENTICAL
-{[}device{]}
+{[}device{]
 
 Be exceedingly sparing with such metonymic annotations. For our purposes,
 only use it when you are sure that a later relations phase will really
@@ -366,25 +363,25 @@ need to make reference to an entity's implied events. Otherwise, simply
 annotate that entity as an ENTITY.
 
 
-\subsubsection{Multiword Predications - When are they }
+#### Multiword Predications - When are they multiple events?
 
 
-\paragraph{Separate Predications}
+##### Separate Predications
 
 The following kinds of patterns tend to involve multiple events, but
 these are to be treated as separate events, each given their own EVENT
 annotation:
-\begin{itemize}
+\begin{itemize
 \item Revelation: \subitem {[}Examination{]} {[}shows{]} decreased bilateral
-peripheral {[}pulses{]}. \subitem Satellite {[}photos{]} {[}revealed{]}
+peripheral {[}pulses{]}. \subitem Satellite {[}photos{]} {[}revealed{]
 signs of {[}fueling{]} at the missile complex.
 \item Reporting: \subitem ... and the right hilar {[}lesions{]} were not
 {[}reported{]} as being {[}prominent{]}. \subitem The New York Times
 first {[}reported{]} the {[}strike{]} in October. \subitem Refugees
 {[}claim{]} that government troops {[}opened{]} fire on a crowded
 marketplace.
-\item Denial or Denouncement: \subitem The mayor categorically {[}denies{]}
-any {[}involvement{]} with the cartels. \subitem He {[}denies{]}
+\item Denial or Denouncement: \subitem The mayor categorically {[}denies{]
+any {[}involvement{]} with the cartels. \subitem He {[}denies{]
 any chest {[}pains{]}, chest {[}pressures{]}, {[}shortness{]}-of-breath,
 or exertional {[}symptoms{]}. \subitem The international community
 was quick to {[}denounce{]} the {[}bombing{]}.
@@ -393,12 +390,12 @@ have repeatedly {[}requested{]} international {[}aid{]}. \subitem
 He is {[}willing{]} to {[}meet{]} with our Pauahi Wing Queens Hospital.
 \subitem Three different countries have {[}endorsed{]} the trade
 {[}agreement{]}.
-\end{itemize}
+\end{itemize
 It is worth noting that EVIDENTIAL EVENTs (such as {[}shows{]}, {[}reported{]},
 {[}reveals{]}) almost always have two separate predications.
 
 
-\paragraph{Some Tests for Semantically Light Predications}
+#####  Some Tests for Semantically Light Predications
 
 Note, as mentioned above, that copular verbs like ``to be'' or ``seems''
 are not annotated, nor are predications like ``experience'', ``underwent'',
@@ -407,21 +404,17 @@ and ``occurred\textquotedbl{}:
 \ex. After undergoing extensive {[}transformation{]}, Sochi is nearly
 {[}ready{]} to {[}host{]} the {[}Olympic Games{]}.
 
-\ex. At \{that time\}, he also experienced rectal {[}pressure{]}
+\ex. At \{that time\}, he also experienced rectal {[}pressure{]
 / {[}fullness{]} and occasionally had {[}hematochezia{]}.
 
 \ex. The {[}earthquake{]} occurred during the {[}parade{]}.
 
-\begin{comment}
-remember to ask about this One might also look for what appears to
-be the heads of nominal events, yet which are themselves semantically
-non-predicative, such as ``role'' in the following:
 
 \ex. We {[}discussed{]} the role for adjunctive {[}treatment{]} if
-{[}this{]} is colon {[}cancer{]} as well as neoadjuvant {[}treatment{]}
+{[}this{]} is colon {[}cancer{]} as well as neoadjuvant {[}treatment{]
 if {[}this{]} is felt more consistent with a rectal {[}cancer{]} on
 flexible {[}sigmoidoscopy{]}. 
-\end{comment}
+\end{comment
 
 
 Other verbs are not as consistent. For example, we want to treat actual
@@ -459,7 +452,7 @@ the hot weather continues. (Again, roughly equivalent to ``fire departments
 will likely enact'')
 
 
-\paragraph{EVENTs without explicit reference}
+#####  EVENTs without explicit reference
 
 When we run into EVENTs that are clearly implied by a related ENTITY,
 they can be marked as ENTITY with an ``implicit event'' feature,
@@ -478,18 +471,18 @@ however, and thus you'd have a single annotation with the span {[}colonoscopy{]}
 DocTimeRel AFTER, Modality HYP, Polarity NEG.
 
 Similarly, here, two sets of raids are implied, but only one is mentioned:
-
-\ex. The {[}raids{]} in Phoenix {[}began{]} at 4am, in Denver, at
-5.
+```
+The *raids* in Phoenix *began* at 4am, in Denver, at 5.
+```
 
 The Denver raids, thus, would not be captured in this project. This
 is not covered by these guidelines but we will be investigating whether
 building on PropBank annotation of gaps might be helpful.
 
 
-\subsection{\label{syntacticheads}Selecting Proper Spans of Annotation}
+\subsection{\label{syntacticheads}Selecting Proper Spans of Annotation
 
-\label{eventheads}
+\label{eventheads
 
 Once you have decided that a given phrase or word qualifies as an
 EVENT or ENTITY, you'll need to decide what `span' (section of the
@@ -512,18 +505,18 @@ is an ENTITY), and the fact that a word is not the head of a larger
 syntactic unit \textit{in no way} disqualifies it from separate annotation.
 
 
-\subsubsection{Minimum Span Annotation}
+#### Minimum Span Annotation
 
 One might talk about ``maximum span'' annotation as being everything
 encompassing what you are talking about, an approach we are \emph{not
 using here}:
-\begin{examples}
+\begin{examples
 \item \label{[The-7.6-magnitude-earthquake]}{[}\textsubscript{MAX-SPAN}The
 7.6-magnitude earthquake{]} {[}\textsubscript{MAX-SPAN} had the consequences
-of {]} {[}\textsubscript{MAX-SPAN} severe damage{]} to {[}\textsubscript{MAX-SPAN}
-multiple buildings{]} {[}\textsubscript{MAX-SPAN} last July{]}
-\end{examples}
-We will take the opposite approach, using a \textsc{minimum span}
+of {]} {[}\textsubscript{MAX-SPAN} severe damage{]} to {[}\textsubscript{MAX-SPAN
+multiple buildings{]} {[}\textsubscript{MAX-SPAN} last July{]
+\end{examples
+We will take the opposite approach, using a \textsc{minimum span
 style of annotation in which we only mark the syntactic head of each
 markable. This is because capturing everything about what makes an
 entity an entity, or an event an event, is not only difficult, but
@@ -531,12 +524,12 @@ can lead to elaborate overlapping annotations. As such, instead of
 the kinds of annotations in \ref{[The-7.6-magnitude-earthquake]},
 we will annotate everything except pronoun nouns using a single word,
 resulting in spans such as: 
-\begin{examples}
+\begin{examples
 \item The 7.6-magnitude {[}earthquake{]} caused severe {[}damage{]} to multiple
 {[}buildings{]} last \{July\}.
 \item The {[}U.S.{]} {[}President{]} {[}maintained{]} his {[}stance{]} on
 the civil {[}war{]}.
-\end{examples}
+\end{examples
 This does not mean we are throwing this information away, but rather
 that we assume this information to be recoverable. This emphasis upon
 recoverability is important; we need to capture the word that lets
@@ -548,10 +541,10 @@ to avoid annotatoin of semanticallly light verbs (such as annotating
 light verbs with their nominalizations) discussed below.%
 }. Consider a syntactic dependency tree of the above sentence in this
 regard 
-\begin{examples}
+\begin{examples
 \item \label{ExampleDepTree}>\textcompwordmark{}> Insert Dependency tree
 Here
-\end{examples}
+\end{examples
 ``Earthquake'', one may see, has a number of dependents. Annotating
 it can be thought of as pointing to everything under it. This gives
 us the best of both worlds -- you get to only grab one word (and therefore
@@ -561,25 +554,25 @@ capturing the full range of ``what is being talked about''.
 If that tree in example \ref{ExampleDepTree} is foreign to you, do
 not despair; all you need to do is follow some basic rules for what
 we call ``headfinding''. In general:
-\begin{itemize}
+\begin{itemize
 \item The traditional notion of headedness is that there is a word in each
 phrase which essentially defines and represents that phrase. The head
 is not the most important part of a phrase, but instead can usually
 stand in for the entire phrase and mean roughly the same thing with
 roughly the same grammatical properties. 
 
-\begin{itemize}
+\begin{itemize
 \item One casual way to test this is what lexical term would be used in
 a repeated version of the same. If you constantly talk about ``John's
 insatiable hunger for more donuts'', one might refer to that hunger
 as ``that hunger'', but not by ``those donuts''.
-\end{itemize}
+\end{itemize
 \item For verb phrases and adjective phrases this will be simple, and there
 is no need to think of things in terms of \textsc{syntactic head}s
 at all. You will only be annotating the verb or adjective in the phrase,
 and nothing more. Thus, look at the events in the following examples
-(no other parts have been annotated):\end{itemize}
-\begin{examples}
+(no other parts have been annotated):\end{itemize
+\begin{examples
 \item The stock price is {[}stable{]}.
 \item \label{reportsthrowingup}Patient {[}reports{]} {[}throwing{]} up.
 \item She's {[}unable{]} to {[}lift{]} her arms.
@@ -588,22 +581,22 @@ and nothing more. Thus, look at the events in the following examples
 \item She feels slightly {[}weak{]} but has {[}resumed{]} most of her normal
 {[}activities{]}.
 \item The jury {[}finding{]} was in favor of the defendant.
-\end{examples}
+\end{examples
 Note that we take the single verb or adjective even when when dealing
 with a multiword predication such as ``throw up\textquotedbl{}. The
 exception to this tendency comes from \emph{light verbs} and \emph{support
 verbs, }verb-object pairs in which the verb is less informative than
 the object about the event in question, as in:
-\begin{examples}
+\begin{examples
 \item John took a {[}\textsubscript{event}bath{]}.
 \item The patient underwent {[}\textsubscript{event}surgery{]}.
 \item The burglar committed a heinous {[}\textsubscript{event}crime{]}. 
-\end{examples}
+\end{examples
 Note that in each, there is no individuation between the verb and
 object -- they collectively assert an event -- and the verb is a grammaticalized
 and abstract term. For a more full definition, here is the definition
 discussed in relation to Propbank:
-\begin{quotation}
+\begin{quotation
 (Light Verb Constructions) are characterized by a light verb and a
 predicating complement (henceforth, true predicate) that \textquotedbl{}combine
 to predicate as a single element.\textquotedbl{} (Butt 2004) In LVC,
@@ -615,65 +608,65 @@ For example, the light verb \textquotedbl{}gave\textquotedbl{} and
 the predicate \textquotedbl{}lecture\textquotedbl{} in \textquotedbl{}gave
 a lecture\textquotedbl{}, together form a single predicating unit
 such that it can be paraphrased by \textquotedbl{}lectured\textquotedbl{}. 
-\end{quotation}
+\end{quotation
 Remember in this that if you \textit{can} cleanly separate a verb
 and its noun into two separate events, then you should treat them
 as two separate things. Similarly, some verbs like ``use'' are relatively
 generic, but evoke a prototypical use of the object -- rather than
 evoking the object as an event in itself. Verbs such as \emph{use
 }are the main event:
-\begin{examples}
+\begin{examples
 \item \textquotedbl{}Police {[}\textsubscript{event}used{]} tear gas to
-{[}\textsubscript{event}disperse{]} the protesters.\textquotedbl{}
-\end{examples}
+{[}\textsubscript{event}disperse{]} the protesters.\textquotedbl{
+\end{examples
 The same rules for minimal-span annotation will also apply to nouns.
 Hopefully you will have some exposure to what the head of a noun phrases
 is from syntactic courses, and this will be quite familiar. Start
 by examining the example for participants which you desire to annotate;
 say that you found the following:
-\begin{subexample}
+\begin{subexample
 \item The most recent IED attack outside the Green Zone in Baghdad
 \item The shooting near the word-torn city
 \item That recision biopsy analysis of the sigmoid colon today
-\end{subexample}
+\end{subexample
 For each, rule out prepositional phrases and post-postitional adverbs:
-\begin{subexample}
+\begin{subexample
 \item The most recent IED attack \sout{outside the Green Zone in Baghdad} 
 \item The shooting \sout{near the war-torn city} 
-\item That recision biopsy analysis \sout{of the sigmoid colon today}
-\end{subexample}
+\item That recision biopsy analysis \sout{of the sigmoid colon today
+\end{subexample
 Then for each sequence of nouns, the head is the rightmost noun%
 \footnote{If the rightmost term in a noun phrase (i.e. the ``head'') is a
 particle of a nominalization, such as in ``the blow out flooded the
 gulf with oil'', then ignore the ``out'' particle and annotate
 ``blow'' itself.%
 }:
-\begin{subexample}
+\begin{subexample
 \item The most recent IED {[}\textsubscript{event}attack{]} \sout{outside
 the Green Zone in Baghdad} 
 \item The {[}\textsubscript{event}shooting{]} \sout{near the war-torn
 city} 
 \item That recision biopsy {[}\textsubscript{event}analysis{]} \sout{of
-the sigmoid colon today}
-\end{subexample}
+the sigmoid colon today
+\end{subexample
 This doesn't mean that other entities and events won't be within the
 spans you considered. The same examples should result in annotations
 such as
-\begin{subexample}
-\item The {[}\textsubscript{event}shooting{]} near the war-torn {[}\textsubscript{entity}
+\begin{subexample
+\item The {[}\textsubscript{event}shooting{]} near the war-torn {[}\textsubscript{entity
 city{]} 
 \item That recision biopsy {[}\textsubscript{event}analysis{]} of the sigmoid
-{[}\textsubscript{entity} colon{]} {[}\textsubscript{timex} today{]}
-\end{subexample}
+{[}\textsubscript{entity} colon{]} {[}\textsubscript{timex} today{]
+\end{subexample
 There will be two exceptions to this ``minimal span'' rule; proper
 names and times. Proper names should be annotated with all name parts,
 so that ``Bill Clinton'' is not ``Bill {[}Clinton{]}'' but rather
 ``{[}Bill Clinton{]}''. Do not include determine determiners in
 such terms:
-\begin{subexample}
+\begin{subexample
 \item The most recent IED {[}\textsubscript{event}attack{]} outside the
 {[}\textsubscript{entity}Green Zone{]} in {[}\textsubscript{entity}Baghdad{]}.
-\end{subexample}
+\end{subexample
 Sometimes this head-finding will be difficult. For example, in clinical
 texts, one might find fragmentary phrases in which prepositions have
 been elided, as in ``patient had CT chest pelvis''. In such cases,
@@ -683,10 +676,10 @@ and to pick the word that would be the head of those more full forms.
 Such a list of rules gives us the following heads (only showing the
 nominals):
 
-\ex. {[}She{]} had experienced no {[}dizziness{]} until the {[}start{]}
+\ex. {[}She{]} had experienced no {[}dizziness{]} until the {[}start{]
 of {[}chemotherapy{]}.
 
-\ex. The {[}Zetas'{]} latest {[}attack{]} resulted in the {[}killing{]}
+\ex. The {[}Zetas'{]} latest {[}attack{]} resulted in the {[}killing{]
 of three Mexican {[}officials{]}.
 
 \ex. The {[}CT{]} showed a small rectal {[}abcess{]}.
@@ -709,23 +702,23 @@ in the {[}destruction{]} of 15 {[}homes{]}.
 fluoropyrimidine-based {[}chemotherapy{]}.
 
 
-\subsubsection{Some Exceptions and Specific Patterns}
+#### Some Exceptions and Specific Patterns
 
 
-\paragraph{Measurement Phrases}
+\paragraph{Measurement Phrases
 
 Another exception to a strict headedness approach is that ``few''
 is not to be annotated as the head of sentences such as 
-\begin{examples}
+\begin{examples
 \item {*} {[}\textsubscript{entity}I {]} {[}\textsubscript{event} ate
-{]} a {[}\textsubscript{entity}few {]} of the plums in the {[}\textsubscript{entity}icebox{]}
-\end{examples}
+{]} a {[}\textsubscript{entity}few {]} of the plums in the {[}\textsubscript{entity}icebox{]
+\end{examples
 Instead, when the head is a quantifier-type term such as ``few''
 or ``some'', use the thing counted, as in:
-\begin{examples}
-\item {[}\textsubscript{entity}I {]} {[}\textsubscript{event} ate {]}
-a few of the {[}\textsubscript{entity}plums{]} in the {[}\textsubscript{entity}icebox{]}
-\end{examples}
+\begin{examples
+\item {[}\textsubscript{entity}I {]} {[}\textsubscript{event} ate {]
+a few of the {[}\textsubscript{entity}plums{]} in the {[}\textsubscript{entity}icebox{]
+\end{examples
 This is hopefully clear in such cases, but will be more complicated
 when dealing with words like ``groups of ..'', ``collections of...'',
 and increasingly informative units. This will end of being a question
@@ -734,21 +727,21 @@ will be head -- or two entities, a SET and a MEMBER, as discussed
 in section \ref{sub:SET-MEMBER}. If one could imagine replacing the
 phrase with a mere count of the items in question, merely mark the
 latter:
-\begin{example}
+\begin{example
 Within eyesight, a \textbf{gaggle of {[}\textsubscript{entity}geese
-{]}} lounged in the afternoon {[}\textsubscript{entity}sun{]}
+{]}} lounged in the afternoon {[}\textsubscript{entity}sun{]
 
-\emph{= roughly 20 geese lounged in the afternoon sun.}
-\end{example}
+\emph{= roughly 20 geese lounged in the afternoon sun.
+\end{example
 In contrast, if the unit seems to be clearly a unit that is more than
 an aggregate collection of its parts, feel free to mark it as a delineated
 unit with SET/MEMBER:
-\begin{examples}
-\item The {[}\textsubscript{entity}position {]} was defended by a \textbf{{[}\textsubscript{entity}
+\begin{examples
+\item The {[}\textsubscript{entity}position {]} was defended by a \textbf{{[}\textsubscript{entity
 battalion{]} of the {[}\textsubscript{entity}~3rd brigade{]}}.
-\end{examples}
+\end{examples
 
-\paragraph{Headedness with foreign phrases}
+\paragraph{Headedness with foreign phrases
 
 For foreign phrases -- such as latin terms -- you should feel free
 to use whatever part of the term seems to be acting as head in context.
@@ -770,7 +763,7 @@ of what the ``real'' head:
 Florida. 
 
 
-\paragraph{Multi-word Proper Nouns}
+\paragraph{Multi-word Proper Nouns
 
 As a reminder, when the head noun is a proper noun with more than
 one word, take the entire appropriate span, not just one word. This
@@ -807,7 +800,7 @@ of their own, so:
 {[}President{]} of the {[}United States{]}, {[}Barack Obama{]}.
 
 
-\paragraph{Morphological vagueness involving hyphenated and possessive words}
+\paragraph{Morphological vagueness involving hyphenated and possessive words
 
 This section has insisted upon annotating ``a single word'' as if
 that is a clear-cut concept. We will generally make this clear cut
@@ -821,7 +814,7 @@ split up. Figure \ref{fig:Affixes-which-can} lists a collection of
 morphemes which should be treated as forming a single word (from Santorini
 XXXXXXX).
 
-\begin{figure}
+\begin{figure
 \begin{multicols}{8} adeno-
 
 aorto-
@@ -1120,8 +1113,8 @@ x-ray
 
 x-rays
 
-x-rayed \end{multicols} \caption{\label{fig:Affixes-which-can}Affixes which can form larger heads}
-\end{figure}
+x-rayed \end{multicols} \caption{\label{fig:Affixes-which-can}Affixes which can form larger heads
+\end{figure
 
 
 Furthermore, when a ``-'s'' possessive marker is present, do not
@@ -1135,16 +1128,16 @@ scan reveals {[}liver{]} {[}metastasis{]}.
 \ex. State {[}legislators{]} report that {[}their{]} constituents
 are satisfied with the compromise.
 
-\pagebreak{}
+\pagebreak{
 
 
-\section{Annotating Features on Entities and Events}
+###Annotating Features on Entities and Events
 
 When you mark each entity or event, you will need to label basic features
 on the events and entities. 
 
 
-\subsection{Entity Features -- Polarity and Modality}
+\subsection{Entity Features -- Polarity and Modality
 
 The majority of ENTITYs will be of the polarity POS for ``positive'',
 meaning that they are actual entities. This is the default value.
@@ -1171,7 +1164,7 @@ HYPOTHETICAL, or UNCERTAIN/HEDGED.
 The most obvious kind of GENERIC entity will be references to ``kinds''.
 Such generics in English are often bare plurals, but can be indefinites
 or definites too:
-\begin{examples}
+\begin{examples
 \item {[}Terrorists{]}$_{GEN}$ in the {[}region{]}$_{ACTUAL}$ often attack
 office {[}buildings{]}$_{ACTUAL}$.
 \item {[}A gentleman{]}$_{GEN}$ opens {[}doors{]}$_{GEN}$ for {[}ladies{]}$_{GEN}$(Krifka
@@ -1179,48 +1172,48 @@ office {[}buildings{]}$_{ACTUAL}$.
 \item {[}The lion{]}$_{GEN}$ is the proudest of {[}animals{]}$_{GEN}$
 \item We do not normally recommend surgery to {[}patients{]}$_{GEN}$ with
 a cardiac status similar to {[}Ms. James{]}$_{ACTUAL}$.
-\end{examples}
+\end{examples
 One easy way to distinguish GENERIC ENTITYs from ACTUAL ENTITYs is
 by `omniscient substitution'. Consider `Union Leaders' in the examples
 below:
-\begin{examples}
+\begin{examples
 \item Teddy Roosevelt met with Union Leaders before writing the bill.
 \item Union leaders often push for tax breaks.
-\end{examples}
+\end{examples
 In \LLast, an omniscient person could put together a list of the
 specific persons he met with and replace it with that list:
-\begin{examples}
+\begin{examples
 \item Teddy Roosevelt met with \emph{Samuel Gompers, John Lewis, Walter
 Reuther, A. Philip Randolph, and Jimmy Hoffa} before writing the bill.
-\end{examples}
+\end{examples
 Compare this to \LLast, where there is no way that the list could
 be put together; it refers to the whole class. Therefore, `Union Leaders'
 in \LLast is GENERIC.
 
 Similarly, an omniscient annotator could know specific referents for
 the below ACTUAL ENTITYs:
-\begin{examples}
+\begin{examples
 \item Three unidentified {[}criminals{]}$_{ACTUAL}$ broke into my shed.
 \item Tomorrow's {[}participants{]}$_{ACTUAL}$ will be thrilled.
 \item {[}Vandals{]}$_{ACTUAL}$ have defaced a prominent prehistoric pictogram.
-\end{examples}
+\end{examples
 But no referents (outside of every member, past present and future,
 of a generic class) could possibly be found for the below GENERIC
 ENTITYs:
-\begin{examples}
+\begin{examples
 \item {[}Criminals{]}$_{GEN}$ often plead ``Not Guilty'', even if they've
 committed the crime.
 \item {[}Participants{]}$_{GEN}$ in Triathlons generally experience significant
 chafing.
 \item {[}Vandals{]}$_{GEN}$ should be punished severely if caught.
-\end{examples}
+\end{examples
 The complexity of that annotation will occur with entities which are
 sets, but where the set has been defined provisionally in context:
-\begin{examples}
+\begin{examples
 \item {[}Young Denver voters{]}$_{GEN}$ turned out in high numbers for
 the last election.
 \item {[}My senior class{]}$_{ACTUAL}$ performed quite well on {[}the SAT{]}$_{GEN}$
-\end{examples}
+\end{examples
 These kind of examples will be hard to measure with the above tests
 -- they both are ``real'' sets of things in the world , and both
 describe whole classes of objects. For these, test whether you can
@@ -1241,45 +1234,45 @@ entities. Hypothetical entities are not just entities participating
 in a hypothetical situation -- all sorts of entities can be involved
 in hypothetical worls -- but rather an entity that would not exist
 outside of that hypothetical possible world. 
-\begin{examples}
+\begin{examples
 \item If he did have a Mustang$hypothetical$, he would wreck it.%
 \footnote{For the purpose of this hypothetical definition, you can treat objects
 as coming into being when purchased; don't give in to technicalities
 of whether they might exist even if not purchased. %
-}
-\end{examples}
+
+\end{examples
 As will come up later for GENERIC vs HYPOTHETICAL events, note also
 that generalizations with ``if'' are still GENERIC. You should test
 this by whether you can paraphrase it with a true generalization instead:
-\begin{examples}
+\begin{examples
 \item \label{couple-stacking-shelves}\textquotedbl{}I'm not saying that
 if a {[}couple{]}$_{GEN}$ both work stacking shelves, they should
-be getting married in a supermarket$_{GEN}$\textquotedbl{}
+be getting married in a supermarket$_{GEN}$\textquotedbl{
 \item \label{coupe-stacking-shelves-paraphrase}I'm not saying that couples
 that work stacking shelves should get married in supermarkets
-\end{examples}
-Both examples are GENERIC here, because \ref{couple-stacking-shelves}
+\end{examples
+Both examples are GENERIC here, because \ref{couple-stacking-shelves
 passes that generic paraphrase test as shown in \pageref{coupe-stacking-shelves-paraphrase}. 
 
 
-\paragraph{Generic You and We}
+\paragraph{Generic You and We
 
 \textquotedbl{}You\textquotedbl{} is to be marked as GENERIC when
 it passes tests for \textquotedbl{}generic you\textquotedbl{} usage: 
-\begin{itemize}
+\begin{itemize
 \item It can be paraphrased using \textquotedbl{}one\textquotedbl{}, \textquotedbl{}somebody\textquotedbl{},
 \textquotedbl{}a person\textquotedbl{}, etc. 
 \item It would be translate into a generic pronoun in any languages you
 know (such as \textquotedbl{}on\textquotedbl{} in French). 
 \item Restating \textquotedbl{}you\textquotedbl{} to be an apposition with
-the audience's name, such as \textquotedbl{}You, John...\textquotedbl{}
+the audience's name, such as \textquotedbl{}You, John...\textquotedbl{
 would change the meaning of the sentence. 
-\end{itemize}
+\end{itemize
 For example: 
-\begin{examples}
-\item gotta love the people who insist on \textquotedbl{}helping\textquotedbl{}
+\begin{examples
+\item gotta love the people who insist on \textquotedbl{}helping\textquotedbl{
 {[}you{]}$_{GEN}$ when it could be easier to do it {[}yourself{]}$_{GEN}$.
-\end{examples}
+\end{examples
 It's harder to define the delineation of \textquotedbl{}we\textquotedbl{}.
 Mark \textquotedbl{}we\textquotedbl{} as GENERIC only when the set
 referred to is \textquotedbl{}everybody\textquotedbl{}, i.e. the entire
@@ -1288,25 +1281,25 @@ human race, or is an undefined set that could be synonymous with this:
 \ex. What is this biotech revolution you are referring to that {[}we{]}$_{GEN}$
 are on the verge of?
 
-Generic \textquotedbl{}you\textquotedbl{} and \textquotedbl{}we\textquotedbl{}
-are subject to the \textquotedbl{}identity of very broad GENERICs\textquotedbl{}
+Generic \textquotedbl{}you\textquotedbl{} and \textquotedbl{}we\textquotedbl{
+are subject to the \textquotedbl{}identity of very broad GENERICs\textquotedbl{
 rules; see section \ref{vbroadgens}.
 
 
-\paragraph{Uncertain/Hedged}
+\paragraph{Uncertain/Hedged
 
 As with HYPOTHETICAL, use Uncertain/Hedged only when the sheer existence
 of the entity (not its role in the sentence) has been placed in doubt.
 
 
-\subsection{Event Polarity and Modality}
+\subsection{Event Polarity and Modality
 
 In order to express the polarity of an EVENT, the ``polarity'' attribute
 of an event is specified. Polarity in this schema is relatively straightforward,
 and there are only two possible types: POS and NEG.
 
 
-\subsubsection{Positive Polarity (POS)}
+#### Positive Polarity (POS)
 
 The first and most common polarity value used is POS. This is the
 marker of positive polarity. This is used for an EVENT that did, in
@@ -1320,12 +1313,12 @@ officially a nuclear {[}state{]}.
 
 \ex. The patient has {[}hepatosplenomegaly{]}.
 
-\ex. PO {[}changes{]} right pterional {[}craniotomy{]}
+\ex. PO {[}changes{]} right pterional {[}craniotomy{]
 
 \ex. The patient will {[}continue{]} treatment.
 
 
-\subsubsection{Negative Polarity (NEG)}
+#### Negative Polarity (NEG)
 
 The opposite of POS, as you might guess, is NEG, which is used to
 indicate when the event didn't take place, or has an otherwise negative
@@ -1364,13 +1357,13 @@ An actual polarity NEG colonoscopy would be something like:
 
 \ex. We were unable to perform a {[}colonoscopy{]} due to bad prep.
 
-\vspace{0.5cm}
+\vspace{0.5cm
  \fbox{ %
-\begin{tabular}{p{0.6in}p{14cm}}
+\begin{tabular}{p{0.6in}p{14cm}
 \includegraphics[width=0.5in]{warning} \\
 \textbf{Caution!}  & \raisebox{4mm}{%
 \parbox[c]{14cm}{%
-\vspace{2mm}
+\vspace{2mm
 \textit{ Do not worry about double-negation or phrase-level negation.
 In the phrase ``She denies vomiting or nausea'', {[}denies{]} is
 POS (as the denial is real) and {[}nausea{]} and {[}vomiting{]} are
@@ -1380,11 +1373,11 @@ did not happen, it is NEG, no matter what phrasing may have preceded
 it.}%
 }}\ \
 \tabularnewline
-\end{tabular}} \vspace{0.5cm}
+\end{tabular}} \vspace{0.5cm
 
 
 
-\subsubsection{\label{modality}Actual Modality (ACT)}
+#### \label{modality}Actual Modality (ACT)
 
 The first is ACTUAL, which is used most of the time, and is the default
 option (that need not be specifically marked). The majority of EVENTs
@@ -1401,12 +1394,12 @@ Note that ACTUAL and NEG can (and usually do) co-occur -- anything
 which clearly did not happen is ACTUAL+NEG. 
 
 
-\subsubsection{Uncertain/Hedged Modality (UNC)}
+#### Uncertain/Hedged Modality (UNC)
 
 EVENTS are marked as UNCertain when we can point to some explicit
 lexical or phrasal trigger that indicates some degree of uncertainty
 about the reality of the EVENT. Put differently, these EVENTs are
-presented with a sort of tacit claim that they're \textit{probably}
+presented with a sort of tacit claim that they're \textit{probably
 real (unlike hypotheticals, which are explicitly irrealis), but with
 a proviso from the author that they might be not be.
 
@@ -1502,7 +1495,7 @@ Put differently, all crime events are UNCertain until proven ACTual
 in a court of law.
 
 
-\subsubsection{Hypothetical Modality (HYP)}
+#### Hypothetical Modality (HYP)
 
 The third modality is HYP. This is useful when annotating theories,
 future possibilities, or other hypothetical events. Hypothetical EVENTs
@@ -1510,7 +1503,7 @@ will often follow ``if'' statements (``If X happens, then we will
 use Y to treat Z'') or other sorts of conditionals (``Depending
 on the patient's response, we might treat A with B or with C'').
 
-\ex. If the Israelis {[}strike{]}, the US will surely be {[}dragged{]}
+\ex. If the Israelis {[}strike{]}, the US will surely be {[}dragged{]
 into a larger conflict.
 
 \ex. Any possible {[}attack{]} would {[}draw{]} widespread {[}condemnation{]}.
@@ -1520,7 +1513,7 @@ into a larger conflict.
 
 \ex. We suspect either {[}achalasia{]} or {[}pseudoachalasia{]} here.
 
-\ex. If she experiences a {[}fever{]}, we will {[}treat{]} {[}it{]}
+\ex. If she experiences a {[}fever{]}, we will {[}treat{]} {[}it{]
 on an outpatient basis.
 
 It is worth noting that, in this schema, an EVENT occurring in the
@@ -1532,17 +1525,17 @@ to indicate this future-uncertainty.
 
 For instance:
 
-\ex. Any US {[}assault{]} in the region would probably {[}come{]}
+\ex. Any US {[}assault{]} in the region would probably {[}come{]
 from Kuwait and Saudi Arabia, with {[}support{]} from the Carrier
 group in the Persian Gulf.
 
-\ex. We may {[}recommend{]} to {[}resume{]} the {[}Cipro{]} and {[}Flagyl{]}
+\ex. We may {[}recommend{]} to {[}resume{]} the {[}Cipro{]} and {[}Flagyl{]
 and obtain a {[}CT{]} of the chest, abdomen and pelvis.
 
 In the above, all the bracketed EVENTs are HYPOTHETICAL and have DocTimeRel
 of AFTER.
 
-\ex. The {[}close{]} of Market Friday will {[}mark{]} the {[}end{]}
+\ex. The {[}close{]} of Market Friday will {[}mark{]} the {[}end{]
 of Mr. Johnson's long career.
 
 \ex. The patient's {[}myringotomy{]} will take place on Friday.
@@ -1550,7 +1543,7 @@ of Mr. Johnson's long career.
 In the above two examples, the marked EVENTs are expected, so DocTimeRel
 is AFTER, modality is ACTUAL. Compare that to:
 
-\ex. If she has additional {[}bleeding{]} next week, she should {[}come{]}
+\ex. If she has additional {[}bleeding{]} next week, she should {[}come{]
 back in.
 
 In \Last, both ``additional bleeding'' and ``come back in'' would
@@ -1566,7 +1559,7 @@ ones (``The treaty will only hold if there are no more {[}attacks{]}'').
 It is also worth noting that very often, verbs of discussion lead
 to HYPOTHETICAL EVENTs (although they themselves are not hypothetical):
 
-\ex. We discussed the risks of adjuvant {[}chemotherapy{]} and {[}hemicolectomy{]}
+\ex. We discussed the risks of adjuvant {[}chemotherapy{]} and {[}hemicolectomy{]
 with the patient.
 
 \ex. Discussed the potential for neoadjuvant {[}therapy{]} depending
@@ -1583,13 +1576,13 @@ at this point, is hypothetical and contingent on the patient's continued
 drinking. Please see Section \ref{discussion} for additional detail
 about the usage of HYPOTHETICAL with verbs of discussion.
 
-\vspace{0.5cm}
+\vspace{0.5cm
  \fbox{ %
-\begin{tabular}{p{0.6in}p{14cm}}
+\begin{tabular}{p{0.6in}p{14cm}
 \includegraphics[width=0.5in]{warning} \\
 \textbf{Caution!}  & \raisebox{4mm}{%
 \parbox[c]{14cm}{%
-\vspace{2mm}
+\vspace{2mm
 \textit{ Although many human languages feature such an interaction,
 in our schema, modality does not interact with polarity or DocTimeRel.
 Future EVENTs are assumed to be actual unless stated otherwise, and
@@ -1597,13 +1590,13 @@ it is possible (even common) to have an ACTUAL negated EVENT. Future
 or negated do not automatically mean ``hypothetical\textquotedbl{}.}%
 }}\ \
 \tabularnewline
-\end{tabular}} \vspace{0.5cm}
+\end{tabular}} \vspace{0.5cm
 
 
 
-\subsubsection{Generic Modality (GEN)}
+#### Generic Modality (GEN)
 
-\label{generic}
+\label{generic
 
 GENERIC is our fourth contextual modality, and is used for EVENTs
 which may be mentioned in a note, but are only mentioned in a general
@@ -1614,11 +1607,11 @@ domain.
 
 All of the below EVENTs would be marked GENERIC under our schema:
 
-\ex. In the {[}aftermath{]} of most {[}bombings{]}, {[}trampling{]}
+\ex. In the {[}aftermath{]} of most {[}bombings{]}, {[}trampling{]
 is a deadly {[}threat{]}.
 
 \ex. In New Zealand, bills must be {[}approved{]} three times by
-Parliamentary {[}votes{]} and then {[}receive{]} Royal {[}Assent{]}
+Parliamentary {[}votes{]} and then {[}receive{]} Royal {[}Assent{]
 from the Governor-General.
 
 \ex. Adjuvant {[}chemotherapy{]} following {[}surgery{]} is generally
@@ -1628,8 +1621,8 @@ from the Governor-General.
 with regard to cetuximab {[}sensitivity{]}.
 
 \ex. In other patients without significant {[}comorbidity{]} that
-can {[}tolerate{]} adjuvant {[}chemotherapy{]}, there is a {[}benefit{]}
-to systemic adjuvant {[}chemotherapy{]}.\textquotedbl{}
+can {[}tolerate{]} adjuvant {[}chemotherapy{]}, there is a {[}benefit{]
+to systemic adjuvant {[}chemotherapy{]}.\textquotedbl{
 
 Although HYPOTHETICAL and GENERIC may seem similar, remember that
 most HYPOTHETICAL EVENTs still refer to the specific content of the
@@ -1644,7 +1637,7 @@ or text, then it is most certainly GEN:
 \ex. The terrorists {[}fled{]} Jordan via the Lebanese border.
 
 The truth of this fleeing EVENT depends on the identity of the terrorists
-and the context of the article to be true or false. Although \textit{these}
+and the context of the article to be true or false. Although \textit{these
 terrorists fled to Lebanon, the next may flee to someplace else entirely.
 Thus, it is ACTUAL. Compare with:
 
@@ -1661,7 +1654,7 @@ an EVENT is GENERIC, DocTimeRel will always be OVERLAP}.
 
 
 
-\subsubsection{Edge Cases: Counterfactuals and Past Negation}
+#### Edge Cases: Counterfactuals and Past Negation
 
 There are ambiguities involving hypotheticals and negation. Take,
 for example, this sentence:
@@ -1671,12 +1664,12 @@ for example, this sentence:
 
 There's clearly lots going on in this sentence, but let's focus on
 {[}seen{]}. There are two ways of annotating the event:
-\begin{enumerate}
+\begin{enumerate
 \item \textbf{{[}seen{]}}: DocTimeRel: BEFORE, Polarity: POS, Modality:
 HYP 
 \item \textbf{{[}seen{]}}: DocTimeRel: BEFORE, Polarity: NEG, Modality:
 ACT 
-\end{enumerate}
+\end{enumerate
 Both are technically correct. You can view the seeing of the puppy
 as something that could have actually happened, or as something which
 certainly did not.
@@ -1685,7 +1678,7 @@ As such, we have developed a hard-and-fast rule:
 
 \textit{When faced with a past hypothetical which we know did not
 happen, it is NEG/ACT. If you're unsure whether it happened, it's
-POS/HYP. If it happened, it is POS/ACT.}
+POS/HYP. If it happened, it is POS/ACT.
 
 So, when applied to data:
 
@@ -1711,7 +1704,7 @@ annotations.
 \color{black} 
 
 
-\subsection{\label{eventfeatures}Event DocTimeRel}
+\subsection{\label{eventfeatures}Event DocTimeRel
 
 DocTimeRel is short for ``Document Creation Time Relation'', and
 represents the temporal relation between the EVENT in question and
@@ -1754,17 +1747,17 @@ as it should be filled in individually for every event. Currently,
 our schema includes four relations between the event and DOCTIME:
 BEFORE, AFTER, OVERLAP, and the combined relation BEFORE/OVERLAP.
 
-\begin{figure*}
-\centerline{ \mbox{\includegraphics[width=5in]{doctimerel}} }
-\caption{Schematic view of all the DocTimeRel possibilities relative to DOCTIME}
+\begin{figure*
+\centerline{ \mbox{\includegraphics[width=5in]{doctimerel}} 
+\caption{Schematic view of all the DocTimeRel possibilities relative to DOCTIME
 
 
 \label{Tenseschematic} 
-\end{figure*}
+\end{figure*
 
 
 
-\subsubsection{BEFORE}
+#### BEFORE
 
 BEFORE is used where the event ended before the document itself was
 written. The bracketed events below would be marked as ``BEFORE''
@@ -1782,14 +1775,14 @@ the prior 9-16-03 {[}study{]}.
 
 \ex. Until last week, the patient had had no {[}nausea{]}.
 
-\ex. She had experienced no {[}dizziness{]} until the {[}start{]}
+\ex. She had experienced no {[}dizziness{]} until the {[}start{]
 of chemotherapy.
 
 \ex. The patient had had no {[}fever{]} before the {[}start{]} of
 her {[}surgery{]} last week.
 
 
-\subsubsection{OVERLAP}
+#### OVERLAP
 
 \label{dtroverlap} OVERLAP is used for events or states which are
 happening or true at the time that the document was written:
@@ -1797,12 +1790,12 @@ happening or true at the time that the document was written:
 \ex. The fires {[}continue{]} to {[}burn{]} in the Mountains, despite
 today's {[}rain{]}.
 
-\ex. Captain Smith of the Boulder County Sheriff's office is {[}requesting{]}
+\ex. Captain Smith of the Boulder County Sheriff's office is {[}requesting{]
 that anybody with information come forward.
 
 \ex. The patient {[}continues{]} to {[}do{]} well as an outpatient.
 
-\ex. The patient is {[}alert{]}, {[}cooperative{]}, and {[}appears{]}
+\ex. The patient is {[}alert{]}, {[}cooperative{]}, and {[}appears{]
 to be in no acute {[}distress{]}.
 
 \ex. Moderate sized retention {[}cyst{]} or {[}polyp{]} in the right
@@ -1812,12 +1805,12 @@ maxillary antrum again {[}noted{]}.
 at this time but is {[}interested{]} in continued {[}surveillance{]}.
 
 
-\subsubsection{AFTER}
+#### AFTER
 
 AFTER is used where the event is scheduled or planned to begin following
 the document time:
 
-\ex. After the fires are {[}contained{]}, residents can {[}return{]}
+\ex. After the fires are {[}contained{]}, residents can {[}return{]
 home.
 
 \ex. Thursday's planned {[}strike{]} will put {[}pressure{]} on the
@@ -1843,7 +1836,7 @@ true at Document Time. See \Next below.
 with regard to cetuximab {[}sensitivity{]}.
 
 
-\subsubsection{BEFORE-OVERLAP}
+#### BEFORE-OVERLAP
 
 \label{beforeover} BEFORE-OVERLAP is used where an event started
 BEFORE the DOCTIME and continues into and through the DOCTIME (OVERLAP
@@ -1867,43 +1860,43 @@ shows no sign of stopping.
 \ex. Based on last Thursday's MRI, her {[}swelling{]} is mostly gone.
 
 Many (if not most) instances of OVERLAP entities could be inferred
-as having also extended into the past. This label is \textit{only}
+as having also extended into the past. This label is \textit{only
 for those events which explicitly provide evidence, in that particular
 sentence, for it occurring in the past as well as the present, and
 when that evidence is in the list below.
 
 
-\paragraph{Admissable evidence for BEFORE/OVERLAP}
-\begin{itemize}
+\paragraph{Admissable evidence for BEFORE/OVERLAP
+\begin{itemize
 \item The event is in the present prefect aspect: \textquotedbl{}I have
 been doing yoga for years\textquotedbl{}, \textquotedbl{}The fires
 have burned for eight days\textquotedbl{}, \textquotedbl{}He has felt
 good\textquotedbl{}. 
 \item The document contains a TIMEX3 that assigned a time or date, in the
 past, where that document happened. 
-\item The event is modified by the discourse marker \textquotedbl{}still\textquotedbl{}
+\item The event is modified by the discourse marker \textquotedbl{}still\textquotedbl{
 and it is the \textquotedbl{}temporal\textquotedbl{} sense of still,
 meaning \textquotedbl{}this has been happening and continues to happen\textquotedbl{}. 
 \item Aspectual verbs modify the verb, to the extent that one will probably
 mark it as CONTINUES. 
-\end{itemize}
+\end{itemize
 
-\paragraph{What is NOT admissable evidence for BEFORE/OVERLAP}
-\begin{itemize}
+\paragraph{What is NOT admissable evidence for BEFORE/OVERLAP
+\begin{itemize
 \item You cannot mark this based upon knowledge of the tense of other, coreferential
 instances of the same event; mark is as OVERLAP or BEFORE based upon
 the actual local context. 
 \item If an event is presented as OVERLAP but is mentioned as a past speech
 act, as in \textquotedbl{}He said that there is no threat\textquotedbl{},
 this is \textit{not} enough evidence for BEFORE/OVERLAP.
-\end{itemize}
-\vspace{0.25cm}
+\end{itemize
+\vspace{0.25cm
  \fbox{ %
-\begin{tabular}{p{0.6in}p{14cm}}
+\begin{tabular}{p{0.6in}p{14cm}
 \includegraphics[width=0.5in]{warning} \\
 \textbf{Caution!}  & \raisebox{4mm}{%
 \parbox[c]{14cm}{%
-\vspace{2mm}
+\vspace{2mm
 \textit{Be sure that any time you are using BEFORE-OVERLAP, it is
 been explicitly stated that an EVENT started before DOCTIME and continues.
 Even if you, as a human, can infer that a given EVENT must have started
@@ -1913,11 +1906,11 @@ the sentence itself. Pick BEFORE or OVERLAP -- whichever is explicitly
 shown by the text -- instead.}%
 }}\ \
 \tabularnewline
-\end{tabular}} \vspace{0.5cm}
+\end{tabular}} \vspace{0.5cm
 
 
 
-\paragraph{DocTimeRel in relation to speech}
+\paragraph{DocTimeRel in relation to speech
 
 When dealing with documents involving indirect speech (as is often
 the case in newswire), there can be a number of conflicting signals
@@ -1926,9 +1919,9 @@ A common pattern, for example, is a past tense report (\textquotedbl{}he
 said ...\textquotedbl{}) that is reporting about a present tense state,
 \textquotedbl{}...that there is no threat\textquotedbl{}.
 
-When not dealing with direct quotations, you can assume that the \textquotedbl{}time\textquotedbl{}
+When not dealing with direct quotations, you can assume that the \textquotedbl{}time\textquotedbl{
 of an event is being accurately reported by the document as a whole:
-for the pattern such as \ref{nothreat} below, you can mark the \textquotedbl{}threat\textquotedbl{}
+for the pattern such as \ref{nothreat} below, you can mark the \textquotedbl{}threat\textquotedbl{
 as OVERLAP:
 
 \ex. \label{nothreat} He declared that there is no threat.
@@ -1936,7 +1929,7 @@ as OVERLAP:
 \ex. The boss said that we are working$_{\text{OVERLAP}}$ on it.
 
 Resist the temptation to mark these as BEFORE/OVERLAP (while past
-tense is often inferrable, we do not consider this to be proper \textquotedbl{}evidence\textquotedbl{}
+tense is often inferrable, we do not consider this to be proper \textquotedbl{}evidence\textquotedbl{
 for BEFORE/OVERLAP: see section \ref{beforeover} for the allowable
 BEFORE/OVERLAP criteria.
 
@@ -1945,13 +1938,13 @@ of the speech event, in direct quotations, can be evidence of BEFORE
 or BEFORE/OVERLAP conditions, as in:
 
 \ex. Napoleon declared$_{\text{BEFORE}}$ \textquotedbl{}I will conquer$_{\text{BEFORE}}$
-Russia\textquotedbl{}
+Russia\textquotedbl{
 
 
-\subsection{Event Type, Aspect and Implicitness}
+\subsection{Event Type, Aspect and Implicitness
 
 
-\subsubsection{Annotating contextual aspect of EVENTs}
+#### Annotating contextual aspect of EVENTs
 
 We have two values for contextual aspect in the schema, N/A and INT.
 Please note that this is unrelated to grammatical aspect, and these
@@ -1959,13 +1952,13 @@ two aspects give information about the temporal relations in the document,
 not about the grammatical forms used to express them.
 
 
-\paragraph*{N/A}
+\paragraph*{N/A
 
 N/A is our default value for contextual aspect, and simply represents
 that a given EVENT is not intermittent, and is true consistently.
 
 
-\paragraph*{INT - Intermittent}
+\paragraph*{INT - Intermittent
 
 INT is used in situations where there may be a series of smaller events
 within a single EVENT, rather than a single, constant event. Those
@@ -1979,7 +1972,7 @@ Please note that INT will only be used for irregular, unpredictable
 periods (like the period of time between seizures or vomiting) and
 not for things like medications or dialysis (which occur on a set
 schedule). An event which occurs at an explicit interval can either
-be treated as a constant (``the patient is taking {[}montelukast{]}
+be treated as a constant (``the patient is taking {[}montelukast{]
 for asthma'') or the interval can be marked as a TIMEX3 (``She undergoes
 dialysis {[}every three days{]}''), which is then TLINKed to the
 original event.
@@ -2007,7 +2000,7 @@ If you are unsure about the contextual aspect of a given EVENT, mark
 it as N/A.
 
 
-\subsubsection{Type of EVENTs}
+#### Type of EVENTs
 
 Some EVENTs do not actually represent real-world events, but instead,
 provide aspectual information (starting, stopping, continuing) about
@@ -2016,7 +2009,7 @@ EVENTs which occur on a timeline, we use the ``type'' marker. It
 has three values: ``N/A'', ``ASP'', and ``EVI\textquotedbl{}. 
 
 
-\paragraph*{N/A}
+\paragraph*{N/A
 
 \textquotedbl{}N/A'' is the default value, and represents the vast
 majority of EVENTs in the schema, and unless explicitly mentioned
@@ -2040,7 +2033,7 @@ will be an EVENT of type N/A, with a span of ``{[}recurrence{]}'',
 as shown above. No ALINK annotations will be made here.
 
 
-\paragraph*{ASP - Aspectual}
+\paragraph*{ASP - Aspectual
 
 The next EVENT type is ASP, which is used to indicate an event whose
 function is to emphasize or code the aspect of a later event, like
@@ -2085,17 +2078,17 @@ So, if you're marking an EVENT ASPECTUAL, the EVENT in question will
 need to be able to be paraphrased (while retaining most of the meaning)
 using words from one of the below four sets, each corresponding to
 a different ALINK type (INITIATES, TERMINATES, REINITIATES, CONTINUES):
-\begin{enumerate}
+\begin{enumerate
 \item started/began/initiated/got going
 \item stopped/ended/finished/finalized/terminated/held
 \item restarted/started over/began again/reinitiated
 \item continued/persisted in/proceeded in/didn't stop
-\end{enumerate}
+\end{enumerate
 If an EVENT cannot be paraphrased using any of the words above, it
 is not aspectual.
 
 
-\paragraph*{EVI - Evidential}
+\paragraph*{EVI - Evidential
 
 The other EVENT type is EVI. EVI EVENTs are a little bit strange,
 in that they are not technically relevant to the patient, but they
@@ -2121,7 +2114,7 @@ was admitted.
 \ex. Dr. Green {[}pointed{]} out a patch of skin discoloration suspicious
 for melanoma.
 
-\ex. We will plan to proceed with surgery unless her tests {[}indicate{]}
+\ex. We will plan to proceed with surgery unless her tests {[}indicate{]
 cardiac problems.
 
 \ex. His home health nurse {[}noticed{]} a mild increase in confusion
@@ -2140,16 +2133,16 @@ the same verbs as EVI over and over again, and will very quickly learn
 to recognize which verbs belong to this class and which do not.
 
 
-\subsubsection{Annotating representation of EVENTs}
+#### Annotating representation of EVENTs
 
-\label{representation}
+\label{representation
 
 Some EVENTs that we will mark are not necessarily explicit EVENTs,
 but rather, ENTITYs which are interpreted in context as representing
 an EVENT.
 
 
-\paragraph*{Default -- Explicit}
+\paragraph*{Default -- Explicit
 
 This is the default value, and corresponds to an EVENT whose span
 itself represents an EVENT:
@@ -2157,7 +2150,7 @@ itself represents an EVENT:
 \ex. There was an {[}attack{]} last week.
 
 
-\paragraph*{Implicit}
+\paragraph*{Implicit
 
 The other possibility is an EVENT whose span looks like it should
 only be a ENTITY, but which nonetheless represents an implicit EVENT
@@ -2180,7 +2173,7 @@ please mark each METONYMIC EVENT both as an EVENT with the METONYMIC
 type specified, and as an ENTITY.
 
 
-\subsection{Annotating degree of EVENTs}
+\subsection{Annotating degree of EVENTs
 
 In order to express an incomplete degree of an EVENT, the ``degree''
 of an event is specified.
@@ -2194,9 +2187,9 @@ permits greater nuance in our representation of EVENTs than POS or
 NEG generally allows.
 
 
-\subsubsection{N/A, MST - Most and LTL - Little}
+#### N/A, MST - Most and LTL - Little
 
-\label{little}
+\label{little
 
 Our three different degrees are N/A, MST, and LTL. N/A is used where
 there is no need to mark either of the other two degrees on the EVENT,
@@ -2216,7 +2209,7 @@ been ``a little'' of an event, or a large (but not complete) change:
 activities. (LTL)
 
 
-\subsection{Marking Difficult annotations}
+\subsection{Marking Difficult annotations
 
 The RED schema includes a method for you, the annotator, to highlight
 annotations which are particularly difficult to make, or which they
@@ -2234,7 +2227,7 @@ more than once or twice, you should reach out to your annotation supervisors
 for clarification of the rules and policies involved.
 
 
-\section{Temporal Expressions}
+###Temporal Expressions
 
 Because we're looking specifically at temporal relations, the next
 step of the annotation process is to find and annotate TIMEX3 objects.
@@ -2245,7 +2238,7 @@ ago'', ``at this time'' and ``early March\textquotedbl{}. In addition,
 specific dates are annotated as TIMEX3 objects as well.
 
 
-\subsection{Identifying and Annotating TIMEX3s}
+\subsection{Identifying and Annotating TIMEX3s
 
 Our approach to marking TIMEX3s is identical to that used in ISO-TimeML,
 and these guidelines are heavily based on the standard established
@@ -2254,14 +2247,14 @@ in \cite{pustejovsky2010iso}.
 Unlike with EVENTs, we will not be selecting headwords only. Instead,
 syntactically speaking, all TIMEX3 annotations should correspond to
 a:
-\begin{itemize}
+\begin{itemize
 \item Noun phrase (``this weekend'', ``tomorrow'', ``yesterday'',
 ``Tuesday'', ``Last May'', ``May 16th'', ``6/9/1985''). 
 \item Adjective phrase (``two-hour-long'', ``half-hour\textquotedbl{}--as
 in ``a half-hour trip'', ``preoperative'', ``post-partum'') 
 \item Adverbial phrase (``lately'', ``recently'', ``shortly'', ``hourly'',
 ``intraoperatively''). 
-\end{itemize}
+\end{itemize
 Importantly, this means that any prepositions which precede (or in
 some cases, follow) a temporal expression are to be left unmarked,
 \textit{even when they seem to provide additional context for interpreting
@@ -2285,15 +2278,15 @@ extracted later.
 Note that post-expression adverbs (often ``ago'') are still captured
 in our spans, so:
 
-\ex. Patient s/p lumpectomy \{2 yrs ago\}
+\ex. Patient s/p lumpectomy \{2 yrs ago\
 
 For the most part, if you have two separate temporal expressions,
 they'll be two separate TIMEX3s, but two adjacent TIMEX3s which together
 specify a single time can be treated as a single span. Look at the
 contrast in \Next:
 
-\ex. \a. I'll come by to check on her at \{3:30pm Tuesday\} \b{.}
-I'll come by to check on her at \{3:30pm\} and on \{Tuesday\}
+\ex. \a. I'll come by to check on her at \{3:30pm Tuesday\} \b{.
+I'll come by to check on her at \{3:30pm\} and on \{Tuesday\
 
 In (b), we know that the doctor is referring to two different timepoints,
 so we mark two TIMEX3s, whereas in (a), the ``3:30pm'' and ``Tuesday''
@@ -2325,11 +2318,11 @@ Finally, please include in the TIMEX3 span things like time zone identifiers,
 time offsets, or other information which provides information which
 is helpful in establishing the point of time being discussed.
 
-\ex. He posted \{Jan. 5th, 2013 at 6:00pm -700 UTC\}\textquotedbl{}
+\ex. He posted \{Jan. 5th, 2013 at 6:00pm -700 UTC\}\textquotedbl{
 
-\ex. We'll talk at \{5pm Mountain\}
+\ex. We'll talk at \{5pm Mountain\
 
-\ex. She called around \{2pm (MDT)\}
+\ex. She called around \{2pm (MDT)\
 
 \ex. His email was sent at \{6:59pm (-500)\}.
 
@@ -2338,13 +2331,13 @@ is helpful in establishing the point of time being discussed.
 \ex. The collapse occurred \{at 2am, plus or minus an hour or so\}.
 
 
-\subsection{Annotating TIMEX3 class}
+\subsection{Annotating TIMEX3 class
 
 Note that in the examples below, if there are multiple TIMEX3s, only
 those which are of the indicated class will be marked.
 
 
-\subsubsection{DATE}
+#### DATE
 
 The majority of TIMEX3 annotations you make will be of the class DATE.
 DATE represents dates. These can be calendar dates (such as \{January
@@ -2381,7 +2374,7 @@ six-months worth of adjuvant therapy.
 \ex. Mr. Zegler was seen in the Hamilton University Medical Center
 with Dr. Carr \{the middle of December 2009\}.
 
-\ex. Carotid artery disease, last checked \{greater than two years\}
+\ex. Carotid artery disease, last checked \{greater than two years\
 prior.
 
 \ex. After \{next week\}, we will see where her pain level is.
@@ -2405,13 +2398,13 @@ DATE:
 \ex. He wasn't sure he wanted surgery at \{that point\}.
 
 
-\subsubsection{TIME}
+#### TIME
 
 TIME is used for specific time points within a day, for instance,
 \{3:00PM\} or \{23:45\}, and once again can be relative (as in example
 \NNext):
 
-\ex. The patient's MRI is scheduled for \{5:30pm\}
+\ex. The patient's MRI is scheduled for \{5:30pm\
 
 \ex. Following the patient's latest seizure \{20 minutes ago\}, we
 are re-evaluating her medications.
@@ -2427,7 +2420,7 @@ or hour-by-hour detail are marked as TIME. Day-by-day (or larger)
 detail is marked with DATE.
 
 
-\subsubsection{DURATION}
+#### DURATION
 
 Sometimes, you will be given a single temporal expression interpreted
 as reflecting a span of time, rather than a point. These are things
@@ -2476,7 +2469,7 @@ both will still be labeled DATE, rather than DURATION:
 she will refrain from eating solid food.
 
 
-\subsubsection{QUANTIFIER}
+#### QUANTIFIER
 
 Although it may seem odd at first, expressions like ``Twice'', ``four
 times'', and ``18 times in the month of May'' are all TIMEX3s.
@@ -2494,7 +2487,7 @@ EVENT, not for quantifiers like ``She has \textit{two} eyes'' or
 ``She lost \textit{5} units of blood\textquotedbl{}.
 
 
-\subsubsection{PREPOSTEXP}
+#### PREPOSTEXP
 
 Similarly odd, Pre- and Post- expressions (``preoperative'', ``post-exposure'',
 ``post-surgery'', ``prenatal'', ``pre-prandial'') all actually
@@ -2503,7 +2496,7 @@ designate specific temporal spans (``The time before the surgery'',
 are TIMEX3s, marked with the class PREPOSTEXP. Usage of this TIMEX3
 is discussed in more detail in Section \ref{prepostexp}.
 
-\ex. Patient underwent a partial hemicolectomy in July 2009. \{Postoperative\}
+\ex. Patient underwent a partial hemicolectomy in July 2009. \{Postoperative\
 scarring noted during exam.
 
 \ex. The patient exhibits \{post-exposure\} changes.
@@ -2519,11 +2512,11 @@ the OR out of concern for uremic platelet dysfunction.
 And sometimes, you will have bare expressions which clearly express
 the PREPOSTEXP meaning, but do not contain the whole expression.
 
-\ex. Pulmonary recommendations for \{pre\}, \{peri\} and \{postop\}
+\ex. Pulmonary recommendations for \{pre\}, \{peri\} and \{postop\
 were made.
 
 
-\subsubsection{SET}
+#### SET
 
 SET is used exclusively in our schema for covering expressions which
 give both a quantifier and an interval (like ``Three times weekly'',
@@ -2552,7 +2545,7 @@ TIMEX3s of type SET should always be TLINKed to EVENTs using the TLINKs
 of the type OVERLAP.
 
 
-\subsection{TIMEX3s vs. Temporal Manner Adverbs}
+\subsection{TIMEX3s vs. Temporal Manner Adverbs
 
 Although TIMEX3s are generally uncontroversial and straightforward,
 there is one ambiguity which merits further discussion. First, consider
@@ -2601,7 +2594,7 @@ otherwise be possible. Humans, reading the text down the road, can
 always understand and interpret as a manner adverb, if it's helpful.
 
 
-\subsection{DOCTIME and SECTIONTIME Annotation}
+\subsection{DOCTIME and SECTIONTIME Annotation
 
 Because all of these annotations are linking the EVENTs and TIMEX3s
 to the time of patient service, it is important that we specify what
@@ -2615,9 +2608,9 @@ time. These will always include a specific date, which will be marked
 not with DOCTIME, but with SECTIONTIME. In these cases, any DocTimeRel
 annotations will link to this section-specific time. \emph{If no separate
 date is explicitly given for a section, assume that it shares the
-overall DOCTIME.}
+overall DOCTIME.
 
-\ex. {[}head start date=\textquotedbl{}{[}12/13/2010{]}'' rev=\textquotedbl{}0002\textquotedbl{}{]}
+\ex. {[}head start date=\textquotedbl{}{[}12/13/2010{]}'' rev=\textquotedbl{}0002\textquotedbl{}{]
 
 Here, the {[}12/13/2010{]} would be marked as DOCTIME, as ``start
 date'' is the closest thing to the ``Document Time'' that we have
@@ -2627,7 +2620,7 @@ for this record.
 
 Here, obviously, the Doctime is the publication time.
 
-\ex. \textit{UPDATE: {[}Saturday, February 20, 2010 at 3:34 PM{]}:}
+\ex. \textit{UPDATE: {[}Saturday, February 20, 2010 at 3:34 PM{]}:
 According to Broomfield county sheriffs, the victim of the shooting
 has died at St. Joseph Hospital.
 
@@ -2637,7 +2630,7 @@ SECTIONTIME, as all that follows it will be true as of this new timestamp.
 
 
 
-\subsection{TIMEX3 Normalization}
+\subsection{TIMEX3 Normalization
 
 A completely separate annotation pass, occurring after RED annotation
 is completed, is TIMEX3 ``normalization'', where the natural language
@@ -2647,9 +2640,9 @@ and connections between TIMEX3s, and is done using a wholly different
 schema and set of annotators. As a part of the TIMEX3 normalization
 process, we might gain information like the following:
 
-\ex. We'll see her again on \{April 18th, 2009\} during her \{2pm\}
-appointment \a. \{April 18th, 2009\} == 04/18/2009 \b{.} \{2pm\}
-== 4/18/2009 1400 {[}Time Zone Unknown{]}
+\ex. We'll see her again on \{April 18th, 2009\} during her \{2pm\
+appointment \a. \{April 18th, 2009\} == 04/18/2009 \b{.} \{2pm\
+== 4/18/2009 1400 {[}Time Zone Unknown{]
 
 \ex. \{Next Tuesday\} there will be further peace talks. \a. \{Next
 Tuesday\} = ``The next Tuesday after {[}DocTime{]}''. \b{.} If
@@ -2667,19 +2660,19 @@ of TIMEX3s. Thus, we have no need to make TLINKs which serve only
 to demonstrate TIMEX3 meanings, such as:
 
 \ex. I'm seeing her \{today\}, for the third time in \{2013\}. \a.
-{*}\{2013\} CONTAINS \{today\}
+{*}\{2013\} CONTAINS \{today\
 
-\ex. They fought \{Friday\}, and again \{yesterday\}. \a. {*} \{Friday\}
-BEFORE \{yesterday\}
+\ex. They fought \{Friday\}, and again \{yesterday\}. \a. {*} \{Friday\
+BEFORE \{yesterday\
 
 Because relations between TIMEX3s serve only to clarify these relationships
 which will be clarified in normalization, we prohibit all TIMEX3 to
 TIMEX3 TLINKs.
 
-\color{black}
+\color{black
 
 
-\section{DUPLICATE marking for repeated spans of text }
+###DUPLICATE marking for repeated spans of text 
 
 Some documents may have significant amounts of copy/pasted or automatically
 quoted text. If, as you are annotating, you come across a section
@@ -2690,11 +2683,11 @@ instead should select the entire paragraph or section which is repeated
 and mark with DUPLICATE.
 
 
-\subsection{Guidelines for finding DUPLICATE text}
+\subsection{Guidelines for finding DUPLICATE text
 
 As to avoid throwing out otherwise good data, DUPLICATE does have
 a few hard and fast laws of usage to keep in mind:
-\begin{enumerate}
+\begin{enumerate
 \item Even if a section or paragraph is repeated several times in a note,
 \textbf{the first instance of that section or paragraph which occurs
 must be fully annotated}. DUPLICATE is only used for subsequent repetitions. 
@@ -2725,7 +2718,7 @@ discussion forum post about cat ownership, many people may say ``I
 have a cat.'' (although it's unlikely to be offset from the matrix
 text, as discussed above). Multiple people saying the same things,
 even if they use the same words, does not constitute DUPLICATE.
-\end{enumerate}
+\end{enumerate
 Remember that DUPLICATE means that a section of text will \textit{not
 be annotated at all at any point in the process}, and improper use
 (on text that isn't actually duplicated) will rob us of valuable data.
@@ -2734,12 +2727,12 @@ offset, or automated to be DUPLICATE, err in favor of fully annotating
 the text.
 
 
-\section{Entity Coreference Relations}
+###Entity Coreference Relations
 
-\label{corefannotation}
+\label{corefannotation
 
 While you are annotating the EVENT/ENTITY markables pass, we want
-you to also annotate all \textquotedbl{}Coreference\textquotedbl{}
+you to also annotate all \textquotedbl{}Coreference\textquotedbl{
 relations betweene ENTITIES. These can be thought of in two categories
 -- relations that show that two things are the same (IDENT and APPOS)
 and relations that show that they have a structural relationship,
@@ -2753,23 +2746,23 @@ al. 2004 (\cite{poesio2004centering}), Poesio 1997 (\cite{poesio1997conversation
 and Savova et al. 2011 (\cite{savova2011anaphoric}).
 
 
-\subsection{IDENTITY and APPOSITION of ENTITIES}
+\subsection{IDENTITY and APPOSITION of ENTITIES
 
 
-\subsubsection{IDENTICAL }
+#### IDENTICAL 
 
 Two entities have an IDENTICAL relation if they refer to the same
 discourse referent. The IDENTICAL relation has several important semantic
 characteristics%
 \footnote{Following the MUC-7 specifications%
 }: 
-\begin{itemize}
+\begin{itemize
 \item The relation is symmetrical, i.e., non-directional: (if A is IDENT
 to B, then B is IDENT to A). This is different from relations like
 WHOLE/PART and SET/MEMBER, which are directional by defition. 
 \item It is also transitive: if A is IDENT to B and B is IDENT to C, then
 A is IDENT to C. . 
-\end{itemize}
+\end{itemize
 The canonical example of this, and perhaps the bulk of IDENT annotation
 work, will be the marking of pronominal antecedents:
 
@@ -2785,12 +2778,12 @@ and \textquotedbl{}First Lady\textquotedbl{} in the example below
 \ex. {[}Michele Obama{]}$_{e1}$ is a busy {[}lady{]}, {[}she{]}$_{e1}$
 visits many schools around the country during the year. Just last
 week, the {[}First Lady{]}$_{e1}$ was in Wisconsin teaching kids
-why it is important to eat healthy and exercise \label{Mobama}
+why it is important to eat healthy and exercise \label{Mobama
 
 Yet example \ref{Mobama} also illustrates this question of what to
 do with attribution, as in the entity \textquotedbl{}is a busy {[}lady{]}\textquotedbl{}.
 The fundamental rule we'll follow with this is the following: 
-\begin{itemize}
+\begin{itemize
 \item If \textquotedbl{}X is Y\textquotedbl{} is actually showing the equivalence
 of the identities of two mentions (such as \textquotedbl{}Clark Kent
 is Superman\textquotedbl{}), then these are IDENT. 
@@ -2808,9 +2801,9 @@ is the tallest man in the room\textquotedbl{}), then use BRIDGING.
 is less of a separate referent and more of an attribute of X) and
 cannot be framed as a SET/MEMBER or BRIDGING relationship, then do
 not mark any relation at all. 
-\end{itemize}
+\end{itemize
 
-\subsubsection{APPOSITIVE}
+#### APPOSITIVE
 
 Two entities have an APPOSITIVE relation if two NPs having the same
 semantic meaning occur adjacent to one another, separated only by
@@ -2824,7 +2817,7 @@ This may make sense if one looks at the syntactic tree -- note that
 their separate noun phrases are split:
 
 \ex. My {[}friend{]} who works there, {[}John Smith{]}, makes bread.
-\label{apposlong}
+\label{apposlong
 
 \ex. \Tree [.S [.NP [.NP [.NP [.DT my ] [.NN friend ] ] [.RelativeClause who works there ]] [.NP John Smith ] ] [.VP makes bread ]]
 
@@ -2855,13 +2848,13 @@ In some cases, APPOSITIVES may include multiple entities. In the case
 that there are more than 2 markables in the apposition, we will nest
 these using multiple, separate APPOS relations.
 
-\ex. {[}AUTHOR{]}: Company {[}President{]}, {[}Mr. Johnson{]}
+\ex. {[}AUTHOR{]}: Company {[}President{]}, {[}Mr. Johnson{]
 
 We would create one APPOSITIVE in which {[}Mr. Johnson{]} would be
 the Head, and {[}President{]} would be the Attribute. Then, we would
-create a second APPOSITIVE with {[}President{]} as the Head, and {[}AUTHOR{]}
+create a second APPOSITIVE with {[}President{]} as the Head, and {[}AUTHOR{]
 as the Attribute. In these cases, we still would only include the
-HEAD of the first APPOSITIVE in other relations, thus, {[}AUTHOR{]}
+HEAD of the first APPOSITIVE in other relations, thus, {[}AUTHOR{]
 and {[}President{]} would not be eligible for inclusion in any other
 relation. You probably noticed that due to the nature of the nesting
 and the specificity of the proper name {[}Mr. Johnson{]}, the nesting
@@ -2873,13 +2866,13 @@ multiple ENTITYs, as it is more specific on the specificity hierarchy:
 
 
 \centerline{Proper noun > pronoun > definite NP > indefinite specific
-NP > non-specific NP}
+NP > non-specific NP
 
 If both ENTITYs have the same level of specificity, select the left-most
 ENTITY as the head.
 
 
-\subsection{\label{bridgingsection}WHOLE/PART}
+\subsection{\label{bridgingsection}WHOLE/PART
 
 Two entities exist in a WHOLE/PART relationship if one can be thought
 of as part of the other, larger composite entity. These can be simple
@@ -2903,45 +2896,45 @@ do not contain any WHOLE/PART relations:
 \ex. {[}Mt. Everest{]} lies on the border between {[}China{]} and
 {[}Nepal{]}.
 
-\ex. In the {[}house{]}, there are several {[}visitors{]}.\label{visitorsinhouse}
+\ex. In the {[}house{]}, there are several {[}visitors{]}.\label{visitorsinhouse
 
 Note that WHOLE/PART relationships are essentially \textbf{hierarchical},
 in that they may theoretically have a whole chain of relationships
 (a hair is part of a dog, a dog is part of a pack, spatial relations,
 such as:
 
-\ex. We saw the {[}White house{]} while in {[}D.C.{]}.\label{dchouse}
+\ex. We saw the {[}White house{]} while in {[}D.C.{]}.\label{dchouse
 
 The difference between \ref{visitorsinhouse} and \ref{dchouse} reveals
 a difficult boundary case that you will have to ponder -- what counts
 as \textquotedbl{}compositionally part\textquotedbl{} of a thing.
-This is particularly salient when the \textquotedbl{}whole\textquotedbl{}
+This is particularly salient when the \textquotedbl{}whole\textquotedbl{
 is a larger spatial entity such as a city, county or country. When
-in doubt, remember this \textquotedbl{}compositionality\textquotedbl{}
-idea. If the removal of the potential \textquotedbl{}part\textquotedbl{}
+in doubt, remember this \textquotedbl{}compositionality\textquotedbl{
+idea. If the removal of the potential \textquotedbl{}part\textquotedbl{
 would have the potential of changing the nature of the \textquotedbl{}whole\textquotedbl{},
 even a slight bit, then one might consider it compositional and use
 WHOLE/PART. If, in contrast, the part is merely temporarily or arbitrarily
 located in the space of the other item, do not use WHOLE/PART.
 
-\vspace{0.25cm}
+\vspace{0.25cm
  \fbox{ %
-\begin{tabular}{p{0.6in}p{14cm}}
+\begin{tabular}{p{0.6in}p{14cm}
 \includegraphics[width=0.5in]{warning} \\
 \textbf{Caution!}  & \raisebox{4mm}{%
 \parbox[c]{14cm}{%
-\vspace{2mm}
+\vspace{2mm
 \textit{Note that while IDENT, SET/MEMBER and BRIDGING will also be
 used to mark EVENTS, WHOLE/PART is only for ENTITIES. Relationship
 that you are tempted to mark as WHOLE/PART should probably be CONTAINS-SUBEVENT
 or SET/MEMBER instead. }%
 }}\ \
 \tabularnewline
-\end{tabular}} \vspace{0.25cm}
+\end{tabular}} \vspace{0.25cm
 
 
 
-\subsection{\label{sub:SET-MEMBER}SET-MEMBER}
+\subsection{\label{sub:SET-MEMBER}SET-MEMBER
 
 A SET-MEMBER relationship exists when one entity or event can be thought
 of as one or several members of a larger group. SET-MEMBER relations
@@ -2965,14 +2958,14 @@ a group or another set.
 
 \ex. {[}Terrorists{]} are among the most dangerous {[}criminals{]},
 and {[}Al Nuri{]} is perhaps the most dangerous {[}terrorist{]} alive.
-\a. {[}Criminals{]} SET/MEMBER {[}Terrorists{]} \b{.} {[}Terrorists{]}
-SET/MEMBER {[}Al Nuri{]}, {[}Terrorist{]}
+\a. {[}Criminals{]} SET/MEMBER {[}Terrorists{]} \b{.} {[}Terrorists{]
+SET/MEMBER {[}Al Nuri{]}, {[}Terrorist{]
 
 Any number of MEMBERs may be included in a SET/MEMBER relation, although
 only one Entity is allowed to fill the SET slot.
 
 
-\subsection{BRIDGING}
+\subsection{BRIDGING
 
 If you are unable to use one of the previously discussed links, but
 it is apparent that some sort of link exists which entails that the
@@ -2980,31 +2973,31 @@ events have some sort of link, then use the BRIDGING relation.
 
 There are a few specific cases in which BRIDGING can (and should)
 regularly be used:
-\begin{enumerate}
+\begin{enumerate
 \item Links of asserted identity, where the assertion is itself questioned
 or questionable: 
-\end{enumerate}
-\ex. {[}John{]} was arrested last night, as authorities claim {[}he{]}
-is the {[}killer{]} of a local cobbler, found Monday. \a. {[}John{]}
-IDENTICAL {[}he{]} \b{.} {[}John{]} BRIDGING {[}killer{]}
+\end{enumerate
+\ex. {[}John{]} was arrested last night, as authorities claim {[}he{]
+is the {[}killer{]} of a local cobbler, found Monday. \a. {[}John{]
+IDENTICAL {[}he{]} \b{.} {[}John{]} BRIDGING {[}killer{]
 
 \ex. {[}Grigory Kuznetsov{]}, long thought to be {[}``Rosebud''{]},
-a key Cold War CIA asset, died Friday. \a. {[}Grigory Kuznetsov{]}
-BRIDGING {[}``Rosebud''{]}
+a key Cold War CIA asset, died Friday. \a. {[}Grigory Kuznetsov{]
+BRIDGING {[}``Rosebud''{]
 
 See Section \ref{judgement} for more information about this usage.
 
 \ex. She had a small stroke in {[}recovery{]} from her {[}colectomy{]}.
-\a. {[}colectomy{]} BRIDGING {[}recovery{]}
+\a. {[}colectomy{]} BRIDGING {[}recovery{]
 
 Temporally-grounded IDENTITY links which are no longer valid. For
 instance:
 
 \ex. {[}Ratzinger{]} was {[}Pope{]} until his retirement in 2013.
-\a. {[}Ratzinger{]} BRIDGING {[}Pope{]}
+\a. {[}Ratzinger{]} BRIDGING {[}Pope{]
 
 \ex. {[}Greg Bear{]}, former {[}Head{]} of the National Croquet society,
-died Wednesday. \a. {[}Greg Bear{]} BRIDGING {[}Head{]}
+died Wednesday. \a. {[}Greg Bear{]} BRIDGING {[}Head{]
 
 Because BRIDGING is intended as a last resort, any contexts (beyond
 those above) in which an annotator is consistently using bridging
@@ -3012,12 +3005,12 @@ should be passed up the chain, so that a better way to handle those
 cases can be found.
 
 
-\subsection{General Guidelines for Annotating Coreference}
+\subsection{General Guidelines for Annotating Coreference
 
-\label{corefguidelines}
+\label{corefguidelines
 
 
-\subsubsection{Never link EVENTs to ENTITIES (except with BRIDGING)}
+#### Never link EVENTs to ENTITIES (except with BRIDGING)
 
 In all coreference relations (IDENTICAL, APPOSITIVE, WHOLE/PART, AND
 SET-MEMBER), Entities can be linked to Entities, and Events can be
@@ -3031,16 +3024,16 @@ Occaisionally one will encounter an ENTITY and an EVENT which are
 essentially two facets of the same complex type (cf Pustjovsky XXXX).
 Usually we strongly bias towards EVENTs, but this will occaisionally
 occur, and the two should be linked using BRIDGING. 
-\begin{example}
-The company says it stores your {[}\textsubscript{entity} texts{]}
-on its server for thirty days after you {[}\textsubscript{event}
+\begin{example
+The company says it stores your {[}\textsubscript{entity} texts{]
+on its server for thirty days after you {[}\textsubscript{event
 text{]} them
 
 texts BRIDGING text
-\end{example}
+\end{example
 
-\subsubsection{WHOLE/PART, SET/MEMBER, and BRIDGING relations are inherited by IDENT
-chains}
+#### WHOLE/PART, SET/MEMBER, and BRIDGING relations are inherited by IDENT
+chains
 
 If you have an IDENT chain represented by A-A-A-A-A, and A participates
 as the PART in a WHOLE/PART relation or as the MEMBER in a SET/MEMBER
@@ -3052,7 +3045,7 @@ mentions will be connected to their place as a PART or a MEMBER through
 spider-webbing.
 
 
-\subsubsection{Bridging relations are re-created for subsequent mentions}
+#### Bridging relations are re-created for subsequent mentions
 
 In bridging relations (i.e. WHOLE/PART, SET/MEMBER), any new mention
 of the WHOLE (or the SET) that is followed by mentions of the PARTs
@@ -3060,7 +3053,7 @@ of the WHOLE (or the SET) that is followed by mentions of the PARTs
 relations in the following:
 
 \ex. {[}I{]}$_{M1}$ met with the {[}patient{]}$_{M2}$ today. {[}We{]}$_{S1}$
-discussed treatment options for {[}her{]}$_{M2-1}$ cancer. {[}We{]}
+discussed treatment options for {[}her{]}$_{M2-1}$ cancer. {[}We{]
 also reviewed in {[}our{]}$_{S2}$ discussion the results of {[}her{]}$_{M2-2}$
 recent CT-scan. {[}My{]}$_{M1}$ recommendation is adjuvant chemotherapy.
 \a. SET {[}We{]}$_{S1}$: MEMBERs {[}I{]}$_{M1}$, {[}patient{]}$_{M2}$,
@@ -3073,14 +3066,14 @@ are IDENTICAL; and {[}We{]}$_{S1}$, {[}We{]}, and {[}our{]}$_{S2}$
 are IDENTICAL.
 
 
-\subsubsection{Use SET/MEMBER to define groups of people}
+#### Use SET/MEMBER to define groups of people
 
-The members of groups of people (i.e. {[}we{]}, {[}they{]}, the {[}board{]}
+The members of groups of people (i.e. {[}we{]}, {[}they{]}, the {[}board{]
 of directors, etc.) are always annotated with SET/MEMBER relations,
 as in \Last, not WHOLE/PART.
 
 
-\subsubsection{Don't link ACTUAL and GENERIC items}
+#### Don't link ACTUAL and GENERIC items
 
 In analogy with the principle for not TLINKing HYP/GEN to ACT/UNCERTAIN
 events, ACTUAL and GENERIC items can never be in an IDENTICAL, APPOSITIVE,
@@ -3089,39 +3082,39 @@ or WHOLE/PART relationship. They can, however, be SET/MEMBER, as in
 
 \ex. {[}I{]} discussed with {[}Mrs. Ambry{]}$_{ACTUAL}$ the results
 of a local clinical trial in which {[}patients{]}$_{GENERIC}$ with
-{[}cancer{]}$_{GENERIC}$ recovered successfully on the {[}drug{]}
+{[}cancer{]}$_{GENERIC}$ recovered successfully on the {[}drug{]
 without reoccurrence. Given {[}her{]} colon {[}cancer{]}$_{ACTUAL}$
 and the success of the {[}drug{]}, {[}I{]} recommend {[}it{]}. \a.
-SET {[}patients{]}: MEMBER {[}Mrs. Ambry{]} \b{.} {[}Mrs. Ambry{]}
+SET {[}patients{]}: MEMBER {[}Mrs. Ambry{]} \b{.} {[}Mrs. Ambry{]
 IDENTICAL {[}her{]} \c{.} SET {[}cancer{]}$_{GENERIC}$: MEMBER {[}cancer{]}$_{ACTUAL}$
 \d{.} {[}I{]} IDENTICAL {[}I{]} \e. {[}drug{]} IDENTICAL {[}drug{]},
-{[}it{]}
+{[}it{]
 
 
-\subsubsection{Identifiers are people too}
+#### Identifiers are people too
 
 Email addresses (and other person-specific identifiers) can be linked
 to their referent humans using IDENTICAL or APPOSITIVE.
 
 \ex. You should contact {[}Bill Franklin{]} for more information.
-{[}He{]}'s {[}bill.franklin@hotmail.gov{]} \a. {[}Bill Franklin{]}
-IDENTICAL {[}He{]}, {[}bill.franklin@hotmail.gov{]}
+{[}He{]}'s {[}bill.franklin@hotmail.gov{]} \a. {[}Bill Franklin{]
+IDENTICAL {[}He{]}, {[}bill.franklin@hotmail.gov{]
 
 \ex. {[}George Maddox{]} ({[}exampleguy6969@hotmail.gov{]}) should
-be able to help you out. \a. {[}George Maddox{]} APPOSITIVE {[}exampleguy6969@hotmail.gov{]}
+be able to help you out. \a. {[}George Maddox{]} APPOSITIVE {[}exampleguy6969@hotmail.gov{]
 
-\ex. Did you ask {[}Herbie{]} ({[}prairiedog1564{]} on here)? {[}He{]}
-might know! \a. {[}Herbie{]} APPOSITIVE {[}prairiedog1564{]}, {[}He{]}
+\ex. Did you ask {[}Herbie{]} ({[}prairiedog1564{]} on here)? {[}He{]
+might know! \a. {[}Herbie{]} APPOSITIVE {[}prairiedog1564{]}, {[}He{]
 
 \ex. Ms. {[}Jenny Tutone{]} (SSN: {[}867-53-0900{]}) was arrested
-last week. \a. {[}Jenny Tutone{]} IDENTICAL {[}867-53-0900{]}
+last week. \a. {[}Jenny Tutone{]} IDENTICAL {[}867-53-0900{]
 
 Phone numbers are not person-specific, and thus, are not eligible
 for these relations.
 
 
-\subsubsection{Avoid annotating coreference links based solely on your personal
-evaluation or judgement}
+#### Avoid annotating coreference links based solely on your personal
+evaluation or judgement
 
 \label{judgement} Occasionally, authors (or context) will suggest
 coreference or identity, or will explicitly state the uncertainty
@@ -3133,7 +3126,7 @@ being held without bond. The {[}killer{]} reportedly had a large tattoo
 of a squid on {[}his{]} face, similar to the one present in {[}Mr.
 Holbein's{]} booking photo. \a. {[}Hans Holbein{]} IDENTICAL {[}man{]},
 {[}alleged killer{]},{[}Mr. Holbein's{]} \b{.} {[}killer{]} IDENTICAL
-{[}his{]}
+{[}his{]
 
 In this example, all that we can be sure of is the two IDENTICAL chains
 above. It is incredibly tempting, especially given the seemingly irrefutable
@@ -3154,7 +3147,7 @@ being held without bond. The {[}killer{]} reportedly had a large tattoo
 of a squid on {[}his{]} face, similar to the one present in {[}Mr.
 Holbein's{]} booking photo. \a. {[}Hans Holbein{]} IDENTICAL {[}man{]},
 {[}alleged killer{]},{[}Mr. Holbein's{]} \b{.} {[}killer{]} IDENTICAL
-{[}his{]} \b{.} {[}killer{]} BRIDGING {[}Mr. Holbein's{]}
+{[}his{]} \b{.} {[}killer{]} BRIDGING {[}Mr. Holbein's{]
 
 By doing this (alongside the other necessary annotations), we've established
 two clear IDENTICAL chains, and made clear that there is a link between
@@ -3168,7 +3161,7 @@ official in a later conference stated that terrorists often seek out
 {[}countries{]} with little law and order as a safe haven.
 
 Here, it's tempting to use one's knowledge of the world to SET/MEMBER
-{[}countries{]} with {[}Yemen{]}, {[}Somalia{]}, and {[}South Sudan{]}
+{[}countries{]} with {[}Yemen{]}, {[}Somalia{]}, and {[}South Sudan{]
 (and to likely exclude {[}Norway{]}). However, no such relation is
 given in the text, and therefore, one should not be created.
 
@@ -3189,7 +3182,7 @@ the fact that illegal immigrants are a subset of immigrants)
 
 In addition to the (uncontroversial) relations above, there are three
 pitfalls, all based on external knowledge.
-\begin{enumerate}
+\begin{enumerate
 \item Americans SET/MEMBER Barack Obama
 
 
@@ -3208,16 +3201,16 @@ support in the text.
 That Obama is an illegal immigrant is strongly implied by these posts.
 However, it's not explicit, and therefore, we cannot mark it.
 
-\end{enumerate}
+\end{enumerate
 So, again, in summary, your annotations need to be sourced from the
 text itself, rather than from your knowledge of the entities, people,
 and places involved, and asserted IDENTITY links can be made using
 BRIDGING.
 
 
-\subsubsection{Identity Annotation for very broadly GENERIC entities}
+#### Identity Annotation for very broadly GENERIC entities
 
-\label{vbroadgens}
+\label{vbroadgens
 
 Some set/member relations are so general that they define huge, all-encompassing
 sets. This is most clear when considering terms such as \textquotedbl{}everything\textquotedbl{},
@@ -3231,22 +3224,22 @@ own sanity as annotators), a small set of extremely broad GENERIC
 instances will be defined as being out of the scope of our annotation.
 
 Terms to omit from SET/MEMBER annotation: 
-\begin{itemize}
+\begin{itemize
 \item \textquotedbl{}Everyone\textquotedbl{}, \textquotedbl{}people\textquotedbl{},
 and generic \textquotedbl{}you\textquotedbl{}: When these are used
 in the truly broad sense (so that they encompass all persons mentioned
 in the text), omit them from annotation. 
 \item generic \textquotedbl{}we\textquotedbl{}, \textquotedbl{}everyone\textquotedbl{},
 and \textquotedbl{}people\textquotedbl{}, when they do not describe
-a document-specific set like \textquotedbl{}americans\textquotedbl{}
+a document-specific set like \textquotedbl{}americans\textquotedbl{
 but rather some broader generic set like \textquotedbl{}humanity\textquotedbl{},
 does not get set/member relations. 
 \item \textquotedbl{}someone\textquotedbl{}, \textquotedbl{}anyone\textquotedbl{},
 \textquotedbl{}one\textquotedbl{}: These do not entail set/member
 relationships between themselves and the possible candidates. 
-\end{itemize}
+\end{itemize
 
-\subsubsection*{IDENT over generic you, one, etc.}
+\subsubsection*{IDENT over generic you, one, etc.
 
 We do, however, want to grab identity relations with very generic
 terms, and especially want identity relations with terms like \textquotedbl{}you\textquotedbl{}.
@@ -3260,10 +3253,10 @@ that would be true for any member of the set, and continue that hypothetical.
 In such a hypothetical, we want an identity chain between the same
 mentions. Put more concretely; given two mentions of generic \textquotedbl{}you\textquotedbl{},
 you can usually replace the first with either \textquotedbl{}somebody\textquotedbl{},
-\textquotedbl{}one\textquotedbl{} or \textquotedbl{}anyone\textquotedbl{}
+\textquotedbl{}one\textquotedbl{} or \textquotedbl{}anyone\textquotedbl{
 in English. In that case, the question is whether later mentions can
 be replaced with pronoun such as \textquotedbl{}they\textquotedbl{},
-\textquotedbl{}he\textquotedbl{} or \textquotedbl{}she\textquotedbl{}
+\textquotedbl{}he\textquotedbl{} or \textquotedbl{}she\textquotedbl{
 without changes in the implied meaning. If so, they deserve to be
 IDENT in the same chain; otherwise they are probably different. So
 for example:
@@ -3276,14 +3269,14 @@ your parole officer the next day?).
 rephrasing attempt:
 
 \ex. If \textbf{someone} gets out on parole, what happens then, and
-how long does it last? (and, specifically, who takes \textbf{them}
+how long does it last? (and, specifically, who takes \textbf{them
 home once \textbf{they} get out of jail, or do \textbf{they} just
 get turfed out and expected to check in with \textbf{their} parole
 officer the next day?).
 
 In consider two other sentences, presumably from the same document.
 While these both fit into the idea of GENERIC you, the second doesn't
-pass this same \textquotedbl{}hypothetical somebody\textquotedbl{}
+pass this same \textquotedbl{}hypothetical somebody\textquotedbl{
 test:
 
 \ex. If you choose not to vote, then you choose to give your opponents
@@ -3293,7 +3286,7 @@ you bloody well expect to happen\textquotedbl{}?
 the rephrasal attempt seems to change the meaning in this one, and
 thus these should be different IDENT chains:
 
-\ex. If \textbf{someone} chooses not to vote, then \textbf{they}
+\ex. If \textbf{someone} chooses not to vote, then \textbf{they
 choose to give \textbf{their} opponents all the power. This is another
 case of \textquotedbl{}well what did \textbf{they} bloody well expect
 to happen\textquotedbl{}?
@@ -3302,10 +3295,10 @@ to happen\textquotedbl{}?
 
 
 
-\section{Testing Your Understanding}
+###Testing Your Understanding
 
 
-\subsubsection{Testing your Understanding}
+#### Testing your Understanding
 
 Since this can be a hard distinction to make, the following lists
 a number of example sentences. Apply the linguistic tests above and
@@ -3329,18 +3322,18 @@ and oil \ref{test3}. You should also have found the following EVENTs:
 reported \ref{test1}, swallowing \ref{test1}, shortness of breath\ref{test1},
 sectarian violence \ref{test2}, continued \ref{test2}, spread \ref{test2},
 took her car \ref{test3}, change \ref{test3}. Consult the next section
-for how their headwords will be annotated.}
+for how their headwords will be annotated.
 
-The suspect {[}struck{]} the police officer several times before {[}running{]}
+The suspect {[}struck{]} the police officer several times before {[}running{]
 away.
 
 \ex. The People's army {[}attacked{]}, triggering a massive {[}reprisal{]}.
-\begin{itemize}
+\begin{itemize
 \item For coordinated heads, both of the heads will be labeled as separate
 elements and annotated separately. (e.g., ``They {[}shipped{]} and
-{[}unloaded{]} the cargo\textquotedbl{}; ``Potential {[}carcinoma{]}
+{[}unloaded{]} the cargo\textquotedbl{}; ``Potential {[}carcinoma{]
 or {[}polyp{]}'', etc.)
-\end{itemize}
+\end{itemize
 \ex. We also discussed {[}some{]}$_{S2-M1}$ of the {[}toxicities{]}$_{S1}$
 of fluoropyrimidine-based chemotherapy, including {[}fatigue{]}$_{M2}$,
 {[}nausea{]}$_{M2}$, and {[}infection{]}$_{M2}$. \a. SET {[}toxicities{]}$_{S1}$:
@@ -3355,7 +3348,7 @@ Occasionally, quantifying phrases indicate a WHOLE/PART relation,
 as in \Next.
 
 \ex. a {[}chain{]}$_{S1}$ of fault {[}lines{]}$_{M1}$ and {[}volcanoes{]}$_{M2}$
-known as the {[}Pacific{]} ``{[}ring{]}$_{W1}$ of {[}fire{]}$_{P1}$\textquotedbl{}
+known as the {[}Pacific{]} ``{[}ring{]}$_{W1}$ of {[}fire{]}$_{P1}$\textquotedbl{
 \a. SET {[}chain{]}$_{S1}$: MEMBERs {[}lines{]}$_{M1}$, {[}volcanoes{]}$_{M2}$
 \a. WHOLE {[}ring{]}$_{W1}$: PART {[}fire{]}$_{P1}$
 
@@ -3370,7 +3363,7 @@ Coreference relations such as SET/MEMBER and WHOLE/PART are discussed
 in more depth in Section \ref{corefannotation}.
 
 
-\paragraph{Medical Test Results, Measurements, and Labs}
+\paragraph{Medical Test Results, Measurements, and Labs
 
 When discussing a test and its results, we still maintain our policy
 of marking the syntactic head.
@@ -3407,7 +3400,7 @@ disorder, disease, or disorder, as below:
 Here, the test is an EVENT, as is the revelation itself, as well as
 the diagnosis, and all merit inclusion on the timeline. Put differently,
 a measure isn't a separate EVENT from the test which indicated it,
-but a diagnosis or disease shown by a test is. Note that {[}showed{]}
+but a diagnosis or disease shown by a test is. Note that {[}showed{]
 and {[}indicates{]} are both EVENTs in their own right, of TYPE EVIDENTIAL.
 
 Outside of the medical domain, all such EVENTs are marked:
@@ -3416,11 +3409,11 @@ Outside of the medical domain, all such EVENTs are marked:
 killer's mental {[}status{]} was {[}normal{]}.
 
 \ex. {[}Readings{]} of tritium in seawater taken from the bay near
-the crippled Fukushima nuclear plant has {[}shown{]} 4700 {[}becquerels{]}
+the crippled Fukushima nuclear plant has {[}shown{]} 4700 {[}becquerels{]
 per liter.
 
 
-\part{Event Relations Pass: Linking Events Together}
+##Event Relations Pass: Linking Events Together
 
 %%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -3434,7 +3427,7 @@ Although these relationships may end up forming complicated structures
 of meaning, each relationship is a single link which will be presented
 in the form:
 
-\ex. {[}EVENT1{]} RELATION {[}EVENT2{]}
+\ex. {[}EVENT1{]} RELATION {[}EVENT2{]
 
 Where RELATION is any of a range of relation types, such as BEFORE,
 CONTAINS, IDENTICAL, or PART-WHOLE. These types are described in detail
@@ -3455,20 +3448,20 @@ container anchor, which may contain additional EVENTs later on in
 the note. So, the finished annotation would look like:
 
 \ex. The patient was to meet with oncology this month. \a. \{this
-month\} CONTAINS {[}meet{]}
+month\} CONTAINS {[}meet{]
 
 This is not the only kind of link, however. In this annotation task
 we are attempting to get not only a sense of the timeline of events,
 but to also understand which events cause other events, which events
 are part of larger events, and a range of other relationships. Making
 such an imposing task viable requires the use of a concept called
-``narrative containers.\textquotedbl{}
+``narrative containers.\textquotedbl{
 
 %%%% NARRATIVE CONTAINERS %%%%
 
 
 
-\section{Narrative Containers}
+###Narrative Containers
 
 Our reasoning for using narrative containers is simple: Temporal relations
 annotation is prone to never-ending webs of temporal links between
@@ -3481,14 +3474,14 @@ in the following temporal links:
 
 \ex. Napoleon was exiled to Elba in 1814. This has little to do with
 Mr. Chen's rash and subsequent leg pain, which both developed after
-his surgery in 2009. \a. \{1814\} CONTAINS {[}exiled{]} \b{.} \{2009\}
-CONTAINS {[}surgery{]} \b{.} \{2009\} CONTAINS {[}rash{]} \b{.}
-\{2009\} CONTAINS {[}pain{]} \b{.} \{1814\} BEFORE {[}surgery{]}
-\b{.} \{1814\} BEFORE {[}rash{]} \b{.} \{1814\} BEFORE {[}pain{]}
-\b{.} {[}exiled{]} BEFORE {[}pain{]} \b{.} {[}exiled{]} BEFORE {[}rash{]}
+his surgery in 2009. \a. \{1814\} CONTAINS {[}exiled{]} \b{.} \{2009\
+CONTAINS {[}surgery{]} \b{.} \{2009\} CONTAINS {[}rash{]} \b{.
+\{2009\} CONTAINS {[}pain{]} \b{.} \{1814\} BEFORE {[}surgery{]
+\b{.} \{1814\} BEFORE {[}rash{]} \b{.} \{1814\} BEFORE {[}pain{]
+\b{.} {[}exiled{]} BEFORE {[}pain{]} \b{.} {[}exiled{]} BEFORE {[}rash{]
 \b{.} {[}exiled{]} BEFORE {[}surgery{]} \b{.} {[}exiled{]} BEFORE
-\{2009\} \b{.} {[}surgery{]} BEFORE {[}rash{]} \b{.} {[}surgery{]}
-BEFORE {[}pain{]} \b{.} {[}rash{]} BEFORE {[}pain{]}
+\{2009\} \b{.} {[}surgery{]} BEFORE {[}rash{]} \b{.} {[}surgery{]
+BEFORE {[}pain{]} \b{.} {[}rash{]} BEFORE {[}pain{]
 
 As we can see, not only is the temporal linking of Napoleon's exile
 to each modern EVENT absurd, but a number of the TLINKs described
@@ -3498,7 +3491,7 @@ of events increased, the number of relationships you might have to
 make would increase exponentially.
 
 This is a reason for adopting the concept of the narrative container,
-discussed extensively in Pustejovsky and Stubbs 2011 \cite{DBLP:conf/acllaw/PustejovskyS11}
+discussed extensively in Pustejovsky and Stubbs 2011 \cite{DBLP:conf/acllaw/PustejovskyS11
 as well as in Styler et al 2014 (\cite{Styler:2014aa}). A narrative
 container can be thought of as a temporal bucket into which an EVENT
 or series of EVENTs may fall. These narrative containers are often
@@ -3521,10 +3514,10 @@ containers} the relations between the items which reside within them:
 
 \ex. Napoleon was exiled to Elba in 1814. This has little to do with
 Mr. Chen's rash and subsequent leg pain, which both developed after
-his surgery in 2009. \a. \{1814\} CONTAINS {[}exiled{]} \b{.} \{2009\}
-CONTAINS {[}surgery{]} \b{.} \{2009\} CONTAINS {[}rash{]} \b{.}
-\{2009\} CONTAINS {[}pain{]} \b{.} {[}surgery{]} BEFORE {[}rash{]}
-\b{.} {[}rash{]} BEFORE {[}pain{]}
+his surgery in 2009. \a. \{1814\} CONTAINS {[}exiled{]} \b{.} \{2009\
+CONTAINS {[}surgery{]} \b{.} \{2009\} CONTAINS {[}rash{]} \b{.
+\{2009\} CONTAINS {[}pain{]} \b{.} {[}surgery{]} BEFORE {[}rash{]
+\b{.} {[}rash{]} BEFORE {[}pain{]
 
 In doing so, we can cut the number of required TLINKs in half, while
 still capturing all of the information of the fully-expanded version
@@ -3535,7 +3528,7 @@ will never be linked together; this information is captured in post-processing
 of your annotations.
 
 
-\subsection{Expressing Narrative Containers}
+\subsection{Expressing Narrative Containers
 
 You should think of all documents as starting with three implicit
 narrative containers, marked by DocTimeRel. One bucket contains all
@@ -3548,7 +3541,7 @@ this note:
 
 \textbf{\textit{This could use a nice general-domain example. Annotators,
 please keep an eye out for a good example sentence and send it along
-to your supervisor!}}
+to your supervisor!}
 
 \ex. \label{manycontainers} \myul[yellow]{The patient recovered
 well after} \myul[red]{her first surgery on December 16th to remove
@@ -3573,21 +3566,21 @@ We also need to know that, for instance, the April 19th surgery will
 happen AFTER the surgery in three weeks. These containers and their
 events are shown in list format in Table 1.
 
-\begin{table}
-\begin{centering}
-\begin{tabular}{|llllll|}
+\begin{table
+\begin{centering
+\begin{tabular}{|llllll|
 \hline 
 \myul[yellow]{BEFORE DocTime}  & \myul[red]{Dec 16th}  & \myul[orange]{Jan 3rd}  & \myul[blue]{OVERLAP DocTime}  & \myul[green]{In 3 Weeks}  & \myul[black]{Apr. 19th} \tabularnewline
 recovered  & surgery  & admitted  & reviewed  & 2nd surgery  & 3rd surgery \tabularnewline
 follow-up CT  & remove  & fever  &  &  & resection \tabularnewline
  &  & treated  &  &  & biopsies \tabularnewline
 \hline 
-\end{tabular}\caption{Narrative containers and EVENTs in \ref{manycontainers}}
+\end{tabular}\caption{Narrative containers and EVENTs in \ref{manycontainers}
 
-\par\end{centering}
+\par\end{centering
 
 \label{180table} 
-\end{table}
+\end{table
 
 
 Again, the critical function of narrative containers is that using
@@ -3604,9 +3597,9 @@ in mind, as to avoid wasting effort marking temporal relations which
 are already captured straightforwardly.
 
 
-\subsection{EVENTs as Containers}
+\subsection{EVENTs as Containers
 
-\label{eventcon}
+\label{eventcon
 
 So far, we've been discussing temporal expressions (TIMEX3s) as providing
 the boundaries of narrative containers, but EVENTs themselves can
@@ -3641,16 +3634,16 @@ example, the below paragraph:
 showed some adhesions and scarring in the abdominal cavity}. \myul[blue]{She
 did show some bleeding at the incision during her subsequent CT scan}.
 \myul[green]{For her followup, we will take a CBC and remove her
-stitches.}
+stitches.
 
 Here, we have three narrative containers, the surgery, the CT scan,
 and the followup, with no TIMEX3s at all, all shown in Table 2, below.
 The containment relations in this example are as follows:
 
 \a. {[}surgery{]} CONTAINS {[}adhesions{]} \b{.} {[}surgery{]} CONTAINS
-{[}scarring{]} \c{.} {[}scan{]} CONTAINS {[}bleeding{]} \d{.} {[}followup{]}
+{[}scarring{]} \c{.} {[}scan{]} CONTAINS {[}bleeding{]} \d{.} {[}followup{]
 CONTAINS-SUBEVENT {[}CBC{]} \e. {[}followup{]} CONTAINS-SUBEVENT
-{[}remove{]}
+{[}remove{]
 
 The {[}CBC{]} and the stitches being {[}removed{]} are related to
 {[}followup{]} with CONTAINS-SUBEVENT, as they are compositionally
@@ -3675,20 +3668,20 @@ Once this is completed, inference can easily take place across the
 containers, and the full benefits of our narrative container approach
 can be reaped.
 
-\begin{table}
+\begin{table
 \centering{}\label{155table} %
-\begin{tabular}{|lll|}
+\begin{tabular}{|lll|
 \hline 
 \myul[red]{During Surgery}  & \myul[blue]{During CT}  & \myul[green]{During Followup} \tabularnewline
 adhesions  & bleeding  & CBC \tabularnewline
 scarring  &  & remove \tabularnewline
 \hline 
-\end{tabular}\caption{Narrative containers and EVENTs in \ref{cbcexample}}
-\end{table}
+\end{tabular}\caption{Narrative containers and EVENTs in \ref{cbcexample}
+\end{table
 
 
 
-\subsection{Single-bounded narrative containers}
+\subsection{Single-bounded narrative containers
 
 Although so far we've been discussing the idea of containment (and
 thus, the CONTAINS and CONTAINS-SUBEVENT TLINKs) when discussing narrative
@@ -3696,7 +3689,7 @@ containers, one can still imagine and annotate narrative containers
 which are bounded only on one side. Take, for instance, the below
 example:
 
-\ex. Immediately after her {[}surgery{]}, the patient began to {[}vomit{]}
+\ex. Immediately after her {[}surgery{]}, the patient began to {[}vomit{]
 and developed a high {[}fever{]}.
 
 In this case, the {[}surgery{]} forms one temporal boundary for the
@@ -3709,9 +3702,9 @@ and even BEFORE, and the metaphor of the narrative container is still
 useful in annotating these situations.
 
 
-\subsection{Nested Narrative Containers}
+\subsection{Nested Narrative Containers
 
-\label{russiandolls}
+\label{russiandolls
 
 Sometimes, you will find yourself with a situation where a narrative
 container seems to, itself, belong inside another narrative container.
@@ -3719,7 +3712,7 @@ Here's an example with three levels of nesting:
 
 \textbf{\textit{This could use a nice general-domain example. Annotators,
 please keep an eye out for a good example sentence and send it along
-to your supervisor!}}
+to your supervisor!}
 
 \ex. \label{nestedexampleraw} \myul[red]{December 19th: The patient
 underwent an MRI and EKG as well as emergency surgery.} During the
@@ -3751,23 +3744,23 @@ all, CONTAINS-SUBEVENT bled significantly. Example \Next shows all
 the TLINKs required to fully annotate this sentence, representing
 {[}EVENTs{]} in brackets and \{TIMEX3s\} in curly braces:
 
-\begin{figure*}
-\centerline{ \mbox{\includegraphics[width=3in]{nested}} } \caption{Schematic view of Example \ref{nestedexample} as a Venn diagram}
+\begin{figure*
+\centerline{ \mbox{\includegraphics[width=3in]{nested}} } \caption{Schematic view of Example \ref{nestedexample} as a Venn diagram
 
 
 \label{nestingschematic} 
-\end{figure*}
+\end{figure*
 
 
 \ex. \label{nestedexample} \{December 19th\}: The patient underwent
 an {[}MRI{]} and {[}EKG{]} as well as emergency {[}surgery{]}. During
 the {[}procedure{]}, the patient experienced mild {[}tachycardia{]},
 and she also {[}bled{]} significantly during the initial {[}incision{]}.
-\a. \{December 19th\} CONTAINS {[}MRI{]} \b{.} \{December 19th\}
-CONTAINS {[}EKG{]} \c{.} \{December 19th\} CONTAINS {[}surgery{]}
-\a. {[}surgery{]} CONTAINS {[}tachycardia{]} \b{.} {[}surgery{]}
+\a. \{December 19th\} CONTAINS {[}MRI{]} \b{.} \{December 19th\
+CONTAINS {[}EKG{]} \c{.} \{December 19th\} CONTAINS {[}surgery{]
+\a. {[}surgery{]} CONTAINS {[}tachycardia{]} \b{.} {[}surgery{]
 CONTAINS-SUBEVENT {[}incision{]} \a. {[}incision{]} CONTAINS-SUBEVENT
-{[}bled{]}
+{[}bled{]
 
 Because of the nesting, only the TLINKs mentioned above are necessary.
 One does not need to, for instance, explicitly link ``bled significantly''
@@ -3791,16 +3784,16 @@ example sentence and all the TLINKs needed to annotate it:
 \ex. \label{nestedtimexes}\{December 28th\}: The patient experienced
 a {[}stroke{]} at \{approximately 9:30am\}, during her {[}surgery{]}.
 \a. {[}stroke{]} OVERLAP \{approximately 9:30am\} \b{.} \{December
-28th\} CONTAINS {[}surgery{]} \a. {[}surgery{]} CONTAINS {[}stroke{]}
-\b{.} {[}surgery{]} CONTAINS \{approximately 9:30am\}
+28th\} CONTAINS {[}surgery{]} \a. {[}surgery{]} CONTAINS {[}stroke{]
+\b{.} {[}surgery{]} CONTAINS \{approximately 9:30am\
 
 Here, we have an overarching container (\{December 28th\}) which CONTAINS
 {[}surgery{]}. The surgery then CONTAINS both {[}stroke{]} and \{approximately
-9:30am\}. Then, to complete the annotation, we'd mark that {[}stroke{]}
+9:30am\}. Then, to complete the annotation, we'd mark that {[}stroke{]
 OVERLAPs \{approximately 9:30am\}.
 
 
-\subsection{Choosing the Anchors of Narrative Containers}
+\subsection{Choosing the Anchors of Narrative Containers
 
 When creating narrative containers as discussed above, you will need
 to choose either a TIMEX3 or an EVENT to be the ``anchor'' of the
@@ -3808,58 +3801,58 @@ container, the temporal span which all of the other EVENTs fall within
 (or begin/end on). Choosing which temporal span to be the anchor of
 a given narrative container can be difficult, so here are a few ground
 rules to help make these decisions easier and more consistent:
-\begin{enumerate}
+\begin{enumerate
 \item \textbf{The majority of TIMEX3 annotations will be narrative container
 anchors}. 
 
-\begin{itemize}
+\begin{itemize
 \item Usually, when a date (or other temporal expression) is given in a
 document, it is to provide temporal context for one or more other
 EVENTs. As such, they are ready candidates for the narrative container
 anchor. 
-\end{itemize}
+\end{itemize
 \item \textbf{If you have a choice between using an EVENT or a TIMEX3 as
 the narrative container anchor, you should pick the TIMEX3}. 
 
-\begin{itemize}
+\begin{itemize
 \item This is not to say that you will never have an EVENT within an EVENT,
 but often that will be because there is no TIMEX3 or because there
 is narrative container nesting going on, as in Example \ref{nestedexample}. 
-\end{itemize}
+\end{itemize
 \item \textbf{If you use an EVENT as a narrative container anchor, try to
 TLINK it to a few other container anchors to avoid it being stranded}. 
 
-\begin{itemize}
+\begin{itemize
 \item See Section \ref{eventcon} for more detail here. 
-\end{itemize}
+\end{itemize
 \item \textbf{All other things being equal, an EVENT or TIMEX3 with a larger
 temporal span is more likely to be a narrative container anchor}. 
 
-\begin{itemize}
+\begin{itemize
 \item This is per Section \ref{russiandolls}, where this principle is shown
 with detailed examples (\ref{nestedexample}, \ref{nestedtimexes}). 
-\end{itemize}
+\end{itemize
 \item \textbf{EVENTs will very seldom CONTAIN TIMEX3s.} 
 
-\begin{itemize}
+\begin{itemize
 \item Only in minute-by-minute descriptions will an EVENT serve as a narrative
 container in which a TIMEX3 will be included, and even still, there
 will likely be an overarching TIMEX3 which CONTAINs the EVENT. See
 example \ref{nestedtimexes} above as well as the discussion in \ref{russiandolls}. 
-\end{itemize}
+\end{itemize
 \item \textbf{Sub-events will be anchored to their main event, assuming
 there is actually temporal containment, using CONTAINS-SUBEVENT} 
 
-\begin{itemize}
+\begin{itemize
 \item If the note describes three different steps (e.g. incision, tumor
 removal and closing) within a single surgery, those steps will be
 CONTAINed by the surgery (using CONTAINS-SUBEVENT). This is the case
 in all situations where we have an event/sub-event relation (as between
 ``incision'' and ``surgery'' in \ref{nestedexample}). 
-\end{itemize}
-\end{enumerate}
+\end{itemize
+\end{enumerate
 
-\subsection{Ordering within narrative containers}
+\subsection{Ordering within narrative containers
 
 Because of the difficulty of capturing detail within a given narrative
 container, not all relations between EVENTs will be captured. For
@@ -3882,7 +3875,7 @@ Of course, as described in \ref{tlinkrules}, \textbf{if a relation
 is explicitly stated, it should always be marked}.
 
 
-\section{Temporal Relation Annotation}
+###Temporal Relation Annotation
 
 Temporal Links (TLINKs), as previously mentioned, are relations you
 can mark between EVENTs, between TIMEX3s, or across the two categories
@@ -3891,7 +3884,7 @@ clearly define the bounds of the narrative containers at work beyond
 what DocTimeRel will naturally give us. As mentioned previously, we
 will display these links in this document using the following format:
 
-\ex. {[}EVENT1{]} RELATION {[}EVENT2{]}
+\ex. {[}EVENT1{]} RELATION {[}EVENT2{]
 
 Where RELATION is BEFORE, BEFORE/CAUSES, OVERLAP/CAUSES, BEFORE/PRECONDITIONS,
 CONTAINS, CONTAINS-SUBEVENT, OVERLAP, SIMULTANEOUS, BEGINS-ON, or
@@ -3908,9 +3901,9 @@ certain. Now, let's discuss the different types of TLINK available
 to annotators.
 
 
-\subsection{When to TLINK}
+\subsection{When to TLINK
 
-\label{tlinkrules}
+\label{tlinkrules
 
 TLINKs themselves are relatively straightforward, and in fact, the
 more difficult part of annotating TLINKs is to know when to stop.
@@ -3923,7 +3916,7 @@ So, to constrain this process a bit, we have developed five rules
 to govern TLINKing:
 
 
-\subsubsection{TLINK only when it captures more information than just marking DocTimeRel.}
+#### TLINK only when it captures more information than just marking DocTimeRel.
 
 Because the `DocTimeRel' attribute of EVENTs expresses the relation
 of the event to the time the document or section was written, you
@@ -3935,7 +3928,7 @@ OVERLAP and another has a DocTimeRel of AFTER, there is no need to
 make a TLINK between those two EVENTs.
 
 
-\subsubsection{TLINK all EVENTs to their narrative container, if possible.}
+#### TLINK all EVENTs to their narrative container, if possible.
 
 As previously discussed, most EVENTs will fall into a narrative container
 of some kind. If a given EVENT is in a narrative container (like ``August
@@ -3950,8 +3943,8 @@ required to annotate it:
 as emergency {[}surgery{]}. During the {[}surgery{]}, the patient
 experienced another {[}MI{]}, and repeated {[}tachycardia{]}. \a.
 \{December 19th\} CONTAINS {[}EKG{]} \b{.} \{December 19th\} CONTAINS
-{[}surgery{]} \b{.} {[}surgery{]} CONTAINS {[}MI{]} \b{.} {[}surgery{]}
-CONTAINS {[}tachycardia{]}
+{[}surgery{]} \b{.} {[}surgery{]} CONTAINS {[}MI{]} \b{.} {[}surgery{]
+CONTAINS {[}tachycardia{]
 
 When annotating, not every EVENT will be a part of a detailed narrative
 container (more specific than before, after, or during DOCTIME). However,
@@ -3967,7 +3960,7 @@ only create a TLink to the most recently mentioned EVENT instance
 in the chain. As an example:
 
 \ex. Patient underwent {[}surgery{]} last week for colon polyps.
-The {[}hemicolectomy{]} {[}removed{]} the lesions. \a.{[}hemicolectomy{]}
+The {[}hemicolectomy{]} {[}removed{]} the lesions. \a.{[}hemicolectomy{]
 CONTAINS-SUBEVENT {[}removed{]} \b{.} !{[}surgery{]} CONTAINS-SUBEVENT
 {[}removed{]} (do not create this TLink!)
 
@@ -3975,7 +3968,7 @@ Note that {[}surgery{]} and {[}hemicolectomy{]} would be in an IDENTICAL
 relation with each other. See \ref{corefguidelines} for more details.
 
 
-\subsubsection{TLINK all explicitly stated temporal relations.}
+#### TLINK all explicitly stated temporal relations.
 
 If the writer goes out of his or her way to make a temporal statement,
 a TLINK should be made to reflect that statement. So, if the sentence
@@ -3983,16 +3976,16 @@ reads:
 
 \ex. The patient {[}developed{]} a {[}rash{]} after {[}treatment{]}.
 \a. {[}treatment{]} BEFORE {[}rash{]} \b{.} {[}treatment{]} BEFORE
-{[}developed{]}
+{[}developed{]
 
-You should explicitly mark the treatment as being BEFORE both {[}developed{]}
-and {[}rash{]}, using a TLINK, regardless of the fact that {[}developed{]}
+You should explicitly mark the treatment as being BEFORE both {[}developed{]
+and {[}rash{]}, using a TLINK, regardless of the fact that {[}developed{]
 and {[}rash{]} will also be ALINKed. Note, though, that if no explicit
 temporal language is used, no TLINK should be created, and annotator
 knowledge should not be used to fill these TLINKs in.
 
 
-\subsubsection{Try to only link EVENTs and TIMEX3s within the same sentence.}
+#### Try to only link EVENTs and TIMEX3s within the same sentence.
 
 In a perfect world, nearly all TLINKs would occur across two EVENTs
 or TIMEX3s in the same sentence. That said, often you need to link
@@ -4004,11 +3997,11 @@ link pronouns and subsequent mentions, so linking an EVENT to a subsequent
 reference to the narrative container is acceptable as well.
 
 That said, because of the nature of the notes, \textbf{TLINKs should
-never link items in sections with differing SECTIONTIME.}
+never link items in sections with differing SECTIONTIME.
 
 
-\subsubsection{ACTUAL or UNCertain EVENTs should never be linked to HYPOTHETICAL
-or GENERIC EVENTs, and vice versa.}
+#### ACTUAL or UNCertain EVENTs should never be linked to HYPOTHETICAL
+or GENERIC EVENTs, and vice versa.
 
 This may seem quite specific, but HYPOTHETICAL and GENERIC EVENTs
 aren't really on the same timeline as other EVENTs dealing with the
@@ -4020,7 +4013,7 @@ are pruned from timelines, ACTUAL or UNCertain EVENTs should never
 be linked to HYPOTHETICAL or GENERIC EVENTs, and vice versa. In this
 way, ``real'' EVENTs are never linked to non-real ones.
 
-\ex. Adjuvant {[}chemotherapy{]} following her upcoming {[}surgery{]}
+\ex. Adjuvant {[}chemotherapy{]} following her upcoming {[}surgery{]
 would generally be recommended, but given her poor {[}health{]}, this
 is not an option.
 
@@ -4029,7 +4022,7 @@ TLINKed to {[}surgery{]}, even given the explicit mention. Further
 discussion can be found in Section \ref{discussion}.
 
 
-\subsubsection{You do not need to TLINK TIMEX3s to one another.}
+#### You do not need to TLINK TIMEX3s to one another.
 
 Although there is certainly a temporal relation between, say, ``January
 15th, 2009'' and ``March 2013'', part of the post-processing of
@@ -4042,14 +4035,14 @@ be temporally ordered without the annotator's help.
 \color{blue} 
 
 
-\subsubsection{Avoid ``Millisecond Reasoning''}
+#### Avoid ``Millisecond Reasoning''
 
 As you're annotating, there are some relations which feel ``99.9\%
 true'', and you're held back only by worries that, at a very zoomed-in
 level, the relation is somehow different. For example:
 
 \ex. She {[}listened{]} to music during her whole {[}drive{]} home.
-\a. {[}listened{]} SIMULTANEOUS {[}drive{]}
+\a. {[}listened{]} SIMULTANEOUS {[}drive{]
 
 Some annotators may stop themselves and ask questions like ``Well,
 maybe there was a moment at the beginning where she was driving, but
@@ -4065,10 +4058,10 @@ text.
 
 Similarly, CONTAINS is vulnerable to Millisecond Reasoning:
 
-\ex. She had an {[}MRI{]}, {[}radiation{]}, and a course of {[}chemotherapy{]}
+\ex. She had an {[}MRI{]}, {[}radiation{]}, and a course of {[}chemotherapy{]
 during her {[}treatment{]}. \a. {[}treatment{]} CONTAINS-SUBEVENT
-{[}MRI{]} \b{.} {[}treatment{]} CONTAINS-SUBEVENT {[}radiation{]}
-\b{.} {[}treatment{]} CONTAINS-SUBEVENT {[}chemotherapy{]}
+{[}MRI{]} \b{.} {[}treatment{]} CONTAINS-SUBEVENT {[}radiation{]
+\b{.} {[}treatment{]} CONTAINS-SUBEVENT {[}chemotherapy{]
 
 In this situation, some annotators may be reluctant to use CONTAINS,
 as presumably, the temporal bounds of ``treatment'' are the beginning
@@ -4090,7 +4083,7 @@ relative to the text:
 \ex. The {[}headache{]} began moments after the {[}treatment{]} {[}began{]},
 and ended shortly after it {[}stopped{]}.
 
-In this case, the text is quite clearly stating that {[}headache{]}
+In this case, the text is quite clearly stating that {[}headache{]
 is NOT SIMULTANEOUS with {[}treatment{]}. Instead, one could use BEGINS-ON
 and ENDS-ON links to {[}began{]} and {[}stopped{]} to express more
 accurately what's going on.
@@ -4101,12 +4094,12 @@ yourself out of'' a relation on the basis of a trivial temporal difference
 which is not explicitly stated, please make the relation and move
 on with your life.
 
-\color{black}
+\color{black
 
 
-\subsection{TLINK sub-types}
+\subsection{TLINK sub-types
 
-\label{tlinktypes}
+\label{tlinktypes
 
 There are ten different temporal relations often used in this schema,
 BEFORE, BEFORE/CAUSES, OVERLAP/CAUSES, BEFORE/PRECONDITIONS, OVERLAP,
@@ -4114,43 +4107,43 @@ SIMULTANEOUS, BEGINS-ON, ENDS-ON, CONTAINS, and CONTAINS-SUBEVENT.
 There is no default relation type for TLINKs.
 
 
-\subsubsection{BEFORE}
+#### BEFORE
 
 BEFORE is fairly straightforward and simply orders two events in time.
 
 \ex. The 8th Infantry will {[}arrive{]} before {[}sundown{]}. \a.
-{[}arrive{]} BEFORE {[}sundown{]}
+{[}arrive{]} BEFORE {[}sundown{]
 
-\ex. She {[}vomited{]} shortly before {[}surgery{]}. \a. {[}vomited{]}
-BEFORE {[}surgery{]}
+\ex. She {[}vomited{]} shortly before {[}surgery{]}. \a. {[}vomited{]
+BEFORE {[}surgery{]
 
 \ex. His anterior chest {[}rash{]} has not {[}reoccurred{]} since
-the {[}PCN{]} VK was {[}discontinued{]} \{24-hours ago\}. \a. {[}discontinued{]}
+the {[}PCN{]} VK was {[}discontinued{]} \{24-hours ago\}. \a. {[}discontinued{]
 BEFORE {[}reoccurred{]}$_{NEG}$ \b{.} {[}rash{]} BEFORE {[}reoccurred{]}$_{NEG}$
 \c{.} ({[}rash{]} ENDS-ON {[}discontinued{]}) -- Discussed below.
-\c{.} \{24-hours ago\} OVERLAP {[}discontinued{]}
+\c{.} \{24-hours ago\} OVERLAP {[}discontinued{]
 
-It is worth noting that in \Last, {[}PCN{]} will be linked to {[}discontinued{]}
+It is worth noting that in \Last, {[}PCN{]} will be linked to {[}discontinued{]
 using an ALINK of the type TERMINATES, described in Section \ref{alinks}.
 
 When annotating, remember that ``X occurred after Y'' can be expressed
-by saying ``Y occurred before X\textquotedbl{}: \ex. The {[}shooting{]}
-came shortly after the drug dealer's {[}release{]}. \a. {[}release{]}
-BEFORE {[}shooting{]}
+by saying ``Y occurred before X\textquotedbl{}: \ex. The {[}shooting{]
+came shortly after the drug dealer's {[}release{]}. \a. {[}release{]
+BEFORE {[}shooting{]
 
 \ex. She was {[}seen{]} by Dr. Jones in cardiology following the
-stent {[}placement{]}. \a. {[}placement{]} BEFORE {[}seen{]}
+stent {[}placement{]}. \a. {[}placement{]} BEFORE {[}seen{]
 
 \ex. He had a car {[}accident{]} shortly after his {[}visit{]}. \a.
-{[}visit{]} BEFORE {[}accident{]}
+{[}visit{]} BEFORE {[}accident{]
 
-\ex. He had a {[}neckache{]} after {[}surgery{]}. \a. {[}neckache{]}
-BEFORE {[}surgery{]}
+\ex. He had a {[}neckache{]} after {[}surgery{]}. \a. {[}neckache{]
+BEFORE {[}surgery{]
 
 
-\subsubsection{CONTAINS}
+#### CONTAINS
 
-\label{revelation}
+\label{revelation
 
 CONTAINS signals that the beginning and the end of the CONTAINed EVENT
 is completely temporally contained within the temporal span of the
@@ -4166,26 +4159,26 @@ two. You should only use CONTAINS when you are sure that the nature
 of the overlap is one of complete containment.
 
 \ex. In \{2007\}, 15 people were {[}killed{]} outside Mumbai. \a.
-\{2007\} CONTAINS {[}killed{]}
+\{2007\} CONTAINS {[}killed{]
 
 \ex. During the US-led {[}invasion{]}, reporters {[}rode{]} along
-with actual military units. \a. {[}invasion{]} CONTAINS {[}rode{]}
+with actual military units. \a. {[}invasion{]} CONTAINS {[}rode{]
 
 \ex. \{March 2005\} - Patient underwent {[}appendectomy{]} \a. \{March
-2005\} CONTAINS {[}appendectomy{]}
+2005\} CONTAINS {[}appendectomy{]
 
 \ex. {[}Levaquin{]} 750 mg p.o. q. day (will {[}restart{]} \{today\})
-\a. \{today\} CONTAINS {[}restart{]}
+\a. \{today\} CONTAINS {[}restart{]
 
-\ex. {[}Comparison{]} is made with prior MRI head {[}examination{]}
+\ex. {[}Comparison{]} is made with prior MRI head {[}examination{]
 without and with gadolinium from \{10-23-03\}. \a. \{10-23-03\} CONTAINS
-{[}examination{]}
+{[}examination{]
 
 \ex. An ENT performed the {[} my{]} during \{Friday\}'s {[}surgery{]}.
-\a. \{Friday\} CONTAINS {[}surgery{]}
+\a. \{Friday\} CONTAINS {[}surgery{]
 
 \ex. {[}Gengraf{]} 300-mg p.o. b.i.d. ({[}decreased{]} in \{early
-June\}) \a. \{early June\} CONTAINS {[}decreased{]}
+June\}) \a. \{early June\} CONTAINS {[}decreased{]
 
 In addition, we have made one specific regulation involving the use
 of CONTAINS: All test results or observations are to be linked to
@@ -4200,15 +4193,15 @@ important to have that consistency. So, in a section like:
 Limited {[}Colonoscopy{]} to the distal sigmoid due to an obstructive
 {[}lesion{]}. Diminutive {[}polyps{]} of the rectosigmoid. \a. \{January
 7, 2010\} CONTAINS {[}Colonoscopy{]} \b{.} {[}Colonoscopy{]} CONTAINS
-{[}lesion{]} \b{.} {[}Colonoscopy{]} CONTAINS {[}polyps{]}
+{[}lesion{]} \b{.} {[}Colonoscopy{]} CONTAINS {[}polyps{]
 
-\vspace{0.25cm}
+\vspace{0.25cm
  \fbox{ %
-\begin{tabular}{p{0.6in}p{14cm}}
+\begin{tabular}{p{0.6in}p{14cm}
 \includegraphics[width=0.5in]{warning} \\
 \textbf{Caution!}  & \raisebox{4mm}{%
 \parbox[c]{14cm}{%
-\vspace{2mm}
+\vspace{2mm
 \textit{There are many relations which seem like a sort of semantic
 containment (things like part/whole, cause/effect, disorder/symptoms).
 However, the CONTAINS relation should }\textbf{\textit{only}}\textit{
@@ -4221,13 +4214,13 @@ Use a WHOLE/PART relation for instances of physical containment, etc.
 Discussed below.}%
 }}\ \
 \tabularnewline
-\end{tabular}} \vspace{0.25cm}
+\end{tabular}} \vspace{0.25cm
 
 
 
-\subsubsection{CONTAINS-SUBEVENT}
+#### CONTAINS-SUBEVENT
 
-\label{subevent}
+\label{subevent
 
 Similarly to the way that we've chosen to consider causality as a
 temporal relation, we are treating event/sub-event relations as temporal
@@ -4252,61 +4245,61 @@ of another event, as viewed in an encyclopedia or generic semantic
 representation of the larger EVENT's type, it is a sub-event.
 
 \ex. There were 5 different {[}skirmishes{]} during the marathon
-{[}battle{]}. \a. {[}battle{]} CONTAINS-SUBEVENT {[}skirmishes{]}
+{[}battle{]}. \a. {[}battle{]} CONTAINS-SUBEVENT {[}skirmishes{]
 
-\ex. During \{Friday's\} {[}surgery{]}, the patient's heartrate {[}spiked{]}
+\ex. During \{Friday's\} {[}surgery{]}, the patient's heartrate {[}spiked{]
 during the initial {[}incision{]}. \a. {[}surgery{]} CONTAINS-SUBEVENT
-{[}incision{]} \b{.} {[}surgery{]} CONTAINS {[}spiked{]} \c{.} \{Friday\}
-CONTAINS {[}surgery{]}
+{[}incision{]} \b{.} {[}surgery{]} CONTAINS {[}spiked{]} \c{.} \{Friday\
+CONTAINS {[}surgery{]
 
 \ex. The {[}tornado{]} was accompanied by high {[}winds{]} and multiple
-funnel {[}clouds{]}. \a. {[}tornado{]} CONTAINS-SUBEVENT {[}winds{]}
-\b{.} {[}tornado{]} CONTAINS-SUBEVENT {[}clouds{]}
+funnel {[}clouds{]}. \a. {[}tornado{]} CONTAINS-SUBEVENT {[}winds{]
+\b{.} {[}tornado{]} CONTAINS-SUBEVENT {[}clouds{]
 
 \ex. {[}Colonoscopy{]} (\{January 7, 2010\}): Fair/adequate {[}prep.{]},
 Limited {[}Colonoscopy{]} to the distal sigmoid due to an obstructive
-{[}lesion{]}. Diminutive {[}polyps{]} of the rectosigmoid. \a. {[}Colonoscopy{]}
-CONTAINS-SUBEVENT {[}prep.{]}
+{[}lesion{]}. Diminutive {[}polyps{]} of the rectosigmoid. \a. {[}Colonoscopy{]
+CONTAINS-SUBEVENT {[}prep.{]
 
 If there is no such link of necessity, or if this event is a part
 of this particular instance, but is not expected in the majority of
 instances, the relationship is simply containment:
 
 \ex. There was a {[}thunderstorm{]} during the marathon {[}battle{]}.
-\a. {[}battle{]} CONTAINS {[}thunderstorm{]}
+\a. {[}battle{]} CONTAINS {[}thunderstorm{]
 
-\ex. During \{Friday's\} {[}surgery{]}, the patient's heartrate {[}spiked{]}
-when she {[}fell{]} off the table. \a. {[}surgery{]} CONTAINS {[}fell{]}
+\ex. During \{Friday's\} {[}surgery{]}, the patient's heartrate {[}spiked{]
+when she {[}fell{]} off the table. \a. {[}surgery{]} CONTAINS {[}fell{]
 \b{.} {[}surgery{]} CONTAINS {[}spiked{]} \c{.} \{Friday\} CONTAINS
 {[}surgery{]} \d{.} ({[}spiked{]} BEGINS-ON {[}fell{]}) -- Discussed
 below in Section \ref{corefannotation}.
 
 \ex. The {[}earthquake{]} occurred during the {[}parade{]}. \a.
-{[}parade{]} CONTAINS {[}earthquake{]}
+{[}parade{]} CONTAINS {[}earthquake{]
 
 \ex. There was a large {[}interruption{]} when the colonel and his
-guards {[}burst{]} into the parliament {[}debates{]}. \a. {[}debates{]}
-CONTAINS {[}interruption{]} \b{.} {[}debates{]} CONTAINS {[}burst{]}
+guards {[}burst{]} into the parliament {[}debates{]}. \a. {[}debates{]
+CONTAINS {[}interruption{]} \b{.} {[}debates{]} CONTAINS {[}burst{]
 \c{.} ({[}interruption{]} BEGINS-ON {[}burst{]}) -- Discussed below.
 
-\vspace{0.25cm}
+\vspace{0.25cm
  \fbox{ %
-\begin{tabular}{p{0.6in}p{14cm}}
+\begin{tabular}{p{0.6in}p{14cm}
 \includegraphics[width=0.5in]{warning} \\
 \textbf{Caution!}  & \raisebox{4mm}{%
 \parbox[c]{14cm}{%
-\vspace{2mm}
+\vspace{2mm
 \textit{Remember, CONTAINS-SUBEVENT is still a CONTAINS temporal relation.
 If you have two items that are event/sub-event, but where the EVENT
 does not temporally CONTAIN the sub-event, use the generic BRIDGING
 relation.}%
 }}\ \
 \tabularnewline
-\end{tabular}} \vspace{0.25cm}
+\end{tabular}} \vspace{0.25cm
 
 
 
-\subsubsection{OVERLAP}
+#### OVERLAP
 
 OVERLAP is a single temporal relation that encompasses all the different
 notions of two things happening at the same time, but is less specific
@@ -4317,23 +4310,23 @@ which two events are occurring in the same time frame:
 
 \ex. While the mayor {[}spoke{]} to reporters about his latest anti-cartel
 {[}initiatives{]}, his home was being {[}raided{]} by state officials.
-\a. {[}spoke{]} OVERLAP {[}raided{]}
+\a. {[}spoke{]} OVERLAP {[}raided{]
 
-\ex. The hurricane {[}struck{]} while G8 members {[}discussed{]}
+\ex. The hurricane {[}struck{]} while G8 members {[}discussed{]
 climate change just a few hundred miles away. \a. {[}struck{]} OVERLAP
-{[}discussed{]}
+{[}discussed{]
 
 \ex. The patient's first {[}MI{]} occurred while she was undergoing
-{[}chemotherapy{]}. \a. {[}chemotherapy{]} OVERLAP {[}MI{]}
+{[}chemotherapy{]}. \a. {[}chemotherapy{]} OVERLAP {[}MI{]
 
-\ex. The patient had some rectal {[}itching{]} and mild {[}pain{]}
-\{today\}, mostly \{this morning\}. \a. \{today\} CONTAINS {[}itching{]}
+\ex. The patient had some rectal {[}itching{]} and mild {[}pain{]
+\{today\}, mostly \{this morning\}. \a. \{today\} CONTAINS {[}itching{]
 \b{.} \{today\} CONTAINS {[}pain{]} \b{.} \{this morning\} OVERLAP
-{[}itching{]} \b{.} \{this morning\} OVERLAP {[}pain{]}
+{[}itching{]} \b{.} \{this morning\} OVERLAP {[}pain{]
 
 \ex. He does have a history of peri-rectal {[}abscess{]} with his
 last round of {[}chemotherapy{]}. \a. {[}chemotherapy{]} OVERLAP
-{[}abscess{]}
+{[}abscess{]
 
 \ex. She is not {[}interested{]} in pursuing chemotherapy at \{this
 time\}. \a. \{this time\} OVERLAP {[}interested{]}$_{NEG}$
@@ -4346,15 +4339,15 @@ OVERLAP is also used for linking TIMEX3s of type SET with other EVENTs,
 as in \Next:
 
 \ex. We will keep her on rate-control {[}medications{]} 100 mg \{twice
-daily\} \a. \{twice daily\} OVERLAP {[}medications{]}
+daily\} \a. \{twice daily\} OVERLAP {[}medications{]
 
-\vspace{0.25cm}
+\vspace{0.25cm
  \fbox{ %
-\begin{tabular}{p{0.6in}p{14cm}}
+\begin{tabular}{p{0.6in}p{14cm}
 \includegraphics[width=0.5in]{warning} \\
 \textbf{Caution!}  & \raisebox{4mm}{%
 \parbox[c]{14cm}{%
-\vspace{2mm}
+\vspace{2mm
 \textit{OVERLAP provides relatively little information for the actual
 processing of text compared to our other temporal relations. If you
 are reasonably sure that the relation is one of containment, you should
@@ -4363,11 +4356,11 @@ a potential OVERLAP more specifically using narrative containers and
 a bit of additional thought.}%
 }}\ \
 \tabularnewline
-\end{tabular}} \vspace{0.25cm}
+\end{tabular}} \vspace{0.25cm
  \color{blue} 
 
 
-\subsubsection{BEFORE/CAUSES, OVERLAP/CAUSES, BEFORE/PRECONDITIONS and OVERLAP/PRECONDITIONS}
+#### BEFORE/CAUSES, OVERLAP/CAUSES, BEFORE/PRECONDITIONS and OVERLAP/PRECONDITIONS
 
 Although these are included in the list of TLINKs during annotation,
 and carry the same temporal information and properties as BEFORE and
@@ -4375,7 +4368,7 @@ OVERLAP, they carry additional causal meanings, and are fully explained
 in Section \ref{causation}. \color{black} 
 
 
-\subsubsection{BEGINS-ON}
+#### BEGINS-ON
 
 BEGINS-ON signals that the EVENT begins on the EVENT or TIMEX3 it
 is related to. This type of TLINK will only occur with EVENTs which
@@ -4384,17 +4377,17 @@ usually be marked with BEFORE instead.
 
 Note that BEGINS-ON is to be used only where there is no causal relationship.
 
-\ex. \{2008\} marked the {[}start{]} of the rebels' brutal {[}campaign{]}
-\a. {[}start{]} BEGINS-ON \{2008\}
+\ex. \{2008\} marked the {[}start{]} of the rebels' brutal {[}campaign{]
+\a. {[}start{]} BEGINS-ON \{2008\
 
 \ex. She has had Abdominal {[}Cramping{]} since \{January\}. \a.
-{[}Cramping{]} BEGINS-ON \{January\}
+{[}Cramping{]} BEGINS-ON \{January\
 
 \ex. He reports intermittent chest {[}pain{]} since his prior {[}MI{]}.
-\a. {[}MI{]} BEFORE {[}pain{]}
+\a. {[}MI{]} BEFORE {[}pain{]
 
 
-\subsubsection{ENDS-ON}
+#### ENDS-ON
 
 ENDS-ON signals that the EVENT ends on the EVENT or TIMEX3 it is related
 to. As with BEGINS-ON, this type of TLINK will only occur with EVENTs
@@ -4402,20 +4395,20 @@ which have a non-trivial temporal span. Relations with punctual EVENTs
 will usually be marked with BEFORE instead.
 
 \ex. The ``occupy'' {[}protests{]} largely {[}ended{]} when the
-weather grew too {[}cold{]} for {[}camping{]}. \a. {[}protests{]}
-ENDS-ON {[}cold{]}
+weather grew too {[}cold{]} for {[}camping{]}. \a. {[}protests{]
+ENDS-ON {[}cold{]
 
 \ex. She has had no {[}bleeding{]} since her {[}stitches{]} were
-{[}removed{]}. \a. {[}bleeding{]}$_{NEG}$ ENDS-ON {[}removed{]}
+{[}removed{]}. \a. {[}bleeding{]}$_{NEG}$ ENDS-ON {[}removed{]
 
 Note that ENDS-ON can be used in concert with BEGINS-ON to mark a
 duration.
 
 \ex. She was on {[}chemo{]} from \{March\} through \{July\}. \a.
-{[}chemo{]} BEGINS-ON \{March\} \b{.} {[}chemo{]} ENDS-ON \{July\}
+{[}chemo{]} BEGINS-ON \{March\} \b{.} {[}chemo{]} ENDS-ON \{July\
 
 
-\subsubsection{SIMULTANEOUS}
+#### SIMULTANEOUS
 
 SIMULTANEOUS means exactly that: Two EVENTs have the same temporal
 boundaries and extent.
@@ -4433,23 +4426,23 @@ will be on high {[}alert{]}\textquotedbl{}) or by necessity (\textquotedbl{}I'll
 {[}drink{]} as long as my cup is {[}full{]}\textquotedbl{}).
 
 \ex. She {[}listened{]} to music during her whole {[}drive{]} home.
-\a. {[}listened{]} SIMULTANEOUS {[}drive{]}
+\a. {[}listened{]} SIMULTANEOUS {[}drive{]
 
 In this case, she started a music-listening EVENT when she began her
 ride, and ended when the ride ended. There is a functional relationship.
 
 \ex. Cell phones must be {[}turned{]} off while in {[}flight{]}.
-\a. {[}turned{]} SIMULTANEOUS {[}flight{]}
+\a. {[}turned{]} SIMULTANEOUS {[}flight{]
 
 The start and end of {[}flight{]} represent the start and end of the
 prohibition, so, necessarily, SIMULTANEOUS.%
 \footnote{Of course, the event is ``turned off'', but the head of this multi-word
 expression is ``turned''.%
-}
+
 
 \ex. For the duration of her {[}surgery{]}, the anesthesiologist
 {[}monitored{]} her pulse at the wrist. \a. {[}surgery{]} SIMULTANEOUS
-{[}monitored{]}
+{[}monitored{]
 
 The anesthesiologist's monitoring would necessarily start and end
 with the surgery.
@@ -4462,11 +4455,11 @@ causal, we will mark the more specific SIMULTANEOUS relation, rather
 than using OVERLAP-CAUSE}.
 
 \ex. While they {[}recorded{]}, the red light stayed {[}on{]}. \a.
-{[}recorded{]} SIMULTANEOUS {[}on{]}
+{[}recorded{]} SIMULTANEOUS {[}on{]
 
-\ex. The whole time that John {[}raced{]} around the track, his {[}frightened{]}
-mother {[}clutched{]} her seat with white knuckles. \a. {[}raced{]}
-SIMULTANEOUS {[}clutched{]} \b{.} {[}raced{]} BEFORE-CAUSE {[}frightened{]}
+\ex. The whole time that John {[}raced{]} around the track, his {[}frightened{]
+mother {[}clutched{]} her seat with white knuckles. \a. {[}raced{]
+SIMULTANEOUS {[}clutched{]} \b{.} {[}raced{]} BEFORE-CAUSE {[}frightened{]
 
 In this case, the clutching is likely to start and end with the racing,
 but alas, the fear persists.
@@ -4482,7 +4475,7 @@ and stopped when they stopped running. OVERLAP.
 
 \ex. The Colorado fires {[}burned{]} throughout the {[}summer{]}.
 \a. Colorado did not catch fire on June 21st, and promptly extinguish
-itself on September 23rd. {[}summer{]} CONTAINS {[}burned{]}
+itself on September 23rd. {[}summer{]} CONTAINS {[}burned{]
 
 \ex. She {[}talked{]} with her Mom while I {[}made{]} dinner. \a.
 It is not asserted that she started the call when I picked up a spatula,
@@ -4503,30 +4496,30 @@ celebration and excited Facebook posts%
 due to excited ``SIMULTANEOUS EVENT/EVENT TLINK!!!'' facebook posts%
 }.
 
-Unless you are sure that the start of the first EVENT \textit{is}
+Unless you are sure that the start of the first EVENT \textit{is
 the start of the second, and similar for the end, use CONTAINS or
 OVERLAP.
 
-\color{black}
+\color{black
 
-\vspace{0.25cm}
+\vspace{0.25cm
  \fbox{ %
-\begin{tabular}{p{0.6in}p{14cm}}
+\begin{tabular}{p{0.6in}p{14cm}
 \includegraphics[width=0.5in]{warning} \\
 \textbf{Caution!}  & \raisebox{4mm}{%
 \parbox[c]{14cm}{%
-\vspace{2mm}
+\vspace{2mm
 \textit{You do not need to create SIMULTANEOUS TLINKs for EVENTs which
 are in an IDENTICAL chain. Two identical EVENTs share both temporal
 bounds, and thus, are SIMULTANEOUS, but we will generate those links
 later. Only mark SIMULTANEOUS for non-coreferent EVENTs.}%
 }}\ \
 \tabularnewline
-\end{tabular}} \vspace{0.25cm}
+\end{tabular}} \vspace{0.25cm
 
 
 
-\subsection{Expressing TLINK Types in Point Algebra}
+\subsection{Expressing TLINK Types in Point Algebra
 
 A more precise (although perhaps more esoteric) way to express temporal
 relations is using point algebra. In the style of Allen 1983 b\cite{Allen:1983:MKT:182.358434},
@@ -4537,7 +4530,7 @@ on the timeline.
 
 Given this notation, our TLINK types can be expressed as below:
 
-\begin{tabular}{|c|c|c|}
+\begin{tabular}{|c|c|c|
 \hline 
 \textbf{Relation}  & \textbf{Notation}  & \textbf{Meaning}\tabularnewline
 \hline 
@@ -4549,7 +4542,7 @@ BEGINS-ON  & A+ = B-  & ``B begins-on A\textquotedbl{}\tabularnewline
 ENDS-ON  & A- = B+  & ``B ends-on A\textquotedbl{}\tabularnewline
 SIMULTANEOUS  & A- = B- AND A+ = B+  & ``A is simultaneous with B\textquotedbl{}\tabularnewline
 \hline 
-\end{tabular}
+\end{tabular
 
 Note that our definitions of OVERLAP and SIMULTANEOUS are symmetrical,
 in that ``A OVERLAP B'' and ``B OVERLAP A'' mean the same thing.
@@ -4557,14 +4550,14 @@ For OVERLAP, which EVENT starts first is not recoverable from the
 annotation without prior knowledge of both A- and B-.
 
 
-\subsection{Annotating polarity of TLINKs}
+\subsection{Annotating polarity of TLINKs
 
 \label{TLINKPolarity} Polarity of TLINKs is identical to polarity
 in EVENTs, although naturally the applications will differ slightly.
 Polarity is used and applicable with TLINKs of all types.
 
 
-\subsubsection{POS - Positive}
+#### POS - Positive
 
 As with EVENTs, the default and most common polarity value used is
 POS. This is the marker of positive polarity. This is used for a temporal
@@ -4575,26 +4568,26 @@ All examples in this guideline, unless otherwise marked, represent
 POS TLINKs.
 
 
-\subsubsection{NEG - Negative}
+#### NEG - Negative
 
 TLINKs are marked as NEG only when they are both explicitly asserted
 \textit{and} asserted to be false.
 
 \ex. The {[}bombing{]} did not take place on \{the 18th\} as expected,
-but on \{the 24th\}. \a. \{18th\} CONTAINS -- NEG {[}bombing{]} \b{.}
-\{24th\} CONTAINS -- POS {[}bombing{]}
+but on \{the 24th\}. \a. \{18th\} CONTAINS -- NEG {[}bombing{]} \b{.
+\{24th\} CONTAINS -- POS {[}bombing{]
 
 \ex. The {[}earthquake{]} did not cause the {[}fire{]}, instead,
-{[}it{]} was caused by an electrical {[}short{]} . \a. {[}earthquake{]}
+{[}it{]} was caused by an electrical {[}short{]} . \a. {[}earthquake{]
 BEFORE/CAUSES -- NEG {[}fire{]} \b{.} {[}short{]} BEFORE/CAUSES --
-POS {[}it{]} \b{.} {[}earthquake{]} BEFORE -- POS {[}fire{]}
+POS {[}it{]} \b{.} {[}earthquake{]} BEFORE -- POS {[}fire{]
 
-\ex. The {[}meeting{]} was not on \{Thursday\}. \a. \{Thursday\}
-CONTAINS -- NEG {[}meeting{]}
+\ex. The {[}meeting{]} was not on \{Thursday\}. \a. \{Thursday\
+CONTAINS -- NEG {[}meeting{]
 
 It is important to contrast these with the below:
 
-\ex. The {[}meeting{]} on \{Thursday\} didn't occur. \a. \{Thursday\}
+\ex. The {[}meeting{]} on \{Thursday\} didn't occur. \a. \{Thursday\
 CONTAINS -- POS {[}meeting{]}$_{\text{ACTUAL, NEG}}$
 
 In the negated TLINKs, the EVENTs themselves are not negated, but
@@ -4604,13 +4597,13 @@ as a part of a POS TLINK. These most often occur as links between
 two POS EVENTs, which are specified as NOT having a certain temporal
 relation.
 
-\vspace{0.5cm}
+\vspace{0.5cm
  \fbox{ %
-\begin{tabular}{p{0.6in}p{14cm}}
+\begin{tabular}{p{0.6in}p{14cm}
 \includegraphics[width=0.5in]{warning} \\
 \textbf{Caution!}  & \raisebox{4mm}{%
 \parbox[c]{14cm}{%
-\vspace{2mm}
+\vspace{2mm
 \textit{TLINK negation is used only when the temporal relation itself
 is negated. It is completely independent from EVENT negation, and
 the negation of EVENTs in no way implies negation of the TLINK. NEG
@@ -4618,11 +4611,11 @@ TLINKs are far less common than NEG EVENTs, and should be pondered
 carefully before creation.}%
 }}\ \
 \tabularnewline
-\end{tabular}} \vspace{0.5cm}
+\end{tabular}} \vspace{0.5cm
 
 
 
-\subsection{Annotating contextual modality of TLINKs}
+\subsection{Annotating contextual modality of TLINKs
 
 \label{linkmodality} \label{TLINKModality} TLINKs can take the same
 contextual modalities as EVENTs: ACT, UNC, HYP, and GEN. These modalities,
@@ -4634,7 +4627,7 @@ TLINKs are marked as UNC, HYP, or GEN only when the temporal relation
 itself is uncertain, hypothetical or generic.
 
 
-\subsubsection{ACT - Actual}
+#### ACT - Actual
 
 The first modality for TLINKs is ACTUAL, which is used most of the
 time, and is the default option (that need not be specifically marked).
@@ -4645,12 +4638,12 @@ All examples in this guideline, unless otherwise marked, represent
 ACTUAL TLINKs.
 
 
-\subsubsection{UNC - Uncertain/Hedged}
+#### UNC - Uncertain/Hedged
 
 TLINKs, like EVENTs, are marked as UNCertain when we can point to
 some explicit lexical or phrasal trigger that indicates some degree
 of uncertainty about the reality of the temporal relation. These TLINKs
-are presented with a sort of tacit claim that they're \textit{probably}
+are presented with a sort of tacit claim that they're \textit{probably
 real (unlike hypotheticals, which are explicitly irrealis), but where
 the author is unsure.
 
@@ -4666,23 +4659,23 @@ differentiated from known facts.
 
 \ex. He likely {[}escaped{]} on the \{18th\} during a \{guard change\},
 although authorities cannot be sure. \a. \{18th\} CONTAINS {[}guard
-change{]} <ACTUAL> \b{.} {[}guard change{]} CONTAINS {[}escaped{]}
+change{]} <ACTUAL> \b{.} {[}guard change{]} CONTAINS {[}escaped{]
 <UNCERTAIN>
 
 \ex. The chairman will, in all likelihood, {[}step{]} down on \{Monday\}.
 \a. \{Monday\} CONTAINS {[}step{]} <UNCERTAIN>
 
-\ex. We have every reason to expect that her incision will {[}heal{]}
-before her {[}tournament{]}. \a. {[}heal{]} BEFORE {[}tournament{]}
+\ex. We have every reason to expect that her incision will {[}heal{]
+before her {[}tournament{]}. \a. {[}heal{]} BEFORE {[}tournament{]
 <UNCERTAIN>
 
 \ex. The {[}fire{]}, very likely caused by a lightning {[}strike{]},
 is {[}growing{]} due to high {[}winds{]}. \a. {[}strike{]} BEFORE/CAUSE
-{[}fire{]} <UNCERTAIN> \b{.} {[}winds{]} OVERLAP/CAUSE {[}growing{]}
+{[}fire{]} <UNCERTAIN> \b{.} {[}winds{]} OVERLAP/CAUSE {[}growing{]
 <ACTUAL> \b{.} {[}strike{]} BEFORE {[}growing{]} <ACTUAL>
 
 
-\subsubsection{HYP - Hypothetical}
+#### HYP - Hypothetical
 
 The third modality for TLINKs is HYP. This is useful when annotating
 theories, future possibilities, or other hypothetical temporal relations.
@@ -4690,17 +4683,17 @@ Again, this is unrelated to the modality of the EVENTs, and is only
 when the temporal relation itself is hypothetical, theoretical, or
 otherwise dependent on an external factor.
 
-\ex. Her {[}surgery{]} may take place on the \{18th\}. \a. \{18th\}
+\ex. Her {[}surgery{]} may take place on the \{18th\}. \a. \{18th\
 CONTAINS {[}surgery{]} <HYPOTHETICAL>
 
 \ex. If the {[}explosion{]} was caused by a natural gas {[}leak{]},
 the insurance will not {[}cover{]} the {[}reconstruction{]}. \a.
-{[}leak{]} BEFORE/CAUSE {[}explosion{]} <HYPOTHETICAL> \b{.} {[}explosion{]}
+{[}leak{]} BEFORE/CAUSE {[}explosion{]} <HYPOTHETICAL> \b{.} {[}explosion{]
 BEFORE/PRECONDITIONS {[}reconstruction{]} <ACTUAL>
 
 \ex. Obama's {[}visit{]}, if {[}it{]} occurs on a \{weekday\}, is
 expected to cause traffic {[}headaches{]}. \a. {[}it{]} OVERLAPS/CAUSE
-{[}headaches{]} <HYPOTHETICAL> \b{.} \{weekday\} CONTAINS {[}it{]}
+{[}headaches{]} <HYPOTHETICAL> \b{.} \{weekday\} CONTAINS {[}it{]
 <HYPOTHETICAL>
 
 Great caution must be exercised before marking a relation itself as
@@ -4719,7 +4712,7 @@ hypothetical, but the causation of retaliation is certain.
 As with EVENTs, polarity and modality of TLINKs do not interact.
 
 
-\subsubsection{GEN - Generic}
+#### GEN - Generic
 
 GENERIC is our fourth contextual modality, and is used for TLINKs
 which may be mentioned in a document, but are only mentioned in a
@@ -4742,13 +4735,13 @@ in November\} CONTAINS {[}Elections{]} <GENERIC>
 \ex. The last US Presidential {[}Election{]} was held on \{November
 4th, 2008\} \a. \{November 4th, 2008\} CONTAINS {[}Election{]} <ACTUAL>
 
-\vspace{0.5cm}
+\vspace{0.5cm
  \fbox{ %
-\begin{tabular}{p{0.6in}p{14cm}}
+\begin{tabular}{p{0.6in}p{14cm}
 \includegraphics[width=0.5in]{warning} \\
 \textbf{Caution!}  & \raisebox{4mm}{%
 \parbox[c]{14cm}{%
-\vspace{2mm}
+\vspace{2mm
 \textit{As with TLINK polarity, TLINK modality is seldom anything
 but the default, ACTUAL. If you are considering marking a TLINK with
 UNC, HYP or GEN, double-check to make sure that it is the temporal
@@ -4756,21 +4749,21 @@ relation itself which is uncertain, hypothetical, or generic, rather
 than just the EVENTs within it.}%
 }} \
 \tabularnewline
-\end{tabular}} \vspace{0.5cm}
+\end{tabular}} \vspace{0.5cm
 
 
 %%%% ANNOTATING CAUSALITY %%%%
 
 
-\color{black}
+\color{black
 
 
-\section{Causation and Precondition Annotation}
+###Causation and Precondition Annotation
 
-\label{causation}
+\label{causation
 
 \color{blue} \textbf{THIS ENTIRE SECTION IS NEW, PLEASE READ AND
-COMMENT} \color{black}
+COMMENT} \color{black
 
 In our schema, we want to be able to understand not just the relative
 orderings of different EVENTs, but to also annotate when one event
@@ -4780,7 +4773,7 @@ At first glance, it may seem like an odd choice to mark causation
 and preconditioning as a subtype of temporal link rather than as a
 link of its own. However, causation and preconditioning are inherently
 temporal: a precondition necessarily must occur BEFORE the EVENT which
-it has preconditioned. In case of causation, the cause will \textit{start}
+it has preconditioned. In case of causation, the cause will \textit{start
 BEFORE the effect in the vast majority of cases, but the cause and
 the effect can eventually OVERLAP, like running and sweating. Nevertheless,
 CAUSE indicates that the cause started BEFORE the effect, and thus,
@@ -4800,10 +4793,10 @@ EVENTs, we use three annotation types for causally linked EVENTS:
 BEFORE/CAUSES, OVERLAP/CAUSES, and BEFORE/PRECONDITIONS.
 
 
-\subsection{Distinguishing ``Cause'' from ``Precondition''}
+\subsection{Distinguishing ``Cause'' from ``Precondition''
 
 In our view of causality, we claim that ``X CAUSES Y'' if (and only
-if), according to the writer, the particular EVENT Y was \textit{inevitable}
+if), according to the writer, the particular EVENT Y was \textit{inevitable
 given the particular EVENT X. Put differently, the existence of X
 was not just helpful in allowing Y to happen, nor associated with
 Y, but the occurrence of X triggered or immediately necessitated the
@@ -4811,7 +4804,7 @@ occurrence of Y:
 
 \ex. The {[}rockfall{]} made the {[}over-full{]} {[}dam{]} {[}burst{]},
 {[}flooding{]} the {[}town{]} below. \a. {[}rockfall{]} BEFORE/CAUSES
-{[}burst{]} \b{.} {[}burst{]} BEFORE/CAUSES {[}flooding{]}
+{[}burst{]} \b{.} {[}burst{]} BEFORE/CAUSES {[}flooding{]
 
 Here, the rockfall is what immediately caused the burst (although
 the over-full nature of the dam may have preconditioned it), just
@@ -4819,32 +4812,32 @@ as the burst caused the flooding. Put differently, had the rocks not
 fallen, and had the dam not burst, according to the author, there
 would have been neither bursting nor flooding.
 
-\ex. The {[}sheriff{]} {[}fired{]} {[}her{]} {[}gun{]}, {[}killing{]}
-the {[}injured{]} {[}deer{]}. \a. {[}fired{]} BEFORE/CAUSES {[}killing{]}
-\b{.} {[}sheriff{]} IDENTICAL {[}her{]}
+\ex. The {[}sheriff{]} {[}fired{]} {[}her{]} {[}gun{]}, {[}killing{]
+the {[}injured{]} {[}deer{]}. \a. {[}fired{]} BEFORE/CAUSES {[}killing{]
+\b{.} {[}sheriff{]} IDENTICAL {[}her{]
 
 Here, although the injury may have eventually led to the deer's demise,
 the killing was caused directly and immediately by the firing of the
 gun.
 
 \ex. {[}Christchurch{]}, the first {[}city{]} {[}established{]} in
-{[}New Zealand{]}, had endured a {[}series{]} of {[}earthquakes{]}
+{[}New Zealand{]}, had endured a {[}series{]} of {[}earthquakes{]
 that {[}destroyed{]} {[}its{]} {[}infrastructure{]}, {[}homes{]} and
 {[}communities{]}. \label{nzquake} \a. {[}earthquakes{]} OVERLAP/CAUSES
-{[}destroyed{]} \c{.} Coreference relations: \a. {[}Christchurch{]}
-APPOSITIVE {[}city{]} \b{.} {[}Christchurch{]} IDENTICAL {[}its{]}
+{[}destroyed{]} \c{.} Coreference relations: \a. {[}Christchurch{]
+APPOSITIVE {[}city{]} \b{.} {[}Christchurch{]} IDENTICAL {[}its{]
 \c{.} WHOLE {[}New Zealand{]}: PART {[}Christchurch{]} \d{.} WHOLE
-{[}its{]}: PARTs {[}infrastructure{]}, {[}homes{]}, {[}communities{]}
-\e. SET {[}series{]}: MEMBER {[}earthquakes{]}
+{[}its{]}: PARTs {[}infrastructure{]}, {[}homes{]}, {[}communities{]
+\e. SET {[}series{]}: MEMBER {[}earthquakes{]
 
 In \Last, it is the case that the destruction would not have happened
 without the earthquake, and that once the earthquake began (and through
 its duration, hence OVERLAP/CAUSES), the destruction was inevitable.
 
 \ex. Although {[}it{]} took \{many years\}, the {[}discovery{]} of
-{[}Uranium{]} outside {[}Moab{]} would eventually {[}revitalize{]}
-the local {[}economy{]}. \label{moaburanium} \a. {[}discovery{]}
-BEFORE/CAUSE {[}revitalize{]} \b{.} {[}it{]} IDENTICAL {[}revitalize{]}
+{[}Uranium{]} outside {[}Moab{]} would eventually {[}revitalize{]
+the local {[}economy{]}. \label{moaburanium} \a. {[}discovery{]
+BEFORE/CAUSE {[}revitalize{]} \b{.} {[}it{]} IDENTICAL {[}revitalize{]
 
 \Last shows an example where, although there was significant time
 lag between the cause (the discovery of Uranium and the effect: revitalization),
@@ -4864,25 +4857,25 @@ is \textit{necessary} in order for the other EVENT to have happened.
 
 \ex. The {[}rockfall{]} made the {[}over-full{]} {[}dam{]} {[}burst{]},
 {[}flooding{]} the {[}town{]} below. \a. {[}rockfall{]} BEFORE/CAUSES
-{[}burst{]} \b{.} {[}burst{]} BEFORE/CAUSES {[}flooding{]} \b{.}
-\textbf{{[}over-full{]} BEFORE/PRECONDITIONS {[}burst{]}}
+{[}burst{]} \b{.} {[}burst{]} BEFORE/CAUSES {[}flooding{]} \b{.
+\textbf{{[}over-full{]} BEFORE/PRECONDITIONS {[}burst{]}
 
 Here, we are led to believe that the over-full nature of the dam helped
 promote bursting, and thus, was a precondition of the burst itself.
 However, the over-fullness of the dam alone, in this particular case,
 was not enough to cause the burst, thus, is only a precondition.
 
-\ex. The {[}sheriff{]} {[}loaded{]} {[}her{]} {[}rifle{]}, then {[}fired{]}
-at the {[}target{]}. \a. {[}loaded{]} BEFORE/PRECONDITION {[}fired{]}
-\b{.} {[}sheriff{]} IDENTICAL {[}her{]}
+\ex. The {[}sheriff{]} {[}loaded{]} {[}her{]} {[}rifle{]}, then {[}fired{]
+at the {[}target{]}. \a. {[}loaded{]} BEFORE/PRECONDITION {[}fired{]
+\b{.} {[}sheriff{]} IDENTICAL {[}her{]
 
 Were the rifle not loaded, it could not have fired, and therefore,
 loading is a precondition to firing (although the firing is separately
 caused).
 
 \ex. The {[}strikes{]} came in {[}retaliation{]} for recent terrorist
-{[}attacks{]}. \a. {[}attacks{]} BEFORE/PRECONDITIONS {[}retaliation{]}
-\b{.} {[}strikes{]} IDENTICAL {[}retaliation{]}
+{[}attacks{]}. \a. {[}attacks{]} BEFORE/PRECONDITIONS {[}retaliation{]
+\b{.} {[}strikes{]} IDENTICAL {[}retaliation{]
 
 In \Last, although something else (a pilot pushing a button, or a
 general's orders) was the direct cause of the strikes, we are told
@@ -4892,9 +4885,9 @@ have happened were it not for the attacks.
 Similarly, note that occaisionally an ongoing state can be a motivation
 or other precondition for an action; in those cases, you can use OVERLAP/PRECONDITION:
 
-\ex. I feel that they are {[}punishing{]} him for his {[}condition{]}
+\ex. I feel that they are {[}punishing{]} him for his {[}condition{]
 by keeping him after school, \a. {[}condition{]} OVERLAP/PRECONDITIONS
-{[}punishing{]}
+{[}punishing{]
 
 Remember as well that SUBEVENT, CAUSES, and PRECONDITIONS relations
 are mutually exclusive, and one event pair can only have one of these
@@ -4903,11 +4896,11 @@ three relations, there is an order of \textquotedbl{}importance\textquotedbl{}.
 If the relation is clearly some sort of outcome or causation (cause
 or precondition) of an event, then default to the CAUSES or PRECONDITIONS
 reading, as they are easier to consistently capture. If torn between
-CAUSES and PRECONDITIONS, check the \textquotedbl{}special cases\textquotedbl{}
+CAUSES and PRECONDITIONS, check the \textquotedbl{}special cases\textquotedbl{
 section to see if there are special hints for your phenomenon, and
 otherwise default to CAUSES.
 
-To sum up, CAUSES implies that the occurrence of one EVENT is \textit{sufficient}
+To sum up, CAUSES implies that the occurrence of one EVENT is \textit{sufficient
 to trigger another, whereas PRECONDITIONS only states one EVENT was
 \textit{necessary} for another to later take place.
 
@@ -4916,7 +4909,7 @@ a matter of understanding the temporal nature of each, and creating
 the proper annotations.
 
 
-\subsection{Causality Annotation Rules and Regulations}
+\subsection{Causality Annotation Rules and Regulations
 
 Because causality is a difficult concept, easy to over- or under-apply,
 we do have some specific guidelines below which you should use to
@@ -4925,7 +4918,7 @@ referred to collectively below as ``Causal links'' or ``Causal
 annotations'':
 
 
-\subsubsection{Causality is specific to the instance, not to the concept}
+#### Causality is specific to the instance, not to the concept
 
 Keep in mind that we are not determining causation or preconditioning
 based on our understanding of the sequence of events leading up to
@@ -4935,8 +4928,8 @@ this case}, based on the text. For example:
 
 \ex. {[}Dropping{]} the {[}pistol{]} caused {[}it{]} to {[}fire{]},
 {[}destroying{]} the nearby {[}fan{]}. \a. {[}Dropping{]} BEFORE/CAUSE
-{[}fire{]} \b{.} {[}fire{]} BEFORE/CAUSE {[}destroying{]} \b{.}
-{[}pistol{]} IDENTICAL {[}it{]}
+{[}fire{]} \b{.} {[}fire{]} BEFORE/CAUSE {[}destroying{]} \b{.
+{[}pistol{]} IDENTICAL {[}it{]
 
 It is rare for modern pistols to fire when dropped, and even less
 the case that all pistols destroy fans when fired. However, \textit{in
@@ -4948,16 +4941,16 @@ cities, nor does the discovery of Uranium always cause revitalization,
 but that does not matter for the annotation of \ref{nzquake} or \ref{moaburanium},
 as in both cases, the causal relationship is asserted.
 
-So, do not concern yourself with probability or what \textit{usually}
+So, do not concern yourself with probability or what \textit{usually
 causes something, and remember that CAUSE and PRECONDITION annotations
 are EVENT specific. A given CAUSES relation just ties together two
 specific instances, and does not assert a greater relationship between
 two conceptual EVENTs.
 
 
-\subsubsection{Focus on relations suggested in the text}
+#### Focus on relations suggested in the text
 
-\label{causessuggestedintext}
+\label{causessuggestedintext
 
 You should focus on the relations that the writer suggests, instead
 of over-analyzing the text, or searching for causality where it may
@@ -4992,7 +4985,7 @@ should not be marked. Please focus on the relations that the writer
 suggests, as they will be the most relevant, useful, and learnable.
 
 
-\subsubsection{Look for causal language to guide causal annotations}
+#### Look for causal language to guide causal annotations
 
 You should consider creating a CAUSES link when you see words and
 phrases such as ``cause,'' ``because of,'', ``due to,'' ``incite,''
@@ -5001,8 +4994,8 @@ words like ``let'', ``enable,'' ``allowed'', ``lead to'',
 etc.
 
 \ex. An {[}ambush{]} in the rural Kunar province triggered a day-long
-{[}battle{]} between Coalition forces and Taliban soldiers. \a. {[}ambush{]}
-BEFORE/CAUSES {[}battle{]} \b{.} Do not annotate as {[}ambush{]}
+{[}battle{]} between Coalition forces and Taliban soldiers. \a. {[}ambush{]
+BEFORE/CAUSES {[}battle{]} \b{.} Do not annotate as {[}ambush{]
 BEFORE/CAUSES {[}trigger{]}.
 
 As seen in \Last, these relational words themselves, however, should
@@ -5011,12 +5004,12 @@ not be marked as EVENTs at all, as they share the temporality of the
 causing event (e.g. of {[}ambush{]} in \Last).
 
 
-\subsubsection{Causal annotations can only link EVENTs to one another}
+#### Causal annotations can only link EVENTs to one another
 
 TIMEX3s cannot be in CAUSES or PRECONDITIONS links:
 
 \ex. The vault will be {[}opened{]} on \{June 24th\}. \a. \{June
-24th\} CONTAINS {[}opened{]}
+24th\} CONTAINS {[}opened{]
 
 Even if the humans (or mechanisms) controlling the vault's opening
 will not allow it to happen until the 24th, ultimately, it is not
@@ -5035,27 +5028,27 @@ the existence of the officers caused the arrest. This is logically
 true, but ultimately silly.
 
 
-\subsubsection{Objects described as causes, effects, or preconditions must be METONYMIC}
+#### Objects described as causes, effects, or preconditions must be METONYMIC
 
 If an inanimate object is described as a cause/effect/precondition,
 mark it as a IMPLICIT EVENT, so that it can be linked:
 
 \ex. The {[}drug{]} {[}raised{]} {[}her{]} {[}blood{]} {[}pressure{]}.
-\a. {[}drug{]} OVERLAPS/CAUSES {[}raised{]}
+\a. {[}drug{]} OVERLAPS/CAUSES {[}raised{]
 
 Here, the administration or the chemical effects of the the drug are
 causing the raise, rather than the drug itself. Thus, we can mark
 the drug as METONYMIC.
 
-\ex. The balance {[}sheets{]} caused them to {[}favor{]} the {[}spin{]}
-off. \a. {[}sheets{]} OVERLAPS/CAUSES {[}favored{]}
+\ex. The balance {[}sheets{]} caused them to {[}favor{]} the {[}spin{]
+off. \a. {[}sheets{]} OVERLAPS/CAUSES {[}favored{]
 
 Here, the ``balance sheets'' refer to the analysis of the financial
 state of the company, rather than to the sheets of paper themselves.
 It is this analysis, captured through IMPLICIT marking, which caused
 the favoring. Compare \Last with \Next:
 
-\ex. The balance {[}sheets{]} clearly {[}show{]} why they {[}favored{]}
+\ex. The balance {[}sheets{]} clearly {[}show{]} why they {[}favored{]
 the {[}spin{]} off.
 
 Although almost identical with \LLast, \Last isn't showing any temporal
@@ -5065,7 +5058,7 @@ balance sheets show why the spin-off was favored does not mean that
 the balance sheets caused the favoring to happen.
 
 
-\subsubsection{Do not create causal links between verbs and their arguments}
+#### Do not create causal links between verbs and their arguments
 
 Every verb has expected actors or ``semantic roles'', as annotated
 in PropBank or AMR. These expected arguments, for instance, the hitter,
@@ -5077,103 +5070,103 @@ between a creation EVENT and its product.
 No causal links would be made below:
 
 \ex. {[}Salt Lake City{]} {[}hosted{]} the 2002 {[}Olympics{]}. \a.
-{[}hosted{]} OVERLAP {[}Olympics{]}
+{[}hosted{]} OVERLAP {[}Olympics{]
 
-\ex. {[}Stringer Bell{]} {[}called{]} a {[}summit{]}. \a. {[}called{]}
-BEFORE {[}summit{]}
+\ex. {[}Stringer Bell{]} {[}called{]} a {[}summit{]}. \a. {[}called{]
+BEFORE {[}summit{]
 
-\ex. {[}Kevin{]} {[}cooked{]} Thanksgiving {[}Dinner{]}. \a. {[}cooked{]}
-BEFORE {[}dinner{]}
+\ex. {[}Kevin{]} {[}cooked{]} Thanksgiving {[}Dinner{]}. \a. {[}cooked{]
+BEFORE {[}dinner{]
 
-\ex. The {[}general{]} {[}ordered{]} {[}strikes{]} in {[}retaliation{]}
+\ex. The {[}general{]} {[}ordered{]} {[}strikes{]} in {[}retaliation{]
 for recent terrorist {[}attacks{]}. \a. {[}attacks{]} BEFORE/PRECONDITIONS
-{[}retaliation{]} \b{.} {[}strikes{]} IDENTICAL {[}retaliation{]}
+{[}retaliation{]} \b{.} {[}strikes{]} IDENTICAL {[}retaliation{]
 
 In all of these cases, the verb semantics will reveal the link in
 a clearer and more nuanced way than causal annotations.
 
 
-\subsubsection{EVIDENTIAL EVENTs should not be causally linked to those things which
-they demonstrate}
+#### EVIDENTIAL EVENTs should not be causally linked to those things which
+they demonstrate
 
 Do not create a CAUSES/PRECONDITIONS link between things that show
 ({[}scans{]}), the showing events ({[}showed{]}), and things that
 are shown ({[}lymphomas{]}). The same goes with other evidential events
 (seeing, saying, etc.):
 
-\ex. {[}Scans{]} through the lower neck and upper chest {[}showed{]}
-malignant {[}lymphomas{]}. \a. {[}scans{]} OVERLAP {[}lymphomas{]}
-\b{.} {[}scans{]} OVERLAP {[}showed{]}
+\ex. {[}Scans{]} through the lower neck and upper chest {[}showed{]
+malignant {[}lymphomas{]}. \a. {[}scans{]} OVERLAP {[}lymphomas{]
+\b{.} {[}scans{]} OVERLAP {[}showed{]
 
 Although it is logically true that without scanning, nothing could
 be shown, and that the showing creates the understanding of the presence
 of lymphomas, no CAUSES or PRECONDITIONS links should be made here.
 Similarly:
 
-\ex. {[}Obama's{]} {[}statement{]} {[}revealed{]} the {[}extent{]}
+\ex. {[}Obama's{]} {[}statement{]} {[}revealed{]} the {[}extent{]
 of the {[}drone{]} {[}program{]}.
 
 Here, the statement does not CAUSE revelation, nor does the revelation
 CAUSE the extent.
 
 
-\subsubsection{Assume the writer of the text is reliable}
+#### Assume the writer of the text is reliable
 
 For quoted speech or reporting, assume that the narrator or writer
 is reliable, unless otherwise indicated:
 
-\ex. On \{Sunday\}, he {[}said{]}, {[}one{]} of the {[}bombs{]} {[}wrecked{]}
-the family's home. \a. {[}one{]} OVERLAPS/CAUSES {[}wrecked{]} \b{.}
-\{Sunday\} CONTAINS {[}wrecked{]} \b{.} {[}bombs{]} SET/MEMBER {[}one{]}
+\ex. On \{Sunday\}, he {[}said{]}, {[}one{]} of the {[}bombs{]} {[}wrecked{]
+the family's home. \a. {[}one{]} OVERLAPS/CAUSES {[}wrecked{]} \b{.
+\{Sunday\} CONTAINS {[}wrecked{]} \b{.} {[}bombs{]} SET/MEMBER {[}one{]
 
-\ex. {[}Frank{]} {[}claims{]} that an {[}alien{]} mind-control {[}beam{]}
+\ex. {[}Frank{]} {[}claims{]} that an {[}alien{]} mind-control {[}beam{]
 made {[}him{]} {[}rob{]} the {[}bank{]}. \a. {[}beam{]} OVERLAP/CAUSES
-{[}rob{]} \b{.} {[}Frank{]} IDENTICAL {[}him{]} \c{.} {[}claims{]}
-REPORTING {[}beam{]}
+{[}rob{]} \b{.} {[}Frank{]} IDENTICAL {[}him{]} \c{.} {[}claims{]
+REPORTING {[}beam{]
 
 Remember, you are not a jury, and it is not your role to determine
 the accuracy of asserted causal claims, but to simply annotate them.
 
 
-\subsubsection{Each EVENT can participate in multiple CAUSES or PRECONDITIONS links}
+#### Each EVENT can participate in multiple CAUSES or PRECONDITIONS links
 
 There can be multiple causes and preconditions for a single event:
 
-\ex. After {[}loading{]} {[}his{]} {[}pistol{]} and {[}chambering{]}
-a {[}round{]}, the {[}instructor{]} {[}pulled{]} the {[}trigger{]}
-and {[}fired{]} a {[}shot{]} as a {[}demonstration{]}. \a. {[}loading{]}
+\ex. After {[}loading{]} {[}his{]} {[}pistol{]} and {[}chambering{]
+a {[}round{]}, the {[}instructor{]} {[}pulled{]} the {[}trigger{]
+and {[}fired{]} a {[}shot{]} as a {[}demonstration{]}. \a. {[}loading{]
 BEFORE/PRECONDITION {[}fired{]} \b{.} {[}chambering{]} BEFORE/PRECONDITION
-{[}fired{]} \b{.} {[}pulled{]} BEFORE/CAUSE {[}fired{]}
+{[}fired{]} \b{.} {[}pulled{]} BEFORE/CAUSE {[}fired{]
 
 Similarly, a single EVENT can cause or precondition several other
 EVENTs:
 
 \ex. {[}He{]} has {[}seen{]} {[}people{]} {[}decapitated{]} by barrel
 {[}bombs{]} and {[}others{]} who {[}lost{]} {[}their{]} {[}limbs{]}.
-\a. {[}bombs{]} OVERLAPS/CAUSES {[}decapitated{]} \b{.} {[}bombs{]}
-OVERLAPS/CAUSES {[}lost{]} \c{.} {[}others{]} IDENTICAL {[}their{]}
+\a. {[}bombs{]} OVERLAPS/CAUSES {[}decapitated{]} \b{.} {[}bombs{]
+OVERLAPS/CAUSES {[}lost{]} \c{.} {[}others{]} IDENTICAL {[}their{]
 
 
-\subsubsection{Causal links can cross sentence boundaries}
+#### Causal links can cross sentence boundaries
 
 As with other forms of TLINK, CAUSES/PRECONDITIONS links can cross
 sentence boundaries, where necessary:
 
 \ex. She {[}said{]} the {[}bombs{]} {[}rained{]} down on them for
 two days. The children are {[}terrified{]} as a result, she {[}said{]}.
-\a. {[}rained{]} BEFORE/CAUSES {[}terrified{]}
+\a. {[}rained{]} BEFORE/CAUSES {[}terrified{]
 
 However, EVENTs that are too far apart (crossing multiple sentence
 boundaries) should not be linked to each other, as there is likely
 no way to determine causation besides human inference:
 
 \ex. A terrorist group has {[}claimed{]} responsibility for the suspect
-packages. (...) The group {[}formed{]} just before the London {[}Olympics{]}
+packages. (...) The group {[}formed{]} just before the London {[}Olympics{]
 in 2012. \a. {[}formed{]} BEFORE {[}Olympics{]} \b{.} Do not annotate
-as {[}formed{]} BEFORE/PRECONDITIONS {[}claimed{]}
+as {[}formed{]} BEFORE/PRECONDITIONS {[}claimed{]
 
 
-\subsubsection{Causal links should be chained where possible}
+#### Causal links should be chained where possible
 
 Causality, as a phenomenon, tends towards the formation of complex
 chains. One event may cause another, which in turn preconditions a
@@ -5183,11 +5176,11 @@ Although this leads to complexity, we can leverage these chains in
 annotation, to allow us to communicate the foundational role of earlier
 causation in the eventual outcome:
 
-\ex. {[}He{]} was {[}jailed{]} after {[}pleading{]} guilty in {[}court{]}
+\ex. {[}He{]} was {[}jailed{]} after {[}pleading{]} guilty in {[}court{]
 following a series of {[}burglaries{]} and {[}muggings{]} in \{November
-2013\}. \a. {[}burglaries{]} BEFORE/PRECONDITIONS {[}pleading{]}
-\b{.} {[}muggings{]} BEFORE/PRECONDITIONS {[}pleading{]} \b{.} {[}pleading{]}
-BEFORE/CAUSES {[}jailed{]}
+2013\}. \a. {[}burglaries{]} BEFORE/PRECONDITIONS {[}pleading{]
+\b{.} {[}muggings{]} BEFORE/PRECONDITIONS {[}pleading{]} \b{.} {[}pleading{]
+BEFORE/CAUSES {[}jailed{]
 
 Rather than stating explicitly that the burglaries and muggings precondition
 his jailing, we can state (rightfully) that they preconditioned his
@@ -5197,13 +5190,13 @@ followed through basic logic. Similarly:
 \ex. The death toll from a {[}bombing{]} in Bangkok {[}rose{]} to
 three on Monday after a doctor {[}confirmed{]} that a six-year-old
 girl had {[}died{]} from her {[}injuries{]}. \a. {[}bombing{]} OVERLAP/CAUSES
-{[}injuries{]} \b{.} {[}injuries{]} BEFORE/CAUSES {[}died{]} \c{.}
+{[}injuries{]} \b{.} {[}injuries{]} BEFORE/CAUSES {[}died{]} \c{.
 {[}confirmed{]} REPORTS {[}died{]} \d{.} {[}died{]} BEFORE/CAUSE
 {[}rose{]}%
 \footnote{The word ``after'' indicates a BEFORE link instead of an OVERLAP
 link, even though in reality, the death toll rises simultaneously
 with the confirmation of death.%
-} \e. {[}confirmed{]} BEFORE/CAUSES {[}rose{]}
+} \e. {[}confirmed{]} BEFORE/CAUSES {[}rose{]
 
 Here, again, we can infer the broadest link (\textquotedbl{}the bombing
 caused the death toll to rise\textquotedbl{}) by a series of small
@@ -5215,20 +5208,20 @@ capture the causal nature of the situation without specifying every
 small step.
 
 
-\subsubsection{ALINK annotations should not be interpreted causally}
+#### ALINK annotations should not be interpreted causally
 
 Do not create CAUSES/PRECONDITIONS links between the source (e.g.
 \textit{started}) and the target (e.g. \textit{attacking}) of ALINKs:
 
 \ex. The {[}terrorists{]} {[}started{]} {[}attacking{]}. \a. ALINK:
-{[}started{]} INITIATES {[}attacking{]}
+{[}started{]} INITIATES {[}attacking{]
 
 Although it is tempting to claim that the start of the attack causes
 the attack, it's somewhat tautological, and completely useless to
 us. Similarly:
 
 \ex. {[}We{]} will {[}restart{]} the {[}investigation{]} after the
-{[}holiday{]}. \a. ALINK: {[}restart{]} REINITIATES {[}investigation{]}
+{[}holiday{]}. \a. ALINK: {[}restart{]} REINITIATES {[}investigation{]
 
 The investigation has already been caused by something else, and its
 reinitiation is in no way causal.
@@ -5236,24 +5229,24 @@ reinitiation is in no way causal.
 Note that ASPECTUAL events can CAUSE or PRECONDITION other EVENTs
 which are not the target of the associated ALINK:
 
-\ex. Several months after {[}quitting{]} {[}smoking{]}, his {[}singing{]}
-got so much {[}better{]}. \a. {[}quitting{]} BEFORE/CAUSES {[}better{]}
-\b{.} ALINK: {[}quitting{]} TERMINATES {[}smoking{]}
+\ex. Several months after {[}quitting{]} {[}smoking{]}, his {[}singing{]
+got so much {[}better{]}. \a. {[}quitting{]} BEFORE/CAUSES {[}better{]
+\b{.} ALINK: {[}quitting{]} TERMINATES {[}smoking{]
 
 
-\subsubsection{When in doubt, leave it out!}
+#### When in doubt, leave it out!
 
 If the situation is not clear with respect to causality or preconditioning,
 do not create a CAUSES/PRECONDITIONS link, and use a plain temporal
 relation instead:
 
-\ex. {[}Politicians{]} {[}condemned{]} the {[}attacks{]}, {[}saying{]}
+\ex. {[}Politicians{]} {[}condemned{]} the {[}attacks{]}, {[}saying{]
 {[}they{]} were a deliberate {[}effort{]} to {[}incite{]} sectarian
 {[}strife{]} and {[}undermine{]} the {[}country{]}'s fragile {[}democracy{]}.
 \a. {[}effort{]} OVERLAPS {[}strife{]} \b{.} {[}strife{]} OVERLAPS
-{[}undermine{]} \b{.} ALINK: {[}incite{]} INITIATES {[}strife{]}
+{[}undermine{]} \b{.} ALINK: {[}incite{]} INITIATES {[}strife{]
 
-Do not mark {[}effort{]} OVERLAPS/CAUSES {[}strife{]} nor {[}strife{]}
+Do not mark {[}effort{]} OVERLAPS/CAUSES {[}strife{]} nor {[}strife{]
 OVERLAPS/CAUSES {[}undermine{]}, as both would rely on inference,
 and on pessimism (that the attacks would be successful).
 
@@ -5261,8 +5254,8 @@ Similarly:
 
 \ex. {[}She{]} {[}drank{]} {[}Diet Mountain Dew{]} like {[}water{]},
 and \{now\} {[}she{]} has {[}cancer{]}. \a. (Because DocTimeRel differs,
-no TLINK between {[}drank{]} and {[}cancer{]} is needed) \b{.} {[}She{]}
-IDENTICAL {[}she{]}
+no TLINK between {[}drank{]} and {[}cancer{]} is needed) \b{.} {[}She{]
+IDENTICAL {[}she{]
 
 As with some of the examples in Section \ref{causessuggestedintext},
 the juxtaposition of the two EVENTs pragmatically implies a causal
@@ -5270,30 +5263,30 @@ link, but no causality is asserted firmly (nor easily inferable).
 Thus, the link should not be created.
 
 
-\subsection{Causation and Precondition TLINK Use}
+\subsection{Causation and Precondition TLINK Use
 
 If, even after evaluating the EVENTs in light of the regulations above,
 you belive there to be a markable causal relationship, you must choose
 among the three causal annotation types.
 
 
-\subsubsection{BEFORE/PRECONDITIONS}
+#### BEFORE/PRECONDITIONS
 
 As such, if you understand two EVENTs to have a relationship of preconditioning,
 your sole choice is to create a BEFORE/PRECONDITIONS link.
 
 \ex. {[}She{]} {[}unlocked{]} the {[}vault{]}, {[}disabled{]} the
-{[}cameras{]}, and {[}distracted{]} the {[}guard{]} so that {[}he{]}
+{[}cameras{]}, and {[}distracted{]} the {[}guard{]} so that {[}he{]
 could {[}steal{]} the {[}gold{]}. \a. {[}unlocked{]} BEFORE/PRECONDITIONS
-{[}steal{]} \b{.} {[}disabled{]} BEFORE/PRECONDITIONS {[}steal{]}
-\b{.} {[}distracted{]} BEFORE/PRECONDITIONS {[}steal{]}
+{[}steal{]} \b{.} {[}disabled{]} BEFORE/PRECONDITIONS {[}steal{]
+\b{.} {[}distracted{]} BEFORE/PRECONDITIONS {[}steal{]
 
 Because preconditions are defined as EVENTs which must have happened
 in order for a later EVENT to happen, temporally speaking, all PRECONDITIONS
 must start BEFORE the EVENT which they precondition.
 
 
-\subsubsection{BEFORE/CAUSES}
+#### BEFORE/CAUSES
 
 If the relation between two EVENTs is causal, that is, that one EVENT
 \textit{necessarily} causes the other, you must evaluate its temporality.
@@ -5302,16 +5295,16 @@ In many cases, the causing EVENT will have ended before the effect
 fully takes place. In these cases, BEFORE/CAUSE is the only prudent
 annotation.
 
-\ex. The {[}bear's{]} {[}visit{]} forced the {[}city{]} to {[}adopt{]}
+\ex. The {[}bear's{]} {[}visit{]} forced the {[}city{]} to {[}adopt{]
 a new {[}trash-can{]} {[}design{]}. \a. {[}visit{]} BEFORE/CAUSE
-{[}adopt{]}
+{[}adopt{]
 
 It is clearly the case that the adoption did not happen while the
 bear was still in town, so the cause is BEFORE the effect, and BEFORE/CAUSE
 is prudent.
 
 \ex. {[}France's{]} {[}declaration{]} caused {[}tension{]} with {[}Russia{]}.
-\a. {[}declaration{]} BEFORE/CAUSE {[}tension{]}
+\a. {[}declaration{]} BEFORE/CAUSE {[}tension{]
 
 The declaration did not, itself, cause tension with Russia in the
 same way that an earthquake causes damage. Instead, its interpretation
@@ -5320,13 +5313,13 @@ was a non-trivial lag between cause and effect, and that BEFORE/CAUSE
 is prudent.
 
 \ex. {[}Switching{]} {[}textbooks{]} led to {[}improvements{]} in
-{[}scores{]}. \a. {[}switching{]} BEFORE/CAUSE {[}improvements{]}
+{[}scores{]}. \a. {[}switching{]} BEFORE/CAUSE {[}improvements{]
 
-Again, it is not the case that the improvement occurred \textit{during}
+Again, it is not the case that the improvement occurred \textit{during
 the switch, so BEFORE/CAUSE is prudent.
 
 \ex. {[}He{]} {[}shot{]} and {[}killed{]} the {[}attacking{]} {[}soldier{]}.
-\a. {[}shot{]} BEFORE/CAUSE {[}killed{]}
+\a. {[}shot{]} BEFORE/CAUSE {[}killed{]
 
 {[}shot{]} here refers to the act of discharging a firearm. Even assuming
 an immediate and painless death for the attacker, there is a (very
@@ -5335,7 +5328,7 @@ is not the case that at any point, this specific shot and killing
 were occuring at the same moment. So, BEFORE/CAUSE.
 
 \ex. The {[}bus{]} {[}kneeled{]} to allow {[}access{]} to the elderly
-{[}man{]}. \a. {[}kneeled{]} BEFORE/CAUSE {[}access{]}
+{[}man{]}. \a. {[}kneeled{]} BEFORE/CAUSE {[}access{]
 
 Although kneeling has a non-trivial duration, we have no reason to
 believe that the elderly man entered the bus mid-kneel. Thus, BEFORE/CAUSE.
@@ -5345,7 +5338,7 @@ milliseconds before) the EVENT it caused, BEFORE/CAUSE is the only
 prudent choice.
 
 
-\subsubsection{OVERLAP/CAUSES}
+#### OVERLAP/CAUSES
 
 OVERLAP/CAUSES is intended for those cause/effect pairs where the
 cause, during its inherent duration, is continuously or periodically
@@ -5354,20 +5347,20 @@ where the cause is ongoing, and the effect is already partly or completely
 present.
 
 \ex. The {[}earthquake{]} {[}destroyed{]} the {[}palace{]}. \a.
-{[}earthquake{]} OVERLAP/CAUSES {[}destroyed{]}
+{[}earthquake{]} OVERLAP/CAUSES {[}destroyed{]
 
 At some point in time, the destruction had begun while the earth was
 still quaking, and thus, the two EVENTs are in an OVERLAP/CAUSES relationship.
 
 \ex. {[}His{]} {[}coldness{]} made {[}Kerri{]} {[}uncomfortable{]}.
-\a. {[}coldness{]} OVERLAP/CAUSES {[}uncomfortable{]}
+\a. {[}coldness{]} OVERLAP/CAUSES {[}uncomfortable{]
 
 Her discomfort and his coldness are both durative EVENTs, and it is
 extremely likely that she began feeling discomfort before his coldness
 had ended. Thus, OVERLAP/CAUSES.
 
-\ex. The {[}attacks{]} resulted in 89 {[}deaths{]}. \a. {[}attacks{]}
-OVERLAP/CAUSES {[}deaths{]}
+\ex. The {[}attacks{]} resulted in 89 {[}deaths{]}. \a. {[}attacks{]
+OVERLAP/CAUSES {[}deaths{]
 
 It's likely that deaths occurred during each individual attack, and
 when taken as a plural sum, it is certain that the span of the ``attacks''
@@ -5376,15 +5369,15 @@ contains at least one death.
 Note that the semantics of participating EVENTs have a strong role
 in the choice of BEFORE/CAUSES vs. OVERLAP/CAUSES. For instance:
 
-\ex. The {[}explosion{]} caused mass {[}hysteria{]}. \a. {[}explosion{]}
-BEFORE/CAUSE {[}hysteria{]}
+\ex. The {[}explosion{]} caused mass {[}hysteria{]}. \a. {[}explosion{]
+BEFORE/CAUSE {[}hysteria{]
 
 Here, it's fairly clear that the hysteria began after the explosion,
 rather than the physical blast causing the hysteria as it propagated.
 Compare to:
 
-\ex. The {[}explosion{]} caused many {[}injuries{]}. \a. {[}explosion{]}
-OVERLAP/CAUSE {[}injuries{]}
+\ex. The {[}explosion{]} caused many {[}injuries{]}. \a. {[}explosion{]
+OVERLAP/CAUSE {[}injuries{]
 
 Here, the blast itself, the physical reality of the expanding gas
 and debris, caused injuries. Although other injuries may have occurred
@@ -5409,13 +5402,13 @@ earthquake described above here, OVERLAP is accurate, while BEFORE
 is not. Thus, when a cause is both BEFORE and OVERLAPping the effect,
 OVERLAP should be used.
 
-\vspace{0.25cm}
+\vspace{0.25cm
  \fbox{ %
-\begin{tabular}{p{0.6in}p{14cm}}
+\begin{tabular}{p{0.6in}p{14cm}
 \includegraphics[width=0.5in]{warning} \\
 \textbf{Caution!}  & \raisebox{4mm}{%
 \parbox[c]{14cm}{%
-\vspace{2mm}
+\vspace{2mm
 \textit{Avoid ``millisecond reasoning''. If you find yourself attempting
 to justify OVERLAP/CAUSES by saying ``Well, there was probably a
 few milliseconds of hysteria which started before the end of the bomb's
@@ -5428,25 +5421,25 @@ overlap between cause and effect. These annotations will be difficult
 enough without adding this additional agony.}%
 }}\ \
 \tabularnewline
-\end{tabular}} \vspace{0.25cm}
+\end{tabular}} \vspace{0.25cm
 
 
 
-\subsubsection{Causal TLINK Properties}
+#### Causal TLINK Properties
 
 Polarity and Modality apply to causal TLINKs in the same way that
 they apply to other TLINKs. See Sections \ref{TLINKPolarity} and
 \ref{TLINKModality} for a full description.
 
-\color{black}
+\color{black
 
 %%%% ANNOTATING ALINK %%%%
 
 
 
-\section{Event Coreference}
+###Event Coreference
 
-\label{corefannotation-1}
+\label{corefannotation-1
 
 While linking up events in terms of their temporal, causal and subevent
 structure, you will also be marking them for event coreference. These
@@ -5458,22 +5451,22 @@ concepts and information were synthesized from Poesio et al. 2004
 and Savova et al. 2011 (\cite{savova2011anaphoric}).
 
 
-\subsection{IDENTITY}
+\subsection{IDENTITY
 
 Two events have an IDENTICAL relation if they refer to the same event
 in space and time. The IDENTICAL relation has several important semantic
 characteristics%
 \footnote{Following the MUC-7 specifications%
 }: 
-\begin{itemize}
+\begin{itemize
 \item The relation is symmetrical, i.e., non-directional: (if A is IDENT
 to B, then B is IDENT to A). This is different from relations like
 WHOLE/PART and SET/MEMBER, which are directional by defition. 
 \item It is also transitive: if A is IDENT to B and B is IDENT to C, then
 A is IDENT to C. . 
-\end{itemize}
+\end{itemize
 
-\subsection{\label{sub:SET-MEMBER-1}SET-MEMBER}
+\subsection{\label{sub:SET-MEMBER-1}SET-MEMBER
 
 A SET-MEMBER relationship exists when one event can be thought of
 as being an instane of a larger set of events. In annotating this
@@ -5492,13 +5485,13 @@ caused \$73 million in damage.
 
 Other SET/MEMBER relations will be between generalizations and their
 instances
-\begin{examples}
+\begin{examples
 \item Presidents usually {[}\textsubscript{SET} pardon{]} a turkey for
-Thanksgiving, and today the lucky convict he {[}\textsubscript{MEMBER}
+Thanksgiving, and today the lucky convict he {[}\textsubscript{MEMBER
 pardoned{]} was named Ginny Fawell. 
-\end{examples}
+\end{examples
 
-\subsection{BRIDGING}
+\subsection{BRIDGING
 
 As with entities, if you are unable to use one of the previously discussed
 links, but it is apparent that some sort of coreference link exists
@@ -5507,27 +5500,27 @@ BRIDGING relation. For dealing with EVENT coreference, an important
 option that this opens up is when a text alledges that doing one event
 is analogous to doing another, either directly or in an attempt at
 metaphor:
-\begin{examples}
+\begin{examples
 \item John {[}\textsubscript{head} voted{]} to make waffles the state food,
 which {[}\textsubscript{attribute} amounts{]} to betraying all his
 campagin promises.
-\end{examples}
+\end{examples
 Because we define CONTAINS-SUBEVENT as involving temporal containment,
 you may also use BRIDGING for any subevent which seemed to be ``part
 of'', yet temporally outside of, another event.
 
-\ex. After a week of attempted repairs, the palace {[}collapsed{]}
+\ex. After a week of attempted repairs, the palace {[}collapsed{]
 Friday, the most disheartening part of the already-terrible {[}earthquake{]}.
-\a. {[}earthquake{]} BEFORE-CAUSE {[}collapsed{]} \b{.} {[}earthquake{]}
-BRIDGING {[}collapsed{]}
+\a. {[}earthquake{]} BEFORE-CAUSE {[}collapsed{]} \b{.} {[}earthquake{]
+BRIDGING {[}collapsed{]
 
 
-\subsection{General Guidelines for Annotating Coreference}
+\subsection{General Guidelines for Annotating Coreference
 
-\label{corefguidelines-1}
+\label{corefguidelines-1
 
 
-\subsubsection{Never link EVENTs to ENTITIES}
+#### Never link EVENTs to ENTITIES
 
 In all coreference relations (IDENTICAL, APPOSITIVE, WHOLE/PART, AND
 SET-MEMBER), Entities can be linked to Entities, and Events can be
@@ -5538,8 +5531,8 @@ an Event, or that your Event is not actually an Entity, as the case
 may be.
 
 
-\subsubsection{WHOLE/PART, SET/MEMBER, and BRIDGING relations are inherited by IDENT
-chains}
+#### WHOLE/PART, SET/MEMBER, and BRIDGING relations are inherited by IDENT
+chains
 
 If you have an IDENT chain represented by A-A-A-A-A, and A participates
 as the PART in a WHOLE/PART relation or as the MEMBER in a SET/MEMBER
@@ -5551,7 +5544,7 @@ mentions will be connected to their place as a PART or a MEMBER through
 spider-webbing.
 
 
-\subsubsection{Bridging relations are re-created for subsequent mentions}
+#### Bridging relations are re-created for subsequent mentions
 
 In bridging relations (i.e. WHOLE/PART, SET/MEMBER), any new mention
 of the WHOLE (or the SET) that is followed by mentions of the PARTs
@@ -5559,7 +5552,7 @@ of the WHOLE (or the SET) that is followed by mentions of the PARTs
 relations in the following:
 
 \ex. {[}I{]}$_{M1}$ met with the {[}patient{]}$_{M2}$ today. {[}We{]}$_{S1}$
-discussed treatment options for {[}her{]}$_{M2-1}$ cancer. {[}We{]}
+discussed treatment options for {[}her{]}$_{M2-1}$ cancer. {[}We{]
 also reviewed in {[}our{]}$_{S2}$ discussion the results of {[}her{]}$_{M2-2}$
 recent CT-scan. {[}My{]}$_{M1}$ recommendation is adjuvant chemotherapy.
 \a. SET {[}We{]}$_{S1}$: MEMBERs {[}I{]}$_{M1}$, {[}patient{]}$_{M2}$,
@@ -5572,7 +5565,7 @@ are IDENTICAL; and {[}We{]}$_{S1}$, {[}We{]}, and {[}our{]}$_{S2}$
 are IDENTICAL.
 
 
-\subsubsection{Don't link ACTUAL and GENERIC items}
+#### Don't link ACTUAL and GENERIC items
 
 In analogy with the principle for not TLINKing HYP/GEN to ACT/UNCERTAIN
 events, ACTUAL and GENERIC items can never be in an IDENTICAL, APPOSITIVE,
@@ -5581,18 +5574,18 @@ or WHOLE/PART relationship. They can, however, be SET/MEMBER, as in
 
 \ex. {[}I{]} discussed with {[}Mrs. Ambry{]}$_{ACTUAL}$ the results
 of a local clinical trial in which {[}patients{]}$_{GENERIC}$ with
-{[}cancer{]}$_{GENERIC}$ recovered successfully on the {[}drug{]}
+{[}cancer{]}$_{GENERIC}$ recovered successfully on the {[}drug{]
 without reoccurrence. Given {[}her{]} colon {[}cancer{]}$_{ACTUAL}$
 and the success of the {[}drug{]}, {[}I{]} recommend {[}it{]}. \a.
-SET {[}patients{]}: MEMBER {[}Mrs. Ambry{]} \b{.} {[}Mrs. Ambry{]}
+SET {[}patients{]}: MEMBER {[}Mrs. Ambry{]} \b{.} {[}Mrs. Ambry{]
 IDENTICAL {[}her{]} \c{.} SET {[}cancer{]}$_{GENERIC}$: MEMBER {[}cancer{]}$_{ACTUAL}$
 \d{.} {[}I{]} IDENTICAL {[}I{]} \e. {[}drug{]} IDENTICAL {[}drug{]},
-{[}it{]}
+{[}it{]
 
 
-\section{Aspectual Link Annotation}
+###Aspectual Link Annotation
 
-\label{alinks}
+\label{alinks
 
 The next annotation performed on the data is the ALINK (or ``aspectual
 link'') annotation. ALINKs are created between an aspectual EVENT
@@ -5612,114 +5605,114 @@ But unlike TLINKs, no matter the circumstance, an ALINK should never
 cross a sentence boundary.
 
 
-\subsection{ALINK sub-types}
+\subsection{ALINK sub-types
 
 There are four different aspectual relations used in the schema, CONTINUES,
 INITIATES, REINITIATES, and TERMINATES.
 
 
-\subsubsection{CONTINUES}
+#### CONTINUES
 
 CONTINUES is used when an aspectual event shows the continuation of
 another event:
 
 \ex. We {[}continue{]} to {[}fight{]} tyranny in all its forms. \a.
-{[}continue{]} CONTINUES {[}fight{]}
+{[}continue{]} CONTINUES {[}fight{]
 
-\ex. The rebels have announced that they will {[}keep{]} {[}pressing{]}
-towards Damascus. \a. {[}keep{]} CONTINUES {[}pressing{]}
+\ex. The rebels have announced that they will {[}keep{]} {[}pressing{]
+towards Damascus. \a. {[}keep{]} CONTINUES {[}pressing{]
 
 \ex. The patient will {[}remain{]} on {[}dialysis{]} until her condition
-{[}changes{]}. \a. {[}remain{]} CONTINUES {[}dialysis{]} \b{.} {[}remain{]}
-ENDS-ON {[}changes{]}
+{[}changes{]}. \a. {[}remain{]} CONTINUES {[}dialysis{]} \b{.} {[}remain{]
+ENDS-ON {[}changes{]
 
 \ex. She is not interested in pursuing chemotherapy at this time
-but is interested in {[}continued{]} {[}surveillance{]}. \a. {[}continued{]}
-CONTINUES {[}surveillance{]}
+but is interested in {[}continued{]} {[}surveillance{]}. \a. {[}continued{]
+CONTINUES {[}surveillance{]
 
 \ex. We will {[}continue{]} to {[}monitor{]} heart rate and rhythm
 along with serial cardiac markers and electrocardiograms to rule her
-out for any cardiac involvement. \a. {[}continue{]} CONTINUES {[}monitor{]}
+out for any cardiac involvement. \a. {[}continue{]} CONTINUES {[}monitor{]
 
 
-\subsubsection{INITIATES}
+#### INITIATES
 
 INITIATES is used when an aspectual event indicates the start or initiation
 of another event:
 
 \ex. \{2008\} marked the {[}start{]} of the rebels' brutal {[}campaign{]}.
-\a. {[}start{]} BEGINS-ON \{2008\} \b{.} {[}start{]} INITIATES {[}campaign{]}
+\a. {[}start{]} BEGINS-ON \{2008\} \b{.} {[}start{]} INITIATES {[}campaign{]
 
 \ex. Patient will {[}begin{]} a high-fiber {[}diet{]} upon {[}release{]}.
 \a. {[}begin{]} INITIATES {[}diet{]} \b{.} {[}begin{]} BEGINS-ON
-{[}release{]}
+{[}release{]
 
-\ex. We will {[}start{]} Ms. Miller on a normal saline {[}infusion{]}
-at 75 an hour for a total of 1 L. \a. {[}start{]} INITIATES {[}infusion{]}
+\ex. We will {[}start{]} Ms. Miller on a normal saline {[}infusion{]
+at 75 an hour for a total of 1 L. \a. {[}start{]} INITIATES {[}infusion{]
 
 Note that INITIATES carries an implied sort of causality (beginning
 something, by definition, causes it to start). This causality need
 not be marked, so long as the ALINK is present.
 
 
-\subsubsection{REINITIATES}
+#### REINITIATES
 
 REINITIATES is used when an aspectual event indicates that another
 event will be restarted or reinitiated:
 
-\ex. The latest {[}bombing{]} broke the treaty, {[}resurrecting{]}
+\ex. The latest {[}bombing{]} broke the treaty, {[}resurrecting{]
 {[}violence{]} throughout the city. \a. {[}resurrecting{]} REINITIATES
-{[}violence{]}
+{[}violence{]
 
 \ex. {[}Levaquin{]} 750 mg p.o. q. day (will {[}restart{]} \{today\})
 \a. {[}restart{]} REINITIATES {[}Levaquin{]} \b{.} \{today\} CONTAINS
-{[}restart{]}
+{[}restart{]
 
 \ex. His anterior chest {[}rash{]} has not {[}reoccurred{]} since
-the {[}PCN{]} VK was {[}discontinued{]} \{24-hours ago\}. \a. {[}discontinued{]}
+the {[}PCN{]} VK was {[}discontinued{]} \{24-hours ago\}. \a. {[}discontinued{]
 TERMINATES {[}PCN{]} \b{.} {[}discontinued{]} BEFORE {[}reoccurred{]}$_{NEG}$
-\b{.} {[}discontinued{]} OVERLAP \{24-hours ago\}
+\b{.} {[}discontinued{]} OVERLAP \{24-hours ago\
 
 As with INITIATES, reinitiates carries an implied sort of causality.
 This causality need not be marked, so long as the ALINK is present.
 
 
-\subsubsection{TERMINATES}
+#### TERMINATES
 
 TERMINATES is used when an aspectual event indicates the ending of
 another event:
 
 \ex. The latest {[}treaty{]} should finally {[}end{]} the {[}bloodshed{]}.
-\a. {[}end{]} TERMINATES {[}bloodshed{]}
+\a. {[}end{]} TERMINATES {[}bloodshed{]
 
 \ex. Because of this {[}reaction{]}, {[}Allegra{]} will be {[}discontinued{]}.
-\a. {[}discontinued{]} TERMINATES {[}Allegra{]}
+\a. {[}discontinued{]} TERMINATES {[}Allegra{]
 
 \ex. We will {[}hold{]} her {[}heparin{]} until after the {[}surgery{]}.
 \a. {[}hold{]} TERMINATES {[}heparin{]} \b{.} {[}hold{]} ENDS-ON
-{[}surgery{]}
+{[}surgery{]
 
 \ex. Patient {[}nausea{]} was successfully {[}stopped{]} by 1-mg
-{[}Ativan{]} p.r.n. \a. {[}stopped{]} TERMINATES {[}nausea{]}
+{[}Ativan{]} p.r.n. \a. {[}stopped{]} TERMINATES {[}nausea{]
 
-\vspace{0.25cm}
+\vspace{0.25cm
  \fbox{ %
-\begin{tabular}{p{0.6in}p{14cm}}
+\begin{tabular}{p{0.6in}p{14cm}
 \includegraphics[width=0.5in]{warning} \\
 \textbf{Caution!}  & \raisebox{4mm}{%
 \parbox[c]{14cm}{%
-\vspace{2mm}
+\vspace{2mm
 \textit{ALINKs are much less common than TLINKs, usually only a few
 per document, but they are no less important and easy to overlook.
 Remember that any time you have an EVENT which has the type ASPECTUAL,
 you will need to create at least one ALINK.}%
 }}\ \
 \tabularnewline
-\end{tabular}} \vspace{0.25cm}
+\end{tabular}} \vspace{0.25cm
 
 
 
-\section{REP - Reporting Annotation}
+###REP - Reporting Annotation
 
 Reporting Annotations link EVIDENTIAL EVENTs to those EVENTs that
 they report. For instance:
@@ -5749,7 +5742,7 @@ sentences.
 
 \ex. Mr. Jones {[}said{]}$_{R}$, ``I'm not {[}sure{]}$_{E}$ when
 our company will go {[}public{]}$_{E}$. It will not be before we
-{[}acquire{]}$_{E}$ Vandelay Industries.\textquotedbl{}
+{[}acquire{]}$_{E}$ Vandelay Industries.\textquotedbl{
 
 If there are multiple EVENTs reported by the same EVI event, as in
 the examples above, only one REPORTING link will be created, with
@@ -5757,10 +5750,10 @@ all of the reported events linked to the same EVI event in the same
 relation.
 
 
-\section{Special Cases, Constructions and Edge Cases}
+###Special Cases, Constructions and Edge Cases
 
 
-\subsection{Metaphorical and Figurative Language}
+\subsection{Metaphorical and Figurative Language
 
 You may be asked to annotate some particularly natural natural language
 speech. In such discourse, you'll find metaphorical expressions, figures
@@ -5777,7 +5770,7 @@ speaker who doesn't fully understand what's going on. Take, for instance:
 
 \ex. That {[}accountant{]} is a {[}snake{]} in the {[}grass{]}.
 
-\ex. {[}My{]} {[}head{]} {[}exploded{]} when {[}I{]} {[}found{]}
+\ex. {[}My{]} {[}head{]} {[}exploded{]} when {[}I{]} {[}found{]
 out.
 
 \ex. {[}That{]} {[}flew{]} right over {[}his{]} {[}head{]}.
@@ -5797,10 +5790,10 @@ and by work being done in other contexts. Because we are working directly
 with the text (rather than at some abstract level), we must mark the
 text as it stands and allow humans to parse as we do best.
 
-\color{blue}
+\color{blue
 
 
-\subsection{Exclamations, Interjections, and Emphatics!}
+\subsection{Exclamations, Interjections, and Emphatics!
 
 Natural language data, especially chats, emails, and discussion forum
 data, is full of emphatics, interjections, and exclamations which
@@ -5835,21 +5828,21 @@ forcefully put). These should still be annotated, along with their
 nearby context.
 
 \ex. {[}You{]} {[}hurt{]} {[}yourself{]} {[}playing{]} {[}softball{]}?
-{[}Poor{]} {[}you{]}! \a. {[}You{]} IDENTICAL {[}yourself{]}, {[}you{]}
+{[}Poor{]} {[}you{]}! \a. {[}You{]} IDENTICAL {[}yourself{]}, {[}you{]
 \b{.} {[}Poor{]} is an EVENT (OVERLAP, POS, ACT)
 
-\ex. {[}He{]} {[}posed{]} as a {[}lawyer{]} and {[}stole{]} {[}her{]}
-{[}savings{]}? What a {[}scumbag{]}! \a. {[}He{]} IDENTICAL {[}scumbag{]}
-\b{.} {[}He{]} BRIDGING {[}lawyer{]}
+\ex. {[}He{]} {[}posed{]} as a {[}lawyer{]} and {[}stole{]} {[}her{]
+{[}savings{]}? What a {[}scumbag{]}! \a. {[}He{]} IDENTICAL {[}scumbag{]
+\b{.} {[}He{]} BRIDGING {[}lawyer{]
 
-\ex. {[}He{]} {[}hooked{]} up with {[}Mark{]}? {[}I{]} can't {[}believe{]}
-{[}it{]}! \a. {[}hooked{]} IDENTICAL {[}it{]}
+\ex. {[}He{]} {[}hooked{]} up with {[}Mark{]}? {[}I{]} can't {[}believe{]
+{[}it{]}! \a. {[}hooked{]} IDENTICAL {[}it{]
 
 \ex. {[}Your{]} {[}leg{]} is {[}broken{]}? {[}That{]} {[}sucks{]}!
-\a. {[}broken{]} IDENTICAL {[}That{]}
+\a. {[}broken{]} IDENTICAL {[}That{]
 
 \ex. {[}You{]} {[}got{]} the {[}job{]}? {[}You{]} are sooooooo {[}lucky{]}!!!1!
-\a. {[}You{]} IDENTICAL {[}You{]}
+\a. {[}You{]} IDENTICAL {[}You{]
 
 Put differently, you are welcome to annotate those exclamations to
 which our schema applies, where statements are being made about ENTITYs
@@ -5858,7 +5851,7 @@ but those exclamations or interjections which don't fit the linguistic
 mold can safely be discarded.
 
 
-\subsection{Annotating Sarcasm}
+\subsection{Annotating Sarcasm
 
 Detection of sarcasm is not among RED's goals at the moment, but the
 detection of EVENTs, ENTITYs and TIMEX3s within sarcastic speech is.
@@ -5869,7 +5862,7 @@ itself should still be taken literally and annotated accordingly.
 The food is so {[}good{]}. \a. {[}love{]} and {[}good{]} would be
 ACT, POS, despite the implications otherwise.
 
-\ex. Uh-huh, Laura's going to {[}cook{]} me dinner. As if! \a. {[}cook{]}
+\ex. Uh-huh, Laura's going to {[}cook{]} me dinner. As if! \a. {[}cook{]
 would be ACT, POS, with a DocTimeRel of AFTER.
 
 Another way to think about this is that even though the illocutionary
@@ -5877,13 +5870,13 @@ force and meaning of the statement can be interpreted differently,
 linguistically, the speaker is simply stating a fact. To mark the
 force rather than the literal interprtation would be confusing to
 the computer, and without annotating sarcasm explicitly, it would
-hurt our models more than the data would help. \color{black}
+hurt our models more than the data would help. \color{black
 
-\begin{comment}
-\color{blue}
+\begin{comment
+\color{blue
 
 
-\subsection{Metaphorical and Figurative Language (MkII)}
+\subsection{Metaphorical and Figurative Language (MkII)
 
 You may be asked to annotate some particularly natural natural language
 speech. In such discourse, you'll find metaphorical expressions, figures
@@ -5911,27 +5904,27 @@ Take, for instance:
 
 \ex. That {[}accountant{]} is a {[}snake{]} in the grass.
 
-\ex. {[}He{]} left officer {[}school{]} because he couldn't {[}cut{]}
+\ex. {[}He{]} left officer {[}school{]} because he couldn't {[}cut{]
 the mustard.
 
 In these examples, ``bucket'', ``rocker'', ``grass'' and ``mustard''
 are not referential within the conversation, and cannot be mapped
-to anything else outside of that figurative meaning. The {[}snake{]}
+to anything else outside of that figurative meaning. The {[}snake{]
 is referent, though, as the speaker has stated that the accountant
 is IDENTICAL to the snake.
 
 Please try to avoid coercing elements of idioms into reference:
 
-\ex. {[}Stop{]} {[}beating{]} around the bush and just {[}sell{]}
+\ex. {[}Stop{]} {[}beating{]} around the bush and just {[}sell{]
 the {[}car{]}.
 
-\ex. {[}Mary{]} {[}rode{]} shotgun, and the falling {[}rocks{]} {[}missed{]}
+\ex. {[}Mary{]} {[}rode{]} shotgun, and the falling {[}rocks{]} {[}missed{]
 the passenger {[}seat{]} by inches.
 
-\ex. {[}She{]} got a {[}taste{]} of {[}her{]} own medicine when {[}Sarah{]}
+\ex. {[}She{]} got a {[}taste{]} of {[}her{]} own medicine when {[}Sarah{]
 {[}cheated{]} on {[}her{]}.
 
-\ex. {[}Matt{]} {[}stole{]} {[}my{]} thunder by {[}announcing{]}
+\ex. {[}Matt{]} {[}stole{]} {[}my{]} thunder by {[}announcing{]
 the product.
 
 Do not, for example, attempt to interpret ``bush'' as IDENTICAL
@@ -5944,16 +5937,16 @@ thus, do not constitute true coreference.
 
 However, there are sometimes true referents within idiomatic expressions:
 
-\ex. {[}My{]} {[}head{]} {[}exploded{]} when {[}I{]} {[}found{]}
+\ex. {[}My{]} {[}head{]} {[}exploded{]} when {[}I{]} {[}found{]
 out.
 
 \ex. {[}That{]} {[}flew{]} right over {[}my{]} {[}head{]}, better
 {[}rephrase{]}.
 
-\ex. {[}I{]} {[}trained{]} for \{two hours\} \{today\}. {[}Practice{]}
+\ex. {[}I{]} {[}trained{]} for \{two hours\} \{today\}. {[}Practice{]
 makes perfect!
 
-\ex. {[}He{]}'s {[}rolling{]} in the {[}dough{]}. He {[}made{]} {[}\$50k{]}
+\ex. {[}He{]}'s {[}rolling{]} in the {[}dough{]}. He {[}made{]} {[}\$50k{]
 \{last week\}!
 
 In the first two idioms, ``head'' does have a concrete referent
@@ -5968,13 +5961,13 @@ has a `the bucket' sense which is specified as meaning ``death''),
 and by work being done in other contexts. Because we are working directly
 with the text (rather than at some abstract level), we must mark the
 text as it stands and allow humans to parse as we do best.
-\end{comment}
+\end{comment
 
 
 
-\subsection{Intent and Purpose}
+\subsection{Intent and Purpose
 
-\label{desiderative}
+\label{desiderative
 
 Sometimes you may find an event like \textquotedbl{}want\textquotedbl{},
 \textquotedbl{}need\textquotedbl{}, \textquotedbl{}decide\textquotedbl{},
@@ -5987,7 +5980,7 @@ GENERIC (and therefore they shouldn't be TLINKed together), but otherwise,
 this often entails precondition.
 
 
-\subsubsection*{How does intent relate to causation?}
+\subsubsection*{How does intent relate to causation?
 
 There are occaisional moments in which the intent cannot possibly
 have an effect upon the final event; those, naturally, should have
@@ -6009,17 +6002,17 @@ sort of causation may be going on, default to PRECONDITION:
 \ex. and caregivers are {[}needed{]} to {[}provide{]} guidance
 
 
-\subsubsection*{Are these OVERLAP? BEFORE?}
+\subsubsection*{Are these OVERLAP? BEFORE?
 
 It's often similarly vague what the temporal relationship there is
-between \textquotedbl{}want\textquotedbl{} and the wanted event, \textquotedbl{}need\textquotedbl{}
+between \textquotedbl{}want\textquotedbl{} and the wanted event, \textquotedbl{}need\textquotedbl{
 and the needed event, etc. Whenever it's unclear, default to OVERLAP
 (so mostly use OVERLAP/PRECONDITION):
 
 \ex. Before that, I {[}wanted{]} to {[}come{]} back
 
 
-\subsection{Requesting, Asking, Promising}
+\subsection{Requesting, Asking, Promising
 
 As with wanting, and needing, requests usually aren't direct causation.
 Even if it seems unlikely that someone will decline the request, we
@@ -6028,12 +6021,12 @@ form of causation, treat is as PRECONDITION (this should almost always
 be BEFORE/PRECONDITION).
 
 
-\subsection{Restatement, reframing, equating}
+\subsection{Restatement, reframing, equating
 
 Sometimes, events will be followed by another event, that can be interpreted
 as a restatement of the last mention:
 
-\ex. Her mother had recently {[}died{]} , effectively {[}rendering{]}
+\ex. Her mother had recently {[}died{]} , effectively {[}rendering{]
 her an orphan.
 
 \ex. The cartels were deeply {[}rooted{]} in Mexico, effectively
@@ -6047,7 +6040,7 @@ to be consistent with later events; all TLINK and other relations,
 if at all possible, should be linked to the first of the two elements.
 
 
-\subsection{Avoiding Inference in Temporal Relations}
+\subsection{Avoiding Inference in Temporal Relations
 
 One thing to keep in mind when annotating is that you, being human
 with even basic understanding of the world and of the way that medicine
@@ -6095,7 +6088,7 @@ and the cancer itself, we should not annotate based on that assumption.
 
 Similarly, you will see sentences like:
 
-\ex. On the {12th}, she underwent an {[}EKG{]} and emergency {[}bypass{]}
+\ex. On the {12th}, she underwent an {[}EKG{]} and emergency {[}bypass{]
 following an {[}MI{]}.
 
 As humans, we understand that the test (the EKG) likely occurred before
@@ -6104,7 +6097,7 @@ the invasive procedure (the bypass). But when we compare:
 \ex. On the {12th}, she underwent an {[}MRI{]} and {[}CT{]} following
 a car {[}accident{]}.
 
-We see that there is no easily understood order between {[}MRI{]}
+We see that there is no easily understood order between {[}MRI{]
 and {[}CT{]}, and because there is no linguistic difference, just
 human understanding, we should not annotate the inferred relation
 between {[}EKG{]} and {[}bypass{]}.
@@ -6119,11 +6112,11 @@ The verb tense allows us to understand that both EVENTs happened BEFORE
 DocTime, and most Americans will be aware of their temporal ordering.
 However, there is no evidence in the document to support the TLINK:
 
-\a. {[}Harbor{]} BEFORE {[}9/11{]}
+\a. {[}Harbor{]} BEFORE {[}9/11{]
 
 The TLINK would be justified, however, in:
 
-\ex. The national psyche suffered a huge blow with Pearl {[}Harbor{]}
+\ex. The national psyche suffered a huge blow with Pearl {[}Harbor{]
 and later, {[}9/11{]}.
 
 Although this is a fairly straightforward example, check yourself
@@ -6140,7 +6133,7 @@ based on your understanding of the world.
 \color{blue} 
 
 
-\subsection{Inference and Coreference}
+\subsection{Inference and Coreference
 
 Unlike with Temporal Relations, Coreference is largely dependent on
 human inference, as there are fewer grammatical cues to identity,
@@ -6152,22 +6145,22 @@ situations where `it's complicated' (as discussed in Section \ref{judgement}),
 the bar for ``too inferential'' is far higher for coreference than
 it is for temporal relations.
 
-\color{black}
+\color{black
 
 
 \subsection{Discussions, Generalizations, and other EVENTs which aren't on the
-timeline}
+timeline
 
-\label{discussion}
+\label{discussion
 
 One of the biggest sources of difficulty for annotators is the presence
 of EVENTs which do not really belong in the timeline per se, but are
 present in the document. Let's use the below examples to discuss.
 
-\ex. \label{1stcase} We're going ahead with adjuvant {[}chemotherapy{]}
+\ex. \label{1stcase} We're going ahead with adjuvant {[}chemotherapy{]
 for Mrs. Parks, starting next week.
 
-\ex. I briefly discussed the {[}risks{]} of adjuvant {[}chemotherapy{]}
+\ex. I briefly discussed the {[}risks{]} of adjuvant {[}chemotherapy{]
 with Mr. Peloquin, along with those of several other treatment options.
 
 \ex. Adjuvant {[}chemotherapy{]} following {[}surgery{]} is generally
@@ -6202,14 +6195,14 @@ the cases where EVENTs are discussed which do not belong on the timeline
 (or belong on a hypothetical fork of the timeline).
 
 
-\subsubsection{Ground Rules for annotating HYP/GEN events and discussion events}
+#### Ground Rules for annotating HYP/GEN events and discussion events
 
 As discussed previously, these EVENTs, by virtue of their modality,
 aren't really on the same timeline as other EVENTs dealing with the
 patient's actual care. Because of this, it can be quite tricky to
 link them to the overall timeline. As such, we have a few rules, all
 previously discussed, which you will find particularly useful:
-\begin{enumerate}
+\begin{enumerate
 \item If an EVENT is HYP, mark DocTimeRel as best you can using the same
 guidelines you would for all other EVENTs, as if they were actual
 EVENTs. 
@@ -6222,13 +6215,13 @@ EVENT.
 of what was discussed, the {[}discussion{]}/{[}discussed{]} itself
 will have a modality of ACTUAL, as the discussion really did take
 place. 
-\end{enumerate}
+\end{enumerate
 
-\subsubsection{Examples of discussion}
+#### Examples of discussion
 
 \ex. We {[}discussed{]} that Adjuvant {[}chemotherapy{]} following
 {[}surgery{]} is generally recommended in situations similar to this.
-\a. {[}surgery{]} BEFORE {[}chemotherapy{]}
+\a. {[}surgery{]} BEFORE {[}chemotherapy{]
 
 Here, we have a straightforward discussion of GENERIC EVENTs. So,
 the EVENTs are as marked above, with all three having an OVERLAP DocTimeRel.
@@ -6236,12 +6229,12 @@ In addition, we'd TLINK {[}surgery{]} BEFORE {[}chemotherapy{]}, both
 GENERIC EVENTs. {[}discussed{]} is ACTUAL, as the discussion actually
 occurred.
 
-\ex. I briefly {[}mentioned{]} the {[}risks{]} of adjuvant {[}chemotherapy{]}
+\ex. I briefly {[}mentioned{]} the {[}risks{]} of adjuvant {[}chemotherapy{]
 with Mr. Peloquin, along with {[}those{]} of several other treatment
 {[}options{]}.
 
 Here, the risks of a generic course of chemotherapy are mentioned.
-{[}mentioned{]} would be ACTUAL, with a DocTimeRel of OVERLAP. {[}risks{]}
+{[}mentioned{]} would be ACTUAL, with a DocTimeRel of OVERLAP. {[}risks{]
 and adjuvant {[}chemotherapy{]} would be GENERIC with a DocTimeRel
 of OVERLAP.
 
@@ -6250,7 +6243,7 @@ urinary tract {[}infections{]}, and {[}pneumonia{]}.
 
 Again, ACTUAL discussion, with three HYPOTHETICAL EVENTs.
 
-\ex. The {[}risk{]} of the {[}anastomosis{]} was the primary {[}risk{]}
+\ex. The {[}risk{]} of the {[}anastomosis{]} was the primary {[}risk{]
 {[}discussed{]} including the possibility of an anastomotic {[}leak{]},
 need for {[}intervention{]}, possibly even {[}surgery{]} and a temporary
 {[}stoma{]}.
@@ -6261,7 +6254,7 @@ the other EVENTs would be HYPOTHETICAL. Although there are temporal
 relations among the EVENTs here, they are not explicitly stated in
 the document, so they should not be marked.
 
-\ex. I am {[}concerned{]} about use of adjuvant {[}chemotherapy{]}
+\ex. I am {[}concerned{]} about use of adjuvant {[}chemotherapy{]
 such as {[}FOLFOX{]} in this elderly man.
 
 Although there is no explicit discussion here, the doctor is still
@@ -6271,9 +6264,9 @@ making a statement. Here, you'd have an ACTUAL {[}concerned{]}, HYPOTHETICAL
 
 
 \subsection{Pre- and Post- expressions (preoperative, post-treatment, intraoperatively,
-etc.)}
+etc.)
 
-\label{prepostexp}
+\label{prepostexp
 
 The adjectives ``preoperative'' and ``postoperative'' (as well
 as related terms like ``post-surgical'', ``post-injury'', ``pre-treatment'',
@@ -6296,10 +6289,10 @@ First, an easy example:
 
 \ex. Patient underwent a partial {[}hemicolectomy{]} in \{July 2009\}.
 \{Postoperative\} {[}scarring{]} {[}noted{]} during {[}exam{]}. \a.
-\{July 2009\} CONTAINS {[}hemicolectomy{]} \b{.} {[}hemicolectomy{]}
-BEFORE {[}exam{]} \b{.} {[}exam{]} CONTAINS {[}noted{]} \b{.} {[}hemicolectomy{]}
-BEFORE \{Postoperative\} \b{.} \{Postoperative\} CONTAINS {[}scarring{]}
-\b{.} \{Postoperative\} BEGINS-ON {[}surgery{]}
+\{July 2009\} CONTAINS {[}hemicolectomy{]} \b{.} {[}hemicolectomy{]
+BEFORE {[}exam{]} \b{.} {[}exam{]} CONTAINS {[}noted{]} \b{.} {[}hemicolectomy{]
+BEFORE \{Postoperative\} \b{.} \{Postoperative\} CONTAINS {[}scarring{]
+\b{.} \{Postoperative\} BEGINS-ON {[}surgery{]
 
 Here, you can see that there is a large amount of temporal information
 expressed here, but most important is the \{postoperative\} TIMEX3
@@ -6314,9 +6307,9 @@ reference to the surgery in the note:
 
 \ex. Patient is in {[}recovery{]}, no \{post-operative\} {[}changes{]}.
 \a. \{post-operative\}$_{prepostexp}$ CONTAINS {[}changes{]}$_{\text{NEG}}$
-\b{.} \{post-operative\}$_{prepostexp}$ CONTAINS {[}recovery{]}
+\b{.} \{post-operative\}$_{prepostexp}$ CONTAINS {[}recovery{]
 
-Here, we have no EVENT for the operation which we can TLINK the {[}changes{]}
+Here, we have no EVENT for the operation which we can TLINK the {[}changes{]
 to. In this situation, \{postoperative\} would still be a TIMEX3,
 and it would CONTAIN the {[}changes{]}. Post-operative here stands
 in for the span of time following the surgery, allowing us to capture
@@ -6325,9 +6318,9 @@ Let's look at another example:
 
 \ex. The patient's \{preoperative\} {[}health{]} is {[}good{]}, and
 \{next week\}'s {[}tonsillectomy{]} should proceed without {[}difficulty{]}$_{NEG,HYP}$.
-\a. \{preoperative\} CONTAINS {[}health{]} \b{.} \{preoperative\}
-CONTAINS {[}good{]} \b{.} \{preoperative\} ENDS-ON {[}tonsillectomy{]}
-\b{.} \{next week\} CONTAINS {[}tonsillectomy{]}
+\a. \{preoperative\} CONTAINS {[}health{]} \b{.} \{preoperative\
+CONTAINS {[}good{]} \b{.} \{preoperative\} ENDS-ON {[}tonsillectomy{]
+\b{.} \{next week\} CONTAINS {[}tonsillectomy{]
 
 The surgery introduced by \{preoperative\} will presumably occur in
 the future (given the tenses in the sentence). The {[}health{]} and
@@ -6338,7 +6331,7 @@ is not linked to {[}tonsillectomy{]}$_{ACTUAL}$, because we cannot
 link HYP Events to ACTUAL Events.
 
 
-\subsection{Annotating the word ``plan'' or ``plans\textquotedbl{}}
+\subsection{Annotating the word ``plan'' or ``plans\textquotedbl{}
 
 \textquotedbl{}Plan'' is a temporally difficult word. In some cases,
 it is clearly temporally relevant:
@@ -6365,14 +6358,14 @@ should always be marking `plan' (or `plans') as an EVENT. This rule
 applies to both verbs and nouns, where relevant.
 
 
-\subsection{Annotating ``prior'' and ``at the same time\textquotedbl{}}
+\subsection{Annotating ``prior'' and ``at the same time\textquotedbl{}
 
 \textquotedbl{}Prior'', ``at the same time'', and other related
 temporal indicator words or phrases are often complicated in their
 role within the schema, and as such, merit special discussions.
 
 
-\subsubsection{Annotating ``Prior\textquotedbl{}}
+#### Annotating ``Prior\textquotedbl{}
 
 The most common mistake made by new annotators is to consider ``prior''
 itself to be a TIMEX3. It is, of course, a word carrying considerable
@@ -6387,7 +6380,7 @@ The best way to illustrate the varied uses of ``prior'' in the data
 is to discuss a series of examples:
 
 \ex. Healthy prior to admission and only co-morbid conditions. \a.
-{[}healthy{]} BEFORE {[}admission{]}
+{[}healthy{]} BEFORE {[}admission{]
 
 Here (as in many cases), ``prior'' is marking a temporal relationship,
 here stating that the {[}healthy{]} comes BEFORE {[}admission{]}.
@@ -6399,7 +6392,7 @@ This link is usually of type BEFORE, but occasionally marks ENDS-ON
 example (as with most), the word ``prior'' itself is left unmarked.
 
 \ex. Prior to her {[}MI{]}, she experienced no {[}signs{]} of cardiovascular
-illness. \a. {[}signs{]}$_{NEG}$ ENDS-ON {[}MI{]}
+illness. \a. {[}signs{]}$_{NEG}$ ENDS-ON {[}MI{]
 
 Example \Last is identical to \LLast, except for a syntactic change
 pulling the ``prior to her MI'' to the front of the sentence. Once
@@ -6407,7 +6400,7 @@ again, prior indicates the given TLINK.
 
 \ex. {[}Omeprazole{]} should be taken \{1 hour\} prior to {[}meals{]}.
 \a. \{1 hour\} OVERLAP {[}Omeprazole{]} \b{.} \{1 hour\} BEFORE
-{[}meals{]}
+{[}meals{]
 
 Note that here, ``1 hour prior to meals'' is itself a temporal expression
 (which happens to include the term ``prior''), to which Omeprazole
@@ -6423,28 +6416,28 @@ is being used as a modifier (``Her prior illness'', ``the prior
 surgery'', etc).
 
 
-\subsubsection{Annotating ``at the same time\textquotedbl{}}
+#### Annotating ``at the same time\textquotedbl{}
 
 Similarly to ``prior'', ``at the same time'' (and derivative expressions)
 is not a TIMEX3, but a marker of a temporal relationship. For example:
 
 \ex. We will order the {[}EGD{]} as a complex procedure so that Botox
 {[}injection{]} can be done at the discretion of the endoscopist at
-that same time. \a. {[}EGD{]} OVERLAP {[}injection{]}
+that same time. \a. {[}EGD{]} OVERLAP {[}injection{]
 
 Here, ``at that same time'' is indicating that {[}EGD{]} OVERLAPs
 {[}injection{]}, and is itself unmarked. This is the most common usage,
 marking OVERLAP or CONTAINS TLINK relations.
 
-\ex. She had a {[}hysterectomy{]} with scar ovaries {[}removed{]}
-and appendix {[}removed{]} at the same time. \a. {[}hysterectomy{]}
-OVERLAP {[}removed{]} \a. {[}hysterectomy{]} OVERLAP {[}removed{]}
+\ex. She had a {[}hysterectomy{]} with scar ovaries {[}removed{]
+and appendix {[}removed{]} at the same time. \a. {[}hysterectomy{]
+OVERLAP {[}removed{]} \a. {[}hysterectomy{]} OVERLAP {[}removed{]
 
 In \Last, again, ``at the same time'' is left unmarked.
 
-\ex. I met with the patient at 2pm today, and told her I'd {[}check{]}
-in at \{the same time tomorrow\}. \a. \{the same time tomorrow\}
-CONTAINS {[}check{]}
+\ex. I met with the patient at 2pm today, and told her I'd {[}check{]
+in at \{the same time tomorrow\}. \a. \{the same time tomorrow\
+CONTAINS {[}check{]
 
 \Last shows one of the relatively rare uses of ``at the same time''
 as a TIMEX3. Here, \{the same time tomorrow\} is a TIMEX3, which CONTAINS
@@ -6459,7 +6452,7 @@ a turn of phrase used to separate opposing statements, rather than
 indicating a worthwhile temporal link.
 
 
-\subsection{Negation and Causation}
+\subsection{Negation and Causation
 
 There is often an issue with negative counterfactuals, where the causation
 is essentially what would happen if the event happened. As the second
@@ -6470,10 +6463,10 @@ If that is the case, then mark the TLINK as if it actually were happening:
 
 \ex. DA Hurlbert won't {[}press{]} felony charges against hit-and-run
 driver because it might {[}affect{]} his job. \a. {[}press{]} BEFORE/CAUSE
-{[}affect{]}
+{[}affect{]
 
 
-\subsection{Discerning OVERLAP/CAUSE vs OVERLAP/PRECONDITIONS}
+\subsection{Discerning OVERLAP/CAUSE vs OVERLAP/PRECONDITIONS
 
 If you are pondering this boundary, then the causing event is probably
 some sort of state or condition leading to another event. If causation
@@ -6489,16 +6482,16 @@ then you should do it using CAUSE, unless they are coreferential enough
 to accept IDENT or BRIDING:
 
 \ex. If you do {[}take{]} him back though, you {[}send{]} the signal
-that you're prepared to accept things continuing as they \a. {[}take{]}
-OVERLAP/CAUSE {[}send{]}
+that you're prepared to accept things continuing as they \a. {[}take{]
+OVERLAP/CAUSE {[}send{]
 
-\pagebreak{}
-
-
-\part{Appendix}
+\pagebreak{
 
 
-\section{Schema Description}
+##Appendix
+
+
+###Schema Description
 
 In an effort to clarify the schema at a glance, here's a quick summary
 of the Richer Event Description Annotation Schema, using the structure
@@ -6513,15 +6506,15 @@ italics}}: \begin{multicols}{2} \begin{itemize*}
 
 \item Choice 2 for that property 
 
-\item ... \end{itemize*} \end{itemize*} \end{itemize*}
-\begin{itemize}
+\item ... \end{itemize*} \end{itemize*} \end{itemize*
+\begin{itemize
 \item \textbf{ENTITY} \begin{itemize*} 
 \item Polarity \begin{itemize*} 
 \item \textbf{\textit{POS}} 
 \item NEG \end{itemize*} \end{itemize*} \begin{itemize*} 
 \item Contextual Modality \begin{itemize*} 
 \item \textbf{\textit{ACTUAL}} 
-\item GENERIC \end{itemize*} \end{itemize*}
+\item GENERIC \end{itemize*} \end{itemize*
 \item \textbf{EVENT} \begin{itemize*} 
 \item DocTimeRel \begin{itemize*} 
 \item BEFORE 
@@ -6559,7 +6552,7 @@ italics}}: \begin{multicols}{2} \begin{itemize*}
 \item DURATION 
 \item QUANTIFIER 
 \item PREPOSTEXP 
-\item SET \end{itemize*} \end{itemize*}
+\item SET \end{itemize*} \end{itemize*
 \item \textbf{TLINK} \begin{itemize*} 
 \item Event \begin{itemize*} 
 \item (This is a slot, designed to be filled with the EVENT being TLINKed)
@@ -6577,7 +6570,7 @@ which the first EVENT is being temporally linked) \end{itemize*}
 \item CONTAINS-SUBEVENT 
 \item BEGINS-ON 
 \item ENDS-ON 
-\item SIMULTANEOUS \end{itemize*} \end{itemize*}
+\item SIMULTANEOUS \end{itemize*} \end{itemize*
 \item \textbf{ALINK} \begin{itemize*} 
 \item Event \begin{itemize*} 
 \item (This is a slot, designed to be filled with the EVENT (of type ``ASPECTUAL'')
@@ -6589,32 +6582,32 @@ first EVENT is aspectually linked) \end{itemize*}
 \item CONTINUES 
 \item INITIATES 
 \item REINITIATES 
-\item TERMINATES \end{itemize*} \end{itemize*}
+\item TERMINATES \end{itemize*} \end{itemize*
 \item \textbf{COREFERENCE} 
 
-\begin{itemize}
+\begin{itemize
 \item IDENTICAL 
 \item APPOSITIVE 
 \item WHOLE/PART 
 \item SET/MEMBER 
 \item REPORTING 
 \item BRIDGING 
-\end{itemize}
-\end{itemize}
-\end{multicols} \pagebreak{}
+\end{itemize
+\end{itemize
+\end{multicols} \pagebreak{
 
 
-\subsection{Default Values}
+\subsection{Default Values
 
 Some of the attributes of EVENTs, TLINKs, TIMEX3s and ALINKs have
 default values, which will automatically be entered by the annotation
 tool. This is a list of those default values:
 
 
-\subsubsection*{Default Values for EVENT}
+\subsubsection*{Default Values for EVENT
 
-\begin{center}
-\begin{tabular}{|l|r|}
+\begin{center
+\begin{tabular}{|l|r|
 \hline 
 \textbf{Property}  & \textbf{Default Value} \tabularnewline
 \hline 
@@ -6626,34 +6619,34 @@ EVENT.degree  & (N/A) \tabularnewline
 EVENT.contextualaspect  & (N/A) \tabularnewline
 EVENT.contextualmodality  & ACTUAL \tabularnewline
 \hline 
-\end{tabular}
-\par\end{center}
+\end{tabular
+\par\end{center
 
 
-\subsubsection*{Default Values for TIMEX3}
+\subsubsection*{Default Values for TIMEX3
 
 All values for TIMEX3 annotations must be specified for each instance.
 
 
-\subsubsection*{Default Values for TLINK}
+\subsubsection*{Default Values for TLINK
 
 All values for TLINK annotations must be specified for each instance.
 
 
-\subsubsection*{Default Values for ALINK}
+\subsubsection*{Default Values for ALINK
 
 All values for ALINK annotations must be specified for each instance.
 
 
-\section{References}
+###References
 
-\bibliographystyle{amsplain}
-\bibliography{bibtex}
- \pagebreak{}
+\bibliographystyle{amsplain
+\bibliography{bibtex
+ \pagebreak{
 
 
-\section{Document Revision History}
-\begin{itemize}
+###Document Revision History
+\begin{itemize
 \item 9/22/13 -- Major revisions to add more non-medical examples, remove
 material remaining from THYME-TimeML, improve Subevent section 
 \item 9/17/13 -- Figured out what RED means, added this to the title. 
@@ -6678,6 +6671,6 @@ for completing the pilot.
 \item 7/6/14 -- Implemented Mariah's suggestion for emotive vs. assertive
 emphatics. 
 \item 7/27/14 -- Added `Avoid millisecond reasoning', `hypotheticals, negation
-and the past', and a made a few other repairs. - Will\end{itemize}
+and the past', and a made a few other repairs. - Will\end{itemize
 
 \end{document}
