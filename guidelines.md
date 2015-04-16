@@ -2548,8 +2548,7 @@ for this record.
 
 Here, obviously, the Doctime is the publication time.
 
-- \textit{UPDATE: *Saturday, February 20, 2010 at 3:34 PM*:
-According to Broomfield county sheriffs, the victim of the shooting
+- UPDATE: *Saturday, February 20, 2010 at 3:34 PM*: According to Broomfield county sheriffs, the victim of the shooting
 has died at St. Joseph Hospital.
 
 Here, *Saturday, February 20, 2010 at 3:34 PM* would be considered
@@ -2615,7 +2614,6 @@ and mark with DUPLICATE.
 
 As to avoid throwing out otherwise good data, DUPLICATE does have
 a few hard and fast laws of usage to keep in mind:
-\begin{enumerate
 - Even if a section or paragraph is repeated several times in a note,
 \textbf{the first instance of that section or paragraph which occurs
 must be fully annotated}. DUPLICATE is only used for subsequent repetitions. 
