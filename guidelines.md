@@ -179,7 +179,7 @@ but looking at why we have it and what we are trying to avoid. On
 one hand, we don't want to keep track of every single noun ever mentioned
 in a discourse:
 
-- :no_entry_sign: *I* went down the *street* to the local *food* and *drug*
+:no_entry_sign: *I* went down the *street* to the local *food* and *drug*
 *store* and talked to the *meat* *guy* in *their*
 *deli * *section*.
 
@@ -218,7 +218,7 @@ be annotated.
 - You can almost always assume that a subject or object, *if they
 refer to an entity at all*, will be referential. 
 
-:bang_bang: Remember that something must be referring to an entity.  Specifically, if a verb-object pair collectively constitute an event -- "tell
+:bangbang: Remember that something must be referring to an entity.  Specifically, if a verb-object pair collectively constitute an event -- "tell
 the truth", "take a bath" -- then do not consider them to also imply an entity. Exceptions involving both entity and event readings are covered under the "Complex Types" section.
 
 
@@ -228,8 +228,8 @@ Certain phenomena have characteristics of both events and entities.
 Ongoing processes may often have referential characteristics -- a
 revolution, for example, is clearly an event, but during the process
 of its occurrence a revolution might take on some characteristics
-of a concrete entity (as in \textit{"the revolution has spread to
-Misrata"}). Similarly, many diseases might be thought of either
+of a concrete entity (as in *"the revolution has spread to
+Misrata"*). Similarly, many diseases might be thought of either
 as ongoing processes applying to the body, or as amalgams of symptoms
 that have referential status. Such questionable instances will always
 default to EVENT.
@@ -250,9 +250,12 @@ unsure, ask "when did this thing start?", or perhaps, "when
 did it occur relative to the time of writing?", and gauge your reaction
 to the question, even if you're not sure of the answer.
 
-- The patient came in with a fever. \a. "When did the fever
-start?" - "Well, probably in the last few days. Definitely before
-this was written." \b{.} "When did the patient start?" - ???
+- The patient came in with a fever. 
+-- "When did the fever start?" 
+-- "Well, probably in the last few days. Definitely before
+this was written." 
+- "When did the patient start?" 
+-- ???
 
 If such a question does not seem felicitous, or only makes sense by
 interpreting it as "when was this created?", then the element
@@ -291,26 +294,26 @@ an entity which carries with it an implied EVENT. For instance:
 
 - "Make sure to eat something before your vitamins."
 
-- "Loperamide helped to calm her stomach\textquotedbl{
+- "Loperamide helped to calm her stomach."
 
 This is an example of an implicit, or what we call metonymic, event,
 in which "vitamins" stands in for "taking your vitamins",
-and "loperamide" stands for "the administration of loperamide\textquotedbl{}.
+and "loperamide" stands for "the administration of loperamide".
 You do not want to apply identity relationships between the taking
 action and the vitamins themselves, nor do you want to assume that
 temporal relationships like "before" and "after" apply to
 an object like a pill. Instead, these will be labeled as an EVENT
-but given the METONYMIC feature. You should also mark IMPLICIT EVENTs
+but given the IMPLICIT feature. You should also mark IMPLICIT EVENTs
 as ENTITYs since these events can corefer with ENTITYs or with EVENTs.
 These are realized as \textit{both} EVENTs and ENTITYs, so that relations
 can be made to both. Consider \Next.
 
 - The nearby pipe *bomb* disrupted the festival. The *explosion*
-from the *device* was heard for miles. \a. *bomb*$_{EVENT,METONYMIC}$
-IDENTICAL *explosion* \b{.} *bomb*$_{ENTITY}$ IDENTICAL
-*device*
+from the *device* was heard for miles. 
+--  *bomb*$_{EVENT,IMPLIED}$ IDENTICAL *explosion*
+--  *bomb*$_{ENTITY}$ IDENTICAL *device*
 
-Be exceedingly sparing with such metonymic annotations. For our purposes,
+Be exceedingly sparing with such implicit-event annotations. For our purposes,
 only use it when you are sure that a later relations phase will really
 need to make reference to an entity's implied events. Otherwise, simply
 annotate that entity as an ENTITY.
@@ -453,165 +456,131 @@ syntactic unit \textit{in no way} disqualifies it from separate annotation.
 #### Minimum Span Annotation
 
 One might talk about "maximum span" annotation as being everything
-encompassing what you are talking about, an approach we are \emph{not
-using here}:
-\begin{examples
-- \label{[The-7.6-magnitude-earthquake]}*\textsubscript{MAX-SPAN}The
-7.6-magnitude earthquake* *\textsubscript{MAX-SPAN} had the consequences
-of * *\textsubscript{MAX-SPAN} severe damage* to *\textsubscript{MAX-SPAN
-multiple buildings* *\textsubscript{MAX-SPAN} last July*
-\end{examples
-We will take the opposite approach, using a \textsc{minimum span
+encompassing what you are talking about (an approach we are **not**
+using here):
+
+:no_entry_sign: [MAX-SPAN **The 7.6-magnitude earthquake** ] had the consequences of [MAX-SPAN **severe damage** ] to [MAX-SPAN **multiple buildings** ] last July
+
+We will take the opposite approach, using a *minimum span*
 style of annotation in which we only mark the syntactic head of each
 markable. This is because capturing everything about what makes an
 entity an entity, or an event an event, is not only difficult, but
-can lead to elaborate overlapping annotations. As such, instead of
-the kinds of annotations in \ref{[The-7.6-magnitude-earthquake]},
-we will annotate everything except pronoun nouns using a single word,
+can lead to elaborate overlapping annotations. Instead of
+the kinds of annotations you see above, we will annotate everything (except proper nouns and times) using a single word,
 resulting in spans such as: 
-\begin{examples
-- The 7.6-magnitude *earthquake* caused severe *damage* to multiple
-*buildings* last **July**.
-- The *U.S.* *President* *maintained* his *stance* on
-the civil *war*.
-\end{examples
+
+- The 7.6-magnitude *earthquake* caused severe *damage* to multiple *buildings* last **July**.
+
+- The *U.S.* *President* *maintained* his *stance* on the civil *war*.
+
 This does not mean we are throwing this information away, but rather
 that we assume this information to be recoverable. This emphasis upon
 recoverability is important; we need to capture the word that lets
 us "find" the rest of the phrase in question, or in other words,
-the \emph{syntactic head}%
-\footnote{We are following modern dependency conventions, such as La MarXXXXXXXXXXXXXX,
-in our assumptions about what consistutes a head, with some exceptions
-to avoid annotatoin of semanticallly light verbs (such as annotating
-light verbs with their nominalizations) discussed below.%
-}. Consider a syntactic dependency tree of the above sentence in this
+the *syntactic head*. Consider a syntactic dependency tree of the above sentence in this
 regard 
-\begin{examples
-- \label{ExampleDepTree}>\textcompwordmark{}> Insert Dependency tree
-Here
-\end{examples
+
+```
+Insert dependency tree
+``` 
+
 "Earthquake", one may see, has a number of dependents. Annotating
 it can be thought of as pointing to everything under it. This gives
 us the best of both worlds -- you get to only grab one word (and therefore
 do not have to fret about what span to annotate), while underlyingly
 capturing the full range of "what is being talked about". 
 
-If that tree in example \ref{ExampleDepTree} is foreign to you, do
-not despair; all you need to do is follow some basic rules for what
-we call "headfinding". In general:
-\begin{itemize
+If you find syntax trees complex and scary, don't worry: all you need to do is follow some basic rules for what
+we call "head finding". In general:
+
 - The traditional notion of headedness is that there is a word in each
 phrase which essentially defines and represents that phrase. The head
 is not the most important part of a phrase, but instead can usually
 stand in for the entire phrase and mean roughly the same thing with
 roughly the same grammatical properties. 
 
-\begin{itemize
 - One casual way to test this is what lexical term would be used in
 a repeated version of the same. If you constantly talk about "John's
 insatiable hunger for more donuts", one might refer to that hunger
 as "that hunger", but not by "those donuts".
-\end{itemize
+
 - For verb phrases and adjective phrases this will be simple, and there
-is no need to think of things in terms of \textsc{syntactic head}s
+is no need to think of things in terms of *syntactic heads*
 at all. You will only be annotating the verb or adjective in the phrase,
 and nothing more. Thus, look at the events in the following examples
-(no other parts have been annotated):\end{itemize
-\begin{examples
+(no other parts have been annotated):
+
 - The stock price is *stable*.
-- \label{reportsthrowingup}Patient *reports* *throwing* up.
+- Patient *reports* *throwing* up.
 - She's *unable* to *lift* her arms.
 - Since her last *surgery*, she has seemed *disoriented* and
 *moody*.
 - She feels slightly *weak* but has *resumed* most of her normal
 *activities*.
 - The jury *finding* was in favor of the defendant.
-\end{examples
+
 Note that we take the single verb or adjective even when when dealing
 with a multiword predication such as "throw up\textquotedbl{}. The
 exception to this tendency comes from \emph{light verbs} and \emph{support
 verbs, }verb-object pairs in which the verb is less informative than
 the object about the event in question, as in:
-\begin{examples
+
 - John took a *\textsubscript{event}bath*.
 - The patient underwent *\textsubscript{event}surgery*.
 - The burglar committed a heinous *\textsubscript{event}crime*. 
-\end{examples
+
 Note that in each, there is no individuation between the verb and
 object -- they collectively assert an event -- and the verb is a grammaticalized
 and abstract term. For a more full definition, here is the definition
 discussed in relation to Propbank:
-\begin{quotation
-(Light Verb Constructions) are characterized by a light verb and a
-predicating complement (henceforth, true predicate) that \textquotedbl{}combine
-to predicate as a single element.\textquotedbl{} (Butt 2004) In LVC,
-the verb is considered semantically bleached in such a way that the
-verb does not hold its full predicating power. Thus, the light verb
-plus its true predicate can often be paraphrased by a verbal form
-of the true predicate without loss of the core meaning of the expression.
-For example, the light verb \textquotedbl{}gave\textquotedbl{} and
-the predicate \textquotedbl{}lecture\textquotedbl{} in \textquotedbl{}gave
-a lecture\textquotedbl{}, together form a single predicating unit
-such that it can be paraphrased by \textquotedbl{}lectured\textquotedbl{}. 
-\end{quotation
-Remember in this that if you \textit{can} cleanly separate a verb
+
+> (Light Verb Constructions) are characterized by a light verb and a predicating complement (henceforth, true predicate) that combine to predicate as a single element.(Butt 2004) In LVC, the verb is considered semantically bleached in such a way that the verb does not hold its full predicating power. Thus, the light verb plus its true predicate can often be paraphrased by a verbal form of the true predicate without loss of the core meaning of the expression.  For example, the light verb *gave* and the predicate *lecture* in *gave* a lecture, together form a single predicating unit such that it can be paraphrased by *lectured*. 
+
+Remember in this that if you **can** cleanly separate a verb
 and its noun into two separate events, then you should treat them
 as two separate things. Similarly, some verbs like "use" are relatively
 generic, but evoke a prototypical use of the object -- rather than
-evoking the object as an event in itself. Verbs such as \emph{use
-}are the main event:
-\begin{examples
-- \textquotedbl{}Police *\textsubscript{event}used* tear gas to
-*\textsubscript{event}disperse* the protesters.\textquotedbl{
-\end{examples
+evoking the object as an event in itself. Verbs such as *use* are the main event:
+
+- Police *used* tear gas to *disperse* the protesters.
+
 The same rules for minimal-span annotation will also apply to nouns.
 Hopefully you will have some exposure to what the head of a noun phrases
 is from syntactic courses, and this will be quite familiar. Start
 by examining the example for participants which you desire to annotate;
 say that you found the following:
-\begin{subexample
+
 - The most recent IED attack outside the Green Zone in Baghdad
 - The shooting near the word-torn city
 - That recision biopsy analysis of the sigmoid colon today
-\end{subexample
+
 For each, rule out prepositional phrases and post-postitional adverbs:
-\begin{subexample
-- The most recent IED attack \sout{outside the Green Zone in Baghdad} 
-- The shooting \sout{near the war-torn city} 
-- That recision biopsy analysis \sout{of the sigmoid colon today
-\end{subexample
-Then for each sequence of nouns, the head is the rightmost noun%
-\footnote{If the rightmost term in a noun phrase (i.e. the "head") is a
-particle of a nominalization, such as in "the blow out flooded the
-gulf with oil", then ignore the "out" particle and annotate
-"blow" itself.%
-}:
-\begin{subexample
-- The most recent IED *\textsubscript{event}attack* \sout{outside
-the Green Zone in Baghdad} 
-- The *\textsubscript{event}shooting* \sout{near the war-torn
-city} 
-- That recision biopsy *\textsubscript{event}analysis* \sout{of
-the sigmoid colon today
-\end{subexample
+
+- The most recent IED attack ~~outside the Green Zone in Baghdad~~
+- The shooting ~~near the war-torn city~~
+- That recision biopsy analysis ~~of the sigmoid colon today~~
+
+Then for each sequence of nouns, the head is the rightmost noun:
+
+- The most recent IED *attack* ~~outside
+the Green Zone in Baghdad~~
+- The *shooting* ~~near the war-torn city~~
+- That recision biopsy *analysis* ~~of the sigmoid colon today~~
+
 This doesn't mean that other entities and events won't be within the
-spans you considered. The same examples should result in annotations
-such as
-\begin{subexample
-- The *\textsubscript{event}shooting* near the war-torn *\textsubscript{entity
-city* 
-- That recision biopsy *\textsubscript{event}analysis* of the sigmoid
-*\textsubscript{entity} colon* *\textsubscript{timex} today*
-\end{subexample
+spans you considered. The same examples should result in annotations such as:
+
+- The *shooting* near the war-torn *city* 
+- That recision biopsy *analysis* of the sigmoid *colon* *today*
+
 There will be two exceptions to this "minimal span" rule; proper
 names and times. Proper names should be annotated with all name parts,
 so that "Bill Clinton" is not "Bill *Clinton*" but rather
 "*Bill Clinton*". Do not include determine determiners in
 such terms:
-\begin{subexample
-- The most recent IED *\textsubscript{event}attack* outside the
-*\textsubscript{entity}Green Zone* in *\textsubscript{entity}Baghdad*.
-\end{subexample
+
+- The most recent IED *attack* outside the *Green Zone* in *Baghdad*.
+
 Sometimes this head-finding will be difficult. For example, in clinical
 texts, one might find fragmentary phrases in which prepositions have
 been elided, as in "patient had CT chest pelvis". In such cases,
@@ -650,7 +619,7 @@ fluoropyrimidine-based *chemotherapy*.
 #### Some Exceptions and Specific Patterns
 
 
-\paragraph{Measurement Phrases
+##### Measurement Phrases
 
 Another exception to a strict headedness approach is that "few"
 is not to be annotated as the head of sentences such as 
