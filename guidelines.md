@@ -77,7 +77,7 @@ necessarily represent the official views of the National Library Of
 Medicine, the National Institutes of Health, or the Defense Advanced
 Research Projects Agency.
 
-## Markables and Entity Relations Stage
+# Markables and Entity Relations Stage
 
 There are two different kinds of actions done during the first stage
 of annotation. One is the annotation of events, entities and times, where you will be 
@@ -93,10 +93,10 @@ first, and then adding entity coreference links. As one gains competence
 at the task, you are encouraged to attempt to combine these tasks as much as possible.
 
 
-### Marking Entities and Events
+## Marking Entities and Events
 
 
-#### Finding Entities and Events
+### Finding Entities and Events
 
 The first and most fundamental task in the first stage of annotation
 is to label EVENT and ENTITY instances. When first annotating, one should 
@@ -105,7 +105,7 @@ about *whether* something should be annotated, and the second part being
 the decision about *what exact span of words* you should mark to designate
 it. 
 
-##### What is an EVENT
+#### What is an EVENT?
 
 We define an event as any occurrence, actions, processes or event
 states which deserve a place upon a timeline, and could have any syntactic realization -- as verbs, nominalizations,
@@ -153,7 +153,7 @@ the door was open" evokes an act of someon opening it; "He walked through
 the open door" does not.  (We anticipate this to be a difficult distinction, however, and invite you to post edge cases in the forum.)
 
 
-##### What is an ENTITY
+#### What is an ENTITY?
 
 For ENTITY annotation, we will be going through the text, finding
 all instances of things that consistute an ENTITY -- a participant,
@@ -222,44 +222,23 @@ refer to an entity at all*, will be referential.
 the truth", "take a bath" -- then do not consider them to also imply an entity. Exceptions involving both entity and event readings are covered under the "Complex Types" section.
 
 
-#####  Distinguishing EVENT from ENTITY
+#### When something seems like both
 
-Certain phenomena have characteristics of both events and entities.
-Ongoing processes may often have referential characteristics -- a
-revolution, for example, is clearly an event, but during the process
-of its occurrence a revolution might take on some characteristics
-of a concrete entity (as in *"the revolution has spread to
-Misrata"*). Similarly, many diseases might be thought of either
-as ongoing processes applying to the body, or as amalgams of symptoms
-that have referential status. Such questionable instances will always
-default to EVENT.
+Sometimes something will seem like both:
 
-This pattern of defaulting to EVENTs is particularly strict in our
-annotation. Diseases such as "carcinoma", although often of long
-duration and unclear origin, will always be treated as events rather
-than as entities. This is because, when a "carcinoma" appears
-in a medical record, it is usually to refer to the patient's state
-of "having a carcinoma", rather than to the cancerous tissue itself,
-and this patient's state with regards to carcinonoma merits as much
-attention in a medical record as a battle or bomb blast would in a
-news report.
+"the revolution has spread to Misrata"
 
-Another good test for eventiveness is to check for temporality of
-onset or for temporal relation to the document's writing. If you're
-unsure, ask "when did this thing start?", or perhaps, "when
-did it occur relative to the time of writing?", and gauge your reaction
-to the question, even if you're not sure of the answer.
+Some annotators might consider this to be a group of people, others might consider it a sequence of events.  Similarly, if one talked about a disease like "carcinoma" it might be viewed both as objects and processes.  These are all subject to our fundamental first rule:
 
-- The patient came in with a fever. 
--- "When did the fever start?" 
--- "Well, probably in the last few days. Definitely before
-this was written." 
-- "When did the patient start?" 
--- ???
+> If in doubt about the EVENT/ENTITY distinction, default to EVENT.  
 
-If such a question does not seem felicitous, or only makes sense by
-interpreting it as "when was this created?", then the element
-in question is probably an ENTITY rather than an EVENT.
+The specific phenomena guide will often tell you which one to use, if you phenomena is in the guide.  Diseases, for example, are unconditionally EVENTs, since in a medical record, a word like "carcinoma" tends to stand in for the patient's state of "having a carcinoma", rather than to the cancerous tissue itself. 
+
+One can naturally think of anything as being "on a timeline", in the sense that most entities are created, and usually eventually cease to be.  If the start of something along a timeline could be framed as "when was this created?", then you are probably dealing with an ENTITY, rather than an EVENT. If, however these answers are different, you are probably dealing with an entity that has an IMPLICIT EVENT:
+
+```html
+He was sentenced to five years of *prison* 
+```
 
 However, if you find yourself in a situation where you can answer
 both "when did this happen" and "when was it created", and
