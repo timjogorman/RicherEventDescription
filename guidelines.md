@@ -236,9 +236,8 @@ The specific phenomena guide will often tell you which one to use, if you phenom
 
 One can naturally think of anything as being "on a timeline", in the sense that most entities are created, and usually eventually cease to be.  If the start of something along a timeline could be framed as "when was this created?", then you are probably dealing with an ENTITY, rather than an EVENT. If, however these answers are different, you are probably dealing with an entity that has an IMPLICIT EVENT:
 
-```html
-He was sentenced to five years of *prison* 
-```
+
+- He was sentenced to five years of **[*implicit-event* prison]**
 
 However, if you find yourself in a situation where you can answer
 both "when did this happen" and "when was it created", and
