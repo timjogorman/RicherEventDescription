@@ -282,7 +282,7 @@ or exertional **symptoms**.
 
 This is in contrast with "light verbs" or "support verbs" -- where multiple terms combine for a single event -- and other verbs that mark epistemic status such as *seem* (this is instead marked as an UNCERTAIN/HEDGED feature on the thing seeming), verbs marking causal or temporal sequences like *following*, *caused* or *led to* (these are expressed as causal and temporal TLINK relations), or other semantically light verbs like auxiliaries:
 
-- After --undergoing-- extensive **transformation**, Sochi is nearly **ready** to **host** the **Olympic Games**.
+- After ~~undergoing~~ extensive **transformation**, Sochi is nearly **ready** to **host** the **Olympic Games**.
 
 - At *that time*, he also experienced rectal **pressure**, **fullness** and occasionally had **hematochezia**.
 
