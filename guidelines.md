@@ -280,82 +280,53 @@ or exertional **symptoms**.
 - He is **willing** to **meet** with our Pauahi Wing Queens Hospital.
 -  Three different countries have **endorsed** the trade **agreement**.
 
-This is in contrast with "light verbs" or "support verbs" -- where multiple terms combine for a single event -- and other verbs that mark epistemic status such as *seem* (this is instead marked as an UNCERTAIN/HEDGED feature on the thing seeming), verbs marking causal or temporal sequences like *following*, *caused* or *led to* (these are expressed as causal and temporal TLINK relations), or other semantically light verbs like auxiliaries:
+This is in contrast with "light verbs" or "support verbs" -- where multiple terms combine for a single event -- and other verbs that mark epistemic status such as *seem* (this is instead marked as an UNCERTAIN/HEDGED feature on the thing seeming), verbs marking causal or temporal sequences like *following*, *caused* or *led to* (these are expressed as causal and temporal TLINK relations), or other semantically light verbs like auxiliaries.  These, you will note, ignore the higher (but more semantically bleached) verb, which will be an exception to the 'head finding' rules described below:
 
+##### Support Verbs
 - After ~~undergoing~~ extensive **transformation**, Sochi is nearly **ready** to **host** the **Olympic Games**.
 
-- At *that time*, he also experienced rectal **pressure**, **fullness** and occasionally had **hematochezia**.
+- At *that time*, he also ~~experienced~~ rectal **pressure**, **fullness** and occasionally had **hematochezia**.
 
-- The **earthquake** occurred during the **parade**.
+- The **earthquake** ~~occurred~~ during the **parade**.
 
+##### Light Verbs and Multiword Expressions
 
-- We **discussed** the role for adjunctive **treatment** if **this** is colon **cancer** as well as neoadjuvant **treatment** if **this** is felt more consistent with a rectal **cancer** on flexible **sigmoidoscopy**. 
+- John ~~took~~ a **[<sub>event</sub> bath]**.
+- The burglar ~~committed~~ a heinous **[<sub>event</sub> crime ]**. 
 
+If you are wondering what a light verb is, we are using the definition from Bonial 2014: 
 
+> (Light Verb Constructions) are characterized by a light verb and a predicating complement (henceforth, true predicate) that combine to predicate as a single element.(Butt 2004) In LVC, the verb is considered semantically bleached in such a way that the verb does not hold its full predicating power. Thus, the light verb plus its true predicate can often be paraphrased by a verbal form of the true predicate without loss of the core meaning of the expression.  For example, the light verb **gave** and the predicate **lecture** in **gave** a lecture, together form a single predicating unit such that it can be paraphrased by **lectured**. 
 
-Other verbs are not as consistent. For example, we want to treat actual
-events of needing and lacking as EVENTs, while ignoring other predications
-which simply add a semantic feature of necessity to the main predication.
-One (admittedly slippery) test is whether you can rephrase the instance
-of `need' using the less eventive `it is necessary ...' and maintain
-the same meaning. If so, then it is non-eventive and should not be
-annotated.
+Remember in this that if you *can* cleanly separate a verb
+and its noun into two separate events, then you should treat them
+as two separate things. Similarly, some verbs like "use" are relatively
+generic, but evoke a prototypical use of the object -- rather than
+evoking the object as an event in itself. Verbs such as **use** are non-light events, rather than combining with the things used:
 
-- We may need to **hold** her **diuretic** before surgery.
-(can be rephrased with "It may be necessary for us to hold her diuretic...")
-
-- Blood **labs** revealed an urgent **need** for more iron.
-(note how hard it would be to rephrase using "it was necessary ...")
-
-Another such test can be used for verbs of planning, which are also
-of variable semantic weight. If `plan to' can be replaced with `will
-probably' or `hopes to' without major change in meaning, then it is
-too semantically light, and should not be tagged. In contrast, if
-it referring to the act of formulating plans for the future, then
-it is eventive.
-
-- City officials have been **planning** for the **race** for
-several months.
-
-- No oncologic **follow** - up is **planned** at this time.
-
-- Patient is planning to **return** to his local oncologist
-who he has a good relationship with. (see rough equivalence with "Patient
-will probably return to his ...")
-
-- Local fire departments plan to **enact** fire **bans** if
-the hot weather continues. (Again, roughly equivalent to "fire departments
-will likely enact")
+- Police **[<sub>event</sub> used]** tear **[<sub>entity</sub> gas]** to **[<sub>event</sub> disperse ]** the **[<sub>entity</sub> protesters]**.
 
 
-#####  EVENTs without explicit reference
+###  EVENTs without anything to hang them on
 
-When we run into EVENTs that are clearly implied by a related ENTITY,
-they can be marked as ENTITY with an "implicit event" feature,
-as discussed in section \ref{when_is_an_entity}. Yet there are situations
-such as the example below, in which there is an implicit event without
-such a relationship to an ENTITY:
+When an EVENT is implied by an ENTITY, we can annotate is using an IMPLICIT feature.  However, sometimes an event has nothing that we can annotate, or an particular mention actually implies many events:
 
 - Her main concern is that she does not wish to have a **colonoscopy**,
 which she had back in the 1970s.
 
 Here, there are actually two colonoscopies being discussed. One is
 a hypothetical, near-future one which the patient is not interested
-in having, the other occurred in the 1970s. The later instance is
-the kind of implied event which we will be not marking in this project,
-however, and thus you'd have a single annotation with the span **colonoscopy**,
-DocTimeRel AFTER, Modality HYP, Polarity NEG.
+in having, the other occurred in the 1970s. *The later instance is
+the kind of implied event which we will be not marking in this project.*
+Therefore, you'd have a single annotation with the span **colonoscopy**, with features agreeing with the hypothetical colonoscopy that is not happening. 
 
-Similarly, here, two sets of raids are implied, but only one is mentioned:
+Similarly, in the example below,  two sets of raids are implied, but only one is mentioned:
 
 - The **raids** in Phoenix **began** at 4am, in Denver, at 5.
 
-The Denver raids, thus, would not be captured in this project. This
-is not covered by these guidelines but we will be investigating whether
-building on PropBank annotation of gaps might be helpful.
+The Denver raids would not be captured in this project.
 
-
-#### Selecting Proper Spans of Annotation
+## Marking Entities and Events step 2 --  Selecting Proper Spans of Annotation
 
 Once you have decided that a given phrase or word qualifies as an
 EVENT or ENTITY, you'll need to decide what `span' (section of the
@@ -363,15 +334,12 @@ text) to annotate.
 
 For each ENTITY and EVENT annotation, you might have found a long
 phrase (or even, for EVENTs, a complex string of verbs and nouns)
-which designates that concept. Yet we will not be annotating that
-entire string, but instead will designate the phrase with a single
-word, the syntactic "head" of the phrase.
+which designates that concept. We will not be annotating that
+entire string, but instead will designate a single
+word, the syntactic "head" of the phrase, which will represent that whole idea.
 
-Please note that *the syntactic head guidelines do not specify
-what qualifies as an EVENT/ENTITY or not, but instead, how to select
-a span for those words or phrases which do qualify}. Deciding whether
-or not a term should be one, many or no entities or events is entirely
-a semantic decision; this is merely a decision about the span which
+Deciding whether or not a term should be one, many or no entities or events is entirely
+a semantic decision described above; the details here are merely a decision about the span which
 you should mark after that. A single noun phrase can have many ENTITYs
 or EVENTs (every word in "United States Olympics Organization Chairwoman"
 is an ENTITY), and the fact that a word is not the head of a larger
@@ -382,9 +350,9 @@ syntactic unit \textit{in no way} disqualifies it from separate annotation.
 
 One might talk about "maximum span" annotation as being everything
 encompassing what you are talking about (an approach we are *not*
-using here):
+:no_entry_sign: using here):
 
-:no_entry_sign: [MAX-SPAN *The 7.6-magnitude earthquake* ] had the consequences of [MAX-SPAN *severe damage* ] to [MAX-SPAN *multiple buildings* ] last July
+ [MAX-SPAN *The 7.6-magnitude earthquake* ] had the consequences of [MAX-SPAN *severe damage* ] to [MAX-SPAN *multiple buildings* ] last July
 
 We will take the opposite approach, using a **minimum span**
 style of annotation in which we only mark the syntactic head of each
@@ -454,21 +422,6 @@ the object about the event in question, as in:
 - The patient underwent **\textsubscript{event}surgery**.
 - The burglar committed a heinous **\textsubscript{event}crime**. 
 
-Note that in each, there is no individuation between the verb and
-object -- they collectively assert an event -- and the verb is a grammaticalized
-and abstract term. For a more full definition, here is the definition
-discussed in relation to Propbank:
-
-> (Light Verb Constructions) are characterized by a light verb and a predicating complement (henceforth, true predicate) that combine to predicate as a single element.(Butt 2004) In LVC, the verb is considered semantically bleached in such a way that the verb does not hold its full predicating power. Thus, the light verb plus its true predicate can often be paraphrased by a verbal form of the true predicate without loss of the core meaning of the expression.  For example, the light verb **gave** and the predicate **lecture** in **gave** a lecture, together form a single predicating unit such that it can be paraphrased by **lectured**. 
-
-Remember in this that if you *can* cleanly separate a verb
-and its noun into two separate events, then you should treat them
-as two separate things. Similarly, some verbs like "use" are relatively
-generic, but evoke a prototypical use of the object -- rather than
-evoking the object as an event in itself. Verbs such as **use** are the main event:
-
-- Police **used** tear gas to **disperse** the protesters.
-
 The same rules for minimal-span annotation will also apply to nouns.
 Hopefully you will have some exposure to what the head of a noun phrases
 is from syntactic courses, and this will be quite familiar. Start
@@ -487,8 +440,7 @@ For each, rule out prepositional phrases and post-postitional adverbs:
 
 Then for each sequence of nouns, the head is the rightmost noun:
 
-- The most recent IED **attack** ~~outside
-the Green Zone in Baghdad~~
+- The most recent IED **attack** ~~outside the Green Zone in Baghdad~~
 - The **shooting** ~~near the war-torn city~~
 - That recision biopsy **analysis** ~~of the sigmoid colon today~~
 
