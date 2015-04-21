@@ -1,17 +1,17 @@
 # Richer Event Description (RED) Annotation Guidelines (v.1.6)
 
-Developed by Will Styler, Kevin Crooks, Mariah Hamang, and Tim O'Gorman
+*Developed by Will Styler, Kevin Crooks, Mariah Hamang, and Tim O'Gorman
 as a synthesis of the THYME-TimeML guidelines, the Stanford Event
 coreference guidelines and the CMU Event coreference guidelines. These
 guidelines have been developed with substantial input from Eduard
 Hovy and Teruko Mitamura at Carnegie Mellon University, Rei Ikuta
 at the University of Colorado, Boulder, and benefited from the discussion
-at the NAACL Events Workshop.
+at the NAACL Events Workshop.*
 
 ## Introduction
 
 Richer Event Description is an attempt to bring together a number
-of existing and well-researched veins intra-sentence annotation into
+of existing and well-researched veins of document annotation into
 a single representation of the events and participants in a discourse.
 It is not concerned with semantic role annotation in the traditional
 sense -- the relationships between events and the entities participating
@@ -93,7 +93,7 @@ first, and then adding entity coreference links. As one gains competence
 at the task, you are encouraged to attempt to combine these tasks as much as possible.
 
 
-## Marking Entities and Events step 1 --  Finding Entities and Events
+## Marking Entities and Events 1:  Finding Entities and Events
 
 The first and most fundamental task in the first stage of annotation
 is to label EVENT and ENTITY instances. When first annotating, one should 
@@ -133,10 +133,10 @@ event, but rather combine to jointly signal the bath-taking event.
 A second definitional question emerges with states and properties.
 Consider the range of circumstances below ,ranging from very eventive to not eventive at all:
 
-- The walls *yellowed* during the fire.
+- The walls *yellowed* during the fire.  (most eventive)
 - We came home to find the door *opened*.
 - We came home to find the door *open*.
-- I own a *yellow* canary
+- I own a *yellow* canary   (very non-eventive)
 
 Hopefully the reader will agree that the last example is dramatically
 less "eventive" than the other instances. Yet naturally, all states
@@ -147,76 +147,56 @@ mention itself implies, to many readers, an event initiating the start of the at
 Adjectives used as mere specifiers, to label or refer to particular
 people, should therefore be viewed with skepticism in this regard. "I came home and saw
 the door was open" evokes an act of someon opening it; "He walked through
-the open door" does not.  (We anticipate this to be a difficult distinction, however, and invite you to post edge cases in the forum.)
+the open door" does not. In short:
 
+> An Attribute in an EVENT when its use implies actual occcurrences -- such as the events leading up to its own existence. 
+
+The second kind of attribute that needs to be annotated as an EVENT are attributes that don't, themselves, pass this test, but which are clearly coreferential with those that do, or which could have SET/MEMBER relationships with those that do.
 
 ### What is an ENTITY?
 
 For ENTITY annotation, we will be going through the text, finding
 all instances of things that consistute an ENTITY -- a participant,
 location, organization, or other entity that might be tracked in the
-discourse. Importantly, while we are doing entity coreference in this
-pass (as discussed ion sectio nXXXXXXXXX), that does not mean that
-the only entity mentions worth annotating are those in a referential
-relationship. Instead, we are using a 
+discourse. 
 
 Just like when finding events, you must first decide if there is one
-entity being mentioned or many. The part about nouns that makes this
-hard are noun phrases like "The Manokwari Hospital" in example
-\ref{manokwari}, which could be viewed one entity (the hospital )
-or two mentions (reference to the hospital and to the town of "Manokwari"): 
+entity being mentioned or many. This can be a nuanced decision; consider our various "hospital" descriptions for edge cases:
 
-- The Manokwari **Hospital** said that most
-of **those** seriously wounded now were treated at an emergency
-**unit**7 at the **hospital**.
+- **[<sub>Entity</sub> Boulder County Hospital]** said that most **[<sub>Entity</sub>those ]** seriously wounded now were treated at an emergency
+**[<sub>Entity</sub> unit]** at the **[<sub>Entity</sub> hospital]**.
+- The county **[<sub>Entity</sub> hospital]** said that most **[<sub>Entity</sub>those ]** seriously wounded now were treated at an emergency
+**[<sub>Entity</sub> unit]** at the **[<sub>Entity</sub> hospital]**.
 
-This will get to a tricky concept; we will talk generally about whether
-a term is *referential*. This can be understood in some ways
-but looking at why we have it and what we are trying to avoid. On
-one hand, we don't want to keep track of every single noun ever mentioned
-in a discourse:
+This gets at the first two very important distinctions we are making, namedly:
 
-:no_entry_sign: **I** went down the **street** to the local **food** and **drug**
-**store** and talked to the **meat** **guy** in **their**
-**deli ** **section**.
+> If a proper name contains words that might also refer to other objects in  the discourse, do not "nest" such mentions; Proper names can be treated as inseparable units. 
 
-A good slogan for this is that we don't want to
-be keeping track of "hot dog" in "hot dog stand". This, however, is complicated by the 
-fact that if one were reading a story about tainted hot dogs, we **do** want that information. 
-We are NOT solving that problem by looking for "important" participants, as that is far too difficult a task.  So how can we
-tell the difference?
+The second rule is:
 
-Our distinction will be essentially that anything which seems to be
-a plausible candidate for reference will be worth marking, and anything
-coreferent with a referential thing in the document is **also**
-worth marking. In practice, all salient arguments -- direct object,
-subjects, etc. -- that represent real entities with the world should
-pass this bar, and nouns doing "noun compounding" that are merely specifying the type of thing they are referring to will not.  The exception to this is that if such a specifying term refers to a unique entity in the world -- notably a country -- you can always annotate it:
+> If an entity reference contains a word that is merely clarifying the mention, but not an entity itself, then do not mark it, such as "county" in the mention above.  The exception to this is if that word is coreferential to a "real" mention of the same thing -- if "the county" was mentioned and clearly referential later in the document, then come back and tag this.
 
-- The **Indian** **PM** is visiting **DC** 
+A complication of this can be seen in:
 
-Even with those, if one would not really consider it a direct reference to the country itself, one can even leave those out, as in:
+- The nearest **[<sub>Entity</sub> Manokwari]** **[<sub>Entity</sub> Hospital ]** said that most of **[<sub>Entity</sub>those ]** seriously wounded now were treated at an emergency **[<sub>Entity</sub> unit]** at the **[<sub>Entity</sub> hospital]**.
 
-- Indian **food** is wonderful 
+This is a separate term, because:
+> If a term is not part of a name, but it is a named reference to a real, unique, named entity in the world, then make it a separate entity. 
 
+Do this even when the term is technically an adjectival pertainym, such as:
 
-Some of these will be edge cases which you will learn over time (tune
-your instincts at the end of this section). But here are some hard
-and fast rules:
+- The **[<sub>Entity</sub> Indian]** prime **[<sub>Entity</sub> minister]**
 
-- If the thing that the words refer to is identical to another mention
-in the document that is clearly "referential" in this sense above,
-then this mention, too, must be treated as referential. **This
-is one of the only times that your other annotation decisions should
-be factored into current decisions**! 
-- Entities that validly have other entity-coreference relations (discussed
-below) such as PART-WHOLE or SET-MEMBER are also "made relevant" even if otherwise not referential, and should
-be annotated. 
-- You can almost always assume that a subject or object, **if they
-refer to an entity at all**, will be referential. 
+Don't go overboard, however: when the actual named entity is not being evoked itself, but merely some stereotype, origin or style of that entity, then ignore it:
 
-:bangbang: Remember that something must be referring to an entity.  Specifically, if a verb-object pair collectively constitute an event -- "tell
-the truth", "take a bath" -- then do not consider them to also imply an entity. Exceptions involving both entity and event readings are covered under the "Complex Types" section.
+- **[<sub>Entity</sub> I ]** like american **[<sub>Entity</sub> music ]**
+- **[<sub>Entity</sub> I ]** like indian **[<sub>Entity</sub>food ]**
+
+A good example to remember for this is that we don't want to be keeping track of the idea of "hot dog" in every mention of "hot dog stand", but that if we had a document that was somehow about "hot dogs", then we *do* want to keep track of it.  
+
+A more technical definition is that for "clearly referential" things, we are doing what is called *singleton annotation*, marking a referent even if it occurs only once in the document.  For less referential entities, we are abandoning singleton annotation and *only* mark an entity if it is coreferential with more important mentions.  "Less referential", in this case, means mentions that serve to clarify what you are referring to or doing (and therefore might not be being referred to themselves). 
+
+:bangbang: Remember that if something is subsumed by an event, make it an event!  Specifically, if a verb-object pair collectively constitute an event, such as a light verb or multi-word expression  -- "tell the truth", "take a bath", etc. -- then do not make the object an entity!
 
 
 ### Between ENTITY and EVENT
@@ -326,7 +306,10 @@ Similarly, in the example below,  two sets of raids are implied, but only one is
 
 The Denver raids would not be captured in this project.
 
-## Marking Entities and Events step 2 --  Selecting Proper Spans of Annotation
+
+
+
+## Marking Entities and Events 2:  Selecting Proper Spans of Annotation
 
 Once you have decided that a given phrase or word qualifies as an
 EVENT or ENTITY, you'll need to decide what `span' (section of the
@@ -343,28 +326,24 @@ a semantic decision described above; the details here are merely a decision abou
 you should mark after that. A single noun phrase can have many ENTITYs
 or EVENTs (every word in "United States Olympics Organization Chairwoman"
 is an ENTITY), and the fact that a word is not the head of a larger
-syntactic unit \textit{in no way} disqualifies it from separate annotation.
+syntactic unit *in no way* disqualifies it from separate annotation.
 
 
 #### Minimum Span Annotation
 
 One might talk about "maximum span" annotation as being everything
 encompassing what you are talking about (an approach we are *not*
-:no_entry_sign: using here):
+ using here):
 
- [MAX-SPAN *The 7.6-magnitude earthquake* ] had the consequences of [MAX-SPAN *severe damage* ] to [MAX-SPAN *multiple buildings* ] last July
+- **[<sub>max-span</sub> The 7.6-magnitude earthquake** ] had the consequences of **[<sub>max-span</sub> severe damage ]** to **[<sub>max-span</sub> multiple buildings ]** *last July*
 
-We will take the opposite approach, using a **minimum span**
-style of annotation in which we only mark the syntactic head of each
-markable. This is because capturing everything about what makes an
-entity an entity, or an event an event, is not only difficult, but
-can lead to elaborate overlapping annotations. Instead of
+We will take the opposite approach, using a "minimum span" style of annotation in which we only mark the syntactic head of each markable. This is because capturing everything about what makes an entity an entity, or an event an event, is not only difficult, but can lead to elaborate overlapping annotations. Instead of
 the kinds of annotations you see above, we will annotate everything (except proper nouns and times) using a single word,
 resulting in spans such as: 
 
-- The 7.6-magnitude **earthquake** caused severe **damage** to multiple **buildings** last *July*.
+- The 7.6-magnitude **[<sub>event</sub> earthquake** caused severe **[<sub>event</sub> damage** to multiple **[<sub>entity</sub> buildings** *last July*.
 
-- The **U.S.** **President** **maintained** his **stance** on the civil **war**.
+- The **[<sub>entity</sub> U.S.]** **[<sub>entity</sub> President ]** **[<sub>event</sub> maintained ]** his **[<sub>event</sub> stance ]** on the civil **[<sub>event</sub> war ]**.
 
 This does not mean we are throwing this information away, but rather
 that we assume this information to be recoverable. This emphasis upon
@@ -384,20 +363,13 @@ do not have to fret about what span to annotate), while underlyingly
 capturing the full range of "what is being talked about". 
 
 If you find syntax trees complex and scary, don't worry: all you need to do is follow some basic rules for what
-we call "head finding". In general:
-
-- The traditional notion of headedness is that there is a word in each
-phrase which essentially defines and represents that phrase. The head
-is not the most important part of a phrase, but instead can usually
-stand in for the entire phrase and mean roughly the same thing with
-roughly the same grammatical properties. 
-
-- One casual way to test this is what lexical term would be used in
-a repeated version of the same. If you constantly talk about "John's
+we call "head finding", which generally just means that there is a word in each
+phrase which is subsistutable for the whole phrase.  One casual way to test this is to ask what lexical term would be used in
+a repeated version of the same phrase. If you constantly talk about "John's
 insatiable hunger for more donuts", one might refer to that hunger
-as "that hunger", but not by "those donuts".
+as "his hunger", but not by "his donuts".
 
-- For verb phrases and adjective phrases this will be simple, and there
+For verb phrases and adjective phrases this will be simple, and there
 is no need to think of things in terms of **syntactic heads**
 at all. You will only be annotating the verb or adjective in the phrase,
 and nothing more. Thus, look at the events in the following examples
@@ -413,14 +385,13 @@ and nothing more. Thus, look at the events in the following examples
 - The jury **finding** was in favor of the defendant.
 
 Note that we take the single verb or adjective even when when dealing
-with a multiword predication such as "throw up\textquotedbl{}. The
-exception to this tendency comes from \emph{light verbs} and \emph{support
-verbs, }verb-object pairs in which the verb is less informative than
-the object about the event in question, as in:
+with a multiword predication such as "throw up". The
+exception to this tendency comes from "light verbs" and "support
+verbs" mentioned above, where the verb itself is ignored:
 
-- John took a **\textsubscript{event}bath**.
-- The patient underwent **\textsubscript{event}surgery**.
-- The burglar committed a heinous **\textsubscript{event}crime**. 
+- John ~~took~~ a **<sub>event</sub>bath**.
+- The patient ~~underwent~~ **<sub>event</sub>surgery**.
+- The burglar ~~committed~~ a heinous **<sub>event</sub>crime**. 
 
 The same rules for minimal-span annotation will also apply to nouns.
 Hopefully you will have some exposure to what the head of a noun phrases
@@ -458,11 +429,9 @@ such terms:
 
 - The most recent IED **attack** outside the **Green Zone** in **Baghdad**.
 
-Sometimes this head-finding will be difficult. For example, in clinical
-texts, one might find fragmentary phrases in which prepositions have
-been elided, as in "patient had CT chest pelvis". In such cases,
-do feel free to attempt various paraphrases of what the phrase means,
-and to pick the word that would be the head of those more full forms. 
+With such proper names, if the last term in a phrase is a generic term referring to the same thing, default to putting it into the proper name itself, even if not capitalized:
+
+- I got a copy of **[<sub>entity</sub> Harper's magazine ]**.
 
 Such a list of rules gives us the following heads (only showing the
 nominals):
@@ -485,176 +454,122 @@ of three Mexican **officials**.
 - The **fire** quickly spread throughout the **valley**, resulting
 in the **destruction** of 15 **homes**.
 
-- **Levaquin** 750 mg p.o. q. day (will restart today)
-
 - Her **yelling** shocked **everybody** at the **conference**.
 
 - **We** also discussed **some** of the **toxicities** of
 fluoropyrimidine-based **chemotherapy**.
 
 
-###Annotating Features on Entities and Events
+- **Levaquin** 750 mg p.o. q. day (will restart today)
+
+
+Sometimes this head-finding will be difficult. For example, in clinical
+texts, one might find fragmentary phrases in which prepositions have
+been elided, as in "patient had CT chest pelvis". In such cases,
+do feel free to attempt various paraphrases of what the phrase means,
+and to pick the word that would be the head of those more full forms. 
+
+- **[<sub>event</sub> CT ]** **[<sub>entity</sub>chest ]** **[<sub>entity</sub>pelvis ]**
+
+## Annotating Features on Entities and Events
 
 When you mark each entity or event, you will need to label basic features
 on the events and entities. 
 
 
-#### Entity Features -- Polarity and Modality
+### Entity Features -- Polarity and Modality
 
 The majority of ENTITYs will be of the polarity POS for "positive",
 meaning that they are actual entities. This is the default value.
 You will occasionally find purpose to mark an ENTITY of a NEG polarity,
 indicating that the ENTITY does not exist.
 
-- **Mr. Black**$_{POS}$ spoke with **us**$_{POS}$ about
-the new **facility**$_{POS}$. 
+- **Mr. Black**<sub>POS</sub> spoke with **us**<sub>POS</sub> about
+the new **facility**<sub>POS</sub>. 
 
-- **Cincinnati**$_{POS}$ doesn't have an **airport**$_{NEG}$.
+- **Cincinnati**<sub>POS</sub> doesn't have an **airport**<sub>NEG</sub>.
 
-- **John**$_{POS}$ couldn't attend the **concert**$_{POS}$
-for lack of **money**$_{NEG}$.
+- **John**<sub>POS</sub> couldn't attend the **concert**<sub>POS</sub>
+for lack of **money**<sub>NEG</sub>.
 
 A related feature is Contextual Modality, which identifies whether
 the entity is a specific real entity, a class of entities, etc. The
-majority of ENTITYs will be ACTUAL (they refer to real, specific entities),
-and this will be the default value in Anafora. However, they can refer
-to general classes of entities, the idea of entites, or even hypothetical
-entities. One may define ENTITY as having any of our four modalities
-(which you will use far more often with EVENTS): ACTUAL, GENERIC,
-HYPOTHETICAL, or UNCERTAIN/HEDGED.
+majority of ENTITYs will be ACTUAL (they refer to real, specific entities), but one may define ENTITY as being GENERIC,
+HYPOTHETICAL, or UNCERTAIN/HEDGED as well. 
 
 The most obvious kind of GENERIC entity will be references to "kinds".
 Such generics in English are often bare plurals, but can be indefinites
 or definites too:
-\begin{examples
-- **Terrorists**$_{GEN}$ in the **region**$_{ACTUAL}$ often attack
-office **buildings**$_{ACTUAL}$.
-- **A gentleman**$_{GEN}$ opens **doors**$_{GEN}$ for **ladies**$_{GEN}$(Krifka
-2012)
-- **The lion**$_{GEN}$ is the proudest of **animals**$_{GEN}$
-- We do not normally recommend surgery to **patients**$_{GEN}$ with
-a cardiac status similar to **Ms. James**$_{ACTUAL}$.
-\end{examples
+
+- **Terrorists**<sub>GEN</sub> in the **region**<sub>ACTUAL</sub> often attack
+office **buildings**<sub>ACTUAL</sub>.
+- The **lion**<sub>GEN</sub> is the proudest of **animals**<sub>GEN</sub>
+- We do not normally recommend surgery to **patients**<sub>GEN</sub> with
+a cardiac status similar to **Ms. James**<sub>ACTUAL</sub>.
+
 One easy way to distinguish GENERIC ENTITYs from ACTUAL ENTITYs is
-by `omniscient substitution'. Consider `Union Leaders' in the examples
+by "omniscient substitution". Consider "Union Leaders" in the examples
 below:
-\begin{examples
+
 - Teddy Roosevelt met with Union Leaders before writing the bill.
 - Union leaders often push for tax breaks.
-\end{examples
-In \LLast, an omniscient person could put together a list of the
+
+In the first, an omniscient person could put together a list of the
 specific persons he met with and replace it with that list:
-\begin{examples
-- Teddy Roosevelt met with \emph{Samuel Gompers, John Lewis, Walter
-Reuther, A. Philip Randolph, and Jimmy Hoffa} before writing the bill.
-\end{examples
-Compare this to \LLast, where there is no way that the list could
-be put together; it refers to the whole class. Therefore, `Union Leaders'
-in \LLast is GENERIC.
+
+- Teddy Roosevelt met with *Samuel Gompers, John Lewis, Walter
+Reuther, A. Philip Randolph, and Jimmy Hoffa* before writi																														ng the bill.
+
+In the second, however, no such list could be made; it refers to the whole class of union leaders, and would thus be GENERIC.
 
 Similarly, an omniscient annotator could know specific referents for
 the below ACTUAL ENTITYs:
-\begin{examples
-- Three unidentified **criminals**$_{ACTUAL}$ broke into my shed.
-- Tomorrow's **participants**$_{ACTUAL}$ will be thrilled.
-- **Vandals**$_{ACTUAL}$ have defaced a prominent prehistoric pictogram.
-\end{examples
+
+- Three unidentified **criminals**<sub>ACTUAL</sub> broke into my shed.
+- Tomorrow's **participants**<sub>ACTUAL</sub> will be thrilled.
+- **Vandals**<sub>ACTUAL</sub> have defaced a prominent prehistoric pictogram.
+
 But no referents (outside of every member, past present and future,
 of a generic class) could possibly be found for the below GENERIC
 ENTITYs:
-\begin{examples
-- **Criminals**$_{GEN}$ often plead "Not Guilty", even if they've
+
+- **Criminals**<sub>GEN</sub> often plead "Not Guilty", even if they've
 committed the crime.
-- **Participants**$_{GEN}$ in Triathlons generally experience significant
+- **Participants**<sub>GEN</sub> in Triathlons generally experience significant
 chafing.
-- **Vandals**$_{GEN}$ should be punished severely if caught.
-\end{examples
+- **Vandals**<sub>GEN</sub> should be punished severely if caught.
+
 The complexity of that annotation will occur with entities which are
 sets, but where the set has been defined provisionally in context:
-\begin{examples
-- **Young Denver voters**$_{GEN}$ turned out in high numbers for
-the last election.
-- **My senior class**$_{ACTUAL}$ performed quite well on **the SAT**$_{GEN}$
-\end{examples
-These kind of examples will be hard to measure with the above tests
--- they both are "real" sets of things in the world , and both
-describe whole classes of objects. For these, test whether you can
-paraphrase that particular noun phrase with something like 'the kind
-of \_\_\_', such as "the kind of young people who vote in Denver".
-If that paraphrase task seems hard or forced, use ACTUAL. 
 
-Similarly, noun compounds contain another ambiguous kind of noun along
-this boundary of ACTUAL and GENERIC. While a \textquotedbl{}hot dog
-stand\textquotedbl{} sells actual hot dogs, its name is not due to
-the 384 hot dogs it may have sold that particular day, but because
-of its general purpose of being a kind of stand that sells hot dogs
-in general. There are GENERIC, and one should fret over whether to
-annotate them at all, using the rules defined in \ref{when_is_an_entity}.
+- Young Denver **voters**<sub>GEN</sub> only turn out in high numbers during presidential elections.
+- My senior **class**<sub>ACTUAL</sub> performed quite well on the **SAT**<sub>GEN</sub>
+
+For these, test whether you can paraphrase them using "the kind X that Ys" without changing the meaning. For example:
+
+- same meaning: **The kind of young people in Denver that vote**<sub>GEN</sub> only turn out in high numbers during presidential elections.
+- changes meaning: **The kind of people that are in my senior class**<sub>ACTUAL</sub> performed quite well on **the SAT**<sub>ACTUAL</sub>
 
 A third kind of option for ENTITY modality is that of HYPOTHETICAL
 entities. Hypothetical entities are not just entities participating
 in a hypothetical situation -- all sorts of entities can be involved
 in hypothetical worls -- but rather an entity that would not exist
 outside of that hypothetical possible world. 
-\begin{examples
-- If he did have a Mustang$hypothetical$, he would wreck it.%
-\footnote{For the purpose of this hypothetical definition, you can treat objects
-as coming into being when purchased; don't give in to technicalities
-of whether they might exist even if not purchased. %
 
-\end{examples
+- If he did have a Mustang<sub>hypothetical</sub>, he would wreck it.
+
 As will come up later for GENERIC vs HYPOTHETICAL events, note also
 that generalizations with "if" are still GENERIC. You should test
 this by whether you can paraphrase it with a true generalization instead:
-\begin{examples
-- \label{couple-stacking-shelves}\textquotedbl{}I'm not saying that
-if a **couple**$_{GEN}$ both work stacking shelves, they should
-be getting married in a supermarket$_{GEN}$\textquotedbl{
-- \label{coupe-stacking-shelves-paraphrase}I'm not saying that couples
-that work stacking shelves should get married in supermarkets
-\end{examples
-Both examples are GENERIC here, because \ref{couple-stacking-shelves
-passes that generic paraphrase test as shown in \pageref{coupe-stacking-shelves-paraphrase}. 
 
+- I'm not saying that
+if a **couple**<sub>GEN</sub> both work stacking shelves, they should
+be getting married in a supermarket<sub>GEN</sub>
+> BECAUSE: this is paraphrasable with *I'm not saying that couples that work stacking shelves should get married in supermarkets*
 
-\paragraph{Generic You and We
+The above example is not depicting "couples stacking shelves" as an entity which would functionally exist if certain conditions were met, but merely specifying a set of entities in the world.  Similarly you also may use UNCERTAIN/HEDGED for entities, but it follows the same constraint; it is only to be used when the actual existence of the entity is uncertain and being actively cast into doubt by the local context.
 
-\textquotedbl{}You\textquotedbl{} is to be marked as GENERIC when
-it passes tests for \textquotedbl{}generic you\textquotedbl{} usage: 
-\begin{itemize
-- It can be paraphrased using \textquotedbl{}one\textquotedbl{}, \textquotedbl{}somebody\textquotedbl{},
-\textquotedbl{}a person\textquotedbl{}, etc. 
-- It would be translate into a generic pronoun in any languages you
-know (such as \textquotedbl{}on\textquotedbl{} in French). 
-- Restating \textquotedbl{}you\textquotedbl{} to be an apposition with
-the audience's name, such as \textquotedbl{}You, John...\textquotedbl{
-would change the meaning of the sentence. 
-\end{itemize
-For example: 
-\begin{examples
-- gotta love the people who insist on \textquotedbl{}helping\textquotedbl{
-**you**$_{GEN}$ when it could be easier to do it **yourself**$_{GEN}$.
-\end{examples
-It's harder to define the delineation of \textquotedbl{}we\textquotedbl{}.
-Mark \textquotedbl{}we\textquotedbl{} as GENERIC only when the set
-referred to is \textquotedbl{}everybody\textquotedbl{}, i.e. the entire
-human race, or is an undefined set that could be synonymous with this:
-
-- What is this biotech revolution you are referring to that **we**$_{GEN}$
-are on the verge of?
-
-Generic \textquotedbl{}you\textquotedbl{} and \textquotedbl{}we\textquotedbl{
-are subject to the \textquotedbl{}identity of very broad GENERICs\textquotedbl{
-rules; see section \ref{vbroadgens}.
-
-
-\paragraph{Uncertain/Hedged
-
-As with HYPOTHETICAL, use Uncertain/Hedged only when the sheer existence
-of the entity (not its role in the sentence) has been placed in doubt.
-
-
-#### Event Polarity and Modality
+### Event Polarity and Modality
 
 In order to express the polarity of an EVENT, the "polarity" attribute
 of an event is specified. Polarity in this schema is relatively straightforward,
@@ -701,50 +616,18 @@ this time.
 
 - A cystic duct lymph **node** is not **identified**.
 
-In \LLast and \Last, there are two EVENTs being negated. The first
+In the last two, there are two EVENTs being negated. The first
 is a verbal EVENT of reporting, the second is a condition. In this
 case, we can negate both the reporting of nausea and the identification
 of the lymph node, as neither occurred. In addition, the nausea and
 lymph node aren't present. So, both EVENTs in both examples are negated.
 
-We should also highlight that NEG means "did not happen" or "not
-true", rather than "negative" in the medical testing sense (usually
-meaning "shows no signs of cancer"). So, for something like:
-
-- Her **colonoscopy** was negative.
-
-The colonoscopy is still polarity POS (as it did, in fact, happen),
-and "negative" is simply telling us that no cancer was found.
-An actual polarity NEG colonoscopy would be something like:
-
-- We were unable to perform a **colonoscopy** due to bad prep.
-
-\vspace{0.5cm
- \fbox{ %
-\begin{tabular}{p{0.6in}p{14cm}
-\includegraphics[width=0.5in]{warning} \\
-*Caution!}  & \raisebox{4mm}{%
-\parbox[c]{14cm}{%
-\vspace{2mm
-\textit{ Do not worry about double-negation or phrase-level negation.
-In the phrase "She denies vomiting or nausea", **denies** is
-POS (as the denial is real) and **nausea** and **vomiting** are
-both NEG because they didn't happen. Each EVENT should be considered
-on its own (rather than as part of a greater denial), and if the EVENT
-did not happen, it is NEG, no matter what phrasing may have preceded
-it.}%
-}}\ \
-\tabularnewline
-\end{tabular}} \vspace{0.5cm
 
 
 
-#### \label{modality}Actual Modality (ACT)
+#### Actual Modality (ACT)
 
-The first is ACTUAL, which is used most of the time, and is the default
-option (that need not be specifically marked). The majority of EVENTs
-are ACTUAL, having already happened or been scheduled (without hedging)
-to happen.
+Alongside Polarity, you are almost marking ContextualModality -- whether or not an event is asserting things about the ACTUAL world, about GENERIC tendencies of events, HYPOTHETICAL events or UNCERTAIN events.  The majority of EVENTs are ACTUAL, having already happened or been scheduled (without hedging) to happen:
 
 - The patient's new **tumor** is 3.5cm from the epiglottis.
 
@@ -752,8 +635,7 @@ to happen.
 
 - His anterior chest rash has not **reoccurred**.
 
-Note that ACTUAL and NEG can (and usually do) co-occur -- anything
-which clearly did not happen is ACTUAL+NEG. 
+Note that ACTUAL is about whether is it a claim in the "real world", and so NEG events are ususally ACTUAL as well .
 
 
 #### Uncertain/Hedged Modality (UNC)
@@ -761,19 +643,17 @@ which clearly did not happen is ACTUAL+NEG.
 EVENTS are marked as UNCertain when we can point to some explicit
 lexical or phrasal trigger that indicates some degree of uncertainty
 about the reality of the EVENT. Put differently, these EVENTs are
-presented with a sort of tacit claim that they're \textit{probably
+presented with a sort of tacit claim that they're *probably*
 real (unlike hypotheticals, which are explicitly irrealis), but with
-a proviso from the author that they might be not be.
+a proviso from the author that they might be not be. Therefore:
 
-This also includes EVENTs that are mentioned with any sort of hedging.
-This hedging can be lexical ("seems", "likely", "suspicious",
-"possible", "consistent with", "claims"), or phrasal ("I
-suspect that...", "It would seem likely that...", "In all
-probability..."). These EVENTs are strongly implied, but, for safety,
-liability, or due to lack of comprehensive evidence, are not stated
-as fact. As such, it is very important that these uncertain EVENTs
-be included in the timeline, but be marked so that they can be easily
-differentiated from known facts.
+> Only use UNCERTAIN/HEDGED when there is some explicit, local cue for that uncertainty within the document!  
+
+By "local" we mean that you should not use utilize other mentions of the same event in order to  decide between UNCERTAIN or ACTUAL.  You will be allowed to make events coreferential which vary between ACTUAL and UNCERTAIN modalities, precisely because this level of certainty might vary from mention to mention.  
+
+Some good bits of evidence for using UNCERTAIN/HEDGED are lexical or phrasal cues ("seems", "likely", "suspicious", "possible", "consistent with"),  doubtful epistemic cues ("claims", "I suspect that...", "It would seem likely that...") and accusations and charges ("She faces five counts of ....", "He is accused of ..")
+
+Examples of good UNCERTAIN/HEDGED instances are therefore:
 
 - Radiation levels and seismic disturbances were measured which
 are consistent with nuclear **testing**.
@@ -784,224 +664,91 @@ are still underground.
 - All evidence seems to point to **kidnapping** in the disappearance
 of Dr. Charles.
 
-Hedging is, due to the influence of malpractice law, extremely prevalent
-and varied in the medical literature:
+Note that full denial of an event, however is "NEG ACTUAL", as the denial is in the realm of certainty, so that following EVENTs would
+*not* be marked UNC:
 
-- Ultrasound findings were felt to be consistent with a T3, N1
-rectal **tumor**.
+- She **denies**<sub>ACTUAL</sub> **vomiting<sub>ACTUAL,NEG</sub>
 
-- An approximately 3cm nodular region of intermediate T2 signal
-involving the body of the corpus callosum is suspicious for **residual
-or recurrent tumor** but appears unchanged from the patient's prior
-examination.
+- There is no **evidence<sub>ACTUAL,NEG</sub> of **MS<sub>ACTUAL,NEG</sub>
 
-- She has a rash not inconsistent with **measles**.
+If something is not quite negative, but close, is it almost always signalling UNCERTAIN:
 
-- The patient may have undergone a mild **stroke**.
-
-Note that a doctor providing or commenting on evidence for a given
-finding does not qualify as hedging, so the following EVENTs would
-not be marked UNC:
-
-- She **denies**$_{\text{ACTUAL}}$ **vomiting**$_{\text{ACTUAL, NEG}}$
-
-- There is no **evidence**$_{\text{ACTUAL, NEG}}$ of **MS**$_{\text{ACTUAL, NEG}}$
-
-But further active hedging can push this over into UNC:
-
-- She **denies**$_{\text{ACTUAL}}$ **bulimia**$_{\text{UNC, POS}}$,
-but all **signs**$_{\text{ACTUAL, POS}}$ point to its presence$_{\text{UNC, POS}}$
-
-- There is no concrete **diagnosis**$_{\text{ACTUAL, NEG}}$
-of **MS**$_{\text{UNC, POS}}$, but given her **symptoms**$_{\text{ACTUAL, POS}}$,
+- There is no concrete **diagnosis<sub>ACTUAL,NEG</sub>
+of **MS**<sub>UNC, POS</sub>, but given her **symptoms<sub>ACTUAL,POS</sub>,
 it seems extremely likely.
 
-One final note: In order to mark something as UNCertain, there must
-be evidence in the text itself. So:
+:bangbang: Remember that this is for *textually evidenced* uncertainty. No amount of implausibility allows you to inject UNCERTAIN based upon your own opinions:
 
-- *Yesterday*, I was **abducted** by aliens and a prominent
-politician who was not at all **corrupt**.
-
-In this case, the annotator knows that both the abduction and the
-negated corruption of the politician are incredibly unlikely based
-on our understanding of the universe. That said, because they are
-presented as fact in the text, we have no choice but to treat them
-as ACTUAL. It is not our role to judge the veracity of the claims
-being made in text, but instead, simply to mark the claims as accurately
-as possible.
-
-Another common use for Uncertain/Hedged is in accusation:
-
-- She returned home after allegedly **stealing** the diamonds.
-
-- Mr. Lucas, who allegedly **killed** eight people, will not
-testify in his own defense.
-
-Here, we don't know that there was stealing or killing (at least,
-of the specific instance alleged to have happened), just that it's
-being alleged. Both events should be UNCertain. Similarly:
-
-- Frank was arrested for **resisting** arrest.
-
-The mere fact of his arrest does not prove (nor even assert) the existence
-of actual resistance, simply that this is the charge for which he
-was arrested. As such, the resisting (which is asserted but not proven)
-is UNC. Compare with:
-
-- Frank was convicted of **resisting** arrest and sentenced
-to probation.
-
-Here, although there's still a chance that Frank was wrongly convicted,
-we must believe our author who asserts the truth of the **resisting**.
-Put differently, all crime events are UNCertain until proven ACTual
-in a court of law.
+- *Yesterday*, I was **[<sub>ACTUAL</sub> abducted ]** by aliens.
 
 
 #### Hypothetical Modality (HYP)
 
-The third modality is HYP. This is useful when annotating theories,
-future possibilities, or other hypothetical events. Hypothetical EVENTs
-will often follow "if" statements ("If X happens, then we will
-use Y to treat Z") or other sorts of conditionals ("Depending
-on the patient's response, we might treat A with B or with C").
+If ACTUAL is for modality marking certain things known about the world, and UNCERTAIN is for things which are simply unknown, HYPOTHETICAL modality is for situations involving possible worlds; where the cocurrence of the event (in the past or the future) is conditional upon specific (albeit perhaps not specified) event happening. This should fit your usual intuitions about conditionals
 
-- If the Israelis **strike**, the US will surely be **dragged**
+- If the Israelis **strike<sub>HYP</sub>**, the US will surely be **dragged<sub>HYP</sub>**
 into a larger conflict.
 
-- Any possible **attack** would **draw** widespread **condemnation**.
+- Any possible **attack<sub>HYP</sub>** would draw widespread **condemnation<sub>HYP</sub>**.
 
-- I've warned the patient that this new medication may cause peripheral
-**edema**.
+- If she experiences a **fever<sub>HYP</sub>**, we will **treat<sub>HYP</sub>** **it<sub>HYP</sub>** on an outpatient basis.
 
-- We suspect either **achalasia** or **pseudoachalasia** here.
+It is worth noting that, in this schema, an EVENT occurring in the future does not imply that the EVENT is HYP (although most hypothetical
+EVENTs will be AFTER DOCTIME); certain future events are ACTUAL.  Thus the following, though having DocTime AFTER, will be ACTUAL:
 
-- If she experiences a **fever**, we will **treat** **it**
-on an outpatient basis.
+- The **close<sub>ACTUAL</sub>** of Market Friday will **mark<sub>ACTUAL</sub>** the **end<sub>ACUTAL</sub>** of Mr. Johnson's long career.
 
-It is worth noting that, in this schema, an EVENT occurring in the
-future does not imply that the EVENT is HYP (although most hypothetical
-EVENTs will be AFTER DOCTIME). Although it is true that there is always
-a degree of uncertainty with anything happening in the future, HYP
-marks explicit uncertainty in the text, and should not be used just
-to indicate this future-uncertainty.
+Use HYPOTHETICAL in combination with NEG only when one is considering what would happen if the lack of that event occurs, such as:
 
-For instance:
+- The treaty will only hold if there are no more **attacks<sub>HYPOTHETICAL,NEG</sub>**".
 
-- Any US **assault** in the region would probably **come**
-from Kuwait and Saudi Arabia, with **support** from the Carrier
-group in the Persian Gulf.
+In contrast, "counterfactual" contexts -- in which is has been made clear that the even did not happen -- are not actually hypothetical, but ACTUAL-NEG, as one is certain that they did not happen.  Mark only the fact that they did not happen using ACTUAL-NEG (*this therefore means that we will not be making hypothetical annotations of the "what might have happened" causation chains often expressed with counterfactuals, either*)
 
-- We may **recommend** to **resume** the **Cipro** and **Flagyl**
-and obtain a **CT** of the chest, abdomen and pelvis.
+- Had they **withdrawn<sub>ACTUAL,NEG</sub>** the treaty would have **held<sub>ACTUAL,NEG</sub>**.
 
-In the above, all the bracketed EVENTs are HYPOTHETICAL and have DocTimeRel
-of AFTER.
+Note that using ACTUAL-NEG in the above context is only licensed because the counterfactual construction that is mentioning the events makes it clear that they did not happen.  Any more periphrastic ways of stating facts should be left as HYPOTHETICAL:
 
-- The **close** of Market Friday will **mark** the **end**
-of Mr. Johnson's long career.
+- If they **withdraw<sub>HYP</sub>** the treaty will **hold<sub>HYP</sub>**, but they will not **withdraw<sub>ACTUAL,NEG</sub>**
 
-- The patient's **myringotomy** will take place on Friday.
+Here are some additional examples to solidify these patterns:
 
-In the above two examples, the marked EVENTs are expected, so DocTimeRel
-is AFTER, modality is ACTUAL. Compare that to:
+- If Will had stopped by the store, he'd have **bought<sub>NEG/ACT</sub>** cupcakes. But he was too lazy. 
 
-- If she has additional **bleeding** next week, she should **come**
-back in.
+- If Will stopped by the store, he probably **picked<sub>POS/HYP</sub>** up cupcakes. He lacks the fortitude to resist frosting.
 
-In \Last, both "additional bleeding" and "come back in" would
-be HYP, in addition to being AFTER the DOCTIME.
+- Will stopped by the store, so, of course, he **bought<sub>POS/ACT</sub>** cupcakes. Do you want one?
 
-In addition, polarity and modality of EVENTs do not interact, even
-though one might expect them to. It is true, at least from a real-world
-point of view, that a HYP EVENT, by definition, hasn't happened. However,
-polarity should not change on that basis alone. There are POS polarity
-HYP EVENTs ("She might develop a rash") as well as NEG polarity
-ones ("The treaty will only hold if there are no more **attacks**").
-
-It is also worth noting that very often, verbs of discussion lead
-to HYPOTHETICAL EVENTs (although they themselves are not hypothetical):
-
-- We discussed the risks of adjuvant **chemotherapy** and **hemicolectomy**
-with the patient.
-
-- Discussed the potential for neoadjuvant **therapy** depending
-on the findings of his MRI and studies.
-
-But, of course, one must be careful not to overapply the rule, as
-sometimes actual facts can be discussed as well, as below:
-
-- I **discussed** the **effects** of his drinking and the
-potential **progression** of his liver cirrhosis.
-
-Note that in \Last, the **effects** are ACTUAL, but the **progression**,
-at this point, is hypothetical and contingent on the patient's continued
-drinking. Please see Section \ref{discussion} for additional detail
-about the usage of HYPOTHETICAL with verbs of discussion.
-
-\vspace{0.5cm
- \fbox{ %
-\begin{tabular}{p{0.6in}p{14cm}
-\includegraphics[width=0.5in]{warning} \\
-*Caution!}  & \raisebox{4mm}{%
-\parbox[c]{14cm}{%
-\vspace{2mm
-\textit{ Although many human languages feature such an interaction,
-in our schema, modality does not interact with polarity or DocTimeRel.
-Future EVENTs are assumed to be actual unless stated otherwise, and
-it is possible (even common) to have an ACTUAL negated EVENT. Future
-or negated do not automatically mean "hypothetical\textquotedbl{}.}%
-}}\ \
-\tabularnewline
-\end{tabular}} \vspace{0.5cm
-
+- If we had added this section to the guidelines earlier, our annotator agreement would have been **better<sub>NEG/ACT</sub>**.
 
 
 #### Generic Modality (GEN)
 
-\label{generic
+Generic event modality is used to refer to two separate kinds of generic eventualities; generalizations and classes of events. You do not need to distinguish the two:
 
-GENERIC is our fourth contextual modality, and is used for EVENTs
-which may be mentioned in a note, but are only mentioned in a general
-sense, and do not appear on the timeline of the overall document.
-These usually occur as justification of treatment (in the clinical
-narrative), or to provide background or information in the general
-domain.
+- In the **aftermath** of most **bombings<sub>GEN</sub>**, **trampling<sub>GEN</sub>** is a deadly **threat<sub>GEN</sub>**.
 
-All of the below EVENTs would be marked GENERIC under our schema:
+- In New Zealand, bills must be **approved<sub>GEN</sub>** three times by
+Parliamentary **votes<sub>GEN</sub>** and then **receive<sub>GEN</sub>** Royal **Assent<sub>GEN</sub>** from the Governor-General.
 
-- In the **aftermath** of most **bombings**, **trampling**
-is a deadly **threat**.
+- Adjuvant **chemotherapy<sub>GEN</sub>** following **surgery<sub>GEN</sub>** is generally **recommended<sub>GEN</sub>** in **situations<sub>GEN</sub>** similar to this.
 
-- In New Zealand, bills must be **approved** three times by
-Parliamentary **votes** and then **receive** Royal **Assent**
-from the Governor-General.
-
-- Adjuvant **chemotherapy** following **surgery** is generally
-**recommended** in **situations** similar to this.
-
-- I explained that BRAF **mutations** have no predictive value
-with regard to cetuximab **sensitivity**.
-
-- In other patients without significant **comorbidity** that
-can **tolerate** adjuvant **chemotherapy**, there is a **benefit**
-to systemic adjuvant **chemotherapy**.\textquotedbl{
+- I explained that BRAF **mutations<sub>GEN</sub>** have no predictive value
+with regard to cetuximab **sensitivity<sub>GEN</sub>**.
 
 Although HYPOTHETICAL and GENERIC may seem similar, remember that
 most HYPOTHETICAL EVENTs still refer to the specific content of the
-article, but depend on some eventuality occurring, and make reference
-to specific EVENTs on the timeline, whereas GENERIC events don't require
+article, depend on some eventuality occurring, and make reference
+to specific EVENTs on the timeline.  In contrast, GENERIC events don't require
 specific reference or conditions.
 
 This provides an excellent test for GENERIC in practice: If a sentence
 would be true if copy-pasted into any contemporaneous article, note,
-or text, then it is most certainly GEN:
+or text, then it is most certainly GEN. For example, in:
 
 - The terrorists **fled** Jordan via the Lebanese border.
 
 The truth of this fleeing EVENT depends on the identity of the terrorists
-and the context of the article to be true or false. Although \textit{these
-terrorists fled to Lebanon, the next may flee to someplace else entirely.
-Thus, it is ACTUAL. Compare with:
+and the context of the article to be true or false. Thus, it is ACTUAL. Compare with:
 
 - Terrorists often **flee** to nation-states with crumbling
 governments to avoid **interference**.
@@ -1010,63 +757,23 @@ This fleeing EVENT would be equally true in any article about any
 terrorists, international fugitives, or even in an article about governmental
 collapse. Thus, both **flee** and **interference** are GENERIC.
 
-Finally, remember that as discussed in \ref{dtroverlap}, *if
-an EVENT is GENERIC, DocTimeRel will always be OVERLAP}.
+The hard cases will occur when running making generalizations about specific participants in the discourse, rather than classes of people, such as:
+
+- John always eats bananas on his Grape Nuts.
+
+- I lose whenever I play chess.
+
+- Jill usually got good grades in high school.
+
+When these refer to seemingly habitual events that have a clear set of circumstances (such as the last example), then they are ACTUAL.  Use GENERIC for such ACTUAL entities, instead, if you can robustly and easily paraphrase it in the past and future using a "whenever X, then Y" format:
+
+- Whenever I play<sub>GEN</sub> chess I lose<sub>GEN</sub>
+
+- Whenever John eats<sub>GEN</sub> Grape Nuts he uses<sub>GEN</sub> bananas
 
 
 
-
-#### Edge Cases: Counterfactuals and Past Negation
-
-There are ambiguities involving hypotheticals and negation. Take,
-for example, this sentence:
-
-- **Had** John **gone** to the **park**, **he** would've
-**seen** the cute **puppy**.
-
-There's clearly lots going on in this sentence, but let's focus on
-**seen**. There are two ways of annotating the event:
-\begin{enumerate
-- ***seen**}: DocTimeRel: BEFORE, Polarity: POS, Modality:
-HYP 
-- ***seen**}: DocTimeRel: BEFORE, Polarity: NEG, Modality:
-ACT 
-\end{enumerate
-Both are technically correct. You can view the seeing of the puppy
-as something that could have actually happened, or as something which
-certainly did not.
-
-As such, we have developed a hard-and-fast rule:
-
-\textit{When faced with a past hypothetical which we know did not
-happen, it is NEG/ACT. If you're unsure whether it happened, it's
-POS/HYP. If it happened, it is POS/ACT.
-
-So, when applied to data:
-
-- If Will had stopped by the store, he'd have **bought** cupcakes.
-But he was too lazy. \a. ***bought**}: DocTimeRel: BEFORE,
-Polarity: NEG, Modality: ACT
-
-- If Will stopped by the store, he probably **picked** up cupcakes.
-He lacks the fortitude to resist frosting. \a. ***picked**}:
-DocTimeRel: BEFORE, Polarity: POS, Modality: HYP
-
-- Will stopped by the store, so, of course, he **bought** cupcakes.
-Do you want one? \a. ***bought**}: DocTimeRel: BEFORE, Polarity:
-POS, Modality: ACT
-
-- If we had added this section to the guidelines earlier, our
-annotator agreement would have been **better**. \a. ***better**}:
-DocTimeRel: BEFORE, Polarity: NEG, Modality: ACT
-
-Please be sure to follow this rule as you proceed with your entity
-annotations.
-
-\color{black} 
-
-
-#### \label{eventfeatures}Event DocTimeRel
+### Marking the relationship to document time (DocTimeRel)
 
 DocTimeRel is short for "Document Creation Time Relation", and
 represents the temporal relation between the EVENT in question and
@@ -1125,23 +832,12 @@ BEFORE is used where the event ended before the document itself was
 written. The bracketed events below would be marked as "BEFORE"
 (and all other EVENTs and TIMEX3s are unmarked):
 
-- The **shooting** **shocked** the small city.
+- The **[shooting]** **[shocked]** the small city.
 
-- He is taking in adequate nutrition and adequate fluids; consumed
-3500 **calories** and drank 2-3 liters of **fluid**.
-
-- This is unchanged and may be related to treatment **changes**.
+- This is unchanged and may be related to treatment **[changes]**.
 
 - Today's study demonstrates a marked improvement compared to
-the prior 9-16-03 **study**.
-
-- Until last week, the patient had had no **nausea**.
-
-- She had experienced no **dizziness** until the **start**
-of chemotherapy.
-
-- The patient had had no **fever** before the **start** of
-her **surgery** last week.
+the prior 9-16-03 **[study]**.
 
 
 #### OVERLAP
@@ -2440,13 +2136,13 @@ events, ACTUAL and GENERIC items can never be in an IDENTICAL, APPOSITIVE,
 or WHOLE/PART relationship. They can, however, be SET/MEMBER, as in
 \Next:
 
-- **I** discussed with **Mrs. Ambry**$_{ACTUAL}$ the results
+- **I** discussed with **Mrs. Ambry**<sub>ACTUAL</sub> the results
 of a local clinical trial in which **patients**$_{GENERIC}$ with
 **cancer**$_{GENERIC}$ recovered successfully on the **drug**
-without reoccurrence. Given **her** colon **cancer**$_{ACTUAL}$
+without reoccurrence. Given **her** colon **cancer**<sub>ACTUAL</sub>
 and the success of the **drug**, **I** recommend **it**. \a.
 SET **patients**: MEMBER **Mrs. Ambry** \b{.} **Mrs. Ambry**
-IDENTICAL **her** \c{.} SET **cancer**$_{GENERIC}$: MEMBER **cancer**$_{ACTUAL}$
+IDENTICAL **her** \c{.} SET **cancer**$_{GENERIC}$: MEMBER **cancer**<sub>ACTUAL</sub>
 \d{.} **I** IDENTICAL **I** \e. **drug** IDENTICAL **drug**,
 **it**
 
@@ -3479,7 +3175,7 @@ BEFORE **surgery**
 
 - His anterior chest **rash** has not **reoccurred** since
 the **PCN** VK was **discontinued** *24-hours ago*. \a. **discontinued**
-BEFORE **reoccurred**$_{NEG}$ \b{.} **rash** BEFORE **reoccurred**$_{NEG}$
+BEFORE **reoccurred**<sub>NEG</sub> \b{.} **rash** BEFORE **reoccurred**<sub>NEG</sub>
 \c{.} (**rash** ENDS-ON **discontinued**) -- Discussed below.
 \c{.} *24-hours ago* OVERLAP **discontinued**
 
@@ -3689,7 +3385,7 @@ last round of **chemotherapy**. \a. **chemotherapy** OVERLAP
 **abscess**
 
 - She is not **interested** in pursuing chemotherapy at *this
-time*. \a. *this time* OVERLAP **interested**$_{NEG}$
+time*. \a. *this time* OVERLAP **interested**<sub>NEG</sub>
 
 In short, OVERLAP is meant for situations where two events overlap
 in some way, but where you are not sure (or do not have enough information
@@ -3759,7 +3455,7 @@ weather grew too **cold** for **camping**. \a. **protests**
 ENDS-ON **cold**
 
 - She has had no **bleeding** since her **stitches** were
-**removed**. \a. **bleeding**$_{NEG}$ ENDS-ON **removed**
+**removed**. \a. **bleeding**<sub>NEG</sub> ENDS-ON **removed**
 
 Note that ENDS-ON can be used in concert with BEGINS-ON to mark a
 duration.
@@ -3948,7 +3644,7 @@ CONTAINS -- NEG **meeting**
 It is important to contrast these with the below:
 
 - The **meeting** on *Thursday* didn't occur. \a. *Thursday\
-CONTAINS -- POS **meeting**$_{\text{ACTUAL, NEG}}$
+CONTAINS -- POS **meeting<sub>ACTUAL,NEG</sub>
 
 In the negated TLINKs, the EVENTs themselves are not negated, but
 instead, the temporal relation \textit{itself} is negated. It is quite
@@ -4932,13 +4628,13 @@ events, ACTUAL and GENERIC items can never be in an IDENTICAL, APPOSITIVE,
 or WHOLE/PART relationship. They can, however, be SET/MEMBER, as in
 \Next:
 
-- **I** discussed with **Mrs. Ambry**$_{ACTUAL}$ the results
+- **I** discussed with **Mrs. Ambry**<sub>ACTUAL</sub> the results
 of a local clinical trial in which **patients**$_{GENERIC}$ with
 **cancer**$_{GENERIC}$ recovered successfully on the **drug**
-without reoccurrence. Given **her** colon **cancer**$_{ACTUAL}$
+without reoccurrence. Given **her** colon **cancer**<sub>ACTUAL</sub>
 and the success of the **drug**, **I** recommend **it**. \a.
 SET **patients**: MEMBER **Mrs. Ambry** \b{.} **Mrs. Ambry**
-IDENTICAL **her** \c{.} SET **cancer**$_{GENERIC}$: MEMBER **cancer**$_{ACTUAL}$
+IDENTICAL **her** \c{.} SET **cancer**$_{GENERIC}$: MEMBER **cancer**<sub>ACTUAL</sub>
 \d{.} **I** IDENTICAL **I** \e. **drug** IDENTICAL **drug**,
 **it**
 
@@ -5030,7 +4726,7 @@ event will be restarted or reinitiated:
 
 - His anterior chest **rash** has not **reoccurred** since
 the **PCN** VK was **discontinued** *24-hours ago*. \a. **discontinued**
-TERMINATES **PCN** \b{.} **discontinued** BEFORE **reoccurred**$_{NEG}$
+TERMINATES **PCN** \b{.} **discontinued** BEFORE **reoccurred**<sub>NEG</sub>
 \b{.} **discontinued** OVERLAP *24-hours ago\
 
 As with INITIATES, reinitiates carries an implied sort of causality.
@@ -5340,7 +5036,7 @@ the future (given the tenses in the sentence). The **health** and
 **good** EVENTs are occurring at the document time, so they have
 a DocTimeRel of OVERLAP, and then finally the TLINK shows us that
 the preoperative period CONTAINS the good health. Note that **difficulty**$_{NEG,HYP}$
-is not linked to **tonsillectomy**$_{ACTUAL}$, because we cannot
+is not linked to **tonsillectomy**<sub>ACTUAL</sub>, because we cannot
 link HYP Events to ACTUAL Events.
 
 

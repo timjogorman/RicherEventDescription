@@ -802,3 +802,36 @@ are satisfied with the compromise.
 \pagebreak{
 
 
+
+\paragraph{Generic You and We
+
+\textquotedbl{}You\textquotedbl{} is to be marked as GENERIC when
+it passes tests for \textquotedbl{}generic you\textquotedbl{} usage: 
+\begin{itemize
+- It can be paraphrased using \textquotedbl{}one\textquotedbl{}, \textquotedbl{}somebody\textquotedbl{},
+\textquotedbl{}a person\textquotedbl{}, etc. 
+- It would be translate into a generic pronoun in any languages you
+know (such as \textquotedbl{}on\textquotedbl{} in French). 
+- Restating \textquotedbl{}you\textquotedbl{} to be an apposition with
+the audience's name, such as \textquotedbl{}You, John...\textquotedbl{
+would change the meaning of the sentence. 
+\end{itemize
+For example: 
+\begin{examples
+- gotta love the people who insist on \textquotedbl{}helping\textquotedbl{
+**you**<sub>GEN</sub> when it could be easier to do it **yourself**<sub>GEN</sub>.
+\end{examples
+It's harder to define the delineation of \textquotedbl{}we\textquotedbl{}.
+Mark \textquotedbl{}we\textquotedbl{} as GENERIC only when the set
+referred to is \textquotedbl{}everybody\textquotedbl{}, i.e. the entire
+human race, or is an undefined set that could be synonymous with this:
+
+- What is this biotech revolution you are referring to that **we**<sub>GEN</sub>
+are on the verge of?
+
+Generic \textquotedbl{}you\textquotedbl{} and \textquotedbl{}we\textquotedbl{
+are subject to the \textquotedbl{}identity of very broad GENERICs\textquotedbl{
+rules; see section \ref{vbroadgens}.
+
+
+
