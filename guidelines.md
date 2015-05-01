@@ -477,7 +477,7 @@ When you mark each entity or event, you will need to label basic features
 on the events and entities. 
 
 
-### Entity Features -- Polarity and Modality
+### Entity Features - Polarity and Modality
 
 The majority of ENTITYs will be of the polarity POS for "positive",
 meaning that they are actual entities. This is the default value.
@@ -947,29 +947,18 @@ instances of the same event; mark is as OVERLAP or BEFORE based upon
 the actual local context. 
 - If an event is presented as OVERLAP but is mentioned as a past speech
 act, as in He said that there is no threat,
-this is \textit{not} enough evidence for BEFORE/OVERLAP.
-\end{itemize
-\vspace{0.25cm
- \fbox{ %
-\begin{tabular}{p{0.6in}p{14cm}
-\includegraphics[width=0.5in]{warning} \\
-*Caution!}  & \raisebox{4mm}{%
-\parbox[c]{14cm}{%
-\vspace{2mm
-\textit{Be sure that any time you are using BEFORE-OVERLAP, it is
+this is *not* enough evidence for BEFORE/OVERLAP.
+
+:bang_bang: Be sure that any time you are using BEFORE-OVERLAP, it is
 been explicitly stated that an EVENT started before DOCTIME and continues.
 Even if you, as a human, can infer that a given EVENT must have started
 before the document time, or that an earlier EVENT is likely to continue,
 do not mark an EVENT as BEFORE-OVERLAP unless there is evidence in
 the sentence itself. Pick BEFORE or OVERLAP -- whichever is explicitly
-shown by the text -- instead.}%
-}}\ \
-\tabularnewline
-\end{tabular}} \vspace{0.5cm
+shown by the text -- instead.
 
 
-
-\paragraph{DocTimeRel in relation to speech
+##### DocTimeRel in relation to speech
 
 When dealing with documents involving indirect speech (as is often
 the case in newswire), there can be a number of conflicting signals
