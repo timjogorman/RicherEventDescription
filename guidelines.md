@@ -71,7 +71,7 @@ designed simply for that purpose.
 
 The project is based on work supported by Award R01LM010090 from the
 National Library Of Medicine, and by DARPA FA-8750-13-2-0045, subaward
-560215 (via LDC) DEFT: Deep Exploration and Filtering of Text\textquotedbl{}.
+560215 (via LDC) DEFT: Deep Exploration and Filtering of Text.
 The content is solely the responsibility of the authors and does not
 necessarily represent the official views of the National Library Of
 Medicine, the National Institutes of Health, or the Defense Advanced
@@ -757,15 +757,18 @@ This fleeing EVENT would be equally true in any article about any
 terrorists, international fugitives, or even in an article about governmental
 collapse. Thus, both **flee** and **interference** are GENERIC.
 
-The hard cases will occur when running making generalizations about specific participants in the discourse, rather than classes of people, such as:
+The hard cases will be generalizations about ACTUAL, specific people and groups, such as:
 
 - John always eats bananas on his Grape Nuts.
 
 - I lose whenever I play chess.
 
+- Florida voters disappoint me every time. 
+
 - Jill usually got good grades in high school.
 
-When these refer to seemingly habitual events that have a clear set of circumstances (such as the last example), then they are ACTUAL.  Use GENERIC for such ACTUAL entities, instead, if you can robustly and easily paraphrase it in the past and future using a "whenever X, then Y" format:
+
+When these refer to seemingly habitual events with a clear timespan, you can make them ACTUAL.  Use GENERIC for such ACTUAL entities, instead, if you can robustly and easily paraphrase it in the past and future using a "whenever X, then Y" format:
 
 - Whenever I play<sub>GEN</sub> chess I lose<sub>GEN</sub>
 
@@ -842,7 +845,7 @@ the prior 9-16-03 **[study]**.
 
 #### OVERLAP
 
-\label{dtroverlap} OVERLAP is used for events or states which are
+OVERLAP is used for events or states which are
 happening or true at the time that the document was written:
 
 - The fires **continue** to **burn** in the Mountains, despite
@@ -859,7 +862,7 @@ to be in no acute **distress**.
 - Moderate sized retention **cyst** or **polyp** in the right
 maxillary antrum again **noted**.
 
-- \label{twin} She is not **interested** in pursuing chemotherapy
+- She is not **interested** in pursuing chemotherapy
 at this time but is **interested** in continued **surveillance**.
 
 
@@ -881,14 +884,14 @@ University to pay graduate teachers a living wage.
 - She is not interested in pursuing chemotherapy at this time
 but is interested in **continued** surveillance.
 
-It is worth pointing out that \Last, considered alongside \ref{twin},
+It is worth pointing out that in the last example, considered alongside \ref{twin},
 shows the interaction between DocTimeRel and ALINK to cover the idea
-of "already happening, and will now continue\textquotedbl{}.
+of "already happening, and will now continue.
 
 There is one specific situation which must be discussed. EVENTs with
 a Contextual Modality of GENERIC (discussed in \ref{generic}) will
 always have a DocTimeRel of OVERLAP, as stated truths are, presumably,
-true at Document Time. See \Next below.
+true at Document Time. See the following:
 
 - I explained that BRAF **mutations** have no predictive value
 with regard to cetuximab **sensitivity**.
@@ -924,28 +927,26 @@ sentence, for it occurring in the past as well as the present, and
 when that evidence is in the list below.
 
 
-\paragraph{Admissable evidence for BEFORE/OVERLAP
-\begin{itemize
-- The event is in the present prefect aspect: \textquotedbl{}I have
-been doing yoga for years\textquotedbl{}, \textquotedbl{}The fires
-have burned for eight days\textquotedbl{}, \textquotedbl{}He has felt
-good\textquotedbl{}. 
+##### Admissable evidence for BEFORE/OVERLAP
+- The event is in the present prefect aspect: I have
+been doing yoga for years, The fires
+have burned for eight days, He has felt
+good. 
 - The document contains a TIMEX3 that assigned a time or date, in the
 past, where that document happened. 
-- The event is modified by the discourse marker \textquotedbl{}still\textquotedbl{
-and it is the \textquotedbl{}temporal\textquotedbl{} sense of still,
-meaning \textquotedbl{}this has been happening and continues to happen\textquotedbl{}. 
+- The event is modified by the discourse marker still\textquotedbl{
+and it is the temporal sense of still,
+meaning this has been happening and continues to happen. 
 - Aspectual verbs modify the verb, to the extent that one will probably
 mark it as CONTINUES. 
-\end{itemize
 
-\paragraph{What is NOT admissable evidence for BEFORE/OVERLAP
-\begin{itemize
+##### What is NOT admissable evidence for BEFORE/OVERLAP:
+
 - You cannot mark this based upon knowledge of the tense of other, coreferential
 instances of the same event; mark is as OVERLAP or BEFORE based upon
 the actual local context. 
 - If an event is presented as OVERLAP but is mentioned as a past speech
-act, as in \textquotedbl{}He said that there is no threat\textquotedbl{},
+act, as in He said that there is no threat,
 this is \textit{not} enough evidence for BEFORE/OVERLAP.
 \end{itemize
 \vspace{0.25cm
@@ -972,14 +973,14 @@ shown by the text -- instead.}%
 
 When dealing with documents involving indirect speech (as is often
 the case in newswire), there can be a number of conflicting signals
-about what the \textquotedbl{}time\textquotedbl{} of an event is.
-A common pattern, for example, is a past tense report (\textquotedbl{}he
-said ...\textquotedbl{}) that is reporting about a present tense state,
-\textquotedbl{}...that there is no threat\textquotedbl{}.
+about what the time of an event is.
+A common pattern, for example, is a past tense report (he
+said ...) that is reporting about a present tense state,
+...that there is no threat.
 
-When not dealing with direct quotations, you can assume that the \textquotedbl{}time\textquotedbl{
+When not dealing with direct quotations, you can assume that the time\textquotedbl{
 of an event is being accurately reported by the document as a whole:
-for the pattern such as \ref{nothreat} below, you can mark the \textquotedbl{}threat\textquotedbl{
+for the pattern such as \ref{nothreat} below, you can mark the threat\textquotedbl{
 as OVERLAP:
 
 - \label{nothreat} He declared that there is no threat.
@@ -987,7 +988,7 @@ as OVERLAP:
 - The boss said that we are working$_{\text{OVERLAP}}$ on it.
 
 Resist the temptation to mark these as BEFORE/OVERLAP (while past
-tense is often inferrable, we do not consider this to be proper \textquotedbl{}evidence\textquotedbl{
+tense is often inferrable, we do not consider this to be proper evidence\textquotedbl{
 for BEFORE/OVERLAP: see section \ref{beforeover} for the allowable
 BEFORE/OVERLAP criteria.
 
@@ -995,8 +996,8 @@ Note that this is only a constraint for indirect quotations; the time
 of the speech event, in direct quotations, can be evidence of BEFORE
 or BEFORE/OVERLAP conditions, as in:
 
-- Napoleon declared$_{\text{BEFORE}}$ \textquotedbl{}I will conquer$_{\text{BEFORE}}$
-Russia\textquotedbl{
+- Napoleon declared <sub>BEFORE</sub> I will conquer <sub>BEFORE</sub>
+Russia
 
 
 #### Event Type, Aspect and Implicitness
@@ -1064,12 +1065,12 @@ Some EVENTs do not actually represent real-world events, but instead,
 provide aspectual information (starting, stopping, continuing) about
 other EVENTs. To differentiate these EVENTs from the traditional clinical
 EVENTs which occur on a timeline, we use the "type" marker. It
-has three values: "N/A", "ASP", and "EVI\textquotedbl{}. 
+has three values: "N/A", "ASP", and "EVI. 
 
 
 ###### N/A
 
-\textquotedbl{}N/A" is the default value, and represents the vast
+N/A" is the default value, and represents the vast
 majority of EVENTs in the schema, and unless explicitly mentioned
 otherwise (below or in the ALINK section), represents all EVENTs used
 in examples in the Guidelines. Unless the EVENT is of the specific,
@@ -1083,7 +1084,7 @@ like:
 
 - She has significant risk for tumor **recurrence**.
 
-\textquotedbl{}recurrence" does actually carry some aspectual information
+recurrence" does actually carry some aspectual information
 (the tumor would have restarted). However, because the word "recurrence"
 would not be aspectual in "she has risk of recurrence", we have
 chosen never to mark the word as an ASPECTUAL EVENT. Instead, this
@@ -1095,7 +1096,7 @@ as shown above. No ALINK annotations will be made here.
 
 The next EVENT type is ASP, which is used to indicate an event whose
 function is to emphasize or code the aspect of a later event, like
-"continues",\textquotedbl{}restart", or "terminated\textquotedbl{}.
+"continues",restart", or "terminated.
 Every EVENT of type "aspectual" must later participate in an ALINK.
 
 - The community **continues** to worry about the possibility
@@ -1124,7 +1125,7 @@ EVENTs is by substitution. A true ASPECTUAL can always be substituted
 - We **completed** treatment today
 
 Here, **completed** could be rephrased as "We stopped/ended/finished/finalized/terminated
-treatment today\textquotedbl{}. Compare that with:
+treatment today. Compare that with:
 
 - She **completed** the form
 
@@ -1148,17 +1149,10 @@ is not aspectual.
 
 ###### EVI - Evidential
 
-The other EVENT type is EVI. EVI EVENTs are a little bit strange,
-in that they are not technically relevant to the patient, but they
-provide information about how doctors or journalists came to identify
-and learn about other events. EVI EVENTs are a relatively closed class,
-generally verbs of showing, demonstration, evidence, reporting, confirmation
-or revelation, and in the clinical domain, are very commonly associated
-with tests, imaging, and human observation.
-
-In short, an EVENT should be marked EVI only if it serves as the link
+The other EVENT type is EVI, or "evidential", markings verbs of showing, demonstration, evidence, reporting, confirmation
+or revelation.  An EVENT should be marked EVI *only* if it serves as the link
 between a source of knowledge or observation and a piece of knowledge
-gained from it.
+gained from it, and can include any lexical items labeling that other examples are in question:
 
 - Satellite photography **shows** increased troop movements
 near the border.
@@ -1192,8 +1186,6 @@ to recognize which verbs belong to this class and which do not.
 
 
 #### Annotating representation of EVENTs
-
-\label{representation
 
 Some EVENTs that we will mark are not necessarily explicit EVENTs,
 but rather, ENTITYs which are interpreted in context as representing
@@ -1247,7 +1239,6 @@ NEG generally allows.
 
 #### N/A, MST - Most and LTL - Little
 
-\label{little
 
 Our three different degrees are N/A, MST, and LTL. N/A is used where
 there is no need to mark either of the other two degrees on the EVENT,
@@ -1292,7 +1283,7 @@ step of the annotation process is to find and annotate TIMEX3 objects.
 These are definitive references to time, and will provide concrete
 temporal references throughout the document or section. Examples of
 these might be phrases like "today", "tomorrow", "24 hours
-ago", "at this time" and "early March\textquotedbl{}. In addition,
+ago", "at this time" and "early March. In addition,
 specific dates are annotated as TIMEX3 objects as well.
 
 
@@ -1308,7 +1299,7 @@ a:
 \begin{itemize
 - Noun phrase ("this weekend", "tomorrow", "yesterday",
 "Tuesday", "Last May", "May 16th", "6/9/1985"). 
-- Adjective phrase ("two-hour-long", "half-hour\textquotedbl{}--as
+- Adjective phrase ("two-hour-long", "half-hour--as
 in "a half-hour trip", "preoperative", "post-partum") 
 - Adverbial phrase ("lately", "recently", "shortly", "hourly",
 "intraoperatively"). 
@@ -1542,7 +1533,7 @@ colitis.
 
 Note that Quantifier only applies for number of occurrences of an
 EVENT, not for quantifiers like "She has \textit{two} eyes" or
-"She lost \textit{5} units of blood\textquotedbl{}.
+"She lost \textit{5} units of blood.
 
 
 #### PREPOSTEXP
@@ -1559,7 +1550,7 @@ scarring noted during exam.
 
 - The patient exhibits *post-exposure* changes.
 
-These will not always begin with "pre-" or "post-\textquotedbl{}.
+These will not always begin with "pre-" or "post-.
 Terms like "intraoperatively" are PREPOSTEXP as well, as in \Next:
 
 - *Intraoperatively*, there were no difficulties securing his
@@ -1635,7 +1626,7 @@ weapons <overnight>" in response to the continued aggressions. \a.
 Japan can arm itself with nuclear weapons in the period of time from
 dusk on the day of DOCTIME to dawn the next day. \b{.} Japan can
 arm itself, whenever it chooses to, in around 12 hours, or, in a figurative
-sense, "abruptly\textquotedbl{}.
+sense, "abruptly.
 
 In both \LLast and \Last, the (a) reading inteprets the marked expression
 as being DURATION TIMEX3s, which CONTAIN the EVENTs (`write' and `arm'),
@@ -1668,7 +1659,7 @@ annotations will link to this section-specific time. \emph{If no separate
 date is explicitly given for a section, assume that it shares the
 overall DOCTIME.
 
-- **head start date=\textquotedbl{}**12/13/2010**" rev=\textquotedbl{}0002\textquotedbl{}**
+- **head start date=**12/13/2010**" rev=0002**
 
 Here, the **12/13/2010** would be marked as DOCTIME, as "start
 date" is the closest thing to the "Document Time" that we have
@@ -1765,7 +1756,7 @@ reply), though, it would be eligible.
 - DUPLICATE sections must be exactly duplicate, excepting formatting
 changes. Even if two paragraphs differ by only a few words, they are
 no longer considered DUPLICATE. Changes to line-breaks, formatting,
-or the addition of quoting characters (e.g. ">" or "\textquotedbl{}")
+or the addition of quoting characters (e.g. ">" or "")
 are not important enough to merit full re-annotation, and you're still
 welcome to mark as DUPLICATE.
 - DUPLICATE sections must be intentionally duplicated (automatically
@@ -1788,7 +1779,7 @@ the text.
 \label{corefannotation
 
 While you are annotating the EVENT/ENTITY markables pass, we want
-you to also annotate all \textquotedbl{}Coreference\textquotedbl{
+you to also annotate all Coreference\textquotedbl{
 relations betweene ENTITIES. These can be thought of in two categories
 -- relations that show that two things are the same (IDENT and APPOS)
 and relations that show that they have a structural relationship,
@@ -1827,8 +1818,7 @@ also had a sore throat.
 
 Yet in many instances on will be linking together lexical nouns that
 refer to the same thing. Two different ways of refering to the same
-thing -- like \textquotedbl{}Michele Obama\textquotedbl{}, \textquotedbl{}she\textquotedbl{},
-and \textquotedbl{}First Lady\textquotedbl{} in the example below
+thing -- like Michele Obama, she, and First Lady in the example below
 -- belong in the same chain.
 
 - **Michele Obama**$_{e1}$ is a busy **lady**, **she**$_{e1}$
@@ -1837,23 +1827,23 @@ week, the **First Lady**$_{e1}$ was in Wisconsin teaching kids
 why it is important to eat healthy and exercise \label{Mobama
 
 Yet example \ref{Mobama} also illustrates this question of what to
-do with attribution, as in the entity \textquotedbl{}is a busy **lady**\textquotedbl{}.
+do with attribution, as in the entity is a busy **lady**.
 The fundamental rule we'll follow with this is the following: 
 \begin{itemize
-- If \textquotedbl{}X is Y\textquotedbl{} is actually showing the equivalence
-of the identities of two mentions (such as \textquotedbl{}Clark Kent
-is Superman\textquotedbl{}), then these are IDENT. 
-- If \textquotedbl{}X is Y\textquotedbl{} asserts a SET/MEMBER relations,
-mark it as such. The \textquotedbl{}such as\textquotedbl{} test is
+- If X is Y is actually showing the equivalence
+of the identities of two mentions (such as Clark Kent
+is Superman), then these are IDENT. 
+- If X is Y asserts a SET/MEMBER relations,
+mark it as such. The such as test is
 a good metric in this case -- you can restatae the relationship in
-\ref{Mobama} as \textquotedbl{}busy ladies such as Michele Obama\textquotedbl{},
-but one can't say \textquotedbl{}Supermen like Clark Kent\textquotedbl{} 
-- If \textquotedbl{}X is Y\textquotedbl{} doesn't show Y as a set, and
+\ref{Mobama} as busy ladies such as Michele Obama,
+but one can't say Supermen like Clark Kent 
+- If X is Y doesn't show Y as a set, and
 the two described entities are the identical, but the attribute is
-a role (\textquotedbl{}Joe is the vice president\textquotedbl{}),
-a defined role that is not a separate referent (\textquotedbl{}Joe
-is the tallest man in the room\textquotedbl{}), then use BRIDGING. 
-- If \textquotedbl{}X is Y\textquotedbl{} is very predicative (the Y
+a role (Joe is the vice president),
+a defined role that is not a separate referent (Joe
+is the tallest man in the room), then use BRIDGING. 
+- If X is Y is very predicative (the Y
 is less of a separate referent and more of an attribute of X) and
 cannot be framed as a SET/MEMBER or BRIDGING relationship, then do
 not mark any relation at all. 
@@ -1928,20 +1918,20 @@ If both ENTITYs have the same level of specificity, select the left-most
 ENTITY as the head.
 
 
-#### \label{bridgingsection}WHOLE/PART
+#### WHOLE/PART
 
 Two entities exist in a WHOLE/PART relationship if one can be thought
 of as part of the other, larger composite entity. These can be simple
 or more abstract:
 
-- The **hand**$_{part}$ was broken when the boulder fell on
-his **arm**$_{whole}$.
+- The **hand**<sub>part</sub> was broken when the boulder fell on
+his **arm**<sub>whole</sub>.
 
 Any number of PARTs may be included in a WHOLE/PART relation, although
 only one Entity is allowed to fill the WHOLE slot.
 
-- I didn't include enough **flour**$_{part}$ in this **cake**$_{whole}$,
-and used too much **sugar**$_{part}$.
+- I didn't include enough **flour**<sub>part</sub> in this **cake**<sub>whole</sub>,
+and used too much **sugar**<sub>part</sub>.
 
 As with the CONTAINS-SUBEVENT TLINK, this relation can only be used
 for cases of compositionality, i.e. narrow readings. In order for
@@ -1952,23 +1942,22 @@ do not contain any WHOLE/PART relations:
 - **Mt. Everest** lies on the border between **China** and
 **Nepal**.
 
-- In the **house**, there are several **visitors**.\label{visitorsinhouse
-
+- In the **house**, there are several **visitors**.
 Note that WHOLE/PART relationships are essentially *hierarchical},
 in that they may theoretically have a whole chain of relationships
 (a hair is part of a dog, a dog is part of a pack, spatial relations,
 such as:
 
-- We saw the **White house** while in **D.C.**.\label{dchouse
+- We saw the **White house** while in **D.C.**.
 
 The difference between \ref{visitorsinhouse} and \ref{dchouse} reveals
 a difficult boundary case that you will have to ponder -- what counts
-as \textquotedbl{}compositionally part\textquotedbl{} of a thing.
-This is particularly salient when the \textquotedbl{}whole\textquotedbl{
+as compositionally part of a thing.
+This is particularly salient when the whole\textquotedbl{
 is a larger spatial entity such as a city, county or country. When
-in doubt, remember this \textquotedbl{}compositionality\textquotedbl{
-idea. If the removal of the potential \textquotedbl{}part\textquotedbl{
-would have the potential of changing the nature of the \textquotedbl{}whole\textquotedbl{},
+in doubt, remember this compositionality\textquotedbl{
+idea. If the removal of the potential part\textquotedbl{
+would have the potential of changing the nature of the whole,
 even a slight bit, then one might consider it compositional and use
 WHOLE/PART. If, in contrast, the part is merely temporarily or arbitrarily
 located in the space of the other item, do not use WHOLE/PART.
@@ -2269,7 +2258,7 @@ BRIDGING.
 \label{vbroadgens
 
 Some set/member relations are so general that they define huge, all-encompassing
-sets. This is most clear when considering terms such as \textquotedbl{}everything\textquotedbl{},
+sets. This is most clear when considering terms such as everything,
 which may sometimes be worth marking yet which we don't want to mark
 as containing all other entities.
 
@@ -2280,39 +2269,37 @@ own sanity as annotators), a small set of extremely broad GENERIC
 instances will be defined as being out of the scope of our annotation.
 
 Terms to omit from SET/MEMBER annotation: 
-\begin{itemize
-- \textquotedbl{}Everyone\textquotedbl{}, \textquotedbl{}people\textquotedbl{},
-and generic \textquotedbl{}you\textquotedbl{}: When these are used
+- Everyone, people,
+and generic you: When these are used
 in the truly broad sense (so that they encompass all persons mentioned
 in the text), omit them from annotation. 
-- generic \textquotedbl{}we\textquotedbl{}, \textquotedbl{}everyone\textquotedbl{},
-and \textquotedbl{}people\textquotedbl{}, when they do not describe
-a document-specific set like \textquotedbl{}americans\textquotedbl{
-but rather some broader generic set like \textquotedbl{}humanity\textquotedbl{},
+- generic we, everyone,
+and people, when they do not describe
+a document-specific set like americans\textquotedbl{
+but rather some broader generic set like humanity,
 does not get set/member relations. 
-- \textquotedbl{}someone\textquotedbl{}, \textquotedbl{}anyone\textquotedbl{},
-\textquotedbl{}one\textquotedbl{}: These do not entail set/member
+- someone, anyone,
+one: These do not entail set/member
 relationships between themselves and the possible candidates. 
-\end{itemize
 
-\subsubsection**{IDENT over generic you, one, etc.
+#### IDENT over generic you, one, etc.
 
 We do, however, want to grab identity relations with very generic
-terms, and especially want identity relations with terms like \textquotedbl{}you\textquotedbl{}.
-The question that arises -- especially with terms like \textquotedbl{}you\textquotedbl{},
-\textquotedbl{}one\textquotedbl{}, etc. -- is whether these should
+terms, and especially want identity relations with terms like you.
+The question that arises -- especially with terms like you,
+one, etc. -- is whether these should
 all be contained within the same IDENT chain.
 
-Many times with GENERIC \textquotedbl{}you\textquotedbl{}, as with
-\textquotedbl{}somebody\textquotedbl{}, we initiate a possible world
+Many times with GENERIC you, as with
+somebody, we initiate a possible world
 that would be true for any member of the set, and continue that hypothetical.
 In such a hypothetical, we want an identity chain between the same
-mentions. Put more concretely; given two mentions of generic \textquotedbl{}you\textquotedbl{},
-you can usually replace the first with either \textquotedbl{}somebody\textquotedbl{},
-\textquotedbl{}one\textquotedbl{} or \textquotedbl{}anyone\textquotedbl{
+mentions. Put more concretely; given two mentions of generic you,
+you can usually replace the first with either somebody,
+one or anyone\textquotedbl{
 in English. In that case, the question is whether later mentions can
-be replaced with pronoun such as \textquotedbl{}they\textquotedbl{},
-\textquotedbl{}he\textquotedbl{} or \textquotedbl{}she\textquotedbl{
+be replaced with pronoun such as they,
+he or she\textquotedbl{
 without changes in the implied meaning. If so, they deserve to be
 IDENT in the same chain; otherwise they are probably different. So
 for example:
@@ -2332,23 +2319,20 @@ officer the next day?).
 
 In consider two other sentences, presumably from the same document.
 While these both fit into the idea of GENERIC you, the second doesn't
-pass this same \textquotedbl{}hypothetical somebody\textquotedbl{
+pass this same hypothetical somebody\textquotedbl{
 test:
 
 - If you choose not to vote, then you choose to give your opponents
-all the power. This is another case of \textquotedbl{}well what did
-you bloody well expect to happen\textquotedbl{}?
+all the power. This is another case of well what did
+you bloody well expect to happen?
 
 the rephrasal attempt seems to change the meaning in this one, and
 thus these should be different IDENT chains:
 
 - If *someone} chooses not to vote, then *they
 choose to give *their} opponents all the power. This is another
-case of \textquotedbl{}well what did *they} bloody well expect
-to happen\textquotedbl{}?
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+case of well what did *they} bloody well expect
+to happen?
 
 
 ###Testing Your Understanding
@@ -2363,13 +2347,13 @@ not worry for now about which words to annotate, just focus on which
 referents and events deserve some sort of annotation (Answers in the
 footnote \footnotemark).
 
-- \label{test1}Mr. Stone reported that he had difficulty swallowing
+- Mr. Stone reported that he had difficulty swallowing
 and shortness of breath.
 
-- \label{test2}The sectarian violence continued to spread in
+- The sectarian violence continued to spread in
 the northern city of Tikrit.
 
-- \label{test3}She took her car to a garage to change the oil.
+- She took her car to a garage to change the oil.
 
 \footnotetext{You should have found the following ENTITIES: Mr. Stone
 \ref{test1}, he \ref{test1}, northern city of Tikrit \ref{test2},
@@ -2387,7 +2371,7 @@ away.
 \begin{itemize
 - For coordinated heads, both of the heads will be labeled as separate
 elements and annotated separately. (e.g., "They **shipped** and
-**unloaded** the cargo\textquotedbl{}; "Potential **carcinoma**
+**unloaded** the cargo; "Potential **carcinoma**
 or **polyp**", etc.)
 \end{itemize
 - We also discussed **some**$_{S2-M1}$ of the **toxicities**$_{S1}$
@@ -2411,9 +2395,9 @@ known as the **Pacific** "**ring**$_{W1}$ of **fire**$_{P1}$\textquotedbl{
 Notice that the "chain of fault lines and volcanoes" is SET/MEMBER,
 whereas "ring of fire" is WHOLE/PART. This is because the fault
 lines and volcanoes are MEMBERs of the chain in a way in which "fire"
-is not a MEMBER of the "ring\textquotedbl{}. Instead, "fire"
+is not a MEMBER of the "ring. Instead, "fire"
 is what the ring is physically made of, and is therefore compositionally
-a part of the "ring\textquotedbl{}.
+a part of the "ring.
 
 Coreference relations such as SET/MEMBER and WHOLE/PART are discussed
 in more depth in Section \ref{corefannotation}.
@@ -2542,7 +2526,7 @@ BEFORE **pain** \b{.} **rash** BEFORE **pain**
 As we can see, not only is the temporal linking of Napoleon's exile
 to each modern EVENT absurd, but a number of the TLINKs described
 above are accurate, but unsatisfying, simply existing "to complete
-the picture\textquotedbl{}. Moreover, one may see that as as the number
+the picture. Moreover, one may see that as as the number
 of events increased, the number of relationships you might have to
 make would increase exponentially.
 
@@ -2592,7 +2576,7 @@ EVENTs which occur BEFORE the document time, one contains all EVENTs
 which occur AFTER the document time, and one contains all EVENTs which
 overlap the document time. However, there can be many more narrative
 containers in a given note than just "Before DOCTIME", "Overlapping
-DOCTIME", and "After DOCTIME\textquotedbl{}. Take, for example,
+DOCTIME", and "After DOCTIME. Take, for example,
 this note:
 
 *\textit{This could use a nice general-domain example. Annotators,
@@ -3183,7 +3167,7 @@ It is worth noting that in \Last, **PCN** will be linked to **discontinued**
 using an ALINK of the type TERMINATES, described in Section \ref{alinks}.
 
 When annotating, remember that "X occurred after Y" can be expressed
-by saying "Y occurred before X\textquotedbl{}: - The **shooting**
+by saying "Y occurred before X: - The **shooting**
 came shortly after the drug dealer's **release**. \a. **release**
 BEFORE **shooting**
 
@@ -3477,9 +3461,9 @@ entities are \textit{exactly} the same.
 In the real world, such simultaneity does not often arise from coincidence
 (and when it happens to be the case, it is widely commented on and
 celebrated). Generally, true simultaneity only happens by coordination
-(\textquotedbl{}So long as the president is **aboard**, the carrier
-will be on high **alert**\textquotedbl{}) or by necessity (\textquotedbl{}I'll
-**drink** as long as my cup is **full**\textquotedbl{}).
+(So long as the president is **aboard**, the carrier
+will be on high **alert**) or by necessity (I'll
+**drink** as long as my cup is **full**).
 
 - She **listened** to music during her whole **drive** home.
 \a. **listened** SIMULTANEOUS **drive**
@@ -3590,13 +3574,13 @@ Given this notation, our TLINK types can be expressed as below:
 \hline 
 *Relation}  & *Notation}  & *Meaning}\tabularnewline
 \hline 
-BEFORE  & A+ < B-  & "A is before B\textquotedbl{}\tabularnewline
-CONTAINS  & (A- < B-) AND (A+ > B+)  & "A contains B\textquotedbl{}\tabularnewline
-CONTAINS-SUBEVENT  & (A- < B-) AND (A+ > B+)  & "A contains B\textquotedbl{}\tabularnewline
+BEFORE  & A+ < B-  & "A is before B\tabularnewline
+CONTAINS  & (A- < B-) AND (A+ > B+)  & "A contains B\tabularnewline
+CONTAINS-SUBEVENT  & (A- < B-) AND (A+ > B+)  & "A contains B\tabularnewline
 OVERLAP  & (A- < B- < A+) OR (B- < A- < B+)  & "A and B overlap" \tabularnewline
-BEGINS-ON  & A+ = B-  & "B begins-on A\textquotedbl{}\tabularnewline
-ENDS-ON  & A- = B+  & "B ends-on A\textquotedbl{}\tabularnewline
-SIMULTANEOUS  & A- = B- AND A+ = B+  & "A is simultaneous with B\textquotedbl{}\tabularnewline
+BEGINS-ON  & A+ = B-  & "B begins-on A\tabularnewline
+ENDS-ON  & A- = B+  & "B ends-on A\tabularnewline
+SIMULTANEOUS  & A- = B- AND A+ = B+  & "A is simultaneous with B\tabularnewline
 \hline 
 \end{tabular
 
@@ -3948,11 +3932,11 @@ by keeping him after school, \a. **condition** OVERLAP/PRECONDITIONS
 Remember as well that SUBEVENT, CAUSES, and PRECONDITIONS relations
 are mutually exclusive, and one event pair can only have one of these
 relations. Therefore, if an event pair has more than one of these
-three relations, there is an order of \textquotedbl{}importance\textquotedbl{}.
+three relations, there is an order of importance.
 If the relation is clearly some sort of outcome or causation (cause
 or precondition) of an event, then default to the CAUSES or PRECONDITIONS
 reading, as they are easier to consistently capture. If torn between
-CAUSES and PRECONDITIONS, check the \textquotedbl{}special cases\textquotedbl{
+CAUSES and PRECONDITIONS, check the special cases\textquotedbl{
 section to see if there are special hints for your phenomenon, and
 otherwise default to CAUSES.
 
@@ -4005,8 +3989,6 @@ two conceptual EVENTs.
 
 
 #### Focus on relations suggested in the text
-
-\label{causessuggestedintext
 
 You should focus on the relations that the writer suggests, instead
 of over-analyzing the text, or searching for causality where it may
@@ -4254,8 +4236,8 @@ link, even though in reality, the death toll rises simultaneously
 with the confirmation of death.%
 } \e. **confirmed** BEFORE/CAUSES **rose**
 
-Here, again, we can infer the broadest link (\textquotedbl{}the bombing
-caused the death toll to rise\textquotedbl{}) by a series of small
+Here, again, we can infer the broadest link (the bombing
+caused the death toll to rise) by a series of small
 logical jumps through CAUSES annotations.
 
 These chained annotations, much like narrative containers, allow us
@@ -4495,8 +4477,6 @@ they apply to other TLINKs. See Sections \ref{TLINKPolarity} and
 
 ###Event Coreference
 
-\label{corefannotation-1
-
 While linking up events in terms of their temporal, causal and subevent
 structure, you will also be marking them for event coreference. These
 guidelines for coreference annotation have been adapted from the OntoNotes
@@ -4522,7 +4502,7 @@ WHOLE/PART and SET/MEMBER, which are directional by defition.
 A is IDENT to C. . 
 \end{itemize
 
-#### \label{sub:SET-MEMBER-1}SET-MEMBER
+#### SET-MEMBER
 
 A SET-MEMBER relationship exists when one event can be thought of
 as being an instane of a larger set of events. In annotating this
@@ -4573,7 +4553,6 @@ BRIDGING **collapsed**
 
 #### General Guidelines for Annotating Coreference
 
-\label{corefguidelines-1
 
 
 #### Never link EVENTs to ENTITIES
@@ -4831,7 +4810,7 @@ sort of causation may be going on, default to PRECONDITION:
 \subsubsection**{Are these OVERLAP? BEFORE?
 
 It's often similarly vague what the temporal relationship there is
-between \textquotedbl{}want\textquotedbl{} and the wanted event, \textquotedbl{}need\textquotedbl{
+between want and the wanted event, need\textquotedbl{
 and the needed event, etc. Whenever it's unclear, default to OVERLAP
 (so mostly use OVERLAP/PRECONDITION):
 
@@ -5069,7 +5048,7 @@ to Uncertain - Kevin and Will
 - Rei 
 - 3/6/14 -- More information, examples, and discussion added to Annotating
 Entities and Coreference Annotation. Clarification of how to treat
-discussions and quantifying phrases. Elimination of "risk of X\textquotedbl{}-type
+discussions and quantifying phrases. Elimination of "risk of X-type
 guidelines. General revision. - Mariah 
 - 7/5/14 -- Accepted all prior tweaks, and began v.1.5, a clarification
 for completing the pilot. 
