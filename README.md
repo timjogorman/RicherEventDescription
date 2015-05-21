@@ -1,2 +1,2 @@
 # RicherEventDescription
-A living document with the guidelines for RED annotation, and any scripts useful for working with RED documetns
+This is intended to be the living document of the RED guidelines.  Use the Issues page to post questions, comments, and things that seem inconsistent or hard to annotate.
