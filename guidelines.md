@@ -1,3 +1,8 @@
+# Table of Contents
+
+(Markables and Entity Pass)[https://github.com/timjogorman/RicherEventDescription/blob/master/guidelines.md#markables-and-entity-relations-stage]
+(Event Relations)[https://github.com/timjogorman/RicherEventDescription/blob/master/guidelines.md#event-relations-pass-linking-events-together]
+
 # Richer Event Description (RED) Annotation Guidelines (v.1.6)
 
 *Developed by Will Styler, Kevin Crooks, Mariah Hamang, and Tim O'Gorman
@@ -13,7 +18,6 @@ at the NAACL Events Workshop.*
 Richer Event Description is an attempt to bring together a number
 of existing and well-researched veins of document annotation into
 a single representation of the events and participants in a discourse.
-
 It is not concerned with semantic role annotation in the traditional
 sense -- the relationships between events and the entities participating
 in them -- but rather the hierarchical structure of events, of time,
