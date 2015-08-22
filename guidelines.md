@@ -1,7 +1,8 @@
 # Table of Contents
 
-(Markables and Entity Pass)[https://github.com/timjogorman/RicherEventDescription/blob/master/guidelines.md#markables-and-entity-relations-stage]
-(Event Relations)[https://github.com/timjogorman/RicherEventDescription/blob/master/guidelines.md#event-relations-pass-linking-events-together]
+* (Markables and Entity Pass)[https://github.com/timjogorman/RicherEventDescription/blob/master/guidelines.md#markables-and-entity-relations-stage]
+
+* (Event Relations)[https://github.com/timjogorman/RicherEventDescription/blob/master/guidelines.md#event-relations-pass-linking-events-together]
 
 # Richer Event Description (RED) Annotation Guidelines (v.1.6)
 
