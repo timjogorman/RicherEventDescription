@@ -1,3 +1,173 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [Table of Contents](#table-of-contents)
+- [Richer Event Description (RED) Annotation Guidelines (v.1.6)](#richer-event-description-red-annotation-guidelines-v16)
+  - [Introduction](#introduction)
+    - [The Pipeline and General Intuitions of Annotation](#the-pipeline-and-general-intuitions-of-annotation)
+    - [Acknowledgements](#acknowledgements)
+- [Markables and Entity Relations Stage](#markables-and-entity-relations-stage)
+  - [Marking Entities and Events 1:  Finding Entities and Events](#marking-entities-and-events-1--finding-entities-and-events)
+    - [What is an EVENT?](#what-is-an-event)
+    - [What is an ENTITY?](#what-is-an-entity)
+    - [Between ENTITY and EVENT](#between-entity-and-event)
+    - [Multiword Predications and Light Verbs - When are they multiple events?](#multiword-predications-and-light-verbs---when-are-they-multiple-events)
+        - [Revelation and Reporting](#revelation-and-reporting)
+        - [Denial or Denouncement:](#denial-or-denouncement)
+        - [Preference, endorsement, desire or consent:](#preference-endorsement-desire-or-consent)
+        - [Support Verbs](#support-verbs)
+        - [Light Verbs and Multiword Expressions](#light-verbs-and-multiword-expressions)
+    - [EVENTs without anything to hang them on](#events-without-anything-to-hang-them-on)
+  - [Marking Entities and Events 2:  Selecting Proper Spans of Annotation](#marking-entities-and-events-2--selecting-proper-spans-of-annotation)
+      - [Minimum Span Annotation](#minimum-span-annotation)
+  - [Annotating Features on Entities and Events](#annotating-features-on-entities-and-events)
+    - [Entity Features - Polarity and Modality](#entity-features---polarity-and-modality)
+    - [Event Polarity and Modality](#event-polarity-and-modality)
+      - [Positive Polarity (POS)](#positive-polarity-pos)
+      - [Negative Polarity (NEG)](#negative-polarity-neg)
+      - [Actual Modality (ACT)](#actual-modality-act)
+      - [Uncertain/Hedged Modality (UNC)](#uncertainhedged-modality-unc)
+      - [Hypothetical Modality (HYP)](#hypothetical-modality-hyp)
+      - [Generic Modality (GEN)](#generic-modality-gen)
+    - [Marking the relationship to document time (DocTimeRel)](#marking-the-relationship-to-document-time-doctimerel)
+      - [BEFORE](#before)
+      - [OVERLAP](#overlap)
+      - [AFTER](#after)
+      - [BEFORE-OVERLAP](#before-overlap)
+        - [Admissable evidence for BEFORE/OVERLAP](#admissable-evidence-for-beforeoverlap)
+        - [What is NOT admissable evidence for BEFORE/OVERLAP:](#what-is-not-admissable-evidence-for-beforeoverlap)
+        - [DocTimeRel in relation to speech](#doctimerel-in-relation-to-speech)
+      - [Event Type, Aspect and Implicitness](#event-type-aspect-and-implicitness)
+      - [Annotating contextual aspect of EVENTs](#annotating-contextual-aspect-of-events)
+          - [N/A](#na)
+          - [INT - Intermittent](#int---intermittent)
+      - [Type of EVENTs](#type-of-events)
+          - [N/A](#na-1)
+          - [ASP - Aspectual](#asp---aspectual)
+          - [EVI - Evidential](#evi---evidential)
+      - [Annotating representation of EVENTs](#annotating-representation-of-events)
+          - [Default -- Explicit](#default----explicit)
+          - [Implicit](#implicit)
+      - [Annotating degree of EVENTs](#annotating-degree-of-events)
+      - [N/A, MST - Most and LTL - Little](#na-mst---most-and-ltl---little)
+      - [Marking Difficult annotations](#marking-difficult-annotations)
+    - [Temporal Expressions](#temporal-expressions)
+      - [Identifying and Annotating TIMEX3s](#identifying-and-annotating-timex3s)
+      - [Annotating TIMEX3 class](#annotating-timex3-class)
+      - [DATE](#date)
+      - [TIME](#time)
+      - [DURATION](#duration)
+      - [QUANTIFIER](#quantifier)
+      - [PREPOSTEXP](#prepostexp)
+      - [SET](#set)
+      - [TIMEX3s vs. Temporal Manner Adverbs](#timex3s-vs-temporal-manner-adverbs)
+      - [DOCTIME and SECTIONTIME Annotation](#doctime-and-sectiontime-annotation)
+      - [TIMEX3 Normalization](#timex3-normalization)
+    - [DUPLICATE marking for repeated spans of text](#duplicate-marking-for-repeated-spans-of-text)
+      - [Guidelines for finding DUPLICATE text](#guidelines-for-finding-duplicate-text)
+    - [Entity Coreference Relations](#entity-coreference-relations)
+      - [IDENTITY and APPOSITION of ENTITIES](#identity-and-apposition-of-entities)
+      - [IDENTICAL](#identical)
+      - [APPOSITIVE](#appositive)
+      - [WHOLE/PART](#wholepart)
+      - [SET-MEMBER](#set-member)
+      - [BRIDGING](#bridging)
+      - [General Guidelines for Annotating Coreference](#general-guidelines-for-annotating-coreference)
+      - [Never link EVENTs to ENTITIES (except with BRIDGING)](#never-link-events-to-entities-except-with-bridging)
+      - [WHOLE/PART, SET/MEMBER, and BRIDGING relations are inherited by IDENT](#wholepart-setmember-and-bridging-relations-are-inherited-by-ident)
+      - [Bridging relations are re-created for subsequent mentions](#bridging-relations-are-re-created-for-subsequent-mentions)
+      - [Use SET/MEMBER to define groups of people](#use-setmember-to-define-groups-of-people)
+      - [Don't link ACTUAL and GENERIC items](#dont-link-actual-and-generic-items)
+      - [Identifiers are people too](#identifiers-are-people-too)
+      - [Avoid annotating coreference links based solely on your personal](#avoid-annotating-coreference-links-based-solely-on-your-personal)
+      - [Identity Annotation for very broadly GENERIC entities](#identity-annotation-for-very-broadly-generic-entities)
+      - [IDENT over generic you, one, etc.](#ident-over-generic-you-one-etc)
+    - [Testing Your Understanding](#testing-your-understanding)
+      - [Testing your Understanding](#testing-your-understanding)
+  - [Event Relations Pass: Linking Events Together](#event-relations-pass-linking-events-together)
+      - [Narrative Containment](#narrative-containment)
+    - [Narrative Containers](#narrative-containers)
+      - [Expressing Narrative Containers](#expressing-narrative-containers)
+      - [EVENTs as Containers](#events-as-containers)
+      - [Single-bounded narrative containers](#single-bounded-narrative-containers)
+      - [Nested Narrative Containers](#nested-narrative-containers)
+      - [Choosing the Anchors of Narrative Containers](#choosing-the-anchors-of-narrative-containers)
+      - [Ordering within narrative containers](#ordering-within-narrative-containers)
+    - [Temporal Relation Annotation](#temporal-relation-annotation)
+      - [When to TLINK](#when-to-tlink)
+      - [TLINK only when it captures more information than just marking DocTimeRel.](#tlink-only-when-it-captures-more-information-than-just-marking-doctimerel)
+      - [TLINK all EVENTs to their narrative container, if possible.](#tlink-all-events-to-their-narrative-container-if-possible)
+      - [TLINK all explicitly stated temporal relations.](#tlink-all-explicitly-stated-temporal-relations)
+      - [Try to only link EVENTs and TIMEX3s within the same sentence.](#try-to-only-link-events-and-timex3s-within-the-same-sentence)
+      - [ACTUAL or UNCertain EVENTs should never be linked to HYPOTHETICAL](#actual-or-uncertain-events-should-never-be-linked-to-hypothetical)
+      - [You do not need to TLINK TIMEX3s to one another.](#you-do-not-need-to-tlink-timex3s-to-one-another)
+      - [Avoid "Millisecond Reasoning"](#avoid-millisecond-reasoning)
+      - [TLINK sub-types](#tlink-sub-types)
+      - [BEFORE](#before-1)
+      - [CONTAINS](#contains)
+      - [CONTAINS-SUBEVENT](#contains-subevent)
+      - [OVERLAP](#overlap-1)
+      - [BEFORE/CAUSES, OVERLAP/CAUSES, BEFORE/PRECONDITIONS and OVERLAP/PRECONDITIONS](#beforecauses-overlapcauses-beforepreconditions-and-overlappreconditions)
+      - [BEGINS-ON](#begins-on)
+      - [ENDS-ON](#ends-on)
+      - [SIMULTANEOUS](#simultaneous)
+      - [Expressing TLINK Types in Point Algebra](#expressing-tlink-types-in-point-algebra)
+      - [Annotating polarity of TLINKs](#annotating-polarity-of-tlinks)
+      - [POS - Positive](#pos---positive)
+      - [NEG - Negative](#neg---negative)
+      - [Annotating contextual modality of TLINKs](#annotating-contextual-modality-of-tlinks)
+      - [ACT - Actual](#act---actual)
+      - [UNC - Uncertain/Hedged](#unc---uncertainhedged)
+      - [HYP - Hypothetical](#hyp---hypothetical)
+      - [GEN - Generic](#gen---generic)
+    - [Causation and Precondition Annotation](#causation-and-precondition-annotation)
+      - [Distinguishing "Cause" from "Precondition"](#distinguishing-cause-from-precondition)
+      - [Causality Annotation Rules and Regulations](#causality-annotation-rules-and-regulations)
+      - [Causality is specific to the instance, not to the concept](#causality-is-specific-to-the-instance-not-to-the-concept)
+      - [Focus on relations suggested in the text](#focus-on-relations-suggested-in-the-text)
+      - [Look for causal language to guide causal annotations](#look-for-causal-language-to-guide-causal-annotations)
+      - [Causal annotations can only link EVENTs to one another](#causal-annotations-can-only-link-events-to-one-another)
+      - [Objects described as causes, effects, or preconditions must be METONYMIC](#objects-described-as-causes-effects-or-preconditions-must-be-metonymic)
+      - [Do not create causal links between verbs and their arguments](#do-not-create-causal-links-between-verbs-and-their-arguments)
+      - [EVIDENTIAL EVENTs should not be causally linked to those things which](#evidential-events-should-not-be-causally-linked-to-those-things-which)
+      - [Assume the writer of the text is reliable](#assume-the-writer-of-the-text-is-reliable)
+      - [Each EVENT can participate in multiple CAUSES or PRECONDITIONS links](#each-event-can-participate-in-multiple-causes-or-preconditions-links)
+      - [Causal links can cross sentence boundaries](#causal-links-can-cross-sentence-boundaries)
+      - [Causal links should be chained where possible](#causal-links-should-be-chained-where-possible)
+      - [ALINK annotations should not be interpreted causally](#alink-annotations-should-not-be-interpreted-causally)
+      - [When in doubt, leave it out!](#when-in-doubt-leave-it-out)
+      - [Causation and Precondition TLINK Use](#causation-and-precondition-tlink-use)
+      - [BEFORE/PRECONDITIONS](#beforepreconditions)
+      - [BEFORE/CAUSES](#beforecauses)
+      - [OVERLAP/CAUSES](#overlapcauses)
+      - [Causal TLINK Properties](#causal-tlink-properties)
+    - [Event Coreference](#event-coreference)
+      - [IDENTITY](#identity)
+      - [SET-MEMBER](#set-member-1)
+      - [BRIDGING](#bridging-1)
+      - [General Guidelines for Annotating Coreference](#general-guidelines-for-annotating-coreference-1)
+      - [Never link EVENTs to ENTITIES](#never-link-events-to-entities)
+      - [WHOLE/PART, SET/MEMBER, and BRIDGING relations are inherited by IDENT](#wholepart-setmember-and-bridging-relations-are-inherited-by-ident-1)
+      - [Bridging relations are re-created for subsequent mentions](#bridging-relations-are-re-created-for-subsequent-mentions-1)
+      - [Don't link ACTUAL and GENERIC items](#dont-link-actual-and-generic-items-1)
+    - [Aspectual Link Annotation](#aspectual-link-annotation)
+      - [ALINK sub-types](#alink-sub-types)
+      - [CONTINUES](#continues)
+      - [INITIATES](#initiates)
+      - [REINITIATES](#reinitiates)
+      - [TERMINATES](#terminates)
+    - [REP - Reporting Annotation](#rep---reporting-annotation)
+      - [Requesting, Asking, Promising](#requesting-asking-promising)
+      - [Restatement, reframing, equating](#restatement-reframing-equating)
+      - [Avoiding Inference in Temporal Relations](#avoiding-inference-in-temporal-relations)
+      - [Inference and Coreference](#inference-and-coreference)
+      - [Pre- and Post- expressions (preoperative, post-treatment, intraoperatively,](#pre--and-post--expressions-preoperative-post-treatment-intraoperatively)
+      - [Counterfactuals and Causation](#counterfactuals-and-causation)
+    - [Document Revision History](#document-revision-history)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 # Table of Contents
 
 * [Markables and Entity Pass](https://github.com/timjogorman/RicherEventDescription/blob/guidelinesoverhaul/guidelines.md#markables-and-entity-relations-stage)
@@ -2437,51 +2607,35 @@ per liter.
 
 ##Event Relations Pass: Linking Events Together
 
-%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+The next step of RED annotation is to take those EVENTs and TIMEX3s annotated in EVENT annotation and mark relations between them.  For example, in a simple sentence as follows, the "temporal structure" that we need to capture is that the leaving event happened on Sunday:
 
-The next step of RED annotation is to take those EVENTs, ENTITYs,
-and TIMEX3s annotated in EVENT annotation and mark the temporal, aspectual,
-identity, and bridging relations between them.
+> John **[left** <sub>event</sub>**]** for China on **[Sunday** <sub>Timex3</sub>**]**
 
-Although these relationships may end up forming complicated structures
-of meaning, each relationship is a single link which will be presented
-in the form:
+"Happened on" is a bit loose, however. We have a set of labels we use for marking what the actual temporal relationship is between two events or times, such as:
 
-- **EVENT1** RELATION **EVENT2**
+> - **Before:** We **[ate** <sub>event</sub>**]** before we **[left** <sub>event</sub>**]**.
+> - **Begins-on:** We were **[listening** <sub>event</sub>**]** to the radio as soon as we started **[driving** <sub>event</sub>**]**.
+> - **Contains:** During the **[vacation** <sub>event</sub>**]** we **[visited** <sub>event</sub>**]** my aunt.
 
-Where RELATION is any of a range of relation types, such as BEFORE,
-CONTAINS, IDENTICAL, or PART-WHOLE. These types are described in detail
-in Section \ref{tlinktypes}.
+If you glance at any story or newspaper article, you will find that a given story or document will have many, many eventualities and times.  If you picked any two such events from that story at random, one could often discern a temporal relation between them. Yet doing so would take incredible amounts of effort.  
 
-To give a realistic example, imagine the following sentence:
+We will be avoiding such a "spiderweb" of temporal relations by attempting to mark *small amounts* of *very informative* temporal relations between notes, using the idea of **narrative containers**.
 
-- The patient was to meet with oncology this month.
+#### Narrative Containment
 
-The EVENT **meet** is clearly related to the TIMEX3 *this month*,
-because **meet** will occur during *this month*, giving you more
-specificity than the followup just occurring after document time.
-That is one kind of relationship -- temporal containment. So here,
-you would create a TLINK annotation, insert **meet** into the "target"
-slot, *this month* into the "source" slot, and select CONTAINS
-as the relation. By doing so, *this month* is established as a narrative
-container anchor, which may contain additional EVENTs later on in
-the note. So, the finished annotation would look like:
+Temporal structure of a narrative is often hierarchical. One will often talk about a larger event or sequence (like "going to the store") and may include smaller events within them (such as "buying milk") or place them within larger events ("doing errands") or larger times ("Tuesday").  You could thus imagine a simple sentence as follows:
 
-- The patient was to meet with oncology this month. \a. *this
-month* CONTAINS **meet**
+> On **[Tuesday**<sub>t</sub>**]**, we **[ran**<sub>e</sub>**]** out of flour while **[making**<sub>e</sub>**]** bread, so I **[grabbed**<sub>e</sub>**]** some more while I was **[at**<sub>e</sub>**]** the store **[Thursday**<sub>t</sub>**]**. 
 
-This is not the only kind of link, however. In this annotation task
-we are attempting to get not only a sense of the timeline of events,
-but to also understand which events cause other events, which events
-are part of larger events, and a range of other relationships. Making
-such an imposing task viable requires the use of a concept called
-"narrative containers.\textquotedbl{
+> Tuesday CONTAINS making bread   CONTAINS running out of flour
+> Thursday CONTAINS being at the store CONTAINS grabbing more milk
 
-%%%% NARRATIVE CONTAINERS %%%%
+Notice that all this is doing here is just marking which temporal spans contain other events within them.  But if you know that something happened after making bread, you inherently know that it happened before running out of flour.  
 
+In this case, knowing the relation between "Tuesday" and "Thursday" is all that's needed for someone to figure out all the other details.  
 
+The *narrative containment* trick amount to attempting to leverage that fact as much, and as consistently, as we possibly can.  A narrative container can be thought of as a temporal bucket into which an EVENT or series of EVENTs may fall. You've already annotated one kind of "narrative container", the DocTimeRel of each Event (like BEFORE, AFTER, OVERLAP), in that these can be though of as the biggest containers.  
 
 ###Narrative Containers
 
