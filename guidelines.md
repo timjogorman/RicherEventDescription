@@ -13,6 +13,7 @@ at the NAACL Events Workshop.*
 Richer Event Description is an attempt to bring together a number
 of existing and well-researched veins of document annotation into
 a single representation of the events and participants in a discourse.
+
 It is not concerned with semantic role annotation in the traditional
 sense -- the relationships between events and the entities participating
 in them -- but rather the hierarchical structure of events, of time,
