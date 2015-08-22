@@ -899,12 +899,7 @@ with regard to cetuximab **sensitivity**.
 
 #### BEFORE-OVERLAP
 
-\label{beforeover} BEFORE-OVERLAP is used where an event started
-BEFORE the DOCTIME and continues into and through the DOCTIME (OVERLAP
-with DOCTIME). Simply put, this is used where an event started before
-the exam or patient visit and continues through to the present, and
-often (but not always) corresponds with the use of the English present
-perfect tense:
+BEFORE-OVERLAP is used where an event clearly started before the DOCTIME and **continues into and through the DOCTIME**. This often (but not always) corresponds with the use of the English present perfect tense:
 
 - The regime has been **arresting** suspected dissidents and
 shows no sign of stopping.
@@ -920,12 +915,7 @@ shows no sign of stopping.
 
 - Based on last Thursday's MRI, her **swelling** is mostly gone.
 
-Many (if not most) instances of OVERLAP entities could be inferred
-as having also extended into the past. This label is \textit{only
-for those events which explicitly provide evidence, in that particular
-sentence, for it occurring in the past as well as the present, and
-when that evidence is in the list below.
-
+This is not, however, any OVERLAP mention that extends into the past (after all, nearly everything extends *a little* into the past) but rather only for events that have clear and explicit encoding of being true in the past and present.  The following lists define exactly which bits of evidence are allowable for this. This need for evidence also means that multiple mentions of the same event might vary between BEFORE and BEFORE/OVERLAP, or between BEFORE/OVERLAP and OVERLAP, and that is ok.
 
 ##### Admissable evidence for BEFORE/OVERLAP
 - The event is in the present prefect aspect: I have
@@ -934,11 +924,8 @@ have burned for eight days, He has felt
 good. 
 - The document contains a TIMEX3 that assigned a time or date, in the
 past, where that document happened. 
-- The event is modified by the discourse marker still\textquotedbl{
-and it is the temporal sense of still,
-meaning this has been happening and continues to happen. 
-- Aspectual verbs modify the verb, to the extent that one will probably
-mark it as CONTINUES. 
+- The event is modified by the temporal use of "still", marking that it has been happening and continues to happen. 
+- Aspectual verbs modify the verb, and will have the aspectual link CONTINUES. 
 
 ##### What is NOT admissable evidence for BEFORE/OVERLAP:
 
