@@ -5158,6 +5158,37 @@ driver because it might **affect** his job.
 
 For such cases, remember that you are dealing, not with the hypothetical positive event, but the negative event -- it not happening -- and therefore probably will NOT have any causation relations. 
 
+# Appendix
+
+## Edge Case Guides
+
+### Complex Predicates
+
+| Type of main predicate | example |  modality   |
+| ---- | --- | --- |
+| reporting  | NYT first reported the strike in october | use ACTUAL unless reporting verb marks doubt |
+
+##### Revelation and Reporting
+-  **Examination** **shows** decreased bilateral peripheral **pulses**. 
+- Satellite **photos** **revealed** signs of **fueling** at the missile complex.
+-  ... and the right hilar **lesions** were not **reported** as being **prominent**. 
+-  The New York Times first **reported** the **strike** in October. 
+-  Refugees **claim** that government troops **opened** fire on a crowded marketplace.
+
+*(These are EVIDENTIAL EVENTs (such as **shows**, **reported**, **reveals**) which always have two separate predications.)*
+
+##### Denial or Denouncement:
+- The mayor categorically **denies** any **involvement** with the cartels. 
+- He **denies** any chest **pains**, chest **pressures**, **shortness**-of-breath,
+or exertional **symptoms**. 
+- The international community was quick to **denounce** the **bombing**.
+
+##### Preference, endorsement, desire or consent: 
+- The Syrian rebels have repeatedly **requested** international **aid**.
+- He is **willing** to **meet** with our Pauahi Wing Queens Hospital.
+-  Three different countries have **endorsed** the trade **agreement**.
+
+
 
 ###Document Revision History
 \begin{itemize
