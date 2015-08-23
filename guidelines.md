@@ -2,15 +2,14 @@
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
 
-- [Table of Contents](#table-of-contents)
 - [Richer Event Description (RED) Annotation Guidelines (v.1.6)](#richer-event-description-red-annotation-guidelines-v16)
   - [Introduction](#introduction)
     - [The Pipeline and General Intuitions of Annotation](#the-pipeline-and-general-intuitions-of-annotation)
     - [Acknowledgements](#acknowledgements)
 - [Markables and Entity Relations Stage](#markables-and-entity-relations-stage)
-  - [Marking Entities and Events 1:  Finding Entities and Events](#marking-entities-and-events-1--finding-entities-and-events)
-    - [What is an EVENT?](#what-is-an-event)
-    - [What is an ENTITY?](#what-is-an-entity)
+  - [Finding Entities, Events and Times](#finding-entities-events-and-times)
+      - [What is an EVENT?](#what-is-an-event)
+      - [What is an ENTITY?](#what-is-an-entity)
     - [Between ENTITY and EVENT](#between-entity-and-event)
     - [Multiword Predications and Light Verbs - When are they multiple events?](#multiword-predications-and-light-verbs---when-are-they-multiple-events)
         - [Revelation and Reporting](#revelation-and-reporting)
@@ -168,11 +167,6 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-# Table of Contents
-
-* [Markables and Entity Pass](https://github.com/timjogorman/RicherEventDescription/blob/guidelinesoverhaul/guidelines.md#markables-and-entity-relations-stage)
-
-* [Event Relations](https://github.com/timjogorman/RicherEventDescription/blob/guidelinesoverhaul/guidelines.md#event-relations-pass-linking-events-together)
 
 # Richer Event Description (RED) Annotation Guidelines (v.1.6)
 
@@ -269,7 +263,7 @@ first, and then adding entity coreference links. As one gains competence
 at the task, you are encouraged to attempt to combine these tasks as much as possible.
 
 
-## Marking Entities and Events 1:  Finding Entities and Events
+## Finding Entities, Events and Times
 
 The first and most fundamental task in the first stage of annotation
 is to label EVENT and ENTITY instances. When first annotating, one should 
@@ -278,7 +272,7 @@ about **whether** something should be annotated, and the second part being
 the decision about **what exact span of words** you should mark to designate
 it. 
 
-### What is an EVENT?
+#### What is an EVENT?
 
 We define an event as any occurrence, actions, processes or event
 states which deserve a place upon a timeline, and could have any syntactic realization -- as verbs, nominalizations,
@@ -329,7 +323,7 @@ the open door" does not. In short:
 
 The second kind of attribute that needs to be annotated as an EVENT are attributes that don't, themselves, pass this test, but which are clearly coreferential with those that do, or which could have SET/MEMBER relationships with those that do.
 
-### What is an ENTITY?
+#### What is an ENTITY?
 
 For ENTITY annotation, we will be going through the text, finding
 all instances of things that consistute an ENTITY -- a participant,
@@ -485,7 +479,7 @@ The Denver raids would not be captured in this project.
 
 
 
-## Marking Entities and Events 2:  Selecting Proper Spans of Annotation
+## Spans of Annotation
 
 Once you have decided that a given phrase or word qualifies as an
 EVENT or ENTITY, you'll need to decide what `span' (section of the
