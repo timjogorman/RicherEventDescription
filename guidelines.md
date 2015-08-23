@@ -1089,26 +1089,7 @@ shows no sign of stopping.
 
 This is not, however, any OVERLAP mention that extends into the past (after all, nearly everything extends *a little* into the past) but rather only for events that have clear and explicit encoding of being true in the past and present.  The following lists define exactly which bits of evidence are allowable for this. This need for evidence also means that multiple mentions of the same event might vary between BEFORE and BEFORE/OVERLAP, or between BEFORE/OVERLAP and OVERLAP, and that is ok.
 
-##### Admissable evidence for BEFORE/OVERLAP
-- The event is in the present prefect aspect: I have
-been doing yoga for years, The fires
-have burned for eight days, He has felt
-good. 
-- The document contains a TIMEX3 that assigned a time or date, in the
-past, where that document happened. 
-- The event is modified by the temporal use of "still", marking that it has been happening and continues to happen. 
-- Aspectual verbs modify the verb, and will have the aspectual link CONTINUES. 
-
-##### What is NOT admissable evidence for BEFORE/OVERLAP:
-
-- You cannot mark this based upon knowledge of the tense of other, coreferential
-instances of the same event; mark is as OVERLAP or BEFORE based upon
-the actual local context. 
-- If an event is presented as OVERLAP but is mentioned as a past speech
-act, as in He said that there is no threat,
-this is *not* enough evidence for BEFORE/OVERLAP.
-
-:bang_bang: Be sure that any time you are using BEFORE-OVERLAP, it is
+Be sure that any time you are using BEFORE-OVERLAP, it is
 been explicitly stated that an EVENT started before DOCTIME and continues.
 Even if you, as a human, can infer that a given EVENT must have started
 before the document time, or that an earlier EVENT is likely to continue,
@@ -5164,7 +5145,15 @@ For such cases, remember that you are dealing, not with the hypothetical positiv
 
 ## Edge Case Guides
 
-### Hard Cases when determining Markables
+### Hard Cases in EVENT vs ENTITY distinctions
+
+| Type | example | treatment | see
+| ---- | ------- | --------- | ----
+| communications | I finished an article for submission | EVENT - make these eventive when can be paraphrased with write/read/send  | 
+| communications | This [article] is part of TIMES EXPRESS. | just an ENTITY, does not imply an event  | 
+
+
+### Hard Cases when determining Markablability
 
 | Type | example | treatment | see
 | ---- | ------- | --------- | ----
@@ -5189,6 +5178,33 @@ For such cases, remember that you are dealing, not with the hypothetical positiv
 | request | The Syrian rebels have repeatedly **requested** international **aid** | yes | default to HYPOTHETICAL for e2 |  one of the two PRECONDITION relations |
 | revealing/showing  | examination shows a decreased pulse | yes | make second event ACTUAL unless reporting verb marks doubt(see table XXX) | REPORTING |
 | willingness | He is **willing** to **meet** with our Pauahi Wing Queens Hospital. | yes | default to HYPOTHETICAL for e2 | one of the two PRECONDITION relations |
+
+## Allowable explicit grammatical evidence
+
+### Permissable Evidence for BEFORE/OVERLAP
+
+| Context | Example |
+| ------- | ------- | 
+| Event has "have been Xing" or present tense "has" |  I have been doing yoga for years |
+| |  The fires have been burning for eight days |
+| |  He has felt good. |
+| There seems to be grammatical implication that the event is ongoing, and past-tense aspectual INITIATES verb exists that you will ALINK to | this *kicked off* what may be a long court *proceeding* |
+| event is explicitly/grammatically ongoing, and also has a link to a TIMEX3 before document time. | He has cancer, first noted in 1996 | 
+| The event is modified by the temporal use of "still" or "yet" | He still drive that old Ford he had in college. | 
+| Modified by an aspectual verbs that will have the aspectual link CONTINUES | That reporter keeps on investigating tobacco companies | 
+
+##### What is NOT admissable evidence for BEFORE/OVERLAP:
+
+- You cannot mark this based upon knowledge of the tense of other, coreferential
+instances of the same event; mark is as OVERLAP or BEFORE based upon
+the actual local context. 
+- If an event is presented as OVERLAP but is mentioned as a past speech
+act, as in He said that there is no threat,
+this is *not* enough evidence for BEFORE/OVERLAP.
+
+
+
+### Permissable Evidence for Uncertain/Hedged
 
 
 
