@@ -5165,7 +5165,7 @@ For such cases, remember that you are dealing, not with the hypothetical positiv
 ### Complex Predicates
 
 | Type | example |  two events? | modality   | relation? |
-| ---- | --- | --- | --- |
+| ---- | --- | --- | --- | --- |
 | reporting  | NYT first reported the strike in october | yes | make second event ACTUAL unless reporting verb marks doubt(see table XXX) | REPORTING |
 | absence of a report  | yes | and the right hilar **lesions** were not **reported** as being **prominent**.  | make second event UNCERTAIN/HEDGED if the absence of a report implies any doubt about its occurence  | no relation |
 | showing,revealing  | examination shows a decreased pulse | yes | make second event ACTUAL unless reporting verb marks doubt(see table XXX) | REPORTING |
