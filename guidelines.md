@@ -415,82 +415,42 @@ need to make reference to an entity's implied events. Otherwise, simply
 annotate that entity as an ENTITY.
 
 
-### Multiword Predications and Light Verbs - When are they multiple events?
+### When many words relate to one event 
 
-Events which endorse, deny, reveal, denounce, or otherwise predicate upon another event are separate events:
+As mentioned in the prior section, if many words contribute to a single event or entity, we want them to all be represented by a single markable. Some of these will be relatively clear-cut, as with *light verbs*:
 
-##### Revelation and Reporting
--  **Examination** **shows** decreased bilateral peripheral **pulses**. 
-- Satellite **photos** **revealed** signs of **fueling** at the missile complex.
--  ... and the right hilar **lesions** were not **reported** as being **prominent**. 
--  The New York Times first **reported** the **strike** in October. 
--  Refugees **claim** that government troops **opened** fire on a crowded marketplace.
+> John ~~took~~ a **[<sub>event</sub> bath]**.
+> The burglar ~~committed~~ a heinous **[<sub>event</sub> crime ]**. 
 
-*(These are EVIDENTIAL EVENTs (such as **shows**, **reported**, **reveals**) which always have two separate predications.)*
+These are most clear-cut with light verbs meeting the rule from Bonial (2014) that "the light verb plus its true predicate can often be paraphrased by a verbal form of the true predicate without loss of the core meaning of the expression. ".  In other words, "to give a lecture" is almost identical to "to lecture", "to give a look" is almost the same as "to look", etc.  For related reasons, we will also be not marking **support verb** constructions such as 
 
-##### Denial or Denouncement:
-- The mayor categorically **denies** any **involvement** with the cartels. 
-- He **denies** any chest **pains**, chest **pressures**, **shortness**-of-breath,
-or exertional **symptoms**. 
-- The international community was quick to **denounce** the **bombing**.
+> The **earthquake** ~~occurred~~ during the **parade**.
 
-##### Preference, endorsement, desire or consent: 
-- The Syrian rebels have repeatedly **requested** international **aid**.
-- He is **willing** to **meet** with our Pauahi Wing Queens Hospital.
--  Three different countries have **endorsed** the trade **agreement**.
+In real annotations, there may be more nuanced instances than this, in which it's unclear whether one is dealing with two events or one. We will list some more specific constraints below, and you are encouraged to check the examples in the [complex predicates examples in the appendix](#complex-predicates). 
 
-This is in contrast with "light verbs" or "support verbs" -- where multiple terms combine for a single event -- and other verbs that mark epistemic status such as *seem* (this is instead marked as an UNCERTAIN/HEDGED feature on the thing seeming), verbs marking causal or temporal sequences like *following*, *caused* or *led to* (these are expressed as causal and temporal TLINK relations), or other semantically light verbs like auxiliaries.  These, you will note, ignore the higher (but more semantically bleached) verb, which will be an exception to the 'head finding' rules described below:
+**General Rules for Complex Predicates**
 
-##### Support Verbs
-- After ~~undergoing~~ extensive **transformation**, Sochi is nearly **ready** to **host** the **Olympic Games**.
-
-- At *that time*, he also ~~experienced~~ rectal **pressure**, **fullness** and occasionally had **hematochezia**.
-
-- The **earthquake** ~~occurred~~ during the **parade**.
-
-##### Light Verbs and Multiword Expressions
-
-- John ~~took~~ a **[<sub>event</sub> bath]**.
-- The burglar ~~committed~~ a heinous **[<sub>event</sub> crime ]**. 
-
-If you are wondering what a light verb is, we are using the definition from Bonial 2014: 
-
-> (Light Verb Constructions) are characterized by a light verb and a predicating complement (henceforth, true predicate) that combine to predicate as a single element.(Butt 2004) In LVC, the verb is considered semantically bleached in such a way that the verb does not hold its full predicating power. Thus, the light verb plus its true predicate can often be paraphrased by a verbal form of the true predicate without loss of the core meaning of the expression.  For example, the light verb **gave** and the predicate **lecture** in **gave** a lecture, together form a single predicating unit such that it can be paraphrased by **lectured**. 
-
-Remember in this that if you *can* cleanly separate a verb
-and its noun into two separate events, then you should treat them
-as two separate things. Similarly, some verbs like "use" are relatively
-generic, but evoke a prototypical use of the object -- rather than
-evoking the object as an event in itself. Verbs such as **use** are non-light events, rather than combining with the things used:
-
-- Police **[<sub>event</sub> used]** tear **[<sub>entity</sub> gas]** to **[<sub>event</sub> disperse ]** the **[<sub>entity</sub> protesters]**.
+- If you encounter an idiom, simply mark the head verb in the idiom, and assume that the meaning of the phrase is carried by that verb. So "The chickens have **[come]** home to roost for Bush." simply has a [come], which stands for your interpretation of the coming-home-to-roost event.
+- Markers of epistemic status, like "seems to" or "appears to", are not events. When in doubt, you should follow the nearest case in the [Reporting vs Hedging distinctions](#Distinguishing Reporting events from Hedges) in the appendix.
 
 
-###  EVENTs without anything to hang them on
+###  Words implying many events
 
-When an EVENT is implied by an ENTITY, we can annotate is using an IMPLICIT feature.  However, sometimes an event has nothing that we can annotate, or an particular mention actually implies many events:
+Sometimes a single word ends up implying many events, like the two colonoscopies implied in the following sentence (the hypothetical one and the one that occurred in the 1970s): 
 
-- Her main concern is that she does not wish to have a **colonoscopy**,
-which she had back in the 1970s.
+- Her main concern is that she does not wish to have a **colonoscopy**, which she had back in the 1970s.
 
-Here, there are actually two colonoscopies being discussed. One is
-a hypothetical, near-future one which the patient is not interested
-in having, the other occurred in the 1970s. *The later instance is
-the kind of implied event which we will be not marking in this project.*
-Therefore, you'd have a single annotation with the span **colonoscopy**, with features agreeing with the hypothetical colonoscopy that is not happening. 
-
-Similarly, in the example below,  two sets of raids are implied, but only one is mentioned:
+This also occurs with gapping phenomena, as in **raids**
 
 - The **raids** in Phoenix **began** at 4am, in Denver, at 5.
 
-The Denver raids would not be captured in this project.
-
+We unfortunately will be annotating only one EVENT span per actual span in the context (it would be simply too complicated otherwise).  In these cases, pick the first event being implied and assume that the word refers to that first event. 
 
 
 
 ## Spans of Annotation
 
-Once you have decided that a given phrase or word qualifies as an
+Once you have decided that a given phrase or word *qualifies* as an
 EVENT or ENTITY, you'll need to decide what `span' (section of the
 text) to annotate.
 
@@ -531,9 +491,7 @@ us "find" the rest of the phrase in question, or in other words,
 the **syntactic head**. Consider a syntactic dependency tree of the above sentence in this
 regard 
 
-```
-Insert dependency tree
-``` 
+![DP](dependencygraph.png)
 
 "Earthquake", one may see, has a number of dependents. Annotating
 it can be thought of as pointing to everything under it. This gives
@@ -1853,7 +1811,6 @@ Because relations between TIMEX3s serve only to clarify these relationships
 which will be clarified in normalization, we prohibit all TIMEX3 to
 TIMEX3 TLINKs.
 
-\color{black
 
 
 ###DUPLICATE marking for repeated spans of text 
@@ -5182,19 +5139,30 @@ For such cases, remember that you are dealing, not with the hypothetical positiv
 | light verbs | John **took** a **bath** | no, only BATH |  | |
 | light verbs | The burglar **committed** a heinous **crime** | no, only **crime** |  | |
 | reporting  | NYT first reported the strike in october | yes | make second event ACTUAL unless reporting verb marks doubt(see table XXX) | REPORTING |
-| reporting, absence of  | yes | and the right hilar **lesions** were not **reported** as being **prominent**.  | make second event UNCERTAIN/HEDGED if the absence of a report implies any doubt about its occurence  | no relation |
+| reporting, absence of  | and the right hilar lesions were not **reported** as being **prominent**.  | yes | make second event UNCERTAIN/HEDGED if the absence of a report implies any doubt about its occurence  | no relation |
 | request | The Syrian rebels have repeatedly **requested** international **aid** | yes | default to HYPOTHETICAL for e2 |  one of the two PRECONDITION relations |
 | revealing/showing  | examination shows a decreased pulse | yes | make second event ACTUAL unless reporting verb marks doubt(see table XXX) | REPORTING |
 | seeming  | John seems to like chocolate | no | can be a hedge, and justification for marking UNCERTAIN/HEDGED | no relation |
 | support verbs | After ~~undergoing~~ extensive **transformation**... | no, just **transformation** | | |
 | support verbs | at that time, he ~~experienced~~  **discomfort**... | no, just **discomfort** | | |
-| support verbs | The **earthquake** ~~struck~~ during the **parade** | no strike, just **earthquake** | | |
-| usage of objects |  Police **used** tear ~~gas~~ to disperse the ... | make "gas" just an entity, "used" is the event | | |
+| support verbs | The **earthquake** ~~struck~~ during the parade | no strike, just **earthquake** | | |
+| usage of objects |  Police **used** tear ~~gas~~ to disperse the ... | just "used" (but "gas" is an entity) | | |
 | willingness | He is **willing** to **meet** with our Pauahi Wing Queens Hospital. | yes | default to HYPOTHETICAL for e2 | one of the two PRECONDITION relations |
 
 
 
+### Distinguishing Reporting events from Hedges
 
+Remember that hedges are NOT events, but merely good evidence for using UNCERTAIN/HEDGED on the events they modify
+
+| Reporting, Hedging or Separate Event? | type | example |  Reasoning |
+| ---- | --- | --- |
+| I [found] it difficult to put down
+| Separate Event | denial  | the mayor denies any involvement with the cartels |  |
+| Reporting | revealing/showing  | examination shows a decreased pulse |  |
+| Reporting | actual reporting  | NYT first reported the strike in october | |
+| Reporting | prepositional reporting | **according to* John, they closed in February | | 
+| Reporting AND evidence for UNCERTAIN/HEDGED | reporting verbs that imply doubt | North Korea claims that they can hit NYC | see [Examples of reporting verbs implying uncertain/hedged](#Rules for Reporting verbs implying uncertain/hedged)
 
 
 
@@ -5214,13 +5182,18 @@ For such cases, remember that you are dealing, not with the hypothetical positiv
 | The event is modified by the temporal use of "still" or "yet" | He still drive that old Ford he had in college. | 
 | Modified by an aspectual verbs that will have the aspectual link CONTINUES | That reporter keeps on investigating tobacco companies | 
 
+### Rules for Reporting verbs implying uncertain/hedged
+
+- The following verbs should probably imply UNCERTAIN/HEDGED: allege/allegation, accuse/accusation
+- The following verbs might seem to imply uncertainty, but aren't sufficient for uncertain/hedged: reports that, claims that, according to,... 
+
 
 ### Permissable Evidence for Uncertain/Hedged
 
 
 
 
-### Document Revision History
+# Document Revision History
 \begin{itemize
 - 9/22/13 -- Major revisions to add more non-medical examples, remove
 material remaining from THYME-TimeML, improve Subevent section 
@@ -5246,6 +5219,6 @@ for completing the pilot.
 - 7/6/14 -- Implemented Mariah's suggestion for emotive vs. assertive
 emphatics. 
 - 7/27/14 -- Added `Avoid millisecond reasoning', `hypotheticals, negation
-and the past', and a made a few other repairs. - Will\end{itemize
-- 4/4/15 -- moved everything to github
-\end{document}
+and the past', and a made a few other repairs. - Will
+- 4/4/15 -- moved everything to github  - Tim
+
