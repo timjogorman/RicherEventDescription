@@ -5164,9 +5164,15 @@ For such cases, remember that you are dealing, not with the hypothetical positiv
 
 ### Complex Predicates
 
-| Type of main predicate | example |  modality   |
-| ---- | --- | --- |
-| reporting  | NYT first reported the strike in october | use ACTUAL unless reporting verb marks doubt |
+| Type | example |  two events? | modality   | relation? |
+| ---- | --- | --- | --- |
+| reporting  | NYT first reported the strike in october | yes | make second event ACTUAL unless reporting verb marks doubt(see table XXX) | REPORTING |
+| absence of a report  | yes | and the right hilar **lesions** were not **reported** as being **prominent**.  | make second event UNCERTAIN/HEDGED if the absence of a report implies any doubt about its occurence  | no relation |
+| showing,revealing  | examination shows a decreased pulse | yes | make second event ACTUAL unless reporting verb marks doubt(see table XXX) | REPORTING |
+| denial of a fact  | the mayor denies any involvement with the cartels | yes | make second event UNCERTAIN/HEDGED | no relation |
+| denial, which it means "prevent"  | the troops denied the protestors entry to the square | yes | make second event NEG-ACTUAL | no relation |
+| denouncement  | The international community was quick to **denounce** the **bombing** | yes | make second event ACTUAL (unless other cues say otherwise) | no relation |
+
 
 ##### Revelation and Reporting
 -  **Examination** **shows** decreased bilateral peripheral **pulses**. 
