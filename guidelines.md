@@ -7,10 +7,11 @@
     - [The Pipeline and General Intuitions of Annotation](#the-pipeline-and-general-intuitions-of-annotation)
     - [Acknowledgements](#acknowledgements)
 - [Markables and Entity Relations Stage](#markables-and-entity-relations-stage)
-  - [Finding Entities, Events and Times](#finding-entities-events-and-times)
+  - [Markables](#markables)
+    - [Finding Entities, Events and Times](#finding-entities-events-and-times)
       - [What is an EVENT?](#what-is-an-event)
       - [What is an ENTITY?](#what-is-an-entity)
-    - [Between ENTITY and EVENT](#between-entity-and-event)
+    - [Differentiating ENTITY and EVENT](#differentiating-entity-and-event)
     - [Multiword Predications and Light Verbs - When are they multiple events?](#multiword-predications-and-light-verbs---when-are-they-multiple-events)
         - [Revelation and Reporting](#revelation-and-reporting)
         - [Denial or Denouncement:](#denial-or-denouncement)
@@ -18,7 +19,7 @@
         - [Support Verbs](#support-verbs)
         - [Light Verbs and Multiword Expressions](#light-verbs-and-multiword-expressions)
     - [EVENTs without anything to hang them on](#events-without-anything-to-hang-them-on)
-  - [Marking Entities and Events 2:  Selecting Proper Spans of Annotation](#marking-entities-and-events-2--selecting-proper-spans-of-annotation)
+  - [Spans of Annotation](#spans-of-annotation)
       - [Minimum Span Annotation](#minimum-span-annotation)
   - [Annotating Features on Entities and Events](#annotating-features-on-entities-and-events)
     - [Entity Features - Polarity and Modality](#entity-features---polarity-and-modality)
@@ -34,8 +35,6 @@
       - [OVERLAP](#overlap)
       - [AFTER](#after)
       - [BEFORE-OVERLAP](#before-overlap)
-        - [Admissable evidence for BEFORE/OVERLAP](#admissable-evidence-for-beforeoverlap)
-        - [What is NOT admissable evidence for BEFORE/OVERLAP:](#what-is-not-admissable-evidence-for-beforeoverlap)
         - [DocTimeRel in relation to speech](#doctimerel-in-relation-to-speech)
       - [Event Type, Aspect and Implicitness](#event-type-aspect-and-implicitness)
       - [Annotating contextual aspect of EVENTs](#annotating-contextual-aspect-of-events)
@@ -163,6 +162,14 @@
       - [Inference and Coreference](#inference-and-coreference)
       - [Pre- and Post- expressions (preoperative, post-treatment, intraoperatively,](#pre--and-post--expressions-preoperative-post-treatment-intraoperatively)
       - [Counterfactuals and Causation](#counterfactuals-and-causation)
+- [Appendix](#appendix)
+  - [Edge Case Guides](#edge-case-guides)
+    - [Hard Cases in EVENT vs ENTITY distinctions](#hard-cases-in-event-vs-entity-distinctions)
+    - [Hard Cases when determining Markablability](#hard-cases-when-determining-markablability)
+    - [Complex Predicates](#complex-predicates)
+  - [Allowable explicit grammatical evidence](#allowable-explicit-grammatical-evidence)
+    - [Permissable Evidence for BEFORE/OVERLAP](#permissable-evidence-for-beforeoverlap)
+    - [Permissable Evidence for Uncertain/Hedged](#permissable-evidence-for-uncertainhedged)
     - [Document Revision History](#document-revision-history)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -5166,18 +5173,32 @@ For such cases, remember that you are dealing, not with the hypothetical positiv
 
 ### Complex Predicates
 
-| Type | example |  two events? | modality   | relation? |
+| Type | example |  two events? | markable features   | relation? |
 | ---- | --- | --- | --- | --- |
 | denial of a fact  | the mayor denies any involvement with the cartels | yes | make second event UNCERTAIN/HEDGED | no relation |
 | denial, which it means "prevent"  | the troops denied the protestors entry to the square | yes | make second event NEG-ACTUAL | no relation |
 | denouncement  | The international community was quick to **denounce** the **bombing** | yes | make second event ACTUAL (unless other cues say otherwise) | no relation |
 | endorsement  |  Three different countries have **endorsed** the trade **agreement**. | yes | no effect -- likely ACTUAL for e2 | no relation (unless endorsement/support enacts the endorsed thing) |
-| seeming  | John seems to like chocolate | no | can be a hedge, and justification for marking UNCERTAIN/HEDGED | no relation |
+| light verbs | John **took** a **bath** | no, only BATH |  | |
+| light verbs | The burglar **committed** a heinous **crime** | no, only **crime** |  | |
 | reporting  | NYT first reported the strike in october | yes | make second event ACTUAL unless reporting verb marks doubt(see table XXX) | REPORTING |
 | reporting, absence of  | yes | and the right hilar **lesions** were not **reported** as being **prominent**.  | make second event UNCERTAIN/HEDGED if the absence of a report implies any doubt about its occurence  | no relation |
 | request | The Syrian rebels have repeatedly **requested** international **aid** | yes | default to HYPOTHETICAL for e2 |  one of the two PRECONDITION relations |
 | revealing/showing  | examination shows a decreased pulse | yes | make second event ACTUAL unless reporting verb marks doubt(see table XXX) | REPORTING |
+| seeming  | John seems to like chocolate | no | can be a hedge, and justification for marking UNCERTAIN/HEDGED | no relation |
+| support verbs | After ~~undergoing~~ extensive **transformation**... | no, just **transformation** | | |
+| support verbs | at that time, he ~~experienced~~  **discomfort**... | no, just **discomfort** | | |
+| support verbs | The **earthquake** ~~struck~~ during the **parade** | no strike, just **earthquake** | | |
+| usage of objects |  Police **used** tear ~~gas~~ to disperse the ... | make "gas" just an entity, "used" is the event | | |
 | willingness | He is **willing** to **meet** with our Pauahi Wing Queens Hospital. | yes | default to HYPOTHETICAL for e2 | one of the two PRECONDITION relations |
+
+
+
+
+
+
+
+
 
 ## Allowable explicit grammatical evidence
 
@@ -5192,16 +5213,6 @@ For such cases, remember that you are dealing, not with the hypothetical positiv
 | event is explicitly/grammatically ongoing, and also has a link to a TIMEX3 before document time. | He has cancer, first noted in 1996 | 
 | The event is modified by the temporal use of "still" or "yet" | He still drive that old Ford he had in college. | 
 | Modified by an aspectual verbs that will have the aspectual link CONTINUES | That reporter keeps on investigating tobacco companies | 
-
-##### What is NOT admissable evidence for BEFORE/OVERLAP:
-
-- You cannot mark this based upon knowledge of the tense of other, coreferential
-instances of the same event; mark is as OVERLAP or BEFORE based upon
-the actual local context. 
-- If an event is presented as OVERLAP but is mentioned as a past speech
-act, as in He said that there is no threat,
-this is *not* enough evidence for BEFORE/OVERLAP.
-
 
 
 ### Permissable Evidence for Uncertain/Hedged
