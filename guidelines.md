@@ -7,29 +7,18 @@
     - [The Pipeline and General Intuitions of Annotation](#the-pipeline-and-general-intuitions-of-annotation)
     - [Acknowledgements](#acknowledgements)
 - [Markables and Entity Relations Stage](#markables-and-entity-relations-stage)
-  - [Markables](#markables)
-    - [Finding Entities, Events and Times](#finding-entities-events-and-times)
+  - [Event/Entity Mentions](#evententity-mentions)
+    - [Finding Entities and Events](#finding-entities-and-events)
       - [What is an EVENT?](#what-is-an-event)
       - [What is an ENTITY?](#what-is-an-entity)
-    - [Differentiating ENTITY and EVENT](#differentiating-entity-and-event)
-    - [Multiword Predications and Light Verbs - When are they multiple events?](#multiword-predications-and-light-verbs---when-are-they-multiple-events)
-        - [Revelation and Reporting](#revelation-and-reporting)
-        - [Denial or Denouncement:](#denial-or-denouncement)
-        - [Preference, endorsement, desire or consent:](#preference-endorsement-desire-or-consent)
-        - [Support Verbs](#support-verbs)
-        - [Light Verbs and Multiword Expressions](#light-verbs-and-multiword-expressions)
-    - [EVENTs without anything to hang them on](#events-without-anything-to-hang-them-on)
+      - [Differentiating ENTITY and EVENT](#differentiating-entity-and-event)
+    - [When many words relate to one event](#when-many-words-relate-to-one-event)
+    - [Words implying many events](#words-implying-many-events)
   - [Spans of Annotation](#spans-of-annotation)
       - [Minimum Span Annotation](#minimum-span-annotation)
   - [Annotating Features on Entities and Events](#annotating-features-on-entities-and-events)
     - [Entity Features - Polarity and Modality](#entity-features---polarity-and-modality)
     - [Event Polarity and Modality](#event-polarity-and-modality)
-      - [Positive Polarity (POS)](#positive-polarity-pos)
-      - [Negative Polarity (NEG)](#negative-polarity-neg)
-      - [Actual Modality (ACT)](#actual-modality-act)
-      - [Uncertain/Hedged Modality (UNC)](#uncertainhedged-modality-unc)
-      - [Hypothetical Modality (HYP)](#hypothetical-modality-hyp)
-      - [Generic Modality (GEN)](#generic-modality-gen)
     - [Marking the relationship to document time (DocTimeRel)](#marking-the-relationship-to-document-time-doctimerel)
       - [BEFORE](#before)
       - [OVERLAP](#overlap)
@@ -167,10 +156,12 @@
     - [Hard Cases in EVENT vs ENTITY distinctions](#hard-cases-in-event-vs-entity-distinctions)
     - [Hard Cases when determining Markablability](#hard-cases-when-determining-markablability)
     - [Complex Predicates](#complex-predicates)
+    - [Distinguishing Reporting events from Hedges](#distinguishing-reporting-events-from-hedges)
   - [Allowable explicit grammatical evidence](#allowable-explicit-grammatical-evidence)
     - [Permissable Evidence for BEFORE/OVERLAP](#permissable-evidence-for-beforeoverlap)
+    - [Rules for Reporting verbs implying uncertain/hedged](#rules-for-reporting-verbs-implying-uncertainhedged)
     - [Permissable Evidence for Uncertain/Hedged](#permissable-evidence-for-uncertainhedged)
-    - [Document Revision History](#document-revision-history)
+- [Document Revision History](#document-revision-history)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -270,9 +261,9 @@ first, and then adding entity coreference links. As one gains competence
 at the task, you are encouraged to attempt to combine these tasks as much as possible.
 
 
-## Markables
+## Event/Entity Mentions
 
-### Finding Entities, Events and Times
+### Finding Entities and Events
 
 The first and most fundamental task in the first stage of annotation
 is to label EVENT and ENTITY instances. When first annotating, one should 
@@ -378,7 +369,7 @@ A more technical definition is that for "clearly referential" things, we are doi
 :bangbang: Remember that if something is subsumed by an event, make it an event!  Specifically, if a verb-object pair collectively constitute an event, such as a light verb or multi-word expression  -- "tell the truth", "take a bath", etc. -- then do not make the object an entity!
 
 
-### Differentiating ENTITY and EVENT
+#### Differentiating ENTITY and EVENT
 
 Sometimes a mention will seem like both an ENTITY and an EVENT, often being technically a "thing" that also implies the process involving that thing:
 
@@ -493,11 +484,7 @@ regard
 
 ![DP](dependencygraph.png)
 
-"Earthquake", one may see, has a number of dependents. Annotating
-it can be thought of as pointing to everything under it. This gives
-us the best of both worlds -- you get to only grab one word (and therefore
-do not have to fret about what span to annotate), while underlyingly
-capturing the full range of "what is being talked about". 
+One might imagine that grabbing "stance" subsumes the whole bundle of dependents, "the stance on the civil war".  Grabbing "stance" in that sense essentially can be thought of as also grabbing its dependents. 
 
 If you find syntax trees complex and scary, don't worry: all you need to do is follow some basic rules for what
 we call "head finding", which generally just means that there is a word in each
@@ -713,7 +700,7 @@ of an event is specified. Polarity in this schema is relatively straightforward,
 and there are only two possible types: POS and NEG.
 
 
-#### Positive Polarity (POS)
+**Positive Polarity (POS)**
 
 The first and most common polarity value used is POS. This is the
 marker of positive polarity. This is used for an EVENT that did, in
@@ -732,7 +719,7 @@ officially a nuclear **state**.
 - The patient will **continue** treatment.
 
 
-#### Negative Polarity (NEG)
+**Negative Polarity (NEG)**
 
 The opposite of POS, as you might guess, is NEG, which is used to
 indicate when the event didn't take place, or has an otherwise negative
@@ -762,7 +749,7 @@ lymph node aren't present. So, both EVENTs in both examples are negated.
 
 
 
-#### Actual Modality (ACT)
+**Actual Modality (ACT)**
 
 Alongside Polarity, you are almost marking ContextualModality -- whether or not an event is asserting things about the ACTUAL world, about GENERIC tendencies of events, HYPOTHETICAL events or UNCERTAIN events.  The majority of EVENTs are ACTUAL, having already happened or been scheduled (without hedging) to happen:
 
@@ -775,7 +762,7 @@ Alongside Polarity, you are almost marking ContextualModality -- whether or not 
 Note that ACTUAL is about whether is it a claim in the "real world", and so NEG events are ususally ACTUAL as well .
 
 
-#### Uncertain/Hedged Modality (UNC)
+**Uncertain/Hedged Modality (UNC)**
 
 EVENTS are marked as UNCertain when we can point to some explicit
 lexical or phrasal trigger that indicates some degree of uncertainty
@@ -819,7 +806,7 @@ it seems extremely likely.
 - *Yesterday*, I was **[<sub>ACTUAL</sub> abducted ]** by aliens.
 
 
-#### Hypothetical Modality (HYP)
+**Hypothetical Modality (HYP)**
 
 If ACTUAL is for modality marking certain things known about the world, and UNCERTAIN is for things which are simply unknown, HYPOTHETICAL modality is for situations involving possible worlds; where the cocurrence of the event (in the past or the future) is conditional upon specific (albeit perhaps not specified) event happening. This should fit your usual intuitions about conditionals
 
@@ -858,7 +845,7 @@ Here are some additional examples to solidify these patterns:
 - If we had added this section to the guidelines earlier, our annotator agreement would have been **better<sub>NEG/ACT</sub>**.
 
 
-#### Generic Modality (GEN)
+**Generic Modality (GEN)**
 
 Generic event modality is used to refer to two separate kinds of generic eventualities; generalizations and classes of events. You do not need to distinguish the two:
 
