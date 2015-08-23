@@ -5172,27 +5172,11 @@ For such cases, remember that you are dealing, not with the hypothetical positiv
 | denial of a fact  | the mayor denies any involvement with the cartels | yes | make second event UNCERTAIN/HEDGED | no relation |
 | denial, which it means "prevent"  | the troops denied the protestors entry to the square | yes | make second event NEG-ACTUAL | no relation |
 | denouncement  | The international community was quick to **denounce** the **bombing** | yes | make second event ACTUAL (unless other cues say otherwise) | no relation |
+| request | The Syrian rebels have repeatedly **requested** international **aid** | yes | default to HYPOTHETICAL for e2 | is "PRECONDITION" rather than "CAUSE" |
+| willingness | He is **willing** to **meet** with our Pauahi Wing Queens Hospital. | yes | default to HYPOTHETICAL for e2 | is "PRECONDITION" rather than "CAUSE" |
+| seeming  | John seems to like chocolate | no | can be a hedge, and justification for marking UNCERTAIN/HEDGED | no relation |
+| endorsement  |  Three different countries have **endorsed** the trade **agreement**. | yes | no effect -- likely ACTUAL for e2 | no relation (unless endorsement/support enacts the endorsed thing) |
 
-
-##### Revelation and Reporting
--  **Examination** **shows** decreased bilateral peripheral **pulses**. 
-- Satellite **photos** **revealed** signs of **fueling** at the missile complex.
--  ... and the right hilar **lesions** were not **reported** as being **prominent**. 
--  The New York Times first **reported** the **strike** in October. 
--  Refugees **claim** that government troops **opened** fire on a crowded marketplace.
-
-*(These are EVIDENTIAL EVENTs (such as **shows**, **reported**, **reveals**) which always have two separate predications.)*
-
-##### Denial or Denouncement:
-- The mayor categorically **denies** any **involvement** with the cartels. 
-- He **denies** any chest **pains**, chest **pressures**, **shortness**-of-breath,
-or exertional **symptoms**. 
-- The international community was quick to **denounce** the **bombing**.
-
-##### Preference, endorsement, desire or consent: 
-- The Syrian rebels have repeatedly **requested** international **aid**.
-- He is **willing** to **meet** with our Pauahi Wing Queens Hospital.
--  Three different countries have **endorsed** the trade **agreement**.
 
 
 
