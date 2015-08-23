@@ -263,7 +263,9 @@ first, and then adding entity coreference links. As one gains competence
 at the task, you are encouraged to attempt to combine these tasks as much as possible.
 
 
-## Finding Entities, Events and Times
+## Markables
+
+### Finding Entities, Events and Times
 
 The first and most fundamental task in the first stage of annotation
 is to label EVENT and ENTITY instances. When first annotating, one should 
@@ -369,7 +371,7 @@ A more technical definition is that for "clearly referential" things, we are doi
 :bangbang: Remember that if something is subsumed by an event, make it an event!  Specifically, if a verb-object pair collectively constitute an event, such as a light verb or multi-word expression  -- "tell the truth", "take a bath", etc. -- then do not make the object an entity!
 
 
-### Between ENTITY and EVENT
+### Differentiating ENTITY and EVENT
 
 Sometimes a mention will seem like both an ENTITY and an EVENT, often being technically a "thing" that also implies the process involving that thing:
 
@@ -5162,25 +5164,36 @@ For such cases, remember that you are dealing, not with the hypothetical positiv
 
 ## Edge Case Guides
 
+### Hard Cases when determining Markables
+
+| Type | example | treatment | see
+| ---- | ------- | --------- | ----
+| marking participation | his **role** in **helping** to... | "role" is not an event | see section XXX
+| aspectual pre-nominals | The **renewed** **investigation** of Morsi | "renewed" is an event because it gets an ALINK | see section XXX
+| event as its goal | for assault, not ** attempted** **murder** | make BOTH events, "murder" is neg, "attempt" actual | 
+| mentions of time periods | he spent a brief period in the US | make period's phrase a TIMEX | 
+| mention of time periods with semantic content | john finished his probation period | these can be EVENT | 
+
+
 ### Complex Predicates
 
 | Type | example |  two events? | modality   | relation? |
 | ---- | --- | --- | --- | --- |
-| reporting  | NYT first reported the strike in october | yes | make second event ACTUAL unless reporting verb marks doubt(see table XXX) | REPORTING |
-| absence of a report  | yes | and the right hilar **lesions** were not **reported** as being **prominent**.  | make second event UNCERTAIN/HEDGED if the absence of a report implies any doubt about its occurence  | no relation |
-| showing,revealing  | examination shows a decreased pulse | yes | make second event ACTUAL unless reporting verb marks doubt(see table XXX) | REPORTING |
 | denial of a fact  | the mayor denies any involvement with the cartels | yes | make second event UNCERTAIN/HEDGED | no relation |
 | denial, which it means "prevent"  | the troops denied the protestors entry to the square | yes | make second event NEG-ACTUAL | no relation |
 | denouncement  | The international community was quick to **denounce** the **bombing** | yes | make second event ACTUAL (unless other cues say otherwise) | no relation |
-| request | The Syrian rebels have repeatedly **requested** international **aid** | yes | default to HYPOTHETICAL for e2 | is "PRECONDITION" rather than "CAUSE" |
-| willingness | He is **willing** to **meet** with our Pauahi Wing Queens Hospital. | yes | default to HYPOTHETICAL for e2 | is "PRECONDITION" rather than "CAUSE" |
-| seeming  | John seems to like chocolate | no | can be a hedge, and justification for marking UNCERTAIN/HEDGED | no relation |
 | endorsement  |  Three different countries have **endorsed** the trade **agreement**. | yes | no effect -- likely ACTUAL for e2 | no relation (unless endorsement/support enacts the endorsed thing) |
+| seeming  | John seems to like chocolate | no | can be a hedge, and justification for marking UNCERTAIN/HEDGED | no relation |
+| reporting  | NYT first reported the strike in october | yes | make second event ACTUAL unless reporting verb marks doubt(see table XXX) | REPORTING |
+| reporting, absence of  | yes | and the right hilar **lesions** were not **reported** as being **prominent**.  | make second event UNCERTAIN/HEDGED if the absence of a report implies any doubt about its occurence  | no relation |
+| request | The Syrian rebels have repeatedly **requested** international **aid** | yes | default to HYPOTHETICAL for e2 |  one of the two PRECONDITION relations |
+| revealing/showing  | examination shows a decreased pulse | yes | make second event ACTUAL unless reporting verb marks doubt(see table XXX) | REPORTING |
+| willingness | He is **willing** to **meet** with our Pauahi Wing Queens Hospital. | yes | default to HYPOTHETICAL for e2 | one of the two PRECONDITION relations |
 
 
 
 
-###Document Revision History
+### Document Revision History
 \begin{itemize
 - 9/22/13 -- Major revisions to add more non-medical examples, remove
 material remaining from THYME-TimeML, improve Subevent section 
