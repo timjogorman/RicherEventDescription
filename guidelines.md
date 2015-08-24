@@ -1319,18 +1319,18 @@ in \cite{pustejovsky2010iso}.
 Unlike with EVENTs, we will not be selecting headwords only. Instead,
 syntactically speaking, all TIMEX3 annotations should correspond to
 a:
-\begin{itemize
+
 - Noun phrase ("this weekend", "tomorrow", "yesterday",
 "Tuesday", "Last May", "May 16th", "6/9/1985"). 
 - Adjective phrase ("two-hour-long", "half-hour--as
 in "a half-hour trip", "preoperative", "post-partum") 
 - Adverbial phrase ("lately", "recently", "shortly", "hourly",
 "intraoperatively"). 
-\end{itemize
+
 Importantly, this means that any prepositions which precede (or in
 some cases, follow) a temporal expression are to be left unmarked,
-\textit{even when they seem to provide additional context for interpreting
-the TIMEX3}. For example:
+*even when they seem to provide additional context for interpreting
+the TIMEX3*. For example:
 
 - During *the month of July*, she will come visit.
 
@@ -1555,8 +1555,8 @@ colitis.
 - On *two to three incidents* she has had blood in the stools.
 
 Note that Quantifier only applies for number of occurrences of an
-EVENT, not for quantifiers like "She has \textit{two} eyes" or
-"She lost \textit{5} units of blood.
+EVENT, not for quantifiers like "She has *two* eyes" or
+"She lost *5* units of blood.
 
 
 #### PREPOSTEXP
@@ -1731,7 +1731,7 @@ text in some way". This is completely accurate, and you should trust
 him. He knows these things.
 
 
-The quoted portion would \textit{not} be eligible for DUPLICATE annotation,
+The quoted portion would *not* be eligible for DUPLICATE annotation,
 and you would want to reannotate the EVENTs, ENTITYs, and LINKs between.
 Were that same sentence presented as an offset quote (as in an email
 reply), though, it would be eligible.
@@ -1750,8 +1750,8 @@ text, as discussed above). Multiple people saying the same things,
 even if they use the same words, does not constitute DUPLICATE.
 
 
-Remember that DUPLICATE means that a section of text will \textit{not
-be annotated at all at any point in the process}, and improper use
+Remember that DUPLICATE means that a section of text will *not
+be annotated at all at any point in the process*, and improper use
 (on text that isn't actually duplicated) will rob us of valuable data.
 If you're unsure as to whether something is sufficiently similar,
 offset, or automated to be DUPLICATE, err in favor of fully annotating
@@ -1783,16 +1783,14 @@ and Savova et al. 2011 (\cite{savova2011anaphoric}).
 
 Two entities have an IDENTICAL relation if they refer to the same
 discourse referent. The IDENTICAL relation has several important semantic
-characteristics%
-\footnote{Following the MUC-7 specifications%
-}: 
-\begin{itemize
+characteristics(Following the MUC-7 specifications): 
+
 - The relation is symmetrical, i.e., non-directional: (if A is IDENT
 to B, then B is IDENT to A). This is different from relations like
 WHOLE/PART and SET/MEMBER, which are directional by defition. 
 - It is also transitive: if A is IDENT to B and B is IDENT to C, then
 A is IDENT to C. . 
-\end{itemize
+
 The canonical example of this, and perhaps the bulk of IDENT annotation
 work, will be the marking of pronominal antecedents:
 
@@ -1812,7 +1810,7 @@ why it is important to eat healthy and exercise.
 Yet the above example also illustrates this question of what to
 do with attribution, as in the entity is a busy **lady**.
 The fundamental rule we'll follow with this is the following: 
-\begin{itemize
+
 - If X is Y is actually showing the equivalence
 of the identities of two mentions (such as Clark Kent
 is Superman), then these are IDENT. 
@@ -1830,7 +1828,6 @@ is the tallest man in the room), then use BRIDGING.
 is less of a separate referent and more of an attribute of X) and
 cannot be framed as a SET/MEMBER or BRIDGING relationship, then do
 not mark any relation at all. 
-\end{itemize
 
 #### APPOSITIVE
 
@@ -2575,7 +2572,7 @@ of the "treatment" that begins prior to the first subevent in
 order to contain it.
 
 Again, though, this sort of reasoning wins us nothing. Here, a CONTAINS-SUBEVENT
-relation is \textit{strongly} indicated, and no other relation is
+relation is *strongly* indicated, and no other relation is
 a better fit. It is a poor choice to talk ourselves out of a 99.9\%
 correct annotation (which could be, depending on one's interpretation
 of treatment, 100\% correct) in favor of OVERLAP, which is much less
@@ -2685,7 +2682,7 @@ June*) \a. *early June* CONTAINS **decreased**
 In addition, we have made one specific regulation involving the use
 of CONTAINS: All test results or observations are to be linked to
 the test which generated them (their narrative container) using a
-CONTAINS relation,\textit{ assuming there is actually temporal containment}.
+CONTAINS relation, *assuming there is actually temporal containment*.
 This is not always intuitive, because as humans with some inferencing
 ability, we realize that the tumor likely existed before the CT scan
 which revealed it, but from a machine-learning perspective, it is
@@ -2699,26 +2696,16 @@ Limited **Colonoscopy** to the distal sigmoid due to an obstructive
 **lesion** 
 > **Colonoscopy** CONTAINS **polyps**
 
-\vspace{0.25cm
- \fbox{ %
-\begin{tabular}{p{0.6in}p{14cm}
-\includegraphics[width=0.5in]{warning} \\
-*Caution!}  & \raisebox{4mm}{%
-\parbox[c]{14cm}{%
-\vspace{2mm
-\textit{There are many relations which seem like a sort of semantic
+:bangbang: There are many relations which seem like a sort of semantic
 containment (things like part/whole, cause/effect, disorder/symptoms).
-However, the CONTAINS relation should }*\textit{only}}\textit{
+However, the CONTAINS relation should *only*
 be used when there exists strict temporal containment (the temporal
 span of the container fully encompasses that of the contained), and
 a more specific relation (CONTAINS/SUB-EVENT, for instance) is not
 indicated. This rule will not be violated, and pay attention to DocTimeRel
 (because a BEFORE EVENT will never CONTAIN an OVERLAP EVENT, etc).
 Use a WHOLE/PART relation for instances of physical containment, etc.
-Discussed below.}%
-}}\ \
-\tabularnewline
-\end{tabular}} \vspace{0.25cm
+Discussed below.
 
 
 
@@ -2792,22 +2779,10 @@ CONTAINS **interruption**
 
 > (**interruption** BEGINS-ON **burst**) -- Discussed below.
 
-\vspace{0.25cm
- \fbox{ %
-\begin{tabular}{p{0.6in}p{14cm}
-\includegraphics[width=0.5in]{warning} \\
-*Caution!}  & \raisebox{4mm}{%
-\parbox[c]{14cm}{%
-\vspace{2mm
-\textit{Remember, CONTAINS-SUBEVENT is still a CONTAINS temporal relation.
+:bangbang: Remember, CONTAINS-SUBEVENT is still a CONTAINS temporal relation.
 If you have two items that are event/sub-event, but where the EVENT
 does not temporally CONTAIN the sub-event, use the generic BRIDGING
-relation.}%
-}}\ \
-\tabularnewline
-\end{tabular}} \vspace{0.25cm
-
-
+relation.
 
 ### OVERLAP
 
@@ -2854,23 +2829,12 @@ as in \Next:
 - We will keep her on rate-control **medications** 100 mg *twice
 daily* \a. *twice daily* OVERLAP **medications**
 
-\vspace{0.25cm
- \fbox{ %
-\begin{tabular}{p{0.6in}p{14cm}
-\includegraphics[width=0.5in]{warning} \\
-*Caution!}  & \raisebox{4mm}{%
-\parbox[c]{14cm}{%
-\vspace{2mm
-\textit{OVERLAP provides relatively little information for the actual
+:bangbang: OVERLAP provides relatively little information for the actual
 processing of text compared to our other temporal relations. If you
 are reasonably sure that the relation is one of containment, you should
 use one of the CONTAINS relations instead, and often, one can represent
 a potential OVERLAP more specifically using narrative containers and
-a bit of additional thought.}%
-}}\ \
-\tabularnewline
-\end{tabular}} \vspace{0.25cm
- \color{blue} 
+a bit of additional thought.
 
 
 ### BEFORE/CAUSES, OVERLAP/CAUSES, BEFORE/PRECONDITIONS and OVERLAP/PRECONDITIONS
@@ -2930,7 +2894,7 @@ boundaries and extent.
 SIMULTANEOUS is, technically speaking, a more specific type of OVERLAP
 relation, and SIMULTANEOUS is to be used only when there is strict
 simultaneity, that is, both the start- and endpoints of two temporal
-entities are \textit{exactly} the same.
+entities are *exactly* the same.
 
 In the real world, such simultaneity does not often arise from coincidence
 (and when it happens to be the case, it is widely commented on and
@@ -2964,9 +2928,9 @@ with the surgery.
 In many cases of true simultaneity, there is a relationship which
 borders on causality. However, these are usually not true causality
 (representing strong correlation, rather than necessary causation),
-and \textit{when two EVENTs are unquestionably SIMULTANEOUS and questionably
+and *when two EVENTs are unquestionably SIMULTANEOUS and questionably
 causal, we will mark the more specific SIMULTANEOUS relation, rather
-than using OVERLAP-CAUSE}.
+than using OVERLAP-CAUSE*.
 
 - While they **recorded**, the red light stayed **on**. \a.
 **recorded** SIMULTANEOUS **on**
@@ -3011,7 +2975,7 @@ celebration and excited Facebook posts%
 due to excited "SIMULTANEOUS EVENT/EVENT TLINK!!!" facebook posts%
 }.
 
-Unless you are sure that the start of the first EVENT \textit{is
+Unless you are sure that the start of the first EVENT is
 the start of the second, and similar for the end, use CONTAINS or
 OVERLAP.
 
@@ -3024,7 +2988,7 @@ later. Only mark SIMULTANEOUS for non-coreferent EVENTs.
 ### Expressing TLINK Types in Point Algebra
 
 A more precise (although perhaps more esoteric) way to express temporal
-relations is using point algebra. In the style of Allen 1983 b\cite{Allen:1983:MKT:182.358434},
+relations is using point algebra. In the style of [Allen 1983](https://en.wikipedia.org/wiki/Allen%27s_interval_algebra),
 we can take the start and end of event A to be A- and A+, respectively,
 and compare those points to the start and end of EVENT B, B- and B+,
 using < ("less than") and > ("greater than") to indicate position
@@ -3070,7 +3034,7 @@ POS TLINKs.
 **NEG - Negative**
 
 TLINKs are marked as NEG only when they are both explicitly asserted
-\textit{and} asserted to be false.
+*and* asserted to be false.
 
 - The **bombing** did not take place on *the 18th* as expected,
 but on *the 24th*. \a. *18th* CONTAINS -- NEG **bombing** \b{.
@@ -3951,16 +3915,13 @@ and Savova et al. 2011 (\cite{savova2011anaphoric}).
 
 Two events have an IDENTICAL relation if they refer to the same event
 in space and time. The IDENTICAL relation has several important semantic
-characteristics%
-\footnote{Following the MUC-7 specifications%
-}: 
-\begin{itemize
+characteristics(Following the MUC-7 specifications):
+ 
 - The relation is symmetrical, i.e., non-directional: (if A is IDENT
 to B, then B is IDENT to A). This is different from relations like
 WHOLE/PART and SET/MEMBER, which are directional by defition. 
 - It is also transitive: if A is IDENT to B and B is IDENT to C, then
 A is IDENT to C. . 
-\end{itemize
 
 ### SET-MEMBER
 
@@ -4338,7 +4299,7 @@ One context that is *not* valid evidence for BEFORE/OVERLAP (being somewhat slip
 
 
 # Document Revision History
-\begin{itemize
+
 - 9/22/13 -- Major revisions to add more non-medical examples, remove
 material remaining from THYME-TimeML, improve Subevent section 
 - 9/17/13 -- Figured out what RED means, added this to the title. 
