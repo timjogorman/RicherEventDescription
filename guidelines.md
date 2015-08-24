@@ -4124,7 +4124,7 @@ Friday, the most disheartening part of the already-terrible **earthquake**.
 BRIDGING **collapsed**
 
 
-#### General Guidelines for Annotating Coreference
+### General Guidelines for Annotating Coreference
 
 
 
@@ -4139,7 +4139,7 @@ an Event, or that your Event is not actually an Entity, as the case
 may be.
 
 
-#### WHOLE/PART, SET/MEMBER, and BRIDGING relations are inherited by IDENT
+#### SET/MEMBER, and BRIDGING relations are inherited by IDENT
 chains
 
 If you have an IDENT chain represented by A-A-A-A-A, and A participates
@@ -4173,7 +4173,7 @@ are IDENTICAL; and **We**$_{S1}$, **We**, and **our**$_{S2}$
 are IDENTICAL.
 
 
-#### Don't link ACTUAL and GENERIC items
+#### Don't link ACTUAL and GENERIC events (use SET/MEMBER or BRIDGING)
 
 In analogy with the principle for not TLINKing HYP/GEN to ACT/UNCERTAIN
 events, ACTUAL and GENERIC items can never be in an IDENTICAL, APPOSITIVE,
@@ -4300,21 +4300,10 @@ another event:
 - Patient **nausea** was successfully **stopped** by 1-mg
 **Ativan** p.r.n. \a. **stopped** TERMINATES **nausea**
 
-\vspace{0.25cm
- \fbox{ %
-\begin{tabular}{p{0.6in}p{14cm}
-\includegraphics[width=0.5in]{warning} \\
-*Caution!}  & \raisebox{4mm}{%
-\parbox[c]{14cm}{%
-\vspace{2mm
-\textit{ALINKs are much less common than TLINKs, usually only a few
+:bangbang: ALINKs are much less common than TLINKs, usually only a few
 per document, but they are no less important and easy to overlook.
 Remember that any time you have an EVENT which has the type ASPECTUAL,
-you will need to create at least one ALINK.}%
-}}\ \
-\tabularnewline
-\end{tabular}} \vspace{0.25cm
-
+you will need to create at least one ALINK.
 
 
 ## REP - Reporting Annotation
