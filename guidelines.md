@@ -272,7 +272,7 @@ about **whether** something should be annotated, and the second part being
 the decision about **what exact span of words** you should mark to designate
 it. 
 
-#### What is an EVENT?
+##### What is an EVENT?
 
 We define an event as any occurrence, actions, processes or event
 states which deserve a place upon a timeline, and could have any syntactic realization -- as verbs, nominalizations,
@@ -323,7 +323,7 @@ the open door" does not. In short:
 
 The second kind of attribute that needs to be annotated as an EVENT are attributes that don't, themselves, pass this test, but which are clearly coreferential with those that do, or which could have SET/MEMBER relationships with those that do.
 
-#### What is an ENTITY?
+##### What is an ENTITY?
 
 For ENTITY annotation, we will be going through the text, finding
 all instances of things that consistute an ENTITY -- a participant,
@@ -369,7 +369,7 @@ A more technical definition is that for "clearly referential" things, we are doi
 :bangbang: Remember that if something is subsumed by an event, make it an event!  Specifically, if a verb-object pair collectively constitute an event, such as a light verb or multi-word expression  -- "tell the truth", "take a bath", etc. -- then do not make the object an entity!
 
 
-#### Differentiating ENTITY and EVENT
+##### Differentiating ENTITY and EVENT
 
 Sometimes a mention will seem like both an ENTITY and an EVENT, often being technically a "thing" that also implies the process involving that thing:
 
@@ -406,7 +406,7 @@ need to make reference to an entity's implied events. Otherwise, simply
 annotate that entity as an ENTITY.
 
 
-### When many words relate to one event 
+#### When many words relate to one event 
 
 As mentioned in the prior section, if many words contribute to a single event or entity, we want them to all be represented by a single markable. Some of these will be relatively clear-cut, as with *light verbs*:
 
@@ -425,7 +425,7 @@ In real annotations, there may be more nuanced instances than this, in which it'
 - Markers of epistemic status, like "seems to" or "appears to", are not events. When in doubt, you should follow the nearest case in the [Reporting vs Hedging distinctions](#Distinguishing Reporting events from Hedges) in the appendix.
 
 
-###  Words implying many events
+####  Words implying many events
 
 Sometimes a single word ends up implying many events, like the two colonoscopies implied in the following sentence (the hypothetical one and the one that occurred in the 1970s): 
 
@@ -595,7 +595,7 @@ and to pick the word that would be the head of those more full forms.
 
 - **[<sub>event</sub> CT ]** **[<sub>entity</sub>chest ]** **[<sub>entity</sub>pelvis ]**
 
-## Annotating Features on Entities and Events
+### Annotating Features on Entities and Events
 
 When you mark each entity or event, you will need to label basic features
 on the events and entities. 
@@ -904,12 +904,8 @@ When these refer to seemingly habitual events with a clear timespan, you can mak
 
 DocTimeRel is short for "Document Creation Time Relation", and
 represents the temporal relation between the EVENT in question and
-the time when the article, post or record in question was created
-(the "document time"). For the purposes of this schema, we are
-assuming that the time of publication is functionally equivalent to
-the time of writing (and that nothing substantial has changed in that
-interim), and, for medical records, that the time of writing is the
-same as the time of the patient's visit.
+the time when the article, post or record in question was created or published
+(the "document time"). 
 
 DocTimeRel allows us to avoid the linguistic ambiguities inherent
 in explicitly marking the grammatical tense of the verb (like "past",
@@ -943,17 +939,9 @@ as it should be filled in individually for every event. Currently,
 our schema includes four relations between the event and DOCTIME:
 BEFORE, AFTER, OVERLAP, and the combined relation BEFORE/OVERLAP.
 
-\begin{figure**
-\centerline{ \mbox{\includegraphics[width=5in]{doctimerel}} 
-\caption{Schematic view of all the DocTimeRel possibilities relative to DOCTIME
 
 
-\label{Tenseschematic} 
-\end{figure**
-
-
-
-#### BEFORE
+**BEFORE**
 
 BEFORE is used where the event ended before the document itself was
 written. The bracketed events below would be marked as "BEFORE"
@@ -967,7 +955,7 @@ written. The bracketed events below would be marked as "BEFORE"
 the prior 9-16-03 **[study]**.
 
 
-#### OVERLAP
+**OVERLAP**
 
 OVERLAP is used for events or states which are
 happening or true at the time that the document was written:
@@ -990,7 +978,7 @@ maxillary antrum again **noted**.
 at this time but is **interested** in continued **surveillance**.
 
 
-#### AFTER
+**AFTER**
 
 AFTER is used where the event is scheduled or planned to begin following
 the document time:
@@ -1021,7 +1009,7 @@ true at Document Time. See the following:
 with regard to cetuximab **sensitivity**.
 
 
-#### BEFORE-OVERLAP
+**BEFORE-OVERLAP**
 
 BEFORE-OVERLAP is used where an event clearly started before the DOCTIME and **continues into and through the DOCTIME**. This often (but not always) corresponds with the use of the English present perfect tense:
 
@@ -1041,44 +1029,22 @@ shows no sign of stopping.
 
 This is not, however, any OVERLAP mention that extends into the past (after all, nearly everything extends *a little* into the past) but rather only for events that have clear and explicit encoding of being true in the past and present.  The following lists define exactly which bits of evidence are allowable for this. This need for evidence also means that multiple mentions of the same event might vary between BEFORE and BEFORE/OVERLAP, or between BEFORE/OVERLAP and OVERLAP, and that is ok.
 
-Be sure that any time you are using BEFORE-OVERLAP, it is
-been explicitly stated that an EVENT started before DOCTIME and continues.
-Even if you, as a human, can infer that a given EVENT must have started
-before the document time, or that an earlier EVENT is likely to continue,
-do not mark an EVENT as BEFORE-OVERLAP unless there is evidence in
-the sentence itself. Pick BEFORE or OVERLAP -- whichever is explicitly
-shown by the text -- instead.
+Be sure that any time you are using BEFORE-OVERLAP, the fact that an EVENT started before DOCTIME and continues is explicitly encoded by the language of the text (rather than through your own inference or world knowledge).  [Here is a list of the kinds of things that are admissable evidence for BEFORE/OVERLAP use](#Permissable Evidence for BEFORE/OVERLAP).  While this should not be considered a closed list, other kinds of evidence for BEFORE/OVERLAP should be similarly explicit. 
 
 
 ##### DocTimeRel in relation to speech
 
-When dealing with documents involving indirect speech (as is often
+When dealing with documents involving speech (as is often
 the case in newswire), there can be a number of conflicting signals
-about what the time of an event is.
-A common pattern, for example, is a past tense report (he
-said ...) that is reporting about a present tense state,
-...that there is no threat.
+about what the time of an event is.  The general rule to follow is that you are still attempting to encode the relation of the document itself, *not to the speech event*. 
 
-When not dealing with direct quotations, you can assume that the time\textquotedbl{
-of an event is being accurately reported by the document as a whole:
-for the pattern such as \ref{nothreat} below, you can mark the threat\textquotedbl{
-as OVERLAP:
+The most obvious example of that is direct speech.  In direct speech, there is often no real cue as to the actual DocTimeRel of the spoken-of event, and thus one may need to utilize world knowledge, as in:
 
-- \label{nothreat} He declared that there is no threat.
+> - Napoleon declared<sub>BEFORE</sub> "I will conquer <sub>BEFORE</sub> Russia"
 
-- The boss said that we are working$_{\text{OVERLAP}}$ on it.
+> - Musk declared<sub>BEFORE</sub> "We will get<sub>AFTER</sub> to Mars in my lifetime"
 
-Resist the temptation to mark these as BEFORE/OVERLAP (while past
-tense is often inferrable, we do not consider this to be proper evidence\textquotedbl{
-for BEFORE/OVERLAP: see section \ref{beforeover} for the allowable
-BEFORE/OVERLAP criteria.
 
-Note that this is only a constraint for indirect quotations; the time
-of the speech event, in direct quotations, can be evidence of BEFORE
-or BEFORE/OVERLAP conditions, as in:
-
-- Napoleon declared <sub>BEFORE</sub> I will conquer <sub>BEFORE</sub>
-Russia
 
 
 #### Event Type, Aspect and Implicitness
@@ -2540,64 +2506,29 @@ The next step of RED annotation is to take those EVENTs and TIMEX3s annotated in
 
 > John **[left** <sub>event</sub>**]** for China on **[Sunday** <sub>Timex3</sub>**]**
 
-"Happened on" is a bit loose, however. We have a set of labels we use for marking what the actual temporal relationship is between two events or times, such as:
+We have a set of labels we use for marking what the actual temporal relationship is between two events or times, such as:
 
 > - **Before:** We **[ate** <sub>event</sub>**]** before we **[left** <sub>event</sub>**]**.
 > - **Begins-on:** We were **[listening** <sub>event</sub>**]** to the radio as soon as we started **[driving** <sub>event</sub>**]**.
 > - **Contains:** During the **[vacation** <sub>event</sub>**]** we **[visited** <sub>event</sub>**]** my aunt.
 
-If you glance at any story or newspaper article, you will find that a given story or document will have many, many eventualities and times.  If you picked any two such events from that story at random, one could often discern a temporal relation between them. Yet doing so would take incredible amounts of effort.  
+If you glance at any story or newspaper article, however, you will find that a given story or document will have many, many eventualities and times, and that for any two of them, you can often discern some temporal ordering.  That would be a lot of relations to annotate! 
 
-We will be avoiding such a "spiderweb" of temporal relations by attempting to mark *small amounts* of *very informative* temporal relations between notes, using the idea of **narrative containers**.
+Instead, we will be avoiding such a "spiderweb" of temporal relations by attempting to mark *small amounts* of *very informative* temporal relations between notes, using the idea of **narrative containers**.
 
-#### Narrative Containment
+### Narrative Containment
 
-Temporal structure of a narrative is often hierarchical. One will often talk about a larger event or sequence (like "going to the store") and may include smaller events within them (such as "buying milk") or place them within larger events ("doing errands") or larger times ("Tuesday").  You could thus imagine a simple sentence as follows:
+Temporal structure of a narrative is often hierarchical. If, on a particular Tuesday, you go on a series of errands, one of which is going to the store, and during that visit you get milk, you could say that that Tuesday temporally contains the errands; that they temporally contain your trip to the store, and that it temporally contains the event of getting milk.  
 
-> On **[Tuesday**<sub>t</sub>**]**, we **[ran**<sub>e</sub>**]** out of flour while **[making**<sub>e</sub>**]** bread, so I **[grabbed**<sub>e</sub>**]** some more while I was **[at**<sub>e</sub>**]** the store **[Thursday**<sub>t</sub>**]**. 
+![nesting1](narratcon.png)
 
-> Tuesday CONTAINS making bread   CONTAINS running out of flour
-> Thursday CONTAINS being at the store CONTAINS grabbing more milk
+The importance of that is that if someone were to know that an event happened before Tuesday, they then inherently know that it also happened before *all of Tuesday's events*.  
 
-Notice that all this is doing here is just marking which temporal spans contain other events within them.  But if you know that something happened after making bread, you inherently know that it happened before running out of flour.  
+While we build narrative containers using this temporal relation CONTAINS, the idea of "Narrative containers" is not simply the idea of that relation, but this goal of using these increasingly large temporal "buckets" to cleanly capture the temporal essence of a passage in an informative manner (as detailed in [Pustejovsky and Stubbs 2011](http://www.aclweb.org/anthology/W11-0419) and [Styler et al 2014](http://www.aclweb.org/anthology/Q/Q14/Q14-1012.pdf)).
 
-In this case, knowing the relation between "Tuesday" and "Thursday" is all that's needed for someone to figure out all the other details.  
 
-The *narrative containment* trick amount to attempting to leverage that fact as much, and as consistently, as we possibly can.  A narrative container can be thought of as a temporal bucket into which an EVENT or series of EVENTs may fall. You've already annotated one kind of "narrative container", the DocTimeRel of each Event (like BEFORE, AFTER, OVERLAP), in that these can be though of as the biggest containers.  
 
-###Narrative Containers
-
-Our reasoning for using narrative containers is simple: Temporal relations
-annotation is prone to never-ending webs of temporal links between
-different EVENTs, because, simply put, every EVENT that ever happened
-in the history of the universe is part of a valid temporal relation
-with every other event.
-
-As an extreme example, this (somewhat unlikely) paragraph could result
-in the following temporal links:
-
-- Napoleon was exiled to Elba in 1814. This has little to do with
-Mr. Chen's rash and subsequent leg pain, which both developed after
-his surgery in 2009. \a. *1814* CONTAINS **exiled** \b{.} *2009\
-CONTAINS **surgery** \b{.} *2009* CONTAINS **rash** \b{.
-*2009* CONTAINS **pain** \b{.} *1814* BEFORE **surgery**
-\b{.} *1814* BEFORE **rash** \b{.} *1814* BEFORE **pain**
-\b{.} **exiled** BEFORE **pain** \b{.} **exiled** BEFORE **rash**
-\b{.} **exiled** BEFORE **surgery** \b{.} **exiled** BEFORE
-*2009* \b{.} **surgery** BEFORE **rash** \b{.} **surgery**
-BEFORE **pain** \b{.} **rash** BEFORE **pain**
-
-As we can see, not only is the temporal linking of Napoleon's exile
-to each modern EVENT absurd, but a number of the TLINKs described
-above are accurate, but unsatisfying, simply existing "to complete
-the picture. Moreover, one may see that as as the number
-of events increased, the number of relationships you might have to
-make would increase exponentially.
-
-This is a reason for adopting the concept of the narrative container,
-discussed extensively in Pustejovsky and Stubbs 2011 \cite{DBLP:conf/acllaw/PustejovskyS11
-as well as in Styler et al 2014 (\cite{Styler:2014aa}). A narrative
-container can be thought of as a temporal bucket into which an EVENT
+ A narrative container can be thought of as a temporal bucket into which an EVENT
 or series of EVENTs may fall. These narrative containers are often
 represented (or "anchored") by dates or other temporal expressions,
 but may also be anchored by a reference to an EVENT capable of containing
@@ -2611,290 +2542,29 @@ possible temporal relation (TLINK) between each EVENT, we instead
 try to link all EVENTs to a narrative container, and then link those
 containers so that the contained EVENTs can be linked by inference.
 
-Using narrative containers, we can return to the example above, but
-simply put all of the items into two temporal buckets, *1814* and
-*2009*, and then \textit{infer from the known relation between the
-containers} the relations between the items which reside within them:
-
-- Napoleon was exiled to Elba in 1814. This has little to do with
-Mr. Chen's rash and subsequent leg pain, which both developed after
-his surgery in 2009. \a. *1814* CONTAINS **exiled** \b{.} *2009\
-CONTAINS **surgery** \b{.} *2009* CONTAINS **rash** \b{.
-*2009* CONTAINS **pain** \b{.} **surgery** BEFORE **rash**
-\b{.} **rash** BEFORE **pain**
-
-In doing so, we can cut the number of required TLINKs in half, while
-still capturing all of the information of the fully-expanded version
-using straightforward temporal inference.
-
-Note that we have not made the TLINK: *1814* BEFORE *2009*. TIMEX3s
-will never be linked together; this information is captured in post-processing
-of your annotations.
-
-
-#### Expressing Narrative Containers
-
-You should think of all documents as starting with three implicit
-narrative containers, marked by DocTimeRel. One bucket contains all
-EVENTs which occur BEFORE the document time, one contains all EVENTs
-which occur AFTER the document time, and one contains all EVENTs which
-overlap the document time. However, there can be many more narrative
-containers in a given note than just "Before DOCTIME", "Overlapping
-DOCTIME", and "After DOCTIME. Take, for example,
-this note:
-
-*\textit{This could use a nice general-domain example. Annotators,
-please keep an eye out for a good example sentence and send it along
-to your supervisor!}
-
-- \label{manycontainers} \myul[yellow]{The patient recovered
-well after} \myul[red]{her first surgery on December 16th to remove
-the adenocarcinoma}, although \myul[orange]{on the evening of January
-3rd she was admitted with a fever and treated with antibiotics}.
-\myul[blue]{Today we reviewed the pathology results and the results
-of} \myul[yellow]{her follow-up CT}. She will have her \myul[green]{second
-surgery in three weeks}, followed by a \myul[black]{third surgery
-on April 19th which will involve both additional resection as well
-as the taking of additional biopsies}.
-
-In example \Last, one may think of it as having six narrative containers,
-the contents of each marked again with differently colored underlines.
-The first surgery occurred entirely within the December 16th container
-(the anchor TIMEX3), the fever, admission, and antibiotics occurred
-on January 3rd (and within that container), the followup CT and her
-recovery occurred at an ambiguous point between the surgery and the
-DOCTIME (the during-visit container), the second surgery occurs three
-weeks from the DOCTIME, and the final container involves everything
-occurring on April 19th (the surgery, resection, and taking of biopsies).
-We also need to know that, for instance, the April 19th surgery will
-happen AFTER the surgery in three weeks. These containers and their
-events are shown in list format in Table 1.
-
-\begin{table
-\begin{centering
-\begin{tabular}{|llllll|
-\hline 
-\myul[yellow]{BEFORE DocTime}  & \myul[red]{Dec 16th}  & \myul[orange]{Jan 3rd}  & \myul[blue]{OVERLAP DocTime}  & \myul[green]{In 3 Weeks}  & \myul[black]{Apr. 19th} \tabularnewline
-recovered  & surgery  & admitted  & reviewed  & 2nd surgery  & 3rd surgery \tabularnewline
-follow-up CT  & remove  & fever  &  &  & resection \tabularnewline
- &  & treated  &  &  & biopsies \tabularnewline
-\hline 
-\end{tabular}\caption{Narrative containers and EVENTs in \ref{manycontainers}
-
-\par\end{centering
-
-\label{180table} 
-\end{table
-
-
-Again, the critical function of narrative containers is that using
-them conscientiously allows us to infer TLINKs, rather than forcing
-annotators to explicitly mark them. Here, there is no need at all
-to explicitly mark that, for instance, **fever** is before **resection**,
-because we know that the fever happened on Dec 16th, the resection
-happened on April 19th, and that December 16th is before April 19th.
-With explicit grouping of EVENTs in this way, we can easily infer
-the links between them with minimal annotator effort.
-
-As you annotate, it is critical to keep this notion of narrative containers
-in mind, as to avoid wasting effort marking temporal relations which
-are already captured straightforwardly.
-
-
-#### EVENTs as Containers
-
-\label{eventcon
-
-So far, we've been discussing temporal expressions (TIMEX3s) as providing
-the boundaries of narrative containers, but EVENTs themselves can
-provide boundaries too. Take this example:
-
-- During the \myul[red]{surgery}, \myul[blue]{the patient experienced
-another MI, and repeated bouts of tachycardia}.
-
-In example \Last we can see that the surgery itself is a container,
-containing an MI (myocardial infarction or "heart attack") as
-well as tachycardia. In this case, for the temporal structure of the
-note to really be captured, both the MI and tachycardia need to be
-linked to the surgery.
-
-The manner in which they are linked brings up the important distinction
-between temporal containment and event-subevent containment. We invite
-annotators to think of narrative containers as temporal buckets, but
-it is notable that while the temporal span of "surgery" contains
-all of the events going on in the universe during that period of time,
-some events could be characterized as being subevents of that surgery
--- sharing participants, locations, and consequences with the larger
-event.
-
-We encode that distinction by expressing narrative containers using
-two different relationships, CONTAINS and CONTAINS-SUBEVENT. CONTAINS
-is used when the only link between two events is that of temporal
-span, and CONTAINS-SUBEVENT is used when both temporal containment
-and an event-subevent relationship pertain to the pair. Take, for
-example, the below paragraph:
-
-- \label{cbcexample} \myul[red]{During her surgery, Mrs. Hayes
-showed some adhesions and scarring in the abdominal cavity}. \myul[blue]{She
-did show some bleeding at the incision during her subsequent CT scan}.
-\myul[green]{For her followup, we will take a CBC and remove her
-stitches.
-
-Here, we have three narrative containers, the surgery, the CT scan,
-and the followup, with no TIMEX3s at all, all shown in Table 2, below.
-The containment relations in this example are as follows:
-
-\a. **surgery** CONTAINS **adhesions** \b{.} **surgery** CONTAINS
-**scarring** \c{.} **scan** CONTAINS **bleeding** \d{.} **followup**
-CONTAINS-SUBEVENT **CBC** \e. **followup** CONTAINS-SUBEVENT
-**remove**
-
-The **CBC** and the stitches being **removed** are related to
-**followup** with CONTAINS-SUBEVENT, as they are compositionally
-part of the larger event (**followup**) that contains them. When
-one event temporally contains another, you may generally default to
-CONTAINS. CONTAINS-SUBEVENT is to be treated as a special case exclusively
-used for event-subevent relations (which will never be the case when
-relating TIMEX3s to EVENTs).
-
-**adhesions** and **scarring** are CONTAINed by the **surgery**,
-the procedure which revealed them, according to the rule as explained
-in \ref{revelation}.
-
-Another aspect to consider, in addition to marking EVENTs that are
-contained within the surgery, CT, or followup, is that we will also
-need to explicitly mark the relation between those three EVENTs. So,
-in addition to the containment links (e.g. **surgery** CONTAINS
-**adhesions**), we will need to create two TLINKs to relate the
-containers, **surgery** BEFORE **CT**, and **CT** BEFORE **followup**.
-
-Once this is completed, inference can easily take place across the
-containers, and the full benefits of our narrative container approach
-can be reaped.
-
-\begin{table
-\centering{}\label{155table} %
-\begin{tabular}{|lll|
-\hline 
-\myul[red]{During Surgery}  & \myul[blue]{During CT}  & \myul[green]{During Followup} \tabularnewline
-adhesions  & bleeding  & CBC \tabularnewline
-scarring  &  & remove \tabularnewline
-\hline 
-\end{tabular}\caption{Narrative containers and EVENTs in \ref{cbcexample}
-\end{table
+While TIMEX3 and EVENTs can be temporal containers, we also have another kind of temporal container; the DocTimeRel itself.   The "Tuesday" above is therefore a temporal "bucket" that is within a larger bucket of BEFORE -- the set of all events happening before the document creation time.
 
 
 
-#### Single-bounded narrative containers
+#### Temporal Containers vs Subevent Containers
 
-Although so far we've been discussing the idea of containment (and
-thus, the CONTAINS and CONTAINS-SUBEVENT TLINKs) when discussing narrative
-containers, one can still imagine and annotate narrative containers
-which are bounded only on one side. Take, for instance, the below
-example:
+Labeling temporal containment properly is primarily a task of marking which *temporal* spans contain other temporal spans.  This means, specifically, that we mark containment purely on whether it is temporally marked as containing other events when no semantic connection at all, such as:
 
-- Immediately after her **surgery**, the patient began to **vomit**
-and developed a high **fever**.
+> - While I was writing this paper, some couple has met, been married and had a child.
+> - In 1841, Martin Van Buren was elected and the First Opium War began
+> - During the surgery, a butterfly in Kashmir flapped its wings three times.
 
-In this case, the **surgery** forms one temporal boundary for the
-vomiting and fever, and as such, can be thought of as anchoring a
-one-sided narrative container. In this case, we would say that both
-**vomit** and **high fever** have a BEGINS\_ON TLINK relation
-to the **surgery**. Although somewhat conceptually different, narrative
-container relationships can very easily stem from BEGINS\_ON, ENDS\_ON,
-and even BEFORE, and the metaphor of the narrative container is still
-useful in annotating these situations.
+These are in contrast with temporal structure that also conveys a kind of "essential" structure between related events, as in:
+
+> - The battle of the bulge was an important battle in world war II
+> - During the surgery, most of the tumor was excised.
+
+While the temporal span of "surgery" contains all of the events going on in the universe during that period of time,
+only some events -- such as the excision -- could be characterized as being subevents of that surgery, sharing participants, locations, and consequences with the larger event.  We will define these as a subtype of containment, CONTAINS-SUBEVENT.  
 
 
-#### Nested Narrative Containers
-
-\label{russiandolls
-
-Sometimes, you will find yourself with a situation where a narrative
-container seems to, itself, belong inside another narrative container.
-Here's an example with three levels of nesting:
-
-*\textit{This could use a nice general-domain example. Annotators,
-please keep an eye out for a good example sentence and send it along
-to your supervisor!}
-
-- \label{nestedexampleraw} \myul[red]{December 19th: The patient
-underwent an MRI and EKG as well as emergency surgery.} During the
-procedure, \myul[blue]{the patient experienced mild tachycardia},
-and she also \myul[green]{bled significantly during the initial incision}.
-
-Here, we can see that in addition to the overall container of December
-19th (containing surgery, an EKG and an MRI), the surgery itself is
-a container, containing some mild tachycardia and an initial incision.
-The incision itself forms a third narrative container, containing
-the significant bleeding.
-
-To annotate a case like this, we will think about nesting in general.
-Whether you are playing with Russian nesting dolls, packing boxes-within-boxes,
-or packing a car for a long trip, smaller items go in smaller containers,
-which go in bigger containers, which go in bigger containers, and
-so forth. Here, we will use the same principle, but with narrative
-containers instead of physical objects.
-
-The largest temporal span (actual clock duration) here is "December
-19th", so that should be the ultimate narrative container for all
-these EVENTS. First, we will put everything into it (MRI, EKG, surgery)
-that belongs there using three TLINKs. The surgery is also a narrative
-container, but temporally, has a smaller temporal span than December
-19th (likely a few hours rather than a full day). Inside it, we will
-place mild tachycardia and initial incision using two more TLINKs.
-Then, finally, the initial incision, with the smallest duration of
-all, CONTAINS-SUBEVENT bled significantly. Example \Next shows all
-the TLINKs required to fully annotate this sentence, representing
-**EVENTs** in brackets and *TIMEX3s* in curly braces:
-
-\begin{figure**
-\centerline{ \mbox{\includegraphics[width=3in]{nested}} } \caption{Schematic view of Example \ref{nestedexample} as a Venn diagram
 
 
-\label{nestingschematic} 
-\end{figure**
-
-
-- \label{nestedexample} *December 19th*: The patient underwent
-an **MRI** and **EKG** as well as emergency **surgery**. During
-the **procedure**, the patient experienced mild **tachycardia**,
-and she also **bled** significantly during the initial **incision**.
-\a. *December 19th* CONTAINS **MRI** \b{.} *December 19th\
-CONTAINS **EKG** \c{.} *December 19th* CONTAINS **surgery**
-\a. **surgery** CONTAINS **tachycardia** \b{.} **surgery**
-CONTAINS-SUBEVENT **incision** \a. **incision** CONTAINS-SUBEVENT
-**bled**
-
-Because of the nesting, only the TLINKs mentioned above are necessary.
-One does not need to, for instance, explicitly link "bled significantly"
-to December 18th, because it is clearly contained within it by virtue
-of its container being contained within it. We can visualize these
-nested containers with a Venn diagram, showing these containment relationships,
-and thus, why we do not need to link the contents of each container
-to every other container.
-
-So, even in this complex case, we can completely capture the temporal
-relations present by first putting all EVENTs into their proper containers
-using TLINKs, and then linking the containers themselves, TLINKing
-the temporally smallest container to the next smallest, and so forth,
-until all containers are contained.
-
-This kind of nesting is the only way that an EVENT will ever CONTAIN
-a TIMEX3, and follows once again our rule of nesting smaller temporal
-spans inside larger ones. See example \Next below, showing both an
-example sentence and all the TLINKs needed to annotate it:
-
-- \label{nestedtimexes}*December 28th*: The patient experienced
-a **stroke** at *approximately 9:30am*, during her **surgery**.
-\a. **stroke** OVERLAP *approximately 9:30am* \b{.} *December
-28th* CONTAINS **surgery** \a. **surgery** CONTAINS **stroke**
-\b{.} **surgery** CONTAINS *approximately 9:30am\
-
-Here, we have an overarching container (*December 28th*) which CONTAINS
-**surgery**. The surgery then CONTAINS both **stroke** and *approximately
-9:30am*. Then, to complete the annotation, we'd mark that **stroke**
-OVERLAPs *approximately 9:30am*.
 
 
 #### Choosing the Anchors of Narrative Containers
@@ -2905,81 +2575,24 @@ container, the temporal span which all of the other EVENTs fall within
 (or begin/end on). Choosing which temporal span to be the anchor of
 a given narrative container can be difficult, so here are a few ground
 rules to help make these decisions easier and more consistent:
-\begin{enumerate
-- *The majority of TIMEX3 annotations will be narrative container
-anchors}. 
 
-\begin{itemize
-- Usually, when a date (or other temporal expression) is given in a
-document, it is to provide temporal context for one or more other
-EVENTs. As such, they are ready candidates for the narrative container
-anchor. 
-\end{itemize
-- *If you have a choice between using an EVENT or a TIMEX3 as
-the narrative container anchor, you should pick the TIMEX3}. 
+- The majority of TIMEX3 annotations will be narrative container
+anchors. 
 
-\begin{itemize
-- This is not to say that you will never have an EVENT within an EVENT,
-but often that will be because there is no TIMEX3 or because there
-is narrative container nesting going on, as in Example \ref{nestedexample}. 
-\end{itemize
-- *If you use an EVENT as a narrative container anchor, try to
-TLINK it to a few other container anchors to avoid it being stranded}. 
+- If you have a choice between using an EVENT or a TIMEX3 as
+the narrative container anchor, you should pick the TIMEX3. 
 
-\begin{itemize
-- See Section \ref{eventcon} for more detail here. 
-\end{itemize
-- *All other things being equal, an EVENT or TIMEX3 with a larger
-temporal span is more likely to be a narrative container anchor}. 
+- If you use an EVENT as a narrative container anchor, try to
+TLINK it to a few other container anchors to avoid it being stranded. 
 
-\begin{itemize
-- This is per Section \ref{russiandolls}, where this principle is shown
-with detailed examples (\ref{nestedexample}, \ref{nestedtimexes}). 
-\end{itemize
-- *EVENTs will very seldom CONTAIN TIMEX3s.} 
+- If stuck between two possible containers, use the one with the larger
+temporal span. 
 
-\begin{itemize
-- Only in minute-by-minute descriptions will an EVENT serve as a narrative
-container in which a TIMEX3 will be included, and even still, there
-will likely be an overarching TIMEX3 which CONTAINs the EVENT. See
-example \ref{nestedtimexes} above as well as the discussion in \ref{russiandolls}. 
-\end{itemize
-- *Sub-events will be anchored to their main event, assuming
-there is actually temporal containment, using CONTAINS-SUBEVENT} 
-
-\begin{itemize
-- If the note describes three different steps (e.g. incision, tumor
-removal and closing) within a single surgery, those steps will be
-CONTAINed by the surgery (using CONTAINS-SUBEVENT). This is the case
-in all situations where we have an event/sub-event relation (as between
-"incision" and "surgery" in \ref{nestedexample}). 
-\end{itemize
-\end{enumerate
-
-#### Ordering within narrative containers
-
-Because of the difficulty of capturing detail within a given narrative
-container, not all relations between EVENTs will be captured. For
-instance, in example \ref{nestedexample}, we do not explicitly give
-the relationships between EKG and Surgery, nor between the MI and
-Tachycardia. In many cases, those relationships within a narrative
-container will follow a set progression (first colonoscopy, then biopsy
-(which occurs during the colonoscopy), then pathological analysis,
-then histology), but you as an annotator are not asked (or allowed)
-to make explicit those domain-specific progressions.
-
-So, although it may seem like some of the narrative containers that
-you define may be a loose bucket of temporal EVENTs, that's not actually
-a problem, as the greater timeline of the document is more important
-than the fine structure within a given narrative container, and as
-you will find out, there are still plenty of TLINK annotations to
-be made.
-
-Of course, as described in \ref{tlinkrules}, *if a relation
-is explicitly stated, it should always be marked}.
+- Remember that if an event contains multiple different "steps"  -- even if they are connected in a sequence -- they will be separate subevents. 
 
 
-###Temporal Relation Annotation
+### When to add Temporal Links other than CONTAINS
+
 
 Temporal Links (TLINKs), as previously mentioned, are relations you
 can mark between EVENTs, between TIMEX3s, or across the two categories
@@ -2990,34 +2603,45 @@ will display these links in this document using the following format:
 
 - **EVENT1** RELATION **EVENT2**
 
-Where RELATION is BEFORE, BEFORE/CAUSES, OVERLAP/CAUSES, BEFORE/PRECONDITIONS,
-CONTAINS, CONTAINS-SUBEVENT, OVERLAP, SIMULTANEOUS, BEGINS-ON, or
-ENDS-ON, as determined by the type of relation being stated. Before
-we talk about exactly when to use each type of TLINK, we will first
-discuss two types of annotation which we have folded into Temporal
-Relations: Causation and Subevent annotation.
+The containment relations discussed above are expressed using two of these: CONTAINS and CONTAINS-SUBEVENT.  The remainder of the temporal links are BEFORE, OVERLAP, BEGINS-ON, ENDS-ON and SIMULTANEOUS, and two of those (BEFORE and OVERLAP) can also be subtyped into whether they also contain causal information (BEFORE/CAUSE, BEFORE/PRECONDITION, OVERLAP/CAUSE, OVERLAP/PRECONDITION).  
 
-Also of note is that we have included a "difficulty" marker for
-all TLINKs. This is defaulted to "None", but if an annotator creates
-a TLINK whose type is uncertain to them, they can change this value
-to "Present", indicating that the TLINK should not be taken as
-certain. Now, let's discuss the different types of TLINK available
-to annotators.
-
-
-#### When to TLINK
-
-\label{tlinkrules
-
-TLINKs themselves are relatively straightforward, and in fact, the
-more difficult part of annotating TLINKs is to know when to stop.
-Without any constraint, one could see making TLINKs between every
+Which relation to select will be detailed in specific sections that follow.  First, one must decide whether a relation should be annotated at all.  Without any constraint, one could see making TLINKs between every
 EVENT in the document, which leads to exponential growth of TLINKs
 and a tangle of relations which nobody, let alone a machine, would
-like to unpack.
+like to unpack.  So we use a series of rules -- structured to rely upon these intuitions about temporal containers -- in order to determine which things actually should get temporal links
 
-So, to constrain this process a bit, we have developed five rules
-to govern TLINKing:
+
+#### TLINK all EVENTs to their narrative container, if possible.
+
+As previously discussed, most EVENTs will fall into a narrative container
+of some kind. If a given EVENT is in a narrative container (like "August
+22nd" or "during her recovery"), you should always TLINK that
+EVENT to the TIMEX3 or EVENT which represents that narrative container,
+using the appropriate link. 
+
+When annotating, not every EVENT will be a part of a detailed narrative
+container (i.e. one specific than just the BEFORE, AFTER or OVERLAP relation to DOCTIME). However,
+it is vital that you, as an annotator, stop to ask yourself whether
+each EVENT you examine is a part of a narrative container, and whether
+you have marked that with a CONTAINS TLINK. 
+
+In this pursuit, you should almost never be marking more than one containing event.  We assume that if  you label that A contains B, and that B contains C, you do not need to also mark that A contains C.  For example, if Wednesday CONTAINS football game, and that football game CONTAINS a throwing event, we don't need to also know that the throwing event happened on Wednesday -- it's inferrable from the annotations already done. 
+
+
+#### Inferrable but unmarked Temporal Ordering is not labeled
+
+Because of the difficulty of capturing detail within a given narrative
+container, not all relations between EVENTs will be captured. For
+instance, in the following example, containment alone doesn't tell us the relationship between [dinner] and [session]:
+
+> During the [conference] there was a [session] in which they [thanked] Mr. Smith and a catered [dinner]
+
+In many cases, sufficient world knowledge, inference or research may let an annotator guess what the order of these events is.  However, unless there is explicit grammatical evidence for the ordering -- most obviously, prepositions and connectives like "Before", or thing like "and then" -- do not infer anything about the relationships between them. 
+
+
+
+
+### Temporal Relation Annotation
 
 
 #### TLINK only when it captures more information than just marking DocTimeRel.
@@ -3032,45 +2656,6 @@ OVERLAP and another has a DocTimeRel of AFTER, there is no need to
 make a TLINK between those two EVENTs.
 
 
-#### TLINK all EVENTs to their narrative container, if possible.
-
-As previously discussed, most EVENTs will fall into a narrative container
-of some kind. If a given EVENT is in a narrative container (like "August
-22nd" or "during her recovery"), you should always TLINK that
-EVENT to the TIMEX3 or EVENT which represents that narrative container,
-using the appropriate link. Once again, though, this should only be
-done if the result will be more informative than just analyzing the
-DocTimeRels. See \Next, showing an example sentence and the TLINKs
-required to annotate it:
-
-- *December 19th*: The patient underwent an **EKG** as well
-as emergency **surgery**. During the **surgery**, the patient
-experienced another **MI**, and repeated **tachycardia**. \a.
-*December 19th* CONTAINS **EKG** \b{.} *December 19th* CONTAINS
-**surgery** \b{.} **surgery** CONTAINS **MI** \b{.} **surgery**
-CONTAINS **tachycardia**
-
-When annotating, not every EVENT will be a part of a detailed narrative
-container (more specific than before, after, or during DOCTIME). However,
-it is vital that you, as an annotator, stop to ask yourself whether
-each EVENT you examine is a part of a narrative container, and whether
-the TLINKs you created are sufficient to mark that membership.
-
-If one EVENT is TLINKed to a second EVENT which is mentioned many
-times (all of which should be linked in an IDENTICAL chain), you do
-not need to actually link it to all of the other EVENTs in the chain,
-though such links might be technically correct. To prevent this spider-webbing,
-only create a TLink to the most recently mentioned EVENT instance
-in the chain. As an example:
-
-- Patient underwent **surgery** last week for colon polyps.
-The **hemicolectomy** **removed** the lesions. \a.**hemicolectomy**
-CONTAINS-SUBEVENT **removed** \b{.} !**surgery** CONTAINS-SUBEVENT
-**removed** (do not create this TLink!)
-
-Note that **surgery** and **hemicolectomy** would be in an IDENTICAL
-relation with each other. See \ref{corefguidelines} for more details.
-
 
 #### TLINK all explicitly stated temporal relations.
 
@@ -3078,9 +2663,9 @@ If the writer goes out of his or her way to make a temporal statement,
 a TLINK should be made to reflect that statement. So, if the sentence
 reads:
 
-- The patient **developed** a **rash** after **treatment**.
-\a. **treatment** BEFORE **rash** \b{.} **treatment** BEFORE
-**developed**
+> - The patient **developed** a **rash** after **treatment**.
+>  **treatment** BEFORE **rash** 
+> **treatment** BEFORE **developed**
 
 You should explicitly mark the treatment as being BEFORE both **developed**
 and **rash**, using a TLINK, regardless of the fact that **developed**
@@ -3088,20 +2673,15 @@ and **rash** will also be ALINKed. Note, though, that if no explicit
 temporal language is used, no TLINK should be created, and annotator
 knowledge should not be used to fill these TLINKs in.
 
+#### Do not need to TLINK TIMEX3s to one another.
 
-#### Try to only link EVENTs and TIMEX3s within the same sentence.
-
-In a perfect world, nearly all TLINKs would occur across two EVENTs
-or TIMEX3s in the same sentence. That said, often you need to link
-to an EVENT or TIMEX3 in a previous sentence to put an EVENT in the
-proper narrative container. In these situations, you may do so, but
-you should double-check to ensure that there is no other way of going
-about it, and remember that Coreference annotation will be done to
-link pronouns and subsequent mentions, so linking an EVENT to a subsequent
-reference to the narrative container is acceptable as well.
-
-That said, because of the nature of the notes, *TLINKs should
-never link items in sections with differing SECTIONTIME.
+Although there is certainly a temporal relation between, say, "January
+15th, 2009" and "March 2013", part of the post-processing of
+these annotations is the normalization of these Temporal Expressions,
+which will allow us to order these expressions on a timeline based
+on the times they represent. Although you will certainly still TLINK
+EVENTs and TIMEX3s, the TIMEX3s in the document can almost always
+be temporally ordered without the annotator's help.
 
 
 #### ACTUAL or UNCertain EVENTs should never be linked to HYPOTHETICAL
@@ -3122,21 +2702,26 @@ would generally be recommended, but given her poor **health**, this
 is not an option.
 
 Here, because the **chemotherapy** is HYPOTHETICAL, it cannot be
-TLINKed to **surgery**, even given the explicit mention. Further
-discussion can be found in Section \ref{discussion}.
+TLINKed to **surgery**, even given the explicit mention.
 
 
-#### You do not need to TLINK TIMEX3s to one another.
 
-Although there is certainly a temporal relation between, say, "January
-15th, 2009" and "March 2013", part of the post-processing of
-these annotations is the normalization of these Temporal Expressions,
-which will allow us to order these expressions on a timeline based
-on the times they represent. Although you will certainly still TLINK
-EVENTs and TIMEX3s, the TIMEX3s in the document can almost always
-be temporally ordered without the annotator's help.
 
-\color{blue} 
+#### Try to only link EVENTs and TIMEX3s within the same sentence.
+
+In a perfect world, nearly all TLINKs would occur across two EVENTs
+or TIMEX3s in the same sentence. That said, often you need to link
+to an EVENT or TIMEX3 in a previous sentence to put an EVENT in the
+proper narrative container. In these situations, you may do so, but
+you should double-check to ensure that there is no other way of going
+about it, and remember that Coreference annotation will be done to
+link pronouns and subsequent mentions, so linking an EVENT to a subsequent
+reference to the narrative container is acceptable as well.
+
+That said, because of the nature of the notes, *TLINKs should
+never link items in sections with differing SECTIONTIME.
+
+
 
 
 #### Avoid "Millisecond Reasoning"
@@ -3198,12 +2783,9 @@ yourself out of" a relation on the basis of a trivial temporal difference
 which is not explicitly stated, please make the relation and move
 on with your life.
 
-\color{black
 
 
-#### TLINK sub-types
-
-\label{tlinktypes
+### Discerning TLINK sub-types
 
 There are ten different temporal relations often used in this schema,
 BEFORE, BEFORE/CAUSES, OVERLAP/CAUSES, BEFORE/PRECONDITIONS, OVERLAP,
@@ -3215,11 +2797,11 @@ There is no default relation type for TLINKs.
 
 BEFORE is fairly straightforward and simply orders two events in time.
 
-- The 8th Infantry will **arrive** before **sundown**. \a.
-**arrive** BEFORE **sundown**
+> - The 8th Infantry will **arrive** before **sundown**. 
+>  **arrive** BEFORE **sundown**
 
-- She **vomited** shortly before **surgery**. \a. **vomited**
-BEFORE **surgery**
+> - She **vomited** shortly before **surgery**. 
+> **vomited** BEFORE **surgery**
 
 - His anterior chest **rash** has not **reoccurred** since
 the **PCN** VK was **discontinued** *24-hours ago*. \a. **discontinued**
@@ -5168,6 +4750,12 @@ Remember that hedges are NOT events, but merely good evidence for using UNCERTAI
 | event is explicitly/grammatically ongoing, and also has a link to a TIMEX3 before document time. | He has cancer, first noted in 1996 | 
 | The event is modified by the temporal use of "still" or "yet" | He still drive that old Ford he had in college. | 
 | Modified by an aspectual verbs that will have the aspectual link CONTINUES | That reporter keeps on investigating tobacco companies | 
+
+One context that is *not* valid evidence for BEFORE/OVERLAP (being somewhat slippery to pin down) is that of indirect speech acts.  While many would infer from the following example that the bankruptcy was true both today and yesterday, we cannot actually infer that from the sentence:
+
+> - The boss said yesterday that we are bankrupt$_{\text{OVERLAP}}$.
+
+
 
 ### Rules for Reporting verbs implying uncertain/hedged
 
