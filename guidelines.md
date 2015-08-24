@@ -2447,10 +2447,10 @@ In many cases, sufficient world knowledge, inference or research may let an anno
 
 ### TLINK only when it captures more information than just marking DocTimeRel.
 
-Because the `DocTimeRel' attribute of EVENTs expresses the relation
+Because the DocTimeRel attribute of EVENTs expresses the relation
 of the event to the time the document or section was written, you
 will never need to TLINK to the DOCTIME annotations. Marking an EVENT
-as `after' in the DocTimeRel field gives us the same information as
+as AFTER in the DocTimeRel field gives us the same information as
 making a BEFORE TLINK between the EVENT and DOCTIME, so you need not
 explicitly mark that. Similarly, if one EVENT has a DocTimeRel of
 OVERLAP and another has a DocTimeRel of AFTER, there is no need to
@@ -2464,7 +2464,7 @@ If the writer goes out of his or her way to make a temporal statement,
 a TLINK should be made to reflect that statement. So, if the sentence
 reads:
 
-> - The patient **developed** a **rash** after **treatment**.
+- The patient **developed** a **rash** after **treatment**.
 >  **treatment** BEFORE **rash** 
 > **treatment** BEFORE **developed**
 
@@ -2538,17 +2538,16 @@ BEFORE is fairly straightforward and simply orders two events in time.
 the **PCN** VK was **discontinued** *24-hours ago*. 
 > **discontinued** BEFORE **reoccurred**<sub>NEG</sub> 
 > **rash** BEFORE **reoccurred**<sub>NEG</sub>
-
-> (**rash** ENDS-ON **discontinued**) -- Discussed below.
-
+> **rash** ENDS-ON **discontinued** (Discussed below.)
 > *24-hours ago* OVERLAP **discontinued**
 
 (**PCN** will be linked to **discontinued**, 
 using an ALINK of the type TERMINATES, as described in [the Section on ALINKs](#alink-sub-types).
 
 When annotating, remember that "X occurred after Y" can be expressed
-by saying "Y occurred before X: - The **shooting**
-came shortly after the drug dealer's **release**. 
+by saying "Y occurred before X: 
+
+- The **shooting** came shortly after the drug dealer's **release**. 
 >  **release** BEFORE **shooting**
 
 - She was **seen** by Dr. Jones in cardiology following the
@@ -2619,14 +2618,9 @@ Limited **Colonoscopy** to the distal sigmoid due to an obstructive
 
 :bangbang: *There are many relations which seem like a sort of semantic
 containment (things like part/whole, cause/effect, disorder/symptoms).
-However, the CONTAINS relation should *only*
+However, the CONTAINS relation should only
 be used when there exists strict temporal containment (the temporal
-span of the container fully encompasses that of the contained), and
-a more specific relation (CONTAINS/SUB-EVENT, for instance) is not
-indicated. This rule will not be violated, and pay attention to DocTimeRel
-(because a BEFORE EVENT will never CONTAIN an OVERLAP EVENT, etc).
-Use a WHOLE/PART relation for instances of physical containment, etc.
-Discussed below.*
+span of the container fully encompasses that of the contained).
 
 
 
@@ -2659,9 +2653,9 @@ representation of the larger EVENT's type, it is a sub-event.
 
 - During *Friday's* **surgery**, the patient's heartrate **spiked**
 during the initial **incision**. \a. **surgery** CONTAINS-SUBEVENT
-**incision** 
 > **surgery** CONTAINS **spiked** 
 > *Friday\
+**incision** 
 CONTAINS **surgery**
 
 - The **tornado** was accompanied by high **winds** and multiple
@@ -4051,8 +4045,8 @@ event will be restarted or reinitiated:
 **restart**
 
 - His anterior chest **rash** has not **reoccurred** since
-the **PCN** VK was **discontinued** *24-hours ago*. \a. **discontinued**
-TERMINATES **PCN** 
+the **PCN** VK was **discontinued** *24-hours ago*.
+>  **discontinued** TERMINATES **PCN** 
 > **discontinued** BEFORE **reoccurred**<sub>NEG</sub>
 
 > **discontinued** OVERLAP *24-hours ago\
