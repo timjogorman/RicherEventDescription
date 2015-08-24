@@ -2491,7 +2491,7 @@ the crippled Fukushima nuclear plant has **shown** 4700 **becquerels**
 per liter.
 
 
-##Event Relations Pass: Linking Events Together
+# Event Relations Pass: Linking Events Together
 
 
 The next step of RED annotation is to take those EVENTs and TIMEX3s annotated in EVENT annotation and mark relations between them.  For example, in a simple sentence as follows, the "temporal structure" that we need to capture is that the leaving event happened on Sunday:
@@ -2508,7 +2508,7 @@ If you glance at any story or newspaper article, however, you will find that a g
 
 Instead, we will be avoiding such a "spiderweb" of temporal relations by attempting to mark *small amounts* of *very informative* temporal relations between notes, using the idea of **narrative containers**.
 
-### Narrative Containment
+## Narrative Containment
 
 Temporal structure of a narrative is often hierarchical. If, on a particular Tuesday, you go on a series of errands, one of which is going to the store, and during that visit you get milk, you could say that that Tuesday temporally contains the errands; that they temporally contain your trip to the store, and that it temporally contains the event of getting milk.  
 
@@ -2538,7 +2538,7 @@ While TIMEX3 and EVENTs can be temporal containers, we also have another kind of
 
 
 
-#### Temporal Containers vs Subevent Containers
+### Temporal Containers vs Subevent Containers
 
 Labeling temporal containment properly is primarily a task of marking which *temporal* spans contain other temporal spans.  This means, specifically, that we mark containment purely on whether it is temporally marked as containing other events when no semantic connection at all, such as:
 
@@ -2559,7 +2559,7 @@ only some events -- such as the excision -- could be characterized as being sube
 
 
 
-#### Choosing the Anchors of Narrative Containers
+### Choosing the Anchors of Narrative Containers
 
 When creating narrative containers as discussed above, you will need
 to choose either a TIMEX3 or an EVENT to be the "anchor" of the
@@ -2583,7 +2583,7 @@ temporal span.
 - Remember that if an event contains multiple different "steps"  -- even if they are connected in a sequence -- they will be separate subevents. 
 
 
-### When to add Temporal Links other than CONTAINS
+## When to add Temporal Links other than CONTAINS
 
 
 Temporal Links (TLINKs), as previously mentioned, are relations you
@@ -2603,7 +2603,7 @@ and a tangle of relations which nobody, let alone a machine, would
 like to unpack.  So we use a series of rules -- structured to rely upon these intuitions about temporal containers -- in order to determine which things actually should get temporal links
 
 
-#### TLINK all EVENTs to their narrative container, if possible.
+### TLINK all EVENTs to their narrative container, if possible.
 
 As previously discussed, most EVENTs will fall into a narrative container
 of some kind. If a given EVENT is in a narrative container (like "August
@@ -2620,7 +2620,7 @@ you have marked that with a CONTAINS TLINK.
 In this pursuit, you should almost never be marking more than one containing event.  We assume that if  you label that A contains B, and that B contains C, you do not need to also mark that A contains C.  For example, if Wednesday CONTAINS football game, and that football game CONTAINS a throwing event, we don't need to also know that the throwing event happened on Wednesday -- it's inferrable from the annotations already done. 
 
 
-#### Inferrable but unmarked Temporal Ordering is not labeled
+### Inferrable but unmarked Temporal Ordering is not labeled
 
 Because of the difficulty of capturing detail within a given narrative
 container, not all relations between EVENTs will be captured. For
@@ -2633,10 +2633,10 @@ In many cases, sufficient world knowledge, inference or research may let an anno
 
 
 
-### Temporal Relation Annotation
+## Temporal Relation Annotation
 
 
-#### TLINK only when it captures more information than just marking DocTimeRel.
+### TLINK only when it captures more information than just marking DocTimeRel.
 
 Because the `DocTimeRel' attribute of EVENTs expresses the relation
 of the event to the time the document or section was written, you
@@ -2649,7 +2649,7 @@ make a TLINK between those two EVENTs.
 
 
 
-#### TLINK all explicitly stated temporal relations.
+### TLINK all explicitly stated temporal relations.
 
 If the writer goes out of his or her way to make a temporal statement,
 a TLINK should be made to reflect that statement. So, if the sentence
@@ -2665,7 +2665,7 @@ and **rash** will also be ALINKed. Note, though, that if no explicit
 temporal language is used, no TLINK should be created, and annotator
 knowledge should not be used to fill these TLINKs in.
 
-#### Do not need to TLINK TIMEX3s to one another.
+### Do not need to TLINK TIMEX3s to one another.
 
 Although there is certainly a temporal relation between, say, "January
 15th, 2009" and "March 2013", part of the post-processing of
@@ -2676,7 +2676,7 @@ EVENTs and TIMEX3s, the TIMEX3s in the document can almost always
 be temporally ordered without the annotator's help.
 
 
-#### ACTUAL or UNCertain EVENTs should never be linked to HYPOTHETICAL
+### ACTUAL or UNCertain EVENTs should never be linked to HYPOTHETICAL
 or GENERIC EVENTs, and vice versa.
 
 This may seem quite specific, but HYPOTHETICAL and GENERIC EVENTs
@@ -2699,7 +2699,7 @@ TLINKed to **surgery**, even given the explicit mention.
 
 
 
-#### Try to only link EVENTs and TIMEX3s within the same sentence.
+### Try to only link EVENTs and TIMEX3s within the same sentence.
 
 In a perfect world, nearly all TLINKs would occur across two EVENTs
 or TIMEX3s in the same sentence. That said, often you need to link
@@ -2716,7 +2716,7 @@ never link items in sections with differing SECTIONTIME.
 
 
 
-#### Avoid "Millisecond Reasoning"
+### Avoid "Millisecond Reasoning"
 
 As you're annotating, there are some relations which feel "99.9\%
 true", and you're held back only by worries that, at a very zoomed-in
@@ -2777,7 +2777,7 @@ on with your life.
 
 
 
-### Discerning TLINK sub-types
+## Discerning TLINK sub-types
 
 There are ten different temporal relations often used in this schema,
 BEFORE, BEFORE/CAUSES, OVERLAP/CAUSES, BEFORE/PRECONDITIONS, OVERLAP,
@@ -2785,7 +2785,7 @@ SIMULTANEOUS, BEGINS-ON, ENDS-ON, CONTAINS, and CONTAINS-SUBEVENT.
 There is no default relation type for TLINKs.
 
 
-#### BEFORE
+### BEFORE
 
 BEFORE is fairly straightforward and simply orders two events in time.
 
@@ -2819,9 +2819,7 @@ stent **placement**. \a. **placement** BEFORE **seen**
 BEFORE **surgery**
 
 
-#### CONTAINS
-
-\label{revelation
+### CONTAINS
 
 CONTAINS signals that the beginning and the end of the CONTAINed EVENT
 is completely temporally contained within the temporal span of the
@@ -2896,9 +2894,7 @@ Discussed below.}%
 
 
 
-#### CONTAINS-SUBEVENT
-
-\label{subevent
+### CONTAINS-SUBEVENT
 
 Similarly to the way that we've chosen to consider causality as a
 temporal relation, we are treating event/sub-event relations as temporal
@@ -2977,7 +2973,7 @@ relation.}%
 
 
 
-#### OVERLAP
+### OVERLAP
 
 OVERLAP is a single temporal relation that encompasses all the different
 notions of two things happening at the same time, but is less specific
@@ -3038,7 +3034,7 @@ a bit of additional thought.}%
  \color{blue} 
 
 
-#### BEFORE/CAUSES, OVERLAP/CAUSES, BEFORE/PRECONDITIONS and OVERLAP/PRECONDITIONS
+### BEFORE/CAUSES, OVERLAP/CAUSES, BEFORE/PRECONDITIONS and OVERLAP/PRECONDITIONS
 
 Although these are included in the list of TLINKs during annotation,
 and carry the same temporal information and properties as BEFORE and
@@ -3046,7 +3042,7 @@ OVERLAP, they carry additional causal meanings, and are fully explained
 in Section \ref{causation}. \color{black} 
 
 
-#### BEGINS-ON
+### BEGINS-ON
 
 BEGINS-ON signals that the EVENT begins on the EVENT or TIMEX3 it
 is related to. This type of TLINK will only occur with EVENTs which
@@ -3065,7 +3061,7 @@ Note that BEGINS-ON is to be used only where there is no causal relationship.
 \a. **MI** BEFORE **pain**
 
 
-#### ENDS-ON
+### ENDS-ON
 
 ENDS-ON signals that the EVENT ends on the EVENT or TIMEX3 it is related
 to. As with BEGINS-ON, this type of TLINK will only occur with EVENTs
@@ -3086,7 +3082,7 @@ duration.
 **chemo** BEGINS-ON *March* \b{.} **chemo** ENDS-ON *July\
 
 
-#### SIMULTANEOUS
+### SIMULTANEOUS
 
 SIMULTANEOUS means exactly that: Two EVENTs have the same temporal
 boundaries and extent.
@@ -3178,26 +3174,13 @@ Unless you are sure that the start of the first EVENT \textit{is
 the start of the second, and similar for the end, use CONTAINS or
 OVERLAP.
 
-\color{black
-
-\vspace{0.25cm
- \fbox{ %
-\begin{tabular}{p{0.6in}p{14cm}
-\includegraphics[width=0.5in]{warning} \\
-*Caution!}  & \raisebox{4mm}{%
-\parbox[c]{14cm}{%
-\vspace{2mm
-\textit{You do not need to create SIMULTANEOUS TLINKs for EVENTs which
+:bangbang: You do not need to create SIMULTANEOUS TLINKs for EVENTs which
 are in an IDENTICAL chain. Two identical EVENTs share both temporal
 bounds, and thus, are SIMULTANEOUS, but we will generate those links
-later. Only mark SIMULTANEOUS for non-coreferent EVENTs.}%
-}}\ \
-\tabularnewline
-\end{tabular}} \vspace{0.25cm
+later. Only mark SIMULTANEOUS for non-coreferent EVENTs.
 
 
-
-#### Expressing TLINK Types in Point Algebra
+### Expressing TLINK Types in Point Algebra
 
 A more precise (although perhaps more esoteric) way to express temporal
 relations is using point algebra. In the style of Allen 1983 b\cite{Allen:1983:MKT:182.358434},
