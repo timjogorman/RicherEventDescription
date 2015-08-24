@@ -1640,28 +1640,27 @@ Compare these to the below sentences, where there's an ambiguity between
 reading the highlighted word or words as a straightforward DURATION
 TIMEX3, or as a manner adverb indicating speed of action:
 
-- I can write that report up in <5 minutes>. \a. The report will
+- I can write that report up in <5 minutes>. 
+> The report will
 be ready at the time DOCTIME + 5 minutes. 
-> When requested, I
-can write it up quickly, likely within 5 minutes.
+> When requested, I can write it up quickly, likely within 5 minutes.
 
 - The party leader claims that Japan "can arm itself with nuclear
-weapons <overnight>" in response to the continued aggressions. \a.
-Japan can arm itself with nuclear weapons in the period of time from
+weapons <overnight>" in response to the continued aggressions. 
+>  Japan can arm itself with nuclear weapons in the period of time from
 dusk on the day of DOCTIME to dawn the next day. 
-> Japan can
-arm itself, whenever it chooses to, in around 12 hours, or, in a figurative
+> Japan can arm itself, whenever it chooses to, in around 12 hours, or, in a figurative
 sense, "abruptly.
 
-In both \LLast and \Last, the (a) reading inteprets the marked expression
+In both, the first reading inteprets the marked expression
 as being DURATION TIMEX3s, which CONTAIN the EVENTs (`write' and `arm'),
-and which can be concretely placed on a timeline. In the (b) readings,
+and which can be concretely placed on a timeline. In the second readings,
 the marked expressions are effectively manner adverbs indicating "quickly",
 which float above the timeline, and thus, are not TIMEX3s at all.
 
-In situations like \LLast and \Last, where both the TIMEX3 and the
+In situations like these, where both the TIMEX3 and the
 manner adverb reads are possible, *interpret ambiguous DURATION/Manner
-Adverb expressions as DURATION TIMEX3s}. This way, we consistently
+Adverb expressions as DURATION TIMEX3s*. This way, we consistently
 teach the computer to recognize sequences of text which could be DURATION
 TIMEX3s, and we are able to get more temporal information than would
 otherwise be possible. Humans, reading the text down the road, can
@@ -1680,9 +1679,9 @@ It is worth noting though, that because of the complexities of medical
 records or news articles, some sections might have a separate, local
 time. These will always include a specific date, which will be marked
 not with DOCTIME, but with SECTIONTIME. In these cases, any DocTimeRel
-annotations will link to this section-specific time. \emph{If no separate
+annotations will link to this section-specific time. **If no separate
 date is explicitly given for a section, assume that it shares the
-overall DOCTIME.
+overall DOCTIME**.
 
 - **head start date=**12/13/2010**" rev=0002**
 
@@ -1959,8 +1958,9 @@ agreement has been hard to come by.
 
 - **Patients**$_{S1}$ with **cancer**$_{S2}$ are advised
 to avoid this medication. Our **patient**$_{M1}$ has kidney **cancer**$_{M2}$
-and lung **cancer**$_{M2}$, so we will not prescribe it. \a. Notice
-also that **Our** and **we** are in an IDENTICAL relation.
+and lung **cancer**$_{M2}$, so we will not prescribe it. 
+
+(Notice also that **Our** and **we** are in an IDENTICAL relation.)
 
 - Patient has two **arms**$_{S}$. Her left **arm**$_{M}$
 is scarred.
@@ -1971,9 +1971,8 @@ a group or another set.
 
 - **Terrorists** are among the most dangerous **criminals**,
 and **Al Nuri** is perhaps the most dangerous **terrorist** alive.
-\a. **Criminals** SET/MEMBER **Terrorists** 
-> **Terrorists**
-SET/MEMBER **Al Nuri**, **Terrorist**
+> **Criminals** SET/MEMBER **Terrorists** 
+> **Terrorists** SET/MEMBER **Al Nuri**, **Terrorist**
 
 Any number of MEMBERs may be included in a SET/MEMBER relation, although
 only one Entity is allowed to fill the SET slot.
@@ -1989,37 +1988,30 @@ There are a few specific cases in which BRIDGING can (and should)
 regularly be used:
 
 
-- Links of asserted identity, where the assertion is itself questioned
+Links of asserted identity, where the assertion is itself questioned
 or questionable: 
 
 
 - **John** was arrested last night, as authorities claim **he**
-is the **killer** of a local cobbler, found Monday. \a. **John**
-IDENTICAL **he** 
+is the **killer** of a local cobbler, found Monday. 
+> **John** IDENTICAL **he** 
 > **John** BRIDGING **killer**
 
 - **Grigory Kuznetsov**, long thought to be **"Rosebud"**,
-a key Cold War CIA asset, died Friday. \a. **Grigory Kuznetsov**
-BRIDGING **"Rosebud"**
+a key Cold War CIA asset, died Friday. 
+> **Grigory Kuznetsov** BRIDGING **"Rosebud"**
 
-See Section \ref{judgement} for more information about this usage.
-
-- She had a small stroke in **recovery** from her **colectomy**.
-\a. **colectomy** BRIDGING **recovery**
-
-Temporally-grounded IDENTITY links which are no longer valid. For
+Links that would otherwise be IDENTITY or APPOSITION, but are no longer valid. For
 instance:
 
 - **Ratzinger** was **Pope** until his retirement in 2013.
-\a. **Ratzinger** BRIDGING **Pope**
+>  **Ratzinger** BRIDGING **Pope**
 
 - **Greg Bear**, former **Head** of the National Croquet society,
-died Wednesday. \a. **Greg Bear** BRIDGING **Head**
+died Wednesday. 
+>  **Greg Bear** BRIDGING **Head**
 
-Because BRIDGING is intended as a last resort, any contexts (beyond
-those above) in which an annotator is consistently using bridging
-should be passed up the chain, so that a better way to handle those
-cases can be found.
+Because BRIDGING is intended as a last resort, there are other contexts in which bridging may be used to link entities, but such new instances should be brought up for discussion to check if it is truly BRIDGING. 
 
 
 ### General Guidelines for Annotating Coreference
@@ -2036,7 +2028,7 @@ an Event, or that your Event is not actually an Entity, as the case
 may be.
 
 Occaisionally one will encounter an ENTITY and an EVENT which are
-essentially two facets of the same complex type (cf Pustjovsky XXXX).
+essentially two facets of the same complex markable.
 Usually we strongly bias towards EVENTs, but this will occaisionally
 occur, and the two should be linked using BRIDGING. 
 
@@ -4220,8 +4212,8 @@ relation.
 
 | Type | example | treatment | see
 | ---- | ------- | --------- | ----
-| marking participation | his **role** in **helping** to... | "role" is not an event | see section XXX
-| aspectual pre-nominals | The **renewed** **investigation** of Morsi | "renewed" is an event because it gets an ALINK | see section XXX
+| marking participation | his **role** in **helping** to... | "role" is not an event | 
+| aspectual pre-nominals | The **renewed** **investigation** of Morsi | "renewed" is an event because it gets an ALINK | 
 | event as its goal | for assault, not ** attempted** **murder** | make BOTH events, "murder" is neg, "attempt" actual | 
 | mentions of time periods | he spent a brief period in the US | make period's phrase a TIMEX | 
 | mention of time periods with semantic content | john finished his probation period | these can be EVENT | 
@@ -4237,10 +4229,10 @@ relation.
 | endorsement  |  Three different countries have **endorsed** the trade **agreement**. | yes | no effect -- likely ACTUAL for e2 | no relation (unless endorsement/support enacts the endorsed thing) |
 | light verbs | John **took** a **bath** | no, only BATH |  | |
 | light verbs | The burglar **committed** a heinous **crime** | no, only **crime** |  | |
-| reporting  | NYT first reported the strike in october | yes | make second event ACTUAL unless reporting verb marks doubt(see table XXX) | REPORTING |
+| reporting  | NYT first reported the strike in october | yes | make second event ACTUAL unless reporting verb marks doubt | REPORTING |
 | reporting, absence of  | and the right hilar lesions were not **reported** as being **prominent**.  | yes | make second event UNCERTAIN/HEDGED if the absence of a report implies any doubt about its occurence  | no relation |
 | request | The Syrian rebels have repeatedly **requested** international **aid** | yes | default to HYPOTHETICAL for e2 |  one of the two PRECONDITION relations |
-| revealing/showing  | examination shows a decreased pulse | yes | make second event ACTUAL unless reporting verb marks doubt(see table XXX) | REPORTING |
+| revealing/showing  | examination shows a decreased pulse | yes | make second event ACTUAL unless reporting verb marks doubt | REPORTING |
 | seeming  | John seems to like chocolate | no | can be a hedge, and justification for marking UNCERTAIN/HEDGED | no relation |
 | support verbs | After ~~undergoing~~ extensive **transformation**... | no, just **transformation** | | |
 | support verbs | at that time, he ~~experienced~~  **discomfort**... | no, just **discomfort** | | |
