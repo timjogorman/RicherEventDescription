@@ -320,7 +320,7 @@ The second rule is:
 
 > If an entity reference contains a word that is merely clarifying the mention, but not an entity itself, then do not mark it, such as "county" in the mention above.  The exception to this is if that word is coreferential to a "real" mention of the same thing -- if "the county" was mentioned and clearly referential later in the document, then come back and tag this.
 
-A complication of this can be seen in:
+There is a special case of this, however, for instances like "Manokwari Hospital" below:
 
 - The nearest **[<sub>Entity</sub> Manokwari]** **[<sub>Entity</sub> Hospital ]** said that most of **[<sub>Entity</sub>those ]** seriously wounded now were treated at an emergency **[<sub>Entity</sub> unit]** at the **[<sub>Entity</sub> hospital]**.
 
@@ -336,11 +336,11 @@ Don't go overboard, however: when the actual named entity is not being evoked it
 - **[<sub>Entity</sub> I ]** like american **[<sub>Entity</sub> music ]**
 - **[<sub>Entity</sub> I ]** like indian **[<sub>Entity</sub>food ]**
 
-A good example to remember for this is that we don't want to be keeping track of the idea of "hot dog" in every mention of "hot dog stand", but that if we had a document that was somehow about "hot dogs", then we *do* want to keep track of it.  
+A good example to remember for this is that we don't want to be keeping track of the idea of "hot dog" in every mention of "hot dog stand", but that if we had a document that was somehow about "hot dogs" (say, reporting a recall of bad hot dogs), then we *do* want to keep track of it.  
 
 A more technical definition is that for "clearly referential" things, we are doing what is called *singleton annotation*, marking a referent even if it occurs only once in the document.  For less referential entities, we are abandoning singleton annotation and *only* mark an entity if it is coreferential with more important mentions.  "Less referential", in this case, means mentions that serve to clarify what you are referring to or doing (and therefore might not be being referred to themselves). 
 
-:bangbang: Remember that if something is subsumed by an event, make it an event!  Specifically, if a verb-object pair collectively constitute an event, such as a light verb or multi-word expression  -- "tell the truth", "take a bath", etc. -- then do not make the object an entity!
+:bangbang: *Remember that if something is subsumed by an event, make it an event!  Specifically, if a verb-object pair collectively constitute an event, such as a light verb or multi-word expression  -- "tell the truth", "take a bath", etc. -- then do not make the object an entity!*
 
 
 ##### Differentiating ENTITY and EVENT
@@ -775,7 +775,7 @@ If something is not quite negative, but close, is it almost always signalling UN
 of **MS**<sub>UNC, POS</sub>, but given her **symptoms<sub>ACTUAL,POS</sub>,
 it seems extremely likely.
 
-:bangbang: Remember that this is for *textually evidenced* uncertainty. No amount of implausibility allows you to inject UNCERTAIN based upon your own opinions:
+:bangbang: *Remember that this is for textually evidenced uncertainty. No amount of implausibility allows you to inject UNCERTAIN based upon your own opinions:*
 
 - *Yesterday*, I was **[<sub>ACTUAL</sub> abducted ]** by aliens.
 
@@ -1940,10 +1940,10 @@ even a slight bit, then one might consider it compositional and use
 WHOLE/PART. If, in contrast, the part is merely temporarily or arbitrarily
 located in the space of the other item, do not use WHOLE/PART.
 
-:bangbang: Note that while IDENT, SET/MEMBER and BRIDGING will also be
+:bangbang: *Note that while IDENT, SET/MEMBER and BRIDGING will also be
 used to mark EVENTS, WHOLE/PART is only for ENTITIES. Relationship
 that you are tempted to mark as WHOLE/PART should probably be CONTAINS-SUBEVENT
-or SET/MEMBER instead.
+or SET/MEMBER instead.*
 
 
 ### SET-MEMBER
@@ -2133,10 +2133,9 @@ of coreference.
 with the murder of a local blacksmith. The **alleged killer** is
 being held without bond. The **killer** reportedly had a large tattoo
 of a squid on **his** face, similar to the one present in **Mr.
-Holbein's** booking photo. \a. **Hans Holbein** IDENTICAL **man**,
-**alleged killer**,**Mr. Holbein's** 
-> **killer** IDENTICAL
-**his**
+Holbein's** booking photo. 
+> **Hans Holbein** IDENTICAL **man**, **alleged killer**,**Mr. Holbein's** 
+> **killer** IDENTICAL **his**
 
 In this example, all that we can be sure of is the two IDENTICAL chains
 above. It is incredibly tempting, especially given the seemingly irrefutable
@@ -2509,83 +2508,11 @@ TLINKed to **surgery**, even given the explicit mention.
 
 
 
-### Try to only link EVENTs and TIMEX3s within the same sentence.
+### Non-containment temporal links (BEFORE, OVERLAP, etc.) require explicit evidence, so going across sentences is very rare
 
-In a perfect world, nearly all TLINKs would occur across two EVENTs
-or TIMEX3s in the same sentence. That said, often you need to link
-to an EVENT or TIMEX3 in a previous sentence to put an EVENT in the
-proper narrative container. In these situations, you may do so, but
-you should double-check to ensure that there is no other way of going
-about it, and remember that Coreference annotation will be done to
-link pronouns and subsequent mentions, so linking an EVENT to a subsequent
-reference to the narrative container is acceptable as well.
+There are some kinds of TLINKs which will go beyond the scope of a sentence.  Feel free to mark CONTAINS relations across sentences -- you are trying to find the best narrative container for a given event, so you wnat to freely annotate that (keep it roughly local when possible, however: within roughly a paragraph).  Similarly, clear-cut CAUSE and PRECONDITIONS relations may go beyond the scope of the sentence.  
 
-That said, because of the nature of the notes, *TLINKs should
-never link items in sections with differing SECTIONTIME.
-
-
-
-
-### Avoid "Millisecond Reasoning"
-
-As you're annotating, there are some relations which feel "99.9\%
-true", and you're held back only by worries that, at a very zoomed-in
-level, the relation is somehow different. For example:
-
-- She **listened** to music during her whole **drive** home.
-\a. **listened** SIMULTANEOUS **drive**
-
-Some annotators may stop themselves and ask questions like "Well,
-maybe there was a moment at the beginning where she was driving, but
-the radio hadn't yet loaded the CD", or "Maybe she finished the
-song sitting in her driveway". These questions, although demonstrating
-admirable attention to detail, are ultimately unproductive, as they
-represent missing the forest for a very small tree. In this case,
-the assertion of simultaneity is made, and to back down to OVERLAP
-represents a major semantic loss. So, using this sort of "millisecond
-reasoning" will serve only to rob us of information, and will result
-in legally flawless annotations which miss the entire point of the
-text.
-
-Similarly, CONTAINS is vulnerable to Millisecond Reasoning:
-
-- She had an **MRI**, **radiation**, and a course of **chemotherapy**
-during her **treatment**. \a. **treatment** CONTAINS-SUBEVENT
-**MRI** 
-> **treatment** CONTAINS-SUBEVENT **radiation**
-
-> **treatment** CONTAINS-SUBEVENT **chemotherapy**
-
-In this situation, some annotators may be reluctant to use CONTAINS,
-as presumably, the temporal bounds of "treatment" are the beginning
-of the first sub-event, and the end of the last. Thus, at a micro-second
-level, there is not containment, as there is, perhaps, no portion
-of the "treatment" that begins prior to the first subevent in
-order to contain it.
-
-Again, though, this sort of reasoning wins us nothing. Here, a CONTAINS-SUBEVENT
-relation is *strongly* indicated, and no other relation is
-a better fit. It is a poor choice to talk ourselves out of a 99.9\%
-correct annotation (which could be, depending on one's interpretation
-of treatment, 100\% correct) in favor of OVERLAP, which is much less
-meaningful.
-
-Mind you, seconds can still count, and we must always be accurate
-relative to the text:
-
-- The **headache** began moments after the **treatment** **began**,
-and ended shortly after it **stopped**.
-
-In this case, the text is quite clearly stating that **headache**
-is NOT SIMULTANEOUS with **treatment**. Instead, one could use BEGINS-ON
-and ENDS-ON links to **began** and **stopped** to express more
-accurately what's going on.
-
-So, although accuracy is critical, and the text should always be trusted,
-if you find yourself in a situation where you feel like you're "talking
-yourself out of" a relation on the basis of a trivial temporal difference
-which is not explicitly stated, please make the relation and move
-on with your life.
+However, temporal relations that are not causal nor CONTAINS -- such as BEFORE, OVERLAP, etc. -- require explicit evidence.  It is very rare that these constraints jump between sentences, and thus it's very inlikely that any links you make across sentence boundaries are acceptable.  There are exceptions to this, but they are a finite list of allowable cases listed in section XXXXXXXXXX below.
 
 
 
@@ -2685,13 +2612,12 @@ important to have that consistency. So, in a section like:
 
 - **Colonoscopy** (*January 7, 2010*): Fair/adequate **prep.**,
 Limited **Colonoscopy** to the distal sigmoid due to an obstructive
-**lesion**. Diminutive **polyps** of the rectosigmoid. \a. *January
-7, 2010* CONTAINS **Colonoscopy** 
-> **Colonoscopy** CONTAINS
-**lesion** 
+**lesion**. Diminutive **polyps** of the rectosigmoid. 
+> *January 7, 2010* CONTAINS **Colonoscopy** 
+> **Colonoscopy** CONTAINS **lesion** 
 > **Colonoscopy** CONTAINS **polyps**
 
-:bangbang: There are many relations which seem like a sort of semantic
+:bangbang: *There are many relations which seem like a sort of semantic
 containment (things like part/whole, cause/effect, disorder/symptoms).
 However, the CONTAINS relation should *only*
 be used when there exists strict temporal containment (the temporal
@@ -2700,7 +2626,7 @@ a more specific relation (CONTAINS/SUB-EVENT, for instance) is not
 indicated. This rule will not be violated, and pay attention to DocTimeRel
 (because a BEFORE EVENT will never CONTAIN an OVERLAP EVENT, etc).
 Use a WHOLE/PART relation for instances of physical containment, etc.
-Discussed below.
+Discussed below.*
 
 
 
@@ -2774,10 +2700,10 @@ CONTAINS **interruption**
 
 > (**interruption** BEGINS-ON **burst**) -- Discussed below.
 
-:bangbang: Remember, CONTAINS-SUBEVENT is still a CONTAINS temporal relation.
+:bangbang: *Remember, CONTAINS-SUBEVENT is still a CONTAINS temporal relation.
 If you have two items that are event/sub-event, but where the EVENT
 does not temporally CONTAIN the sub-event, use the generic BRIDGING
-relation.
+relation.*
 
 ### OVERLAP
 
@@ -2824,12 +2750,12 @@ as in \Next:
 - We will keep her on rate-control **medications** 100 mg *twice
 daily* \a. *twice daily* OVERLAP **medications**
 
-:bangbang: OVERLAP provides relatively little information for the actual
+:bangbang: *OVERLAP provides relatively little information for the actual
 processing of text compared to our other temporal relations. If you
 are reasonably sure that the relation is one of containment, you should
 use one of the CONTAINS relations instead, and often, one can represent
 a potential OVERLAP more specifically using narrative containers and
-a bit of additional thought.
+a bit of additional thought.*
 
 
 ### BEFORE/CAUSES, OVERLAP/CAUSES, BEFORE/PRECONDITIONS and OVERLAP/PRECONDITIONS
@@ -2974,10 +2900,10 @@ Unless you are sure that the start of the first EVENT is
 the start of the second, and similar for the end, use CONTAINS or
 OVERLAP.
 
-:bangbang: You do not need to create SIMULTANEOUS TLINKs for EVENTs which
+:bangbang: *You do not need to create SIMULTANEOUS TLINKs for EVENTs which
 are in an IDENTICAL chain. Two identical EVENTs share both temporal
 bounds, and thus, are SIMULTANEOUS, but we will generate those links
-later. Only mark SIMULTANEOUS for non-coreferent EVENTs.
+later. Only mark SIMULTANEOUS for non-coreferent EVENTs.*
 
 
 ### Expressing TLINK Types in Point Algebra
@@ -3057,11 +2983,11 @@ as a part of a POS TLINK. These most often occur as links between
 two POS EVENTs, which are specified as NOT having a certain temporal
 relation.
 
-:bangbang: TLINK negation is used only when the temporal relation itself
+:bangbang: *TLINK negation is used only when the temporal relation itself
 is negated. It is completely independent from EVENT negation, and
 the negation of EVENTs in no way implies negation of the TLINK. NEG
 TLINKs are far less common than NEG EVENTs, and should be pondered
-carefully before creation.
+carefully before creation.*
 
 
 
@@ -3190,11 +3116,11 @@ in November* CONTAINS **Elections** <GENERIC>
 - The last US Presidential **Election** was held on *November
 4th, 2008* \a. *November 4th, 2008* CONTAINS **Election** <ACTUAL>
 
-:bangbang: As with TLINK polarity, TLINK modality is seldom anything
+:bangbang: *As with TLINK polarity, TLINK modality is seldom anything
 but the default, ACTUAL. If you are considering marking a TLINK with
 UNC, HYP or GEN, double-check to make sure that it is the temporal
 relation itself which is uncertain, hypothetical, or generic, rather
-than just the EVENTs within it.
+than just the EVENTs within it.*
 
 
 
@@ -3368,11 +3294,10 @@ an abstract instance of the particular eventuality in question. Instead,
 we are examining and taking as truth what actually happened \textit{in
 this case}, based on the text. For example:
 
-- **Dropping** the **pistol** caused **it** to **fire**,
-**destroying** the nearby **fan**. \a. **Dropping** BEFORE/CAUSE
-**fire** 
-> **fire** BEFORE/CAUSE **destroying** \b{.
-**pistol** IDENTICAL **it**
+- **Dropping** the **pistol** caused **it** to **fire**, **destroying** the nearby **fan**. 
+> **Dropping** BEFORE/CAUSE **fire** 
+> **fire** BEFORE/CAUSE **destroying** 
+> **pistol** IDENTICAL **it**
 
 It is rare for modern pistols to fire when dropped, and even less
 the case that all pistols destroy fans when fired. However, \textit{in
@@ -3435,10 +3360,9 @@ words like "let", "enable," "allowed", "lead to",
 etc.
 
 - An **ambush** in the rural Kunar province triggered a day-long
-**battle** between Coalition forces and Taliban soldiers. \a. **ambush**
-BEFORE/CAUSES **battle** 
-> Do not annotate as **ambush**
-BEFORE/CAUSES **trigger**.
+**battle** between Coalition forces and Taliban soldiers. 
+> **ambush** BEFORE/CAUSES **battle** 
+(Do not annotate as **ambush** BEFORE/CAUSES **trigger**.)
 
 As seen in \Last, these relational words themselves, however, should
 not be included in the CAUSES/PRECONDITIONS links, and in fact should
@@ -3450,8 +3374,8 @@ causing event (e.g. of **ambush** in \Last).
 
 TIMEX3s cannot be in CAUSES or PRECONDITIONS links:
 
-- The vault will be **opened** on *June 24th*. \a. *June
-24th* CONTAINS **opened**
+- The vault will be **opened** on *June 24th*. 
+> *June 24th* CONTAINS **opened**
 
 Even if the humans (or mechanisms) controlling the vault's opening
 will not allow it to happen until the 24th, ultimately, it is not
@@ -3476,14 +3400,15 @@ If an inanimate object is described as a cause/effect/precondition,
 mark it as a IMPLICIT EVENT, so that it can be linked:
 
 - The **drug** **raised** **her** **blood** **pressure**.
-\a. **drug** OVERLAPS/CAUSES **raised**
+> **drug** OVERLAPS/CAUSES **raised**
 
 Here, the administration or the chemical effects of the the drug are
 causing the raise, rather than the drug itself. Thus, we can mark
 the drug as METONYMIC.
 
 - The balance **sheets** caused them to **favor** the **spin**
-off. \a. **sheets** OVERLAPS/CAUSES **favored**
+off.
+>  **sheets** OVERLAPS/CAUSES **favored**
 
 Here, the "balance sheets" refer to the analysis of the financial
 state of the company, rather than to the sheets of paper themselves.
@@ -4155,10 +4080,10 @@ another event:
 - Patient **nausea** was successfully **stopped** by 1-mg
 **Ativan** p.r.n. \a. **stopped** TERMINATES **nausea**
 
-:bangbang: ALINKs are much less common than TLINKs, usually only a few
+:bangbang: *ALINKs are much less common than TLINKs, usually only a few
 per document, but they are no less important and easy to overlook.
 Remember that any time you have an EVENT which has the type ASPECTUAL,
-you will need to create at least one ALINK.
+you will need to create at least one ALINK.*
 
 
 ## REP - Reporting Annotation
