@@ -1,3 +1,24 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [Special Cases, Constructions and Edge Cases](#special-cases-constructions-and-edge-cases)
+  - [Metaphorical and Figurative Language](#metaphorical-and-figurative-language)
+  - [Exclamations, Interjections, and Emphatics!](#exclamations-interjections-and-emphatics)
+  - [Annotating Sarcasm](#annotating-sarcasm)
+  - [Metaphorical and Figurative Language (MkII)](#metaphorical-and-figurative-language-mkii)
+  - [Intent and Purpose](#intent-and-purpose)
+  - [Annotating the word "plan" or "plans"](#annotating-the-word-plan-or-plans)
+  - [Annotating "prior" and "at the same time\textquotedbl{}](#annotating-prior-and-at-the-same-time%5Ctextquotedbl)
+  - [Annotating "Prior\textquotedbl{}](#annotating-prior%5Ctextquotedbl)
+  - [Annotating "at the same time\textquotedbl{}](#annotating-at-the-same-time%5Ctextquotedbl)
+  - [Discussions, Generalizations, and other EVENTs which aren't on the](#discussions-generalizations-and-other-events-which-arent-on-the)
+  - [Examples of discussion](#examples-of-discussion)
+  - [Some Exceptions and Specific Patterns](#some-exceptions-and-specific-patterns)
+    - [Measurement Phrases](#measurement-phrases)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 
 ###Special Cases, Constructions and Edge Cases
 

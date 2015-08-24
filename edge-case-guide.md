@@ -1,3 +1,13 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [Ground Rules for annotating HYP/GEN events and discussion events](#ground-rules-for-annotating-hypgen-events-and-discussion-events)
+- [Discerning OVERLAP/CAUSE vs OVERLAP/PRECONDITIONS](#discerning-overlapcause-vs-overlappreconditions)
+- [Deontic Modality is an edge case.](#deontic-modality-is-an-edge-case)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 #### Ground Rules for annotating HYP/GEN events and discussion events
 
 As discussed previously, these EVENTs, by virtue of their modality,
