@@ -1158,12 +1158,14 @@ So, if you're marking an EVENT ASPECTUAL, the EVENT in question will
 need to be able to be paraphrased (while retaining most of the meaning)
 using words from one of the below four sets, each corresponding to
 a different ALINK type (INITIATES, TERMINATES, REINITIATES, CONTINUES):
-\begin{enumerate
+
+
 - started/began/initiated/got going
 - stopped/ended/finished/finalized/terminated/held
 - restarted/started over/began again/reinitiated
 - continued/persisted in/proceeded in/didn't stop
-\end{enumerate
+
+
 If an EVENT cannot be paraphrased using any of the words above, it
 is not aspectual.
 
@@ -1639,13 +1641,15 @@ reading the highlighted word or words as a straightforward DURATION
 TIMEX3, or as a manner adverb indicating speed of action:
 
 - I can write that report up in <5 minutes>. \a. The report will
-be ready at the time DOCTIME + 5 minutes. \b{.} When requested, I
+be ready at the time DOCTIME + 5 minutes. 
+> When requested, I
 can write it up quickly, likely within 5 minutes.
 
 - The party leader claims that Japan "can arm itself with nuclear
 weapons <overnight>" in response to the continued aggressions. \a.
 Japan can arm itself with nuclear weapons in the period of time from
-dusk on the day of DOCTIME to dawn the next day. \b{.} Japan can
+dusk on the day of DOCTIME to dawn the next day. 
+> Japan can
 arm itself, whenever it chooses to, in around 12 hours, or, in a figurative
 sense, "abruptly.
 
@@ -1744,7 +1748,8 @@ discussion forum post about cat ownership, many people may say "I
 have a cat." (although it's unlikely to be offset from the matrix
 text, as discussed above). Multiple people saying the same things,
 even if they use the same words, does not constitute DUPLICATE.
-\end{enumerate
+
+
 Remember that DUPLICATE means that a section of text will \textit{not
 be annotated at all at any point in the process}, and improper use
 (on text that isn't actually duplicated) will rob us of valuable data.
@@ -1802,9 +1807,9 @@ thing -- like Michele Obama, she, and First Lady in the example below
 - **Michele Obama**$_{e1}$ is a busy **lady**, **she**$_{e1}$
 visits many schools around the country during the year. Just last
 week, the **First Lady**$_{e1}$ was in Wisconsin teaching kids
-why it is important to eat healthy and exercise \label{Mobama
+why it is important to eat healthy and exercise.
 
-Yet example \ref{Mobama} also illustrates this question of what to
+Yet the above example also illustrates this question of what to
 do with attribution, as in the entity is a busy **lady**.
 The fundamental rule we'll follow with this is the following: 
 \begin{itemize
@@ -1841,7 +1846,6 @@ This may make sense if one looks at the syntactic tree -- note that
 their separate noun phrases are split:
 
 - My **friend** who works there, **John Smith**, makes bread.
-\label{apposlong
 
 - \Tree [.S [.NP [.NP [.NP [.DT my ] [.NN friend ] ] [.RelativeClause who works there ]] [.NP John Smith ] ] [.VP makes bread ]]
 
@@ -1928,7 +1932,7 @@ such as:
 
 - We saw the **White house** while in **D.C.**.
 
-The difference between \ref{visitorsinhouse} and \ref{dchouse} reveals
+The difference between these two previous examples reveals
 a difficult boundary case that you will have to ponder -- what counts
 as compositionally part of a thing.
 This is particularly salient when the whole\textquotedbl{
@@ -1970,7 +1974,8 @@ a group or another set.
 
 - **Terrorists** are among the most dangerous **criminals**,
 and **Al Nuri** is perhaps the most dangerous **terrorist** alive.
-\a. **Criminals** SET/MEMBER **Terrorists** \b{.} **Terrorists**
+\a. **Criminals** SET/MEMBER **Terrorists** 
+> **Terrorists**
 SET/MEMBER **Al Nuri**, **Terrorist**
 
 Any number of MEMBERs may be included in a SET/MEMBER relation, although
@@ -1985,13 +1990,16 @@ events have some sort of link, then use the BRIDGING relation.
 
 There are a few specific cases in which BRIDGING can (and should)
 regularly be used:
-\begin{enumerate
+
+
 - Links of asserted identity, where the assertion is itself questioned
 or questionable: 
-\end{enumerate
+
+
 - **John** was arrested last night, as authorities claim **he**
 is the **killer** of a local cobbler, found Monday. \a. **John**
-IDENTICAL **he** \b{.} **John** BRIDGING **killer**
+IDENTICAL **he** 
+> **John** BRIDGING **killer**
 
 - **Grigory Kuznetsov**, long thought to be **"Rosebud"**,
 a key Cold War CIA asset, died Friday. \a. **Grigory Kuznetsov**
@@ -2066,7 +2074,8 @@ discussed treatment options for **her**$_{M2-1}$ cancer. **We**
 also reviewed in **our**$_{S2}$ discussion the results of **her**$_{M2-2}$
 recent CT-scan. **My**$_{M1}$ recommendation is adjuvant chemotherapy.
 \a. SET **We**$_{S1}$: MEMBERs **I**$_{M1}$, **patient**$_{M2}$,
-**her**$_{M2-1}$ \b{.} SET **our**$_{S2}$: MEMBERs **her**$_{M2-2}$,
+**her**$_{M2-1}$ 
+> SET **our**$_{S2}$: MEMBERs **her**$_{M2-2}$,
 **My**$_{M1}$
 
 In this example, **I**$_{M1}$ and **My**$_{M1}$ are IDENTICAL;
@@ -2094,9 +2103,12 @@ of a local clinical trial in which **patients**$_{GENERIC}$ with
 **cancer**$_{GENERIC}$ recovered successfully on the **drug**
 without reoccurrence. Given **her** colon **cancer**<sub>ACTUAL</sub>
 and the success of the **drug**, **I** recommend **it**. \a.
-SET **patients**: MEMBER **Mrs. Ambry** \b{.} **Mrs. Ambry**
-IDENTICAL **her** \c{.} SET **cancer**$_{GENERIC}$: MEMBER **cancer**<sub>ACTUAL</sub>
-\d{.} **I** IDENTICAL **I** \e. **drug** IDENTICAL **drug**,
+SET **patients**: MEMBER **Mrs. Ambry** 
+> **Mrs. Ambry**
+IDENTICAL **her** 
+> SET **cancer**$_{GENERIC}$: MEMBER **cancer**<sub>ACTUAL</sub>
+
+> **I** IDENTICAL **I** \e. **drug** IDENTICAL **drug**,
 **it**
 
 
@@ -2122,10 +2134,9 @@ Phone numbers are not person-specific, and thus, are not eligible
 for these relations.
 
 
-#### Avoid annotating coreference links based solely on your personal
-evaluation or judgement
+#### If Identity is uncertain in the document, use BRIDGING (even if you know the truth)
 
-\label{judgement} Occasionally, authors (or context) will suggest
+Occasionally, authors (or context) will suggest
 coreference or identity, or will explicitly state the uncertainty
 of coreference.
 
@@ -2134,7 +2145,8 @@ with the murder of a local blacksmith. The **alleged killer** is
 being held without bond. The **killer** reportedly had a large tattoo
 of a squid on **his** face, similar to the one present in **Mr.
 Holbein's** booking photo. \a. **Hans Holbein** IDENTICAL **man**,
-**alleged killer**,**Mr. Holbein's** \b{.} **killer** IDENTICAL
+**alleged killer**,**Mr. Holbein's** 
+> **killer** IDENTICAL
 **his**
 
 In this example, all that we can be sure of is the two IDENTICAL chains
@@ -2143,7 +2155,7 @@ squid, to jump to conclusions and merge (a) and (b) into one massive
 IDENTICAL chain. However, in our schema, all ENTITYs are different
 until proven IDENTICAL, and Mr. Holbein deserves a fair trial.
 
-However, there is irrefutably \textit{some sort of relationship} between
+However, there is irrefutably *some sort of relationship* between
 Mr. Holbein and the killer. Whether this relationship is of legal
 identity, actual identity, or simply a mistaken prosecution by an
 over-zealous district attorney, we cannot know, but we know that there
@@ -2155,8 +2167,9 @@ with the murder of a local blacksmith. The **alleged killer** is
 being held without bond. The **killer** reportedly had a large tattoo
 of a squid on **his** face, similar to the one present in **Mr.
 Holbein's** booking photo. \a. **Hans Holbein** IDENTICAL **man**,
-**alleged killer**,**Mr. Holbein's** \b{.} **killer** IDENTICAL
-**his** \b{.} **killer** BRIDGING **Mr. Holbein's**
+**alleged killer**,**Mr. Holbein's** 
+> **killer** IDENTICAL **his** 
+> **killer** BRIDGING **Mr. Holbein's**
 
 By doing this (alongside the other necessary annotations), we've established
 two clear IDENTICAL chains, and made clear that there is a link between
@@ -2182,16 +2195,16 @@ of anybody associated with RED):
 
 - **Barack Obama** was born in Nigeria, he's not American, and
 his presidency is illegal. That's why **he** loves **immigrants**!
-\\
- <Post by: TheyTookOurJarbs Date: 4/15/12 6:56pm> \\
- It's terrible, I hate these illegal **immigrants** taking jobs
-from hard-working **Americans**. \a. **Barack Obama** IDENTICAL
-**he** \b{.} **immigrants** SET/MEMBER **immigrants** (representing
-the fact that illegal immigrants are a subset of immigrants)
+
+- It's terrible, I hate these illegal **immigrants** taking jobs
+from hard-working **Americans**. 
+- **Barack Obama** IDENTICAL **he** 
+- **immigrants** SET/MEMBER **immigrants** (representing the fact that illegal immigrants are a subset of immigrants)
 
 In addition to the (uncontroversial) relations above, there are three
 pitfalls, all based on external knowledge.
-\begin{enumerate
+
+
 - Americans SET/MEMBER Barack Obama
 
 
@@ -2210,7 +2223,8 @@ support in the text.
 That Obama is an illegal immigrant is strongly implied by these posts.
 However, it's not explicit, and therefore, we cannot mark it.
 
-\end{enumerate
+
+
 So, again, in summary, your annotations need to be sourced from the
 text itself, rather than from your knowledge of the entities, people,
 and places involved, and asserted IDENTITY links can be made using
@@ -2218,8 +2232,6 @@ BRIDGING.
 
 
 #### Identity Annotation for very broadly GENERIC entities
-
-\label{vbroadgens
 
 Some set/member relations are so general that they define huge, all-encompassing
 sets. This is most clear when considering terms such as everything,
@@ -2550,8 +2562,10 @@ Similarly, CONTAINS is vulnerable to Millisecond Reasoning:
 
 - She had an **MRI**, **radiation**, and a course of **chemotherapy**
 during her **treatment**. \a. **treatment** CONTAINS-SUBEVENT
-**MRI** \b{.} **treatment** CONTAINS-SUBEVENT **radiation**
-\b{.} **treatment** CONTAINS-SUBEVENT **chemotherapy**
+**MRI** 
+> **treatment** CONTAINS-SUBEVENT **radiation**
+
+> **treatment** CONTAINS-SUBEVENT **chemotherapy**
 
 In this situation, some annotators may be reluctant to use CONTAINS,
 as presumably, the temporal bounds of "treatment" are the beginning
@@ -2606,9 +2620,12 @@ BEFORE is fairly straightforward and simply orders two events in time.
 
 - His anterior chest **rash** has not **reoccurred** since
 the **PCN** VK was **discontinued** *24-hours ago*. \a. **discontinued**
-BEFORE **reoccurred**<sub>NEG</sub> \b{.} **rash** BEFORE **reoccurred**<sub>NEG</sub>
-\c{.} (**rash** ENDS-ON **discontinued**) -- Discussed below.
-\c{.} *24-hours ago* OVERLAP **discontinued**
+BEFORE **reoccurred**<sub>NEG</sub> 
+> **rash** BEFORE **reoccurred**<sub>NEG</sub>
+
+> (**rash** ENDS-ON **discontinued**) -- Discussed below.
+
+> *24-hours ago* OVERLAP **discontinued**
 
 It is worth noting that in \Last, **PCN** will be linked to **discontinued**
 using an ALINK of the type TERMINATES, described in Section \ref{alinks}.
@@ -2677,8 +2694,10 @@ important to have that consistency. So, in a section like:
 - **Colonoscopy** (*January 7, 2010*): Fair/adequate **prep.**,
 Limited **Colonoscopy** to the distal sigmoid due to an obstructive
 **lesion**. Diminutive **polyps** of the rectosigmoid. \a. *January
-7, 2010* CONTAINS **Colonoscopy** \b{.} **Colonoscopy** CONTAINS
-**lesion** \b{.} **Colonoscopy** CONTAINS **polyps**
+7, 2010* CONTAINS **Colonoscopy** 
+> **Colonoscopy** CONTAINS
+**lesion** 
+> **Colonoscopy** CONTAINS **polyps**
 
 \vspace{0.25cm
  \fbox{ %
@@ -2732,12 +2751,15 @@ representation of the larger EVENT's type, it is a sub-event.
 
 - During *Friday's* **surgery**, the patient's heartrate **spiked**
 during the initial **incision**. \a. **surgery** CONTAINS-SUBEVENT
-**incision** \b{.} **surgery** CONTAINS **spiked** \c{.} *Friday\
+**incision** 
+> **surgery** CONTAINS **spiked** 
+> *Friday\
 CONTAINS **surgery**
 
 - The **tornado** was accompanied by high **winds** and multiple
 funnel **clouds**. \a. **tornado** CONTAINS-SUBEVENT **winds**
-\b{.} **tornado** CONTAINS-SUBEVENT **clouds**
+
+> **tornado** CONTAINS-SUBEVENT **clouds**
 
 - **Colonoscopy** (*January 7, 2010*): Fair/adequate **prep.**,
 Limited **Colonoscopy** to the distal sigmoid due to an obstructive
@@ -2753,8 +2775,11 @@ instances, the relationship is simply containment:
 
 - During *Friday's* **surgery**, the patient's heartrate **spiked**
 when she **fell** off the table. \a. **surgery** CONTAINS **fell**
-\b{.} **surgery** CONTAINS **spiked** \c{.} *Friday* CONTAINS
-**surgery** \d{.} (**spiked** BEGINS-ON **fell**) -- Discussed
+
+> **surgery** CONTAINS **spiked** 
+> *Friday* CONTAINS
+**surgery** 
+> (**spiked** BEGINS-ON **fell**) -- Discussed
 below in Section \ref{corefannotation}.
 
 - The **earthquake** occurred during the **parade**. \a.
@@ -2762,8 +2787,10 @@ below in Section \ref{corefannotation}.
 
 - There was a large **interruption** when the colonel and his
 guards **burst** into the parliament **debates**. \a. **debates**
-CONTAINS **interruption** \b{.} **debates** CONTAINS **burst**
-\c{.} (**interruption** BEGINS-ON **burst**) -- Discussed below.
+CONTAINS **interruption** 
+> **debates** CONTAINS **burst**
+
+> (**interruption** BEGINS-ON **burst**) -- Discussed below.
 
 \vspace{0.25cm
  \fbox{ %
@@ -2804,8 +2831,11 @@ climate change just a few hundred miles away. \a. **struck** OVERLAP
 
 - The patient had some rectal **itching** and mild **pain**
 *today*, mostly *this morning*. \a. *today* CONTAINS **itching**
-\b{.} *today* CONTAINS **pain** \b{.} *this morning* OVERLAP
-**itching** \b{.} *this morning* OVERLAP **pain**
+
+> *today* CONTAINS **pain** 
+> *this morning* OVERLAP
+**itching** 
+> *this morning* OVERLAP **pain**
 
 - He does have a history of peri-rectal **abscess** with his
 last round of **chemotherapy**. \a. **chemotherapy** OVERLAP
@@ -2888,7 +2918,8 @@ Note that ENDS-ON can be used in concert with BEGINS-ON to mark a
 duration.
 
 - She was on **chemo** from *March* through *July*. \a.
-**chemo** BEGINS-ON *March* \b{.} **chemo** ENDS-ON *July\
+**chemo** BEGINS-ON *March* 
+> **chemo** ENDS-ON *July\
 
 
 ### SIMULTANEOUS
@@ -2942,7 +2973,8 @@ than using OVERLAP-CAUSE}.
 
 - The whole time that John **raced** around the track, his **frightened**
 mother **clutched** her seat with white knuckles. \a. **raced**
-SIMULTANEOUS **clutched** \b{.} **raced** BEFORE-CAUSE **frightened**
+SIMULTANEOUS **clutched** 
+> **raced** BEFORE-CAUSE **frightened**
 
 In this case, the clutching is likely to start and end with the racing,
 but alas, the fear persists.
@@ -3000,19 +3032,15 @@ on the timeline.
 
 Given this notation, our TLINK types can be expressed as below:
 
-\begin{tabular}{|c|c|c|
-\hline 
-*Relation}  & *Notation}  & *Meaning}\tabularnewline
-\hline 
-BEFORE  & A+ < B-  & "A is before B\tabularnewline
-CONTAINS  & (A- < B-) AND (A+ > B+)  & "A contains B\tabularnewline
-CONTAINS-SUBEVENT  & (A- < B-) AND (A+ > B+)  & "A contains B\tabularnewline
-OVERLAP  & (A- < B- < A+) OR (B- < A- < B+)  & "A and B overlap" \tabularnewline
-BEGINS-ON  & A+ = B-  & "B begins-on A\tabularnewline
-ENDS-ON  & A- = B+  & "B ends-on A\tabularnewline
-SIMULTANEOUS  & A- = B- AND A+ = B+  & "A is simultaneous with B\tabularnewline
-\hline 
-\end{tabular
+| Relation |  Notation | Meaning | 
+| -------- | --------- | ------- |
+| BEFORE  | A+ < B-  | A is before B | 
+| CONTAINS  | (A- < B-) AND (A+ > B+)  | A contains B |
+| CONTAINS-SUBEVENT  | (A- < B-) AND (A+ > B+) | A contains B |
+| OVERLAP  | (A- < B- < A+) OR (B- < A- < B+)  | A and B overlap |
+| BEGINS-ON  | A+ = B-  | B begins-on A |
+| ENDS-ON  | A- = B+  | B ends-on A |
+| SIMULTANEOUS | A- = B- AND A+ = B+  | A is simultaneous with B |
 
 Note that our definitions of OVERLAP and SIMULTANEOUS are symmetrical,
 in that "A OVERLAP B" and "B OVERLAP A" mean the same thing.
@@ -3023,7 +3051,7 @@ annotation without prior knowledge of both A- and B-.
 
 ### Annotating polarity of TLINKs
 
-\label{TLINKPolarity} Polarity of TLINKs is identical to polarity
+Polarity of TLINKs is identical to polarity
 in EVENTs, although naturally the applications will differ slightly.
 Polarity is used and applicable with TLINKs of all types.
 
@@ -3050,8 +3078,10 @@ but on *the 24th*. \a. *18th* CONTAINS -- NEG **bombing** \b{.
 
 - The **earthquake** did not cause the **fire**, instead,
 **it** was caused by an electrical **short** . \a. **earthquake**
-BEFORE/CAUSES -- NEG **fire** \b{.} **short** BEFORE/CAUSES --
-POS **it** \b{.} **earthquake** BEFORE -- POS **fire**
+BEFORE/CAUSES -- NEG **fire** 
+> **short** BEFORE/CAUSES --
+POS **it** 
+> **earthquake** BEFORE -- POS **fire**
 
 - The **meeting** was not on *Thursday*. \a. *Thursday\
 CONTAINS -- NEG **meeting**
@@ -3078,7 +3108,7 @@ carefully before creation.
 
 ### Annotating contextual modality of TLINKs
 
-\label{linkmodality} \label{TLINKModality} TLINKs can take the same
+TLINKs can take the same
 contextual modalities as EVENTs: ACT, UNC, HYP, and GEN. These modalities,
 as with EVENTs, represent claims about the reality or certainty of
 the TLINKs, and are independent of the modalities or certainties of
@@ -3120,7 +3150,8 @@ differentiated from known facts.
 
 - He likely **escaped** on the *18th* during a *guard change*,
 although authorities cannot be sure. \a. *18th* CONTAINS **guard
-change** <ACTUAL> \b{.} **guard change** CONTAINS **escaped**
+change** <ACTUAL> 
+> **guard change** CONTAINS **escaped**
 <UNCERTAIN>
 
 - The chairman will, in all likelihood, **step** down on *Monday*.
@@ -3132,8 +3163,10 @@ before her **tournament**. \a. **heal** BEFORE **tournament**
 
 - The **fire**, very likely caused by a lightning **strike**,
 is **growing** due to high **winds**. \a. **strike** BEFORE/CAUSE
-**fire** <UNCERTAIN> \b{.} **winds** OVERLAP/CAUSE **growing**
-<ACTUAL> \b{.} **strike** BEFORE **growing** <ACTUAL>
+**fire** <UNCERTAIN> 
+> **winds** OVERLAP/CAUSE **growing**
+<ACTUAL> 
+> **strike** BEFORE **growing** <ACTUAL>
 
 
 **HYP - Hypothetical**
@@ -3149,12 +3182,14 @@ CONTAINS **surgery** <HYPOTHETICAL>
 
 - If the **explosion** was caused by a natural gas **leak**,
 the insurance will not **cover** the **reconstruction**. \a.
-**leak** BEFORE/CAUSE **explosion** <HYPOTHETICAL> \b{.} **explosion**
+**leak** BEFORE/CAUSE **explosion** <HYPOTHETICAL> 
+> **explosion**
 BEFORE/PRECONDITIONS **reconstruction** <ACTUAL>
 
 - Obama's **visit**, if **it** occurs on a *weekday*, is
 expected to cause traffic **headaches**. \a. **it** OVERLAPS/CAUSE
-**headaches** <HYPOTHETICAL> \b{.} *weekday* CONTAINS **it**
+**headaches** <HYPOTHETICAL> 
+> *weekday* CONTAINS **it**
 <HYPOTHETICAL>
 
 Great caution must be exercised before marking a relation itself as
@@ -3245,7 +3280,8 @@ occurrence of Y:
 
 - The **rockfall** made the **over-full** **dam** **burst**,
 **flooding** the **town** below. \a. **rockfall** BEFORE/CAUSES
-**burst** \b{.} **burst** BEFORE/CAUSES **flooding**
+**burst** 
+> **burst** BEFORE/CAUSES **flooding**
 
 Here, the rockfall is what immediately caused the burst (although
 the over-full nature of the dam may have preconditioned it), just
@@ -3255,7 +3291,8 @@ would have been neither bursting nor flooding.
 
 - The **sheriff** **fired** **her** **gun**, **killing**
 the **injured** **deer**. \a. **fired** BEFORE/CAUSES **killing**
-\b{.} **sheriff** IDENTICAL **her**
+
+> **sheriff** IDENTICAL **her**
 
 Here, although the injury may have eventually led to the deer's demise,
 the killing was caused directly and immediately by the firing of the
@@ -3278,8 +3315,9 @@ its duration, hence OVERLAP/CAUSES), the destruction was inevitable.
 
 - Although **it** took *many years*, the **discovery** of
 **Uranium** outside **Moab** would eventually **revitalize**
-the local **economy**. \label{moaburanium} \a. **discovery**
-BEFORE/CAUSE **revitalize** \b{.} **it** IDENTICAL **revitalize**
+the local **economy**. 
+**discovery** BEFORE/CAUSE **revitalize** 
+**it** IDENTICAL **revitalize**
 
 This shows an example where, although there was significant time
 lag between the cause (the discovery of Uranium and the effect: revitalization),
@@ -3299,7 +3337,8 @@ is *necessary* in order for the other EVENT to have happened.
 
 - The **rockfall** made the **over-full** **dam** **burst**,
 **flooding** the **town** below. \a. **rockfall** BEFORE/CAUSES
-**burst** \b{.} **burst** BEFORE/CAUSES **flooding** \b{.
+**burst** 
+> **burst** BEFORE/CAUSES **flooding** \b{.
 ***over-full** BEFORE/PRECONDITIONS **burst**
 
 Here, we are led to believe that the over-full nature of the dam helped
@@ -3309,7 +3348,8 @@ was not enough to cause the burst, thus, is only a precondition.
 
 - The **sheriff** **loaded** **her** **rifle**, then **fired**
 at the **target**. \a. **loaded** BEFORE/PRECONDITION **fired**
-\b{.} **sheriff** IDENTICAL **her**
+
+> **sheriff** IDENTICAL **her**
 
 Were the rifle not loaded, it could not have fired, and therefore,
 loading is a precondition to firing (although the firing is separately
@@ -3317,7 +3357,8 @@ caused).
 
 - The **strikes** came in **retaliation** for recent terrorist
 **attacks**. \a. **attacks** BEFORE/PRECONDITIONS **retaliation**
-\b{.} **strikes** IDENTICAL **retaliation**
+
+> **strikes** IDENTICAL **retaliation**
 
 In \Last, although something else (a pilot pushing a button, or a
 general's orders) was the direct cause of the strikes, we are told
@@ -3370,7 +3411,8 @@ this case}, based on the text. For example:
 
 - **Dropping** the **pistol** caused **it** to **fire**,
 **destroying** the nearby **fan**. \a. **Dropping** BEFORE/CAUSE
-**fire** \b{.} **fire** BEFORE/CAUSE **destroying** \b{.
+**fire** 
+> **fire** BEFORE/CAUSE **destroying** \b{.
 **pistol** IDENTICAL **it**
 
 It is rare for modern pistols to fire when dropped, and even less
@@ -3435,7 +3477,8 @@ etc.
 
 - An **ambush** in the rural Kunar province triggered a day-long
 **battle** between Coalition forces and Taliban soldiers. \a. **ambush**
-BEFORE/CAUSES **battle** \b{.} Do not annotate as **ambush**
+BEFORE/CAUSES **battle** 
+> Do not annotate as **ambush**
 BEFORE/CAUSES **trigger**.
 
 As seen in \Last, these relational words themselves, however, should
@@ -3520,7 +3563,8 @@ BEFORE **dinner**
 
 - The **general** **ordered** **strikes** in **retaliation**
 for recent terrorist **attacks**. \a. **attacks** BEFORE/PRECONDITIONS
-**retaliation** \b{.} **strikes** IDENTICAL **retaliation**
+**retaliation** 
+> **strikes** IDENTICAL **retaliation**
 
 In all of these cases, the verb semantics will reveal the link in
 a clearer and more nuanced way than causal annotations.
@@ -3536,7 +3580,8 @@ are shown (**lymphomas**). The same goes with other evidential events
 
 - **Scans** through the lower neck and upper chest **showed**
 malignant **lymphomas**. \a. **scans** OVERLAP **lymphomas**
-\b{.} **scans** OVERLAP **showed**
+
+> **scans** OVERLAP **showed**
 
 Although it is logically true that without scanning, nothing could
 be shown, and that the showing creates the understanding of the presence
@@ -3557,11 +3602,14 @@ is reliable, unless otherwise indicated:
 
 - On *Sunday*, he **said**, **one** of the **bombs** **wrecked**
 the family's home. \a. **one** OVERLAPS/CAUSES **wrecked** \b{.
-*Sunday* CONTAINS **wrecked** \b{.} **bombs** SET/MEMBER **one**
+*Sunday* CONTAINS **wrecked** 
+> **bombs** SET/MEMBER **one**
 
 - **Frank** **claims** that an **alien** mind-control **beam**
 made **him** **rob** the **bank**. \a. **beam** OVERLAP/CAUSES
-**rob** \b{.} **Frank** IDENTICAL **him** \c{.} **claims**
+**rob** 
+> **Frank** IDENTICAL **him** 
+> **claims**
 REPORTING **beam**
 
 Remember, you are not a jury, and it is not your role to determine
@@ -3575,16 +3623,20 @@ There can be multiple causes and preconditions for a single event:
 - After **loading** **his** **pistol** and **chambering**
 a **round**, the **instructor** **pulled** the **trigger**
 and **fired** a **shot** as a **demonstration**. \a. **loading**
-BEFORE/PRECONDITION **fired** \b{.} **chambering** BEFORE/PRECONDITION
-**fired** \b{.} **pulled** BEFORE/CAUSE **fired**
+BEFORE/PRECONDITION **fired** 
+> **chambering** BEFORE/PRECONDITION
+**fired** 
+> **pulled** BEFORE/CAUSE **fired**
 
 Similarly, a single EVENT can cause or precondition several other
 EVENTs:
 
 - **He** has **seen** **people** **decapitated** by barrel
 **bombs** and **others** who **lost** **their** **limbs**.
-\a. **bombs** OVERLAPS/CAUSES **decapitated** \b{.} **bombs**
-OVERLAPS/CAUSES **lost** \c{.} **others** IDENTICAL **their**
+\a. **bombs** OVERLAPS/CAUSES **decapitated** 
+> **bombs**
+OVERLAPS/CAUSES **lost** 
+> **others** IDENTICAL **their**
 
 
 #### Causal links can cross sentence boundaries
@@ -3602,7 +3654,8 @@ no way to determine causation besides human inference:
 
 - A terrorist group has **claimed** responsibility for the suspect
 packages. (...) The group **formed** just before the London **Olympics**
-in 2012. \a. **formed** BEFORE **Olympics** \b{.} Do not annotate
+in 2012. \a. **formed** BEFORE **Olympics** 
+> Do not annotate
 as **formed** BEFORE/PRECONDITIONS **claimed**
 
 
@@ -3619,7 +3672,9 @@ causation in the eventual outcome:
 - **He** was **jailed** after **pleading** guilty in **court**
 following a series of **burglaries** and **muggings** in *November
 2013*. \a. **burglaries** BEFORE/PRECONDITIONS **pleading**
-\b{.} **muggings** BEFORE/PRECONDITIONS **pleading** \b{.} **pleading**
+
+> **muggings** BEFORE/PRECONDITIONS **pleading** 
+> **pleading**
 BEFORE/CAUSES **jailed**
 
 Rather than stating explicitly that the burglaries and muggings precondition
@@ -3630,8 +3685,10 @@ followed through basic logic. Similarly:
 - The death toll from a **bombing** in Bangkok **rose** to
 three on Monday after a doctor **confirmed** that a six-year-old
 girl had **died** from her **injuries**. \a. **bombing** OVERLAP/CAUSES
-**injuries** \b{.} **injuries** BEFORE/CAUSES **died** \c{.
-**confirmed** REPORTS **died** \d{.} **died** BEFORE/CAUSE
+**injuries** 
+> **injuries** BEFORE/CAUSES **died** \c{.
+**confirmed** REPORTS **died** 
+> **died** BEFORE/CAUSE
 **rose**%
 \footnote{The word "after" indicates a BEFORE link instead of an OVERLAP
 link, even though in reality, the death toll rises simultaneously
@@ -3671,7 +3728,8 @@ which are not the target of the associated ALINK:
 
 - Several months after **quitting** **smoking**, his **singing**
 got so much **better**. \a. **quitting** BEFORE/CAUSES **better**
-\b{.} ALINK: **quitting** TERMINATES **smoking**
+
+> ALINK: **quitting** TERMINATES **smoking**
 
 
 #### When in doubt, leave it out!
@@ -3683,8 +3741,10 @@ relation instead:
 - **Politicians** **condemned** the **attacks**, **saying**
 **they** were a deliberate **effort** to **incite** sectarian
 **strife** and **undermine** the **country**'s fragile **democracy**.
-\a. **effort** OVERLAPS **strife** \b{.} **strife** OVERLAPS
-**undermine** \b{.} ALINK: **incite** INITIATES **strife**
+\a. **effort** OVERLAPS **strife** 
+> **strife** OVERLAPS
+**undermine** 
+> ALINK: **incite** INITIATES **strife**
 
 Do not mark **effort** OVERLAPS/CAUSES **strife** nor **strife**
 OVERLAPS/CAUSES **undermine**, as both would rely on inference,
@@ -3694,7 +3754,8 @@ Similarly:
 
 - **She** **drank** **Diet Mountain Dew** like **water**,
 and *now* **she** has **cancer**. \a. (Because DocTimeRel differs,
-no TLINK between **drank** and **cancer** is needed) \b{.} **She**
+no TLINK between **drank** and **cancer** is needed) 
+> **She**
 IDENTICAL **she**
 
 As with some of the examples in Section \ref{causessuggestedintext},
@@ -3718,8 +3779,10 @@ your sole choice is to create a BEFORE/PRECONDITIONS link.
 - **She** **unlocked** the **vault**, **disabled** the
 **cameras**, and **distracted** the **guard** so that **he**
 could **steal** the **gold**. \a. **unlocked** BEFORE/PRECONDITIONS
-**steal** \b{.} **disabled** BEFORE/PRECONDITIONS **steal**
-\b{.} **distracted** BEFORE/PRECONDITIONS **steal**
+**steal** 
+> **disabled** BEFORE/PRECONDITIONS **steal**
+
+> **distracted** BEFORE/PRECONDITIONS **steal**
 
 Because preconditions are defined as EVENTs which must have happened
 in order for a later EVENT to happen, temporally speaking, all PRECONDITIONS
@@ -3944,7 +4007,8 @@ of", yet temporally outside of, another event.
 
 - After a week of attempted repairs, the palace **collapsed**
 Friday, the most disheartening part of the already-terrible **earthquake**.
-\a. **earthquake** BEFORE-CAUSE **collapsed** \b{.} **earthquake**
+\a. **earthquake** BEFORE-CAUSE **collapsed** 
+> **earthquake**
 BRIDGING **collapsed**
 
 
@@ -3988,7 +4052,8 @@ discussed treatment options for **her**$_{M2-1}$ cancer. **We**
 also reviewed in **our**$_{S2}$ discussion the results of **her**$_{M2-2}$
 recent CT-scan. **My**$_{M1}$ recommendation is adjuvant chemotherapy.
 \a. SET **We**$_{S1}$: MEMBERs **I**$_{M1}$, **patient**$_{M2}$,
-**her**$_{M2-1}$ \b{.} SET **our**$_{S2}$: MEMBERs **her**$_{M2-2}$,
+**her**$_{M2-1}$ 
+> SET **our**$_{S2}$: MEMBERs **her**$_{M2-2}$,
 **My**$_{M1}$
 
 In this example, **I**$_{M1}$ and **My**$_{M1}$ are IDENTICAL;
@@ -4009,9 +4074,12 @@ of a local clinical trial in which **patients**$_{GENERIC}$ with
 **cancer**$_{GENERIC}$ recovered successfully on the **drug**
 without reoccurrence. Given **her** colon **cancer**<sub>ACTUAL</sub>
 and the success of the **drug**, **I** recommend **it**. \a.
-SET **patients**: MEMBER **Mrs. Ambry** \b{.} **Mrs. Ambry**
-IDENTICAL **her** \c{.} SET **cancer**$_{GENERIC}$: MEMBER **cancer**<sub>ACTUAL</sub>
-\d{.} **I** IDENTICAL **I** \e. **drug** IDENTICAL **drug**,
+SET **patients**: MEMBER **Mrs. Ambry** 
+> **Mrs. Ambry**
+IDENTICAL **her** 
+> SET **cancer**$_{GENERIC}$: MEMBER **cancer**<sub>ACTUAL</sub>
+
+> **I** IDENTICAL **I** \e. **drug** IDENTICAL **drug**,
 **it**
 
 
@@ -4053,7 +4121,8 @@ another event:
 towards Damascus. \a. **keep** CONTINUES **pressing**
 
 - The patient will **remain** on **dialysis** until her condition
-**changes**. \a. **remain** CONTINUES **dialysis** \b{.} **remain**
+**changes**. \a. **remain** CONTINUES **dialysis** 
+> **remain**
 ENDS-ON **changes**
 
 - She is not interested in pursuing chemotherapy at this time
@@ -4070,10 +4139,12 @@ INITIATES is used when an aspectual event indicates the start or initiation
 of another event:
 
 - *2008* marked the **start** of the rebels' brutal **campaign**.
-\a. **start** BEGINS-ON *2008* \b{.} **start** INITIATES **campaign**
+\a. **start** BEGINS-ON *2008* 
+> **start** INITIATES **campaign**
 
 - Patient will **begin** a high-fiber **diet** upon **release**.
-\a. **begin** INITIATES **diet** \b{.} **begin** BEGINS-ON
+\a. **begin** INITIATES **diet** 
+> **begin** BEGINS-ON
 **release**
 
 - We will **start** Ms. Miller on a normal saline **infusion**
@@ -4094,13 +4165,16 @@ event will be restarted or reinitiated:
 **violence**
 
 - **Levaquin** 750 mg p.o. q. day (will **restart** *today*)
-\a. **restart** REINITIATES **Levaquin** \b{.} *today* CONTAINS
+\a. **restart** REINITIATES **Levaquin** 
+> *today* CONTAINS
 **restart**
 
 - His anterior chest **rash** has not **reoccurred** since
 the **PCN** VK was **discontinued** *24-hours ago*. \a. **discontinued**
-TERMINATES **PCN** \b{.} **discontinued** BEFORE **reoccurred**<sub>NEG</sub>
-\b{.} **discontinued** OVERLAP *24-hours ago\
+TERMINATES **PCN** 
+> **discontinued** BEFORE **reoccurred**<sub>NEG</sub>
+
+> **discontinued** OVERLAP *24-hours ago\
 
 As with INITIATES, reinitiates carries an implied sort of causality.
 This causality need not be marked, so long as the ALINK is present.
@@ -4118,7 +4192,8 @@ another event:
 \a. **discontinued** TERMINATES **Allegra**
 
 - We will **hold** her **heparin** until after the **surgery**.
-\a. **hold** TERMINATES **heparin** \b{.} **hold** ENDS-ON
+\a. **hold** TERMINATES **heparin** 
+> **hold** ENDS-ON
 **surgery**
 
 - Patient **nausea** was successfully **stopped** by 1-mg
