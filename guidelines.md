@@ -2601,37 +2601,38 @@ There is no default relation type for TLINKs.
 
 BEFORE is fairly straightforward and simply orders two events in time.
 
-> - The 8th Infantry will **arrive** before **sundown**. 
+- The 8th Infantry will **arrive** before **sundown**. 
 >  **arrive** BEFORE **sundown**
 
-> - She **vomited** shortly before **surgery**. 
+- She **vomited** shortly before **surgery**. 
 > **vomited** BEFORE **surgery**
 
 - His anterior chest **rash** has not **reoccurred** since
-the **PCN** VK was **discontinued** *24-hours ago*. \a. **discontinued**
-BEFORE **reoccurred**<sub>NEG</sub> 
+the **PCN** VK was **discontinued** *24-hours ago*. 
+> **discontinued** BEFORE **reoccurred**<sub>NEG</sub> 
 > **rash** BEFORE **reoccurred**<sub>NEG</sub>
 
 > (**rash** ENDS-ON **discontinued**) -- Discussed below.
 
 > *24-hours ago* OVERLAP **discontinued**
 
-It is worth noting that in \Last, **PCN** will be linked to **discontinued**
-using an ALINK of the type TERMINATES, described in Section \ref{alinks}.
+(**PCN** will be linked to **discontinued**, 
+using an ALINK of the type TERMINATES, as described in [the Section on ALINKs](#alink-sub-types).
 
 When annotating, remember that "X occurred after Y" can be expressed
 by saying "Y occurred before X: - The **shooting**
-came shortly after the drug dealer's **release**. \a. **release**
-BEFORE **shooting**
+came shortly after the drug dealer's **release**. 
+>  **release** BEFORE **shooting**
 
 - She was **seen** by Dr. Jones in cardiology following the
-stent **placement**. \a. **placement** BEFORE **seen**
+stent **placement**. 
+> **placement** BEFORE **seen**
 
-- He had a car **accident** shortly after his **visit**. \a.
-**visit** BEFORE **accident**
+- He had a car **accident** shortly after his **visit**. 
+>  **visit** BEFORE **accident**
 
-- He had a **neckache** after **surgery**. \a. **neckache**
-BEFORE **surgery**
+- He had a **neckache** after **surgery**. 
+> **neckache** BEFORE **surgery**
 
 
 ### CONTAINS
@@ -2649,27 +2650,29 @@ Y, it is assumed that there is also an OVERLAP relation between the
 two. You should only use CONTAINS when you are sure that the nature
 of the overlap is one of complete containment.
 
-- In *2007*, 15 people were **killed** outside Mumbai. \a.
-*2007* CONTAINS **killed**
+- In *2007*, 15 people were **killed** outside Mumbai. 
+> *2007* CONTAINS **killed**
 
 - During the US-led **invasion**, reporters **rode** along
-with actual military units. \a. **invasion** CONTAINS **rode**
+with actual military units. 
+> **invasion** CONTAINS **rode**
 
-- *March 2005* - Patient underwent **appendectomy** \a. *March
-2005* CONTAINS **appendectomy**
+- *March 2005* - Patient underwent **appendectomy** 
+> *March 2005* CONTAINS **appendectomy**
 
 - **Levaquin** 750 mg p.o. q. day (will **restart** *today*)
-\a. *today* CONTAINS **restart**
+> *today* CONTAINS **restart**
 
 - **Comparison** is made with prior MRI head **examination**
-without and with gadolinium from *10-23-03*. \a. *10-23-03* CONTAINS
-**examination**
+without and with gadolinium from *10-23-03*. 
+> *10-23-03* CONTAINS **examination**
 
 - An ENT performed the ** my** during *Friday*'s **surgery**.
-\a. *Friday* CONTAINS **surgery**
+> *Friday* CONTAINS **surgery**
 
 - **Gengraf** 300-mg p.o. b.i.d. (**decreased** in *early
-June*) \a. *early June* CONTAINS **decreased**
+June*) 
+> *early June* CONTAINS **decreased**
 
 In addition, we have made one specific regulation involving the use
 of CONTAINS: All test results or observations are to be linked to
