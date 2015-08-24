@@ -92,16 +92,11 @@
     - [ENDS-ON](#ends-on)
     - [SIMULTANEOUS](#simultaneous)
     - [Expressing TLINK Types in Point Algebra](#expressing-tlink-types-in-point-algebra)
-      - [Annotating polarity of TLINKs](#annotating-polarity-of-tlinks)
-      - [POS - Positive](#pos---positive)
-      - [NEG - Negative](#neg---negative)
-      - [Annotating contextual modality of TLINKs](#annotating-contextual-modality-of-tlinks)
-      - [ACT - Actual](#act---actual)
-      - [UNC - Uncertain/Hedged](#unc---uncertainhedged)
-      - [HYP - Hypothetical](#hyp---hypothetical)
-      - [GEN - Generic](#gen---generic)
-    - [Causation and Precondition Annotation](#causation-and-precondition-annotation)
-      - [Distinguishing "Cause" from "Precondition"](#distinguishing-cause-from-precondition)
+    - [Annotating TLINK Features](#annotating-tlink-features)
+    - [Annotating polarity of TLINKs](#annotating-polarity-of-tlinks)
+    - [Annotating contextual modality of TLINKs](#annotating-contextual-modality-of-tlinks)
+  - [Causation and Precondition Annotation](#causation-and-precondition-annotation)
+    - [Distinguishing "Cause" from "Precondition"](#distinguishing-cause-from-precondition)
       - [Causality Annotation Rules and Regulations](#causality-annotation-rules-and-regulations)
       - [Causality is specific to the instance, not to the concept](#causality-is-specific-to-the-instance-not-to-the-concept)
       - [Focus on relations suggested in the text](#focus-on-relations-suggested-in-the-text)
@@ -121,28 +116,18 @@
       - [BEFORE/CAUSES](#beforecauses)
       - [OVERLAP/CAUSES](#overlapcauses)
       - [Causal TLINK Properties](#causal-tlink-properties)
-    - [Event Coreference](#event-coreference)
-      - [IDENTITY](#identity)
-      - [SET-MEMBER](#set-member-1)
-      - [BRIDGING](#bridging-1)
+  - [Event Coreference](#event-coreference)
+    - [IDENTITY](#identity)
+    - [SET-MEMBER](#set-member-1)
+    - [BRIDGING](#bridging-1)
       - [General Guidelines for Annotating Coreference](#general-guidelines-for-annotating-coreference-1)
       - [Never link EVENTs to ENTITIES](#never-link-events-to-entities)
       - [WHOLE/PART, SET/MEMBER, and BRIDGING relations are inherited by IDENT](#wholepart-setmember-and-bridging-relations-are-inherited-by-ident-1)
       - [Bridging relations are re-created for subsequent mentions](#bridging-relations-are-re-created-for-subsequent-mentions-1)
       - [Don't link ACTUAL and GENERIC items](#dont-link-actual-and-generic-items-1)
-    - [Aspectual Link Annotation](#aspectual-link-annotation)
-      - [ALINK sub-types](#alink-sub-types)
-      - [CONTINUES](#continues)
-      - [INITIATES](#initiates)
-      - [REINITIATES](#reinitiates)
-      - [TERMINATES](#terminates)
-    - [REP - Reporting Annotation](#rep---reporting-annotation)
-      - [Requesting, Asking, Promising](#requesting-asking-promising)
-      - [Restatement, reframing, equating](#restatement-reframing-equating)
-      - [Avoiding Inference in Temporal Relations](#avoiding-inference-in-temporal-relations)
-      - [Inference and Coreference](#inference-and-coreference)
-      - [Pre- and Post- expressions (preoperative, post-treatment, intraoperatively,](#pre--and-post--expressions-preoperative-post-treatment-intraoperatively)
-      - [Counterfactuals and Causation](#counterfactuals-and-causation)
+  - [Aspectual Link Annotation](#aspectual-link-annotation)
+    - [ALINK sub-types](#alink-sub-types)
+  - [REP - Reporting Annotation](#rep---reporting-annotation)
 - [Appendix](#appendix)
   - [Edge Case Guides](#edge-case-guides)
     - [Hard Cases in EVENT vs ENTITY distinctions](#hard-cases-in-event-vs-entity-distinctions)
@@ -3210,15 +3195,16 @@ in that "A OVERLAP B" and "B OVERLAP A" mean the same thing.
 For OVERLAP, which EVENT starts first is not recoverable from the
 annotation without prior knowledge of both A- and B-.
 
+### Annotating TLINK Features
 
-#### Annotating polarity of TLINKs
+### Annotating polarity of TLINKs
 
 \label{TLINKPolarity} Polarity of TLINKs is identical to polarity
 in EVENTs, although naturally the applications will differ slightly.
 Polarity is used and applicable with TLINKs of all types.
 
 
-#### POS - Positive
+**POS - Positive**
 
 As with EVENTs, the default and most common polarity value used is
 POS. This is the marker of positive polarity. This is used for a temporal
@@ -3229,7 +3215,7 @@ All examples in this guideline, unless otherwise marked, represent
 POS TLINKs.
 
 
-#### NEG - Negative
+**NEG - Negative**
 
 TLINKs are marked as NEG only when they are both explicitly asserted
 \textit{and} asserted to be false.
@@ -3258,25 +3244,15 @@ as a part of a POS TLINK. These most often occur as links between
 two POS EVENTs, which are specified as NOT having a certain temporal
 relation.
 
-\vspace{0.5cm
- \fbox{ %
-\begin{tabular}{p{0.6in}p{14cm}
-\includegraphics[width=0.5in]{warning} \\
-*Caution!}  & \raisebox{4mm}{%
-\parbox[c]{14cm}{%
-\vspace{2mm
-\textit{TLINK negation is used only when the temporal relation itself
+:bangbang: TLINK negation is used only when the temporal relation itself
 is negated. It is completely independent from EVENT negation, and
 the negation of EVENTs in no way implies negation of the TLINK. NEG
 TLINKs are far less common than NEG EVENTs, and should be pondered
-carefully before creation.}%
-}}\ \
-\tabularnewline
-\end{tabular}} \vspace{0.5cm
+carefully before creation.
 
 
 
-#### Annotating contextual modality of TLINKs
+### Annotating contextual modality of TLINKs
 
 \label{linkmodality} \label{TLINKModality} TLINKs can take the same
 contextual modalities as EVENTs: ACT, UNC, HYP, and GEN. These modalities,
@@ -3288,7 +3264,7 @@ TLINKs are marked as UNC, HYP, or GEN only when the temporal relation
 itself is uncertain, hypothetical or generic.
 
 
-#### ACT - Actual
+**ACT - Actual**
 
 The first modality for TLINKs is ACTUAL, which is used most of the
 time, and is the default option (that need not be specifically marked).
@@ -3299,7 +3275,7 @@ All examples in this guideline, unless otherwise marked, represent
 ACTUAL TLINKs.
 
 
-#### UNC - Uncertain/Hedged
+**UNC - Uncertain/Hedged**
 
 TLINKs, like EVENTs, are marked as UNCertain when we can point to
 some explicit lexical or phrasal trigger that indicates some degree
@@ -3336,7 +3312,7 @@ is **growing** due to high **winds**. \a. **strike** BEFORE/CAUSE
 <ACTUAL> \b{.} **strike** BEFORE **growing** <ACTUAL>
 
 
-#### HYP - Hypothetical
+**HYP - Hypothetical**
 
 The third modality for TLINKs is HYP. This is useful when annotating
 theories, future possibilities, or other hypothetical temporal relations.
@@ -3373,7 +3349,7 @@ hypothetical, but the causation of retaliation is certain.
 As with EVENTs, polarity and modality of TLINKs do not interact.
 
 
-#### GEN - Generic
+**GEN - Generic**
 
 GENERIC is our fourth contextual modality, and is used for TLINKs
 which may be mentioned in a document, but are only mentioned in a
@@ -3396,39 +3372,19 @@ in November* CONTAINS **Elections** <GENERIC>
 - The last US Presidential **Election** was held on *November
 4th, 2008* \a. *November 4th, 2008* CONTAINS **Election** <ACTUAL>
 
-\vspace{0.5cm
- \fbox{ %
-\begin{tabular}{p{0.6in}p{14cm}
-\includegraphics[width=0.5in]{warning} \\
-*Caution!}  & \raisebox{4mm}{%
-\parbox[c]{14cm}{%
-\vspace{2mm
-\textit{As with TLINK polarity, TLINK modality is seldom anything
+:bangbang: As with TLINK polarity, TLINK modality is seldom anything
 but the default, ACTUAL. If you are considering marking a TLINK with
 UNC, HYP or GEN, double-check to make sure that it is the temporal
 relation itself which is uncertain, hypothetical, or generic, rather
-than just the EVENTs within it.}%
-}} \
-\tabularnewline
-\end{tabular}} \vspace{0.5cm
+than just the EVENTs within it.
 
 
-%%%% ANNOTATING CAUSALITY %%%%
 
-
-\color{black
-
-
-###Causation and Precondition Annotation
-
-\label{causation
-
-\color{blue} *THIS ENTIRE SECTION IS NEW, PLEASE READ AND
-COMMENT} \color{black
+##Causation and Precondition Annotation
 
 In our schema, we want to be able to understand not just the relative
 orderings of different EVENTs, but to also annotate when one event
-\textit{causes} or \textit{preconditions} another event.
+*causes* or *preconditions* another event.
 
 At first glance, it may seem like an odd choice to mark causation
 and preconditioning as a subtype of temporal link rather than as a
@@ -3454,7 +3410,7 @@ EVENTs, we use three annotation types for causally linked EVENTS:
 BEFORE/CAUSES, OVERLAP/CAUSES, and BEFORE/PRECONDITIONS.
 
 
-#### Distinguishing "Cause" from "Precondition"
+### Distinguishing "Cause" from "Precondition"
 
 In our view of causality, we claim that "X CAUSES Y" if (and only
 if), according to the writer, the particular EVENT Y was \textit{inevitable
@@ -3484,14 +3440,15 @@ gun.
 - **Christchurch**, the first **city** **established** in
 **New Zealand**, had endured a **series** of **earthquakes**
 that **destroyed** **its** **infrastructure**, **homes** and
-**communities**. \label{nzquake} \a. **earthquakes** OVERLAP/CAUSES
-**destroyed** \c{.} Coreference relations: \a. **Christchurch**
-APPOSITIVE **city** \b{.} **Christchurch** IDENTICAL **its**
-\c{.} WHOLE **New Zealand**: PART **Christchurch** \d{.} WHOLE
-**its**: PARTs **infrastructure**, **homes**, **communities**
-\e. SET **series**: MEMBER **earthquakes**
+**communities**. 
+> **earthquakes** OVERLAP/CAUSES **destroyed** 
+> Coreference relations: **Christchurch** APPOSITIVE **city**
+>  **Christchurch** IDENTICAL **its**
+> WHOLE **New Zealand**: PART **Christchurch** 
+> WHOLE **its**: PARTs **infrastructure**, **homes**, **communities**
+> SET **series**: MEMBER **earthquakes**
 
-In \Last, it is the case that the destruction would not have happened
+In that last example, it is the case that the destruction would not have happened
 without the earthquake, and that once the earthquake began (and through
 its duration, hence OVERLAP/CAUSES), the destruction was inevitable.
 
@@ -3500,7 +3457,7 @@ its duration, hence OVERLAP/CAUSES), the destruction was inevitable.
 the local **economy**. \label{moaburanium} \a. **discovery**
 BEFORE/CAUSE **revitalize** \b{.} **it** IDENTICAL **revitalize**
 
-\Last shows an example where, although there was significant time
+This shows an example where, although there was significant time
 lag between the cause (the discovery of Uranium and the effect: revitalization),
 we are led to believe that in this case, the discovery did directly
 and inevitably trigger revitalization, and therefore, the link is
@@ -3513,8 +3470,8 @@ Preconditioning, in our view of the world, carries no such inevitability.
 In RED, we annotate "X PRECONDITIONS Y" if, according to the writer,
 had the particular EVENT X not happened, the particular EVENT Y would
 not have been able to happen. Put differently, although a preconditioning
-EVENT is not \textit{sufficient} to cause another EVENT, its occurrence
-is \textit{necessary} in order for the other EVENT to have happened.
+EVENT is not *sufficient* to cause another EVENT, its occurrence
+is *necessary* in order for the other EVENT to have happened.
 
 - The **rockfall** made the **over-full** **dam** **burst**,
 **flooding** the **town** below. \a. **rockfall** BEFORE/CAUSES
@@ -3557,13 +3514,13 @@ three relations, there is an order of importance.
 If the relation is clearly some sort of outcome or causation (cause
 or precondition) of an event, then default to the CAUSES or PRECONDITIONS
 reading, as they are easier to consistently capture. If torn between
-CAUSES and PRECONDITIONS, check the special cases\textquotedbl{
+CAUSES and PRECONDITIONS, check the special cases
 section to see if there are special hints for your phenomenon, and
 otherwise default to CAUSES.
 
-To sum up, CAUSES implies that the occurrence of one EVENT is \textit{sufficient
+To sum up, CAUSES implies that the occurrence of one EVENT is *sufficient*
 to trigger another, whereas PRECONDITIONS only states one EVENT was
-\textit{necessary} for another to later take place.
+*necessary* for another to later take place.
 
 Once this distinction is fully understood, proper annotation is simply
 a matter of understanding the temporal nature of each, and creating
@@ -4090,13 +4047,8 @@ Polarity and Modality apply to causal TLINKs in the same way that
 they apply to other TLINKs. See Sections \ref{TLINKPolarity} and
 \ref{TLINKModality} for a full description.
 
-\color{black
 
-%%%% ANNOTATING ALINK %%%%
-
-
-
-###Event Coreference
+## Event Coreference
 
 While linking up events in terms of their temporal, causal and subevent
 structure, you will also be marking them for event coreference. These
@@ -4108,7 +4060,7 @@ concepts and information were synthesized from Poesio et al. 2004
 and Savova et al. 2011 (\cite{savova2011anaphoric}).
 
 
-#### IDENTITY
+### IDENTITY
 
 Two events have an IDENTICAL relation if they refer to the same event
 in space and time. The IDENTICAL relation has several important semantic
@@ -4123,7 +4075,7 @@ WHOLE/PART and SET/MEMBER, which are directional by defition.
 A is IDENT to C. . 
 \end{itemize
 
-#### SET-MEMBER
+### SET-MEMBER
 
 A SET-MEMBER relationship exists when one event can be thought of
 as being an instane of a larger set of events. In annotating this
@@ -4148,7 +4100,7 @@ Thanksgiving, and today the lucky convict he **\textsubscript{MEMBER
 pardoned** was named Ginny Fawell. 
 \end{examples
 
-#### BRIDGING
+### BRIDGING
 
 As with entities, if you are unable to use one of the previously discussed
 links, but it is apparent that some sort of coreference link exists
@@ -4239,9 +4191,7 @@ IDENTICAL **her** \c{.} SET **cancer**$_{GENERIC}$: MEMBER **cancer**<sub>ACTUAL
 **it**
 
 
-###Aspectual Link Annotation
-
-\label{alinks
+## Aspectual Link Annotation
 
 The next annotation performed on the data is the ALINK (or "aspectual
 link") annotation. ALINKs are created between an aspectual EVENT
@@ -4261,13 +4211,13 @@ But unlike TLINKs, no matter the circumstance, an ALINK should never
 cross a sentence boundary.
 
 
-#### ALINK sub-types
+### ALINK sub-types
 
 There are four different aspectual relations used in the schema, CONTINUES,
 INITIATES, REINITIATES, and TERMINATES.
 
 
-#### CONTINUES
+**CONTINUES**
 
 CONTINUES is used when an aspectual event shows the continuation of
 another event:
@@ -4290,8 +4240,7 @@ CONTINUES **surveillance**
 along with serial cardiac markers and electrocardiograms to rule her
 out for any cardiac involvement. \a. **continue** CONTINUES **monitor**
 
-
-#### INITIATES
+**INITIATES**
 
 INITIATES is used when an aspectual event indicates the start or initiation
 of another event:
@@ -4311,7 +4260,7 @@ something, by definition, causes it to start). This causality need
 not be marked, so long as the ALINK is present.
 
 
-#### REINITIATES
+**REINITIATES**
 
 REINITIATES is used when an aspectual event indicates that another
 event will be restarted or reinitiated:
@@ -4333,7 +4282,7 @@ As with INITIATES, reinitiates carries an implied sort of causality.
 This causality need not be marked, so long as the ALINK is present.
 
 
-#### TERMINATES
+**TERMINATES**
 
 TERMINATES is used when an aspectual event indicates the ending of
 another event:
@@ -4368,7 +4317,7 @@ you will need to create at least one ALINK.}%
 
 
 
-###REP - Reporting Annotation
+## REP - Reporting Annotation
 
 Reporting Annotations link EVIDENTIAL EVENTs to those EVENTs that
 they report. For instance:
@@ -4405,249 +4354,6 @@ the examples above, only one REPORTING link will be created, with
 all of the reported events linked to the same EVI event in the same
 relation.
 
-
-\subsubsection**{How does intent relate to causation?
-
-There are occaisional moments in which the intent cannot possibly
-have an effect upon the final event; those, naturally, should have
-neither cause nor PRECONDITION labels:
-
-- he-' I really **want** Clinton to **succeed**.
-
-The lack of desire/intent also don't show causation:
-
-- I don't **want** to **give** the wrong impression
-
-But if the intent and its events are of the same modality, and some
-sort of causation may be going on, default to PRECONDITION:
-
-- I've **decided** I'm not **going** to fight it.
-
-- Before that, I **wanted** to **come** back
-
-- and caregivers are **needed** to **provide** guidance
-
-
-\subsubsection**{Are these OVERLAP? BEFORE?
-
-It's often similarly vague what the temporal relationship there is
-between want and the wanted event, need\textquotedbl{
-and the needed event, etc. Whenever it's unclear, default to OVERLAP
-(so mostly use OVERLAP/PRECONDITION):
-
-- Before that, I **wanted** to **come** back
-
-
-#### Requesting, Asking, Promising
-
-As with wanting, and needing, requests usually aren't direct causation.
-Even if it seems unlikely that someone will decline the request, we
-don't want you start guessing social hierarchies: if there is some
-form of causation, treat is as PRECONDITION (this should almost always
-be BEFORE/PRECONDITION).
-
-
-#### Restatement, reframing, equating
-
-Sometimes, events will be followed by another event, that can be interpreted
-as a restatement of the last mention:
-
-- Her mother had recently **died** , effectively **rendering**
-her an orphan.
-
-- The cartels were deeply **rooted** in Mexico, effectively
-**controlling** municipalities across the country and even entire
-states.
-
-If the two events are very clearly identical, feel free to use IDENT.
-If they are similar but not identical (as the above examples), you
-can related them with BRIDGING. Either way, the important think is
-to be consistent with later events; all TLINK and other relations,
-if at all possible, should be linked to the first of the two elements.
-
-
-#### Avoiding Inference in Temporal Relations
-
-One thing to keep in mind when annotating is that you, being human
-with even basic understanding of the world and of the way that medicine
-works, will easily be able to infer relations that are simply not
-present in the text. Take, for example, the below sentence:
-
-- We **diagnosed** her **cancer** {last week}.
-
-Here, it is very tempting to want to assign the cancer and the diagnosis
-different temporal realities, to claim that the cancer preceded the
-diagnosis (as well as last week), and that the diagnosis was simply
-one point in a longer history of cancer.
-
-However, we do not really know that the cancer preceded the diagnosis,
-and it is really human inference that gives us that information. It
-is possible, however remotely, that the cancer could have existed
-since birth, or perhaps cropped up 5-10 minutes before the biopsy.
-Regardless, we know that the diagnosis and cancer OVERLAP, but we
-do not know much else.
-
-Similarly:
-
-- A terrorist **cell** was **discovered** in March.
-
-Again, we assume that the cell existed previously, but cannot confirm
-such.
-
-EVENT mentions are a flashbulb in a dark room. We can infer that what
-we see during the flash was there before and persists after, but that's
-not a level of surety at which we can annotate, unless the document
-is more explicit ("We diagnosed her with carcinoma in Fall 2007,
-but it was there for many years prior.").
-
-Compare this to the below:
-
-- We **observed** her **seizure** {last week}.
-
-In this case, we again have an EVIDENTIAL EVENT alongside a regular
-one, but here, it would be silly to infer that the seizure has a different
-temporal time frame than then observation. But note that nothing has
-changed syntactically or linguistically to indicate that difference,
-so this would be a very difficult point to teach a non-human. As such,
-although we assume there is a different time frame for the diagnosis
-and the cancer itself, we should not annotate based on that assumption.
-
-Similarly, you will see sentences like:
-
-- On the {12th}, she underwent an **EKG** and emergency **bypass**
-following an **MI**.
-
-As humans, we understand that the test (the EKG) likely occurred before
-the invasive procedure (the bypass). But when we compare:
-
-- On the {12th}, she underwent an **MRI** and **CT** following
-a car **accident**.
-
-We see that there is no easily understood order between **MRI**
-and **CT**, and because there is no linguistic difference, just
-human understanding, we should not annotate the inferred relation
-between **EKG** and **bypass**.
-
-Finally, be cautious of your intuitions when ordering EVENTs where
-you have information not in the text. For instance:
-
-- Both Pearl **Harbor** and **9/11** were huge blows to the
-national psyche.
-
-The verb tense allows us to understand that both EVENTs happened BEFORE
-DocTime, and most Americans will be aware of their temporal ordering.
-However, there is no evidence in the document to support the TLINK:
-
-\a. **Harbor** BEFORE **9/11**
-
-The TLINK would be justified, however, in:
-
-- The national psyche suffered a huge blow with Pearl **Harbor**
-and later, **9/11**.
-
-Although this is a fairly straightforward example, check yourself
-when creating TLINKs to ensure that the document supports the assertions
-you're making.
-
-This may seem like a silly point to belabor, but recall that the eventual
-goal is to use this data to train software, and that software will
-have no understanding of this distinction. As such, even when it seems
-like you are throwing away easily recoverable information, you should
-always know your audience and annotate based on the text, rather than
-based on your understanding of the world.
-
-\color{blue} 
-
-
-#### Inference and Coreference
-
-Unlike with Temporal Relations, Coreference is largely dependent on
-human inference, as there are fewer grammatical cues to identity,
-especially with easily-human-inferrable coreference like that between
-"Will Styler", "William Styler", and "Mr. Styler". Thus,
-although we should avoid guesswork and evaluation of unclear evidence
-to make IDENTICAL links, and use BRIDGING judiciously to mark coreference
-situations where `it's complicated' (as discussed in Section \ref{judgement}),
-the bar for "too inferential" is far higher for coreference than
-it is for temporal relations.
-
-
-
-#### Pre- and Post- expressions (preoperative, post-treatment, intraoperatively,
-etc.)
-
-
-The adjectives "preoperative" and "postoperative" (as well
-as related terms like "post-surgical", "post-injury", "pre-treatment",
-"post-partum", "intraoperatively", "post-prandial") present
-a particular difficulty for our schema when used without explicit
-mention of their referents, as they simultaneously express two inseparable
-temporal meanings: first, they introduce an EVENT (like an operation
-or an injury), and second, they tell us that the noun they modify
-occurred either before, after, or sometimes during this operation
-(in the case of intra-).
-
-Because "preoperative" and "post-treatment" (and their ilk)
-actually denote temporal spans ("everything until the surgery",
-"any time after the treatment"), they are actually a sort of TIMEX3.
-So, all of these pre- and post- expressions will be marked as being
-TIMEX3 of the type PREPOSTEXP ("Pre- Post- Expression"), which
-function much like other narrative container anchors.
-
-First, an easy example:
-
-- Patient underwent a partial **hemicolectomy** in *July 2009*.
-*Postoperative* **scarring** **noted** during **exam**. \a.
-*July 2009* CONTAINS **hemicolectomy** \b{.} **hemicolectomy**
-BEFORE **exam** \b{.} **exam** CONTAINS **noted** \b{.} **hemicolectomy**
-BEFORE *Postoperative* \b{.} *Postoperative* CONTAINS **scarring**
-\b{.} *Postoperative* BEGINS-ON **surgery**
-
-Here, you can see that there is a large amount of temporal information
-expressed here, but most important is the *postoperative* TIMEX3
-and the two associated TLINKs. The scarring is TLINKed to postoperative
-with CONTAINS because the scarring occurs during the span of time
-which "postoperative" designates. Then, we mark that postoperative
-BEGINS-ON the surgery, because the surgery's end represents the start
-of the postoperative period.
-
-This is relatively straightforward, but there is not always an explicit
-reference to the surgery in the note:
-
-- Patient is in **recovery**, no *post-operative* **changes**.
-\a. *post-operative*$_{prepostexp}$ CONTAINS **changes**$_{\text{NEG}}$
-\b{.} *post-operative*$_{prepostexp}$ CONTAINS **recovery**
-
-Here, we have no EVENT for the operation which we can TLINK the **changes**
-to. In this situation, *postoperative* would still be a TIMEX3,
-and it would CONTAIN the **changes**. Post-operative here stands
-in for the span of time following the surgery, allowing us to capture
-that the lack of changes occurred following the unmentioned procedure.
-Let's look at another example:
-
-- The patient's *preoperative* **health** is **good**, and
-*next week*'s **tonsillectomy** should proceed without **difficulty**$_{NEG,HYP}$.
-\a. *preoperative* CONTAINS **health** \b{.} *preoperative\
-CONTAINS **good** \b{.} *preoperative* ENDS-ON **tonsillectomy**
-\b{.} *next week* CONTAINS **tonsillectomy**
-
-The surgery introduced by *preoperative* will presumably occur in
-the future (given the tenses in the sentence). The **health** and
-**good** EVENTs are occurring at the document time, so they have
-a DocTimeRel of OVERLAP, and then finally the TLINK shows us that
-the preoperative period CONTAINS the good health. Note that **difficulty**$_{NEG,HYP}$
-is not linked to **tonsillectomy**<sub>ACTUAL</sub>, because we cannot
-link HYP Events to ACTUAL Events.
-
-
-#### Counterfactuals and Causation
-
-One can sometimes run into "counterfactual" cases in which the text is both asserting that something didn't happen, and telling you the consequences of what would have happened if it did.  For example, in the example below, one might consider that to be saying that if "pressing charges" happened, then "affect his job" might happen:
-
-- DA Hurlbert won't **press** felony charges against hit-and-run
-driver because it might **affect** his job.
-
-For such cases, remember that you are dealing, not with the hypothetical positive event, but the negative event -- it not happening -- and therefore probably will NOT have any causation relations. 
 
 # Appendix
 
