@@ -35,28 +35,27 @@
       - [Annotating degree of EVENTs](#annotating-degree-of-events)
       - [N/A, MST - Most and LTL - Little](#na-mst---most-and-ltl---little)
       - [Marking Difficult annotations](#marking-difficult-annotations)
-    - [Temporal Expressions](#temporal-expressions)
-      - [Identifying and Annotating TIMEX3s](#identifying-and-annotating-timex3s)
-      - [Annotating TIMEX3 class](#annotating-timex3-class)
+  - [Temporal Expressions](#temporal-expressions)
+    - [Identifying and Annotating TIMEX3s](#identifying-and-annotating-timex3s)
+    - [Annotating TIMEX3 class](#annotating-timex3-class)
       - [DATE](#date)
       - [TIME](#time)
       - [DURATION](#duration)
       - [QUANTIFIER](#quantifier)
       - [PREPOSTEXP](#prepostexp)
       - [SET](#set)
-      - [TIMEX3s vs. Temporal Manner Adverbs](#timex3s-vs-temporal-manner-adverbs)
-      - [DOCTIME and SECTIONTIME Annotation](#doctime-and-sectiontime-annotation)
-      - [TIMEX3 Normalization](#timex3-normalization)
-    - [DUPLICATE marking for repeated spans of text](#duplicate-marking-for-repeated-spans-of-text)
+    - [TIMEX3s vs. Temporal Manner Adverbs](#timex3s-vs-temporal-manner-adverbs)
+    - [DOCTIME and SECTIONTIME Annotation](#doctime-and-sectiontime-annotation)
+  - [DUPLICATE marking for repeated spans of text](#duplicate-marking-for-repeated-spans-of-text)
       - [Guidelines for finding DUPLICATE text](#guidelines-for-finding-duplicate-text)
-    - [Entity Coreference Relations](#entity-coreference-relations)
-      - [IDENTITY and APPOSITION of ENTITIES](#identity-and-apposition-of-entities)
+  - [Entity Coreference Relations](#entity-coreference-relations)
+    - [IDENTITY and APPOSITION of ENTITIES](#identity-and-apposition-of-entities)
       - [IDENTICAL](#identical)
       - [APPOSITIVE](#appositive)
-      - [WHOLE/PART](#wholepart)
-      - [SET-MEMBER](#set-member)
-      - [BRIDGING](#bridging)
-      - [General Guidelines for Annotating Coreference](#general-guidelines-for-annotating-coreference)
+    - [WHOLE/PART](#wholepart)
+    - [SET-MEMBER](#set-member)
+    - [BRIDGING](#bridging)
+    - [General Guidelines for Annotating Coreference](#general-guidelines-for-annotating-coreference)
       - [Never link EVENTs to ENTITIES (except with BRIDGING)](#never-link-events-to-entities-except-with-bridging)
       - [WHOLE/PART, SET/MEMBER, and BRIDGING relations are inherited by IDENT](#wholepart-setmember-and-bridging-relations-are-inherited-by-ident)
       - [Bridging relations are re-created for subsequent mentions](#bridging-relations-are-re-created-for-subsequent-mentions)
@@ -66,8 +65,6 @@
       - [Avoid annotating coreference links based solely on your personal](#avoid-annotating-coreference-links-based-solely-on-your-personal)
       - [Identity Annotation for very broadly GENERIC entities](#identity-annotation-for-very-broadly-generic-entities)
       - [IDENT over generic you, one, etc.](#ident-over-generic-you-one-etc)
-    - [Testing Your Understanding](#testing-your-understanding)
-      - [Testing your Understanding](#testing-your-understanding)
 - [Event Relations Pass: Linking Events Together](#event-relations-pass-linking-events-together)
   - [Narrative Containment](#narrative-containment)
     - [Temporal Containers vs Subevent Containers](#temporal-containers-vs-subevent-containers)
@@ -1300,7 +1297,7 @@ more than once or twice, you should reach out to your annotation supervisors
 for clarification of the rules and policies involved.
 
 
-###Temporal Expressions
+## Temporal Expressions
 
 Because we're looking specifically at temporal relations, the next
 step of the annotation process is to find and annotate TIMEX3 objects.
@@ -1311,7 +1308,7 @@ ago", "at this time" and "early March. In addition,
 specific dates are annotated as TIMEX3 objects as well.
 
 
-#### Identifying and Annotating TIMEX3s
+### Identifying and Annotating TIMEX3s
 
 Our approach to marking TIMEX3s is identical to that used in ISO-TimeML,
 and these guidelines are heavily based on the standard established
@@ -1404,7 +1401,7 @@ is helpful in establishing the point of time being discussed.
 - The collapse occurred *at 2am, plus or minus an hour or so*.
 
 
-#### Annotating TIMEX3 class
+### Annotating TIMEX3 class
 
 Note that in the examples below, if there are multiple TIMEX3s, only
 those which are of the indicated class will be marked.
@@ -1618,7 +1615,7 @@ TIMEX3s of type SET should always be TLINKed to EVENTs using the TLINKs
 of the type OVERLAP.
 
 
-#### TIMEX3s vs. Temporal Manner Adverbs
+### TIMEX3s vs. Temporal Manner Adverbs
 
 Although TIMEX3s are generally uncontroversial and straightforward,
 there is one ambiguity which merits further discussion. First, consider
@@ -1667,7 +1664,7 @@ otherwise be possible. Humans, reading the text down the road, can
 always understand and interpret as a manner adverb, if it's helpful.
 
 
-#### DOCTIME and SECTIONTIME Annotation
+### DOCTIME and SECTIONTIME Annotation
 
 Because all of these annotations are linking the EVENTs and TIMEX3s
 to the time of patient service, it is important that we specify what
@@ -1702,48 +1699,7 @@ SECTIONTIME, as all that follows it will be true as of this new timestamp.
 
 
 
-#### TIMEX3 Normalization
-
-A completely separate annotation pass, occurring after RED annotation
-is completed, is TIMEX3 "normalization", where the natural language
-phrases which constitute TIMEX3s are turned into machine-interpretable
-dates and relative times. This process clarifies the referents, meaning,
-and connections between TIMEX3s, and is done using a wholly different
-schema and set of annotators. As a part of the TIMEX3 normalization
-process, we might gain information like the following:
-
-- We'll see her again on *April 18th, 2009* during her *2pm\
-appointment \a. *April 18th, 2009* == 04/18/2009 \b{.} *2pm\
-== 4/18/2009 1400 **Time Zone Unknown**
-
-- *Next Tuesday* there will be further peace talks. \a. *Next
-Tuesday* = "The next Tuesday after **DocTime**". \b{.} If
-DocTime was 7/6/14, then *Next Tuesday* == 7/8/14
-
-- There was another attack *three weeks after the bombing*.
-\a. *three weeks after the bombing* == "At the time exactly three
-weeks after the EVENT **bombing**" \b{.} If we know that the
-bombing was on June 1st, we can then infer that the attack was on
-the 22nd.
-
-Note that this sort of normalization handles, in its entirety, the
-task of determining and specifying the relative and absolute meaning
-of TIMEX3s. Thus, we have no need to make TLINKs which serve only
-to demonstrate TIMEX3 meanings, such as:
-
-- I'm seeing her *today*, for the third time in *2013*. \a.
-{**}*2013* CONTAINS *today\
-
-- They fought *Friday*, and again *yesterday*. \a. {**} *Friday\
-BEFORE *yesterday\
-
-Because relations between TIMEX3s serve only to clarify these relationships
-which will be clarified in normalization, we prohibit all TIMEX3 to
-TIMEX3 TLINKs.
-
-
-
-###DUPLICATE marking for repeated spans of text 
+## DUPLICATE marking for repeated spans of text 
 
 Some documents may have significant amounts of copy/pasted or automatically
 quoted text. If, as you are annotating, you come across a section
@@ -1797,9 +1753,8 @@ offset, or automated to be DUPLICATE, err in favor of fully annotating
 the text.
 
 
-###Entity Coreference Relations
+## Entity Coreference Relations
 
-\label{corefannotation
 
 While you are annotating the EVENT/ENTITY markables pass, we want
 you to also annotate all Coreference\textquotedbl{
@@ -1816,7 +1771,7 @@ al. 2004 (\cite{poesio2004centering}), Poesio 1997 (\cite{poesio1997conversation
 and Savova et al. 2011 (\cite{savova2011anaphoric}).
 
 
-#### IDENTITY and APPOSITION of ENTITIES
+### IDENTITY and APPOSITION of ENTITIES
 
 
 #### IDENTICAL 
@@ -1941,7 +1896,7 @@ If both ENTITYs have the same level of specificity, select the left-most
 ENTITY as the head.
 
 
-#### WHOLE/PART
+### WHOLE/PART
 
 Two entities exist in a WHOLE/PART relationship if one can be thought
 of as part of the other, larger composite entity. These can be simple
@@ -1985,24 +1940,13 @@ even a slight bit, then one might consider it compositional and use
 WHOLE/PART. If, in contrast, the part is merely temporarily or arbitrarily
 located in the space of the other item, do not use WHOLE/PART.
 
-\vspace{0.25cm
- \fbox{ %
-\begin{tabular}{p{0.6in}p{14cm}
-\includegraphics[width=0.5in]{warning} \\
-*Caution!}  & \raisebox{4mm}{%
-\parbox[c]{14cm}{%
-\vspace{2mm
-\textit{Note that while IDENT, SET/MEMBER and BRIDGING will also be
+:bangbang: Note that while IDENT, SET/MEMBER and BRIDGING will also be
 used to mark EVENTS, WHOLE/PART is only for ENTITIES. Relationship
 that you are tempted to mark as WHOLE/PART should probably be CONTAINS-SUBEVENT
-or SET/MEMBER instead. }%
-}}\ \
-\tabularnewline
-\end{tabular}} \vspace{0.25cm
+or SET/MEMBER instead.
 
 
-
-#### SET-MEMBER
+### SET-MEMBER
 
 A SET-MEMBER relationship exists when one entity or event can be thought
 of as one or several members of a larger group. SET-MEMBER relations
@@ -2033,7 +1977,7 @@ Any number of MEMBERs may be included in a SET/MEMBER relation, although
 only one Entity is allowed to fill the SET slot.
 
 
-#### BRIDGING
+### BRIDGING
 
 If you are unable to use one of the previously discussed links, but
 it is apparent that some sort of link exists which entails that the
@@ -2073,9 +2017,7 @@ should be passed up the chain, so that a better way to handle those
 cases can be found.
 
 
-#### General Guidelines for Annotating Coreference
-
-\label{corefguidelines
+### General Guidelines for Annotating Coreference
 
 
 #### Never link EVENTs to ENTITIES (except with BRIDGING)
@@ -2092,13 +2034,12 @@ Occaisionally one will encounter an ENTITY and an EVENT which are
 essentially two facets of the same complex type (cf Pustjovsky XXXX).
 Usually we strongly bias towards EVENTs, but this will occaisionally
 occur, and the two should be linked using BRIDGING. 
-\begin{example
-The company says it stores your **\textsubscript{entity} texts**
-on its server for thirty days after you **\textsubscript{event
+
+>The company says it stores your **<sub>entity</sub> texts**
+on its server for thirty days after you **<sub>event</sub>
 text** them
 
-texts BRIDGING text
-\end{example
+> texts BRIDGING text
 
 #### WHOLE/PART, SET/MEMBER, and BRIDGING relations are inherited by IDENT
 chains
@@ -2357,123 +2298,6 @@ choose to give *their} opponents all the power. This is another
 case of well what did *they} bloody well expect
 to happen?
 
-
-###Testing Your Understanding
-
-
-#### Testing your Understanding
-
-Since this can be a hard distinction to make, the following lists
-a number of example sentences. Apply the linguistic tests above and
-try to figure out what the entities and events are in the data. do
-not worry for now about which words to annotate, just focus on which
-referents and events deserve some sort of annotation (Answers in the
-footnote \footnotemark).
-
-- Mr. Stone reported that he had difficulty swallowing
-and shortness of breath.
-
-- The sectarian violence continued to spread in
-the northern city of Tikrit.
-
-- She took her car to a garage to change the oil.
-
-\footnotetext{You should have found the following ENTITIES: Mr. Stone
-\ref{test1}, he \ref{test1}, northern city of Tikrit \ref{test2},
-She \ref{test3}, her \ref{test3}, car \ref{test3}, garage \ref{test3},
-and oil \ref{test3}. You should also have found the following EVENTs:
-reported \ref{test1}, swallowing \ref{test1}, shortness of breath\ref{test1},
-sectarian violence \ref{test2}, continued \ref{test2}, spread \ref{test2},
-took her car \ref{test3}, change \ref{test3}. Consult the next section
-for how their headwords will be annotated.
-
-The suspect **struck** the police officer several times before **running**
-away.
-
-- The People's army **attacked**, triggering a massive **reprisal**.
-\begin{itemize
-- For coordinated heads, both of the heads will be labeled as separate
-elements and annotated separately. (e.g., "They **shipped** and
-**unloaded** the cargo; "Potential **carcinoma**
-or **polyp**", etc.)
-\end{itemize
-- We also discussed **some**$_{S2-M1}$ of the **toxicities**$_{S1}$
-of fluoropyrimidine-based chemotherapy, including **fatigue**$_{M2}$,
-**nausea**$_{M2}$, and **infection**$_{M2}$. \a. SET **toxicities**$_{S1}$:
-MEMBER **some**$_{S2-M1}$ \b{.} SET **some**$_{S2-M1}$: MEMBERs
-**fatigue**$_{M2}$, **nausea**$_{M2}$, **infection**$_{M2}$
-
-- **Many**$_{M1}$ of the **aftershocks**$_{S1}$ were strong
-enough to collapse already-weakened buildings. \a. SET **aftershocks**$_{S1}$:
-MEMBER **Many**$_{M1}$
-
-Occasionally, quantifying phrases indicate a WHOLE/PART relation,
-as in \Next.
-
-- a **chain**$_{S1}$ of fault **lines**$_{M1}$ and **volcanoes**$_{M2}$
-known as the **Pacific** "**ring**$_{W1}$ of **fire**$_{P1}$\textquotedbl{
-\a. SET **chain**$_{S1}$: MEMBERs **lines**$_{M1}$, **volcanoes**$_{M2}$
-\a. WHOLE **ring**$_{W1}$: PART **fire**$_{P1}$
-
-Notice that the "chain of fault lines and volcanoes" is SET/MEMBER,
-whereas "ring of fire" is WHOLE/PART. This is because the fault
-lines and volcanoes are MEMBERs of the chain in a way in which "fire"
-is not a MEMBER of the "ring. Instead, "fire"
-is what the ring is physically made of, and is therefore compositionally
-a part of the "ring.
-
-Coreference relations such as SET/MEMBER and WHOLE/PART are discussed
-in more depth in Section \ref{corefannotation}.
-
-
-\paragraph{Medical Test Results, Measurements, and Labs
-
-When discussing a test and its results, we still maintain our policy
-of marking the syntactic head.
-
-Here, the EVENT is the CT scan itself. In medical annotation, the
-finding of "normal" is captured by comparison with other non-RED
-annotations that link tests and result.
-
-- The CT **scan** was normal.
-
-- Her **BUN** is 9 mg/dL.
-
-Here, the only EVENT is the test itself (**BUN**), and the finding
-(9 mg/dL) is captured by a later step.
-
-The same goes for formulaic measure sections:
-
-- **Height**=178.60 cm,
-
-- **Weight**=91.90 kg,
-
-- **Systolic**=160 mm/Hg,
-
-Here, we only capture the measure itself, and not the value.
-
-The only exception to not capturing the test result is when the result
-of a test, lab, or exam is the diagnosis (or suggestion) of another
-disorder, disease, or disorder, as below:
-
-- The CT **scan** **showed** probable **adenocarcinoma**.
-
-- Her **CBC** **indicates** **thrombocytopenia**.
-
-Here, the test is an EVENT, as is the revelation itself, as well as
-the diagnosis, and all merit inclusion on the timeline. Put differently,
-a measure isn't a separate EVENT from the test which indicated it,
-but a diagnosis or disease shown by a test is. Note that **showed**
-and **indicates** are both EVENTs in their own right, of TYPE EVIDENTIAL.
-
-Outside of the medical domain, all such EVENTs are marked:
-
-- Before the **trial**, the prosecution **argued** that the
-killer's mental **status** was **normal**.
-
-- **Readings** of tritium in seawater taken from the bay near
-the crippled Fukushima nuclear plant has **shown** 4700 **becquerels**
-per liter.
 
 
 # Event Relations Pass: Linking Events Together
