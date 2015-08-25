@@ -70,21 +70,21 @@
     - [Narrative Containment](#narrative-containment)
     - [Temporal Containers vs Subevent Containers](#temporal-containers-vs-subevent-containers)
     - [Causation and Precondition Annotation](#causation-and-precondition-annotation)
-  - [Rules for representing these using TLINKS](#rules-for-representing-these-using-tlinks)
+  - [Rules for actually assigning TLINKS](#rules-for-actually-assigning-tlinks)
     - [Choosing the Anchors of Narrative Containers](#choosing-the-anchors-of-narrative-containers)
-    - [Temporal structure should be linked to (a single) temporal or subevent container whenever possible](#temporal-structure-should-be-linked-to-a-single-temporal-or-subevent-container-whenever-possible)
-    - [Causal structure should be thought](#causal-structure-should-be-thought)
-    - [Mark temporal order only when it adds information not inferrable from containers or DocTimeRel](#mark-temporal-order-only-when-it-adds-information-not-inferrable-from-containers-or-doctimerel)
-    - [TLINK all explicitly stated temporal relations.](#tlink-all-explicitly-stated-temporal-relations)
-    - [Don't mark temporal order (BEFORE, BEGINS-ON, etc) that lacks explicit evidence in the text](#dont-mark-temporal-order-before-begins-on-etc-that-lacks-explicit-evidence-in-the-text)
+    - [Events should have a single container whenever possible](#events-should-have-a-single-container-whenever-possible)
+    - [Avoid Redundant causation annotation -- think in terms of chains of causation](#avoid-redundant-causation-annotation----think-in-terms-of-chains-of-causation)
+    - [Don't mark temporal order relations (BEFORE) if they are implied by the DocTimeRel](#dont-mark-temporal-order-relations-before-if-they-are-implied-by-the-doctimerel)
     - [Do not link TIMEX3s to one another.](#do-not-link-timex3s-to-one-another)
-    - [GENERIC events should only link to other GENERICS, HYPOTHETICAL to other HYPOTHETICALs](#generic-events-should-only-link-to-other-generics-hypothetical-to-other-hypotheticals)
-    - [Causal temporal relations beyond adjacent sentences should only be used when clear-cut](#causal-temporal-relations-beyond-adjacent-sentences-should-only-be-used-when-clear-cut)
-    - [Non-causal, non-CONTAINS relations should only go outside of the sentence in specific situations](#non-causal-non-contains-relations-should-only-go-outside-of-the-sentence-in-specific-situations)
+    - [Only link GENERIC events to other GENERICS, HYPOTHETICAL to other HYPOTHETICALs](#only-link-generic-events-to-other-generics-hypothetical-to-other-hypotheticals)
     - [Causation relations to ENTITIES with implicit EVENTS must reference the EVENT](#causation-relations-to-entities-with-implicit-events-must-reference-the-event)
     - [EVENTs may participate in many ordering links, many causal links, but should only have one CONTAINS relation](#events-may-participate-in-many-ordering-links-many-causal-links-but-should-only-have-one-contains-relation)
     - [ALINKs trump causation](#alinks-trump-causation)
-    - [Distinguishing "Cause" from "Precondition"](#distinguishing-cause-from-precondition)
+  - [How distant can relations be?  How explicit does the evidence need to be?](#how-distant-can-relations-be--how-explicit-does-the-evidence-need-to-be)
+    - [TLINK all explicitly stated temporal relations.](#tlink-all-explicitly-stated-temporal-relations)
+    - [Don't mark temporal order (BEFORE, BEGINS-ON, etc) that lacks explicit evidence in the text](#dont-mark-temporal-order-before-begins-on-etc-that-lacks-explicit-evidence-in-the-text)
+    - [Causal relations can cross sentence boundaries](#causal-relations-can-cross-sentence-boundaries)
+    - [Temporal order (Non-causal, non-CONTAINS) relations only leave the sentence in specific circumstances](#temporal-order-non-causal-non-contains-relations-only-leave-the-sentence-in-specific-circumstances)
       - [Sources of information are generally not part of a causal chain](#sources-of-information-are-generally-not-part-of-a-causal-chain)
       - [Assume the writer of the text is reliable](#assume-the-writer-of-the-text-is-reliable)
   - [Definitions and Prototypes of the TLINK sub-types](#definitions-and-prototypes-of-the-tlink-sub-types)
@@ -96,13 +96,13 @@
     - [BEGINS-ON](#begins-on)
     - [ENDS-ON](#ends-on)
     - [SIMULTANEOUS](#simultaneous)
-    - [Expressing TLINK Types in Point Algebra](#expressing-tlink-types-in-point-algebra)
+    - [BEFORE/PRECONDITIONS](#beforepreconditions)
+    - [BEFORE/CAUSES](#beforecauses)
+    - [OVERLAP/CAUSES](#overlapcauses)
+    - [Distinguishing "Cause" from "Precondition"](#distinguishing-cause-from-precondition)
     - [Annotating TLINK Features](#annotating-tlink-features)
-    - [Annotating polarity of TLINKs](#annotating-polarity-of-tlinks)
-    - [Annotating contextual modality of TLINKs](#annotating-contextual-modality-of-tlinks)
-      - [BEFORE/PRECONDITIONS](#beforepreconditions)
-      - [BEFORE/CAUSES](#beforecauses)
-      - [OVERLAP/CAUSES](#overlapcauses)
+      - [Annotating polarity of TLINKs](#annotating-polarity-of-tlinks)
+      - [Annotating contextual modality of TLINKs](#annotating-contextual-modality-of-tlinks)
   - [Event Coreference](#event-coreference)
     - [IDENTITY](#identity)
     - [SET-MEMBER](#set-member-1)
@@ -125,6 +125,8 @@
     - [Permissable Evidence for BEFORE/OVERLAP](#permissable-evidence-for-beforeoverlap)
     - [Rules for Reporting verbs implying uncertain/hedged](#rules-for-reporting-verbs-implying-uncertainhedged)
     - [Permissable Evidence for Uncertain/Hedged](#permissable-evidence-for-uncertainhedged)
+  - [Theoretical Footnoes](#theoretical-footnoes)
+    - [Expressing TLINK Types in Point Algebra](#expressing-tlink-types-in-point-algebra)
 - [Document Revision History](#document-revision-history)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
@@ -2388,9 +2390,7 @@ BEFORE/CAUSES, OVERLAP/CAUSES, BEFORE/PRECONDITIONS, and OVERLAP/PRECONDITIONS.
 
 
 
-
-
-## Rules for representing these using TLINKS
+## Rules for actually assigning TLINKS
 
 Temporal Links (TLINKs), as previously mentioned, are relations you
 can mark between EVENTs, between TIMEX3s, or across the two categories
@@ -2432,7 +2432,7 @@ temporal span.
 - Remember that if an event contains multiple different "steps"  -- even if they are connected in a sequence -- they will be separate subevents. 
 
 
-### Temporal structure should be linked to (a single) temporal or subevent container whenever possible
+### Events should have a single container whenever possible
 
 As previously discussed, most EVENTs will fall into a narrative container
 of some kind. If a given EVENT is in a narrative container (like "August
@@ -2448,7 +2448,7 @@ you have marked that with a CONTAINS TLINK.
 
 In this pursuit, you should almost never be marking more than one containing event.  We assume that if  you label that A contains B, and that B contains C, you do not need to also mark that A contains C.  For example, if Wednesday CONTAINS football game, and that football game CONTAINS a throwing event, we don't need to also know that the throwing event happened on Wednesday -- it's inferrable from the annotations already done. 
 
-###  Causal structure should be thought
+### Avoid Redundant causation annotation -- think in terms of chains of causation
 
 In the same way that we are trying avoid redudancy by thinking of temporal structure as being "nested" into larger and larger containers whenever possible, we also want to think of causation as amounting to a series of chains of causation. In general, you may assume that:
 
@@ -2480,41 +2480,12 @@ capture the causal nature of the situation without specifying every
 small step.
 
 
-
-
-### Mark temporal order only when it adds information not inferrable from containers or DocTimeRel
+### Don't mark temporal order relations (BEFORE) if they are implied by the DocTimeRel
 
 Remember that every EVENT  with a doctimerel of BEFORE is in a large narrative container (the events happening before the document time), every EVENT with a doctimerel of OVERLAP is in a container that defines the document time, and so forth, adn that these containers have a natural order.  Marking that a BEFORE event happens before and OVERLAP event, then is redundant information: we already know that due to the DocTimeRel containers that they are a part of.  
 
 This also means that TIMEX3s such as "now" or "in the past", if they are synonymoous with the DocTimeRel containers themselves, do not need to be linked to, as they provide no additional information about the event. 
 
-
-
-### TLINK all explicitly stated temporal relations.
-
-If the writer goes out of his or her way to make a temporal statement,
-a TLINK should be made to reflect that statement. So, if the sentence
-reads:
-
-- The patient **developed** a **rash** after **treatment**.
->  **treatment** BEFORE **rash** 
-> **treatment** BEFORE **developed**
-
-You should explicitly mark the treatment as being BEFORE both **developed**
-and **rash**, using a TLINK, regardless of the fact that **developed**
-and **rash** will also be ALINKed. Note, though, that if no explicit
-temporal language is used, no TLINK should be created, and annotator
-knowledge should not be used to fill these TLINKs in.
-
-### Don't mark temporal order (BEFORE, BEGINS-ON, etc) that lacks explicit evidence in the text
-
-Because of the difficulty of capturing detail within a given narrative
-container, not all relations between EVENTs will be captured. For
-instance, in the following example, containment alone doesn't tell us the relationship between [dinner] and [session]:
-
-> During the [conference] there was a [session] in which they [thanked] Mr. Smith and a catered [dinner]
-
-In many cases, sufficient world knowledge, inference or research may let an annotator guess what the order of these events is.  However, unless there is explicit grammatical evidence for the ordering -- most obviously, prepositions and connectives like "Before", or thing like "and then" -- do not infer anything about the relationships between them. 
 
 
 ### Do not link TIMEX3s to one another.
@@ -2528,7 +2499,8 @@ EVENTs and TIMEX3s, the TIMEX3s in the document can almost always
 be temporally ordered without the annotator's help.
 
 
-### GENERIC events should only link to other GENERICS, HYPOTHETICAL to other HYPOTHETICALs
+
+###  Only link GENERIC events to other GENERICS, HYPOTHETICAL to other HYPOTHETICALs
 
 HYPOTHETICAL and GENERIC EVENTs aren't really on the same timeline as other EVENTs in the discourse. Because of this, it can be quite tricky to
 link them to the overall timeline, and we need to take care to avoid
@@ -2544,26 +2516,6 @@ is not an option.
 
 Here, because the **chemotherapy** is HYPOTHETICAL, it cannot be
 TLINKed to **surgery**, even given the explicit mention.
-
-
-
-### Causal temporal relations beyond adjacent sentences should only be used when clear-cut
-
-Links like BEFORE/CAUSE can cross
-sentence boundaries, where necessary:
-
-- She **said** the **bombs** **rained** down on them for
-two days. The children are **terrified** as a result, she **said**.
-> **rained** BEFORE/CAUSES **terrified**
-
-However, EVENTs that are very far apart (roughly, the length of a paragraph) should only be linked causally if the link is either very clear or very explicit.  
-
-
-### Non-causal, non-CONTAINS relations should only go outside of the sentence in specific situations
-
-Both for the sake of consistency, and because they require explicit evidence in order to be annotated, you should avoid annotating temporal ordering relations (such as BEFORE, OVERLAP or BEGINS-IN) across sentences.
-
-The exception to this, ususally, will be adjacent sentences in which the main events to the two sentences are related.  When those adjacent sentences define a clear temporal order, but cannot be represented as having one contain another or one cause another, you may link them using BEFORE. 
 
 
 
@@ -2589,8 +2541,6 @@ Similarly, verbs that create entities like "dinner" should not be construed as c
 
 - **Kevin** **cooked** Thanksgiving **Dinner**. 
 > **cooked** BEFORE **dinner**
-
-
 
 
 
@@ -2649,127 +2599,69 @@ got so much **better**.
 > ALINK: **quitting** TERMINATES **smoking**
 
 
-### Distinguishing "Cause" from "Precondition"
 
-In our view of causality, we claim that "X CAUSES Y" if (and only
-if), according to the writer, the particular EVENT Y was inevitable
-given the particular EVENT X. Put differently, the existence of X
-was not just helpful in allowing Y to happen, nor associated with
-Y, but the occurrence of X triggered or immediately necessitated the
-occurrence of Y:
 
-- The **rockfall** made the **over-full** **dam** **burst**,
-**flooding** the **town** below. \a. **rockfall** BEFORE/CAUSES
-**burst** 
-> **burst** BEFORE/CAUSES **flooding**
 
-Here, the rockfall is what immediately caused the burst (although
-the over-full nature of the dam may have preconditioned it), just
-as the burst caused the flooding. Put differently, had the rocks not
-fallen, and had the dam not burst, according to the author, there
-would have been neither bursting nor flooding.
 
-- The **sheriff** **fired** **her** **gun**, **killing**
-the **injured** **deer**. \a. **fired** BEFORE/CAUSES **killing**
 
-> **sheriff** IDENTICAL **her**
 
-Here, although the injury may have eventually led to the deer's demise,
-the killing was caused directly and immediately by the firing of the
-gun.
 
-- **Christchurch**, the first **city** **established** in
-**New Zealand**, had endured a **series** of **earthquakes**
-that **destroyed** **its** **infrastructure**, **homes** and
-**communities**. 
-> **earthquakes** OVERLAP/CAUSES **destroyed** 
-> Coreference relations: **Christchurch** APPOSITIVE **city**
->  **Christchurch** IDENTICAL **its**
-> WHOLE **New Zealand**: PART **Christchurch** 
-> WHOLE **its**: PARTs **infrastructure**, **homes**, **communities**
-> SET **series**: MEMBER **earthquakes**
+## How distant can relations be?  How explicit does the evidence need to be? 
 
-In that last example, it is the case that the destruction would not have happened
-without the earthquake, and that once the earthquake began (and through
-its duration, hence OVERLAP/CAUSES), the destruction was inevitable.
 
-- Although **it** took *many years*, the **discovery** of
-**Uranium** outside **Moab** would eventually **revitalize**
-the local **economy**. 
-**discovery** BEFORE/CAUSE **revitalize** 
-**it** IDENTICAL **revitalize**
+### TLINK all explicitly stated temporal relations.
 
-This shows an example where, although there was significant time
-lag between the cause (the discovery of Uranium and the effect: revitalization),
-we are led to believe that in this case, the discovery did directly
-and inevitably trigger revitalization, and therefore, the link is
-causal.
+If the writer goes out of his or her way to make a temporal statement,
+a TLINK should be made to reflect that statement. So, if the sentence
+reads:
 
-So, again, causality is marked in our schema only if EVENT Y was inevitable
-given this particular instance of EVENT X.
+- The patient **developed** a **rash** after **treatment**.
+>  **treatment** BEFORE **rash** 
+> **treatment** BEFORE **developed**
 
-Preconditioning, in our view of the world, carries no such inevitability.
-In RED, we annotate "X PRECONDITIONS Y" if, according to the writer,
-had the particular EVENT X not happened, the particular EVENT Y would
-not have been able to happen. Put differently, although a preconditioning
-EVENT is not *sufficient* to cause another EVENT, its occurrence
-is *necessary* in order for the other EVENT to have happened.
+You should explicitly mark the treatment as being BEFORE both **developed**
+and **rash**, using a TLINK, regardless of the fact that **developed**
+and **rash** will also be ALINKed. Note, though, that if no explicit
+temporal language is used, no TLINK should be created, and annotator
+knowledge should not be used to fill these TLINKs in.
 
-- The **rockfall** made the **over-full** **dam** **burst**,
-**flooding** the **town** below. \a. **rockfall** BEFORE/CAUSES
-**burst** 
-> **burst** BEFORE/CAUSES **flooding** \b{.
-***over-full** BEFORE/PRECONDITIONS **burst**
 
-Here, we are led to believe that the over-full nature of the dam helped
-promote bursting, and thus, was a precondition of the burst itself.
-However, the over-fullness of the dam alone, in this particular case,
-was not enough to cause the burst, thus, is only a precondition.
+### Don't mark temporal order (BEFORE, BEGINS-ON, etc) that lacks explicit evidence in the text
 
-- The **sheriff** **loaded** **her** **rifle**, then **fired**
-at the **target**. \a. **loaded** BEFORE/PRECONDITION **fired**
+Because of the difficulty of capturing detail within a given narrative
+container, not all relations between EVENTs will be captured. For
+instance, in the following example, containment alone doesn't tell us the relationship between [dinner] and [session]:
 
-> **sheriff** IDENTICAL **her**
+> During the [conference] there was a [session] in which they [thanked] Mr. Smith and a catered [dinner]
 
-Were the rifle not loaded, it could not have fired, and therefore,
-loading is a precondition to firing (although the firing is separately
-caused).
+In many cases, sufficient world knowledge, inference or research may let an annotator guess what the order of these events is.  However, unless there is explicit grammatical evidence for the ordering -- most obviously, prepositions and connectives like "Before", or thing like "and then" -- do not infer anything about the relationships between them. 
 
-- The **strikes** came in **retaliation** for recent terrorist
-**attacks**. \a. **attacks** BEFORE/PRECONDITIONS **retaliation**
 
-> **strikes** IDENTICAL **retaliation**
+### Causal relations can cross sentence boundaries
 
-In \Last, although something else (a pilot pushing a button, or a
-general's orders) was the direct cause of the strikes, we are told
-(via the meaning of "retaliation") that the strikes would not
-have happened were it not for the attacks.
+Links like BEFORE/CAUSE can cross sentence boundaries, where necessary:
 
-Similarly, note that occaisionally an ongoing state can be a motivation
-or other precondition for an action; in those cases, you can use OVERLAP/PRECONDITION:
+- She **said** the **bombs** **rained** down on them for
+two days. The children are **terrified** as a result, she **said**.
+> **rained** BEFORE/CAUSES **terrified**
 
-- I feel that they are **punishing** him for his **condition**
-by keeping him after school, \a. **condition** OVERLAP/PRECONDITIONS
-**punishing**
+However, EVENTs that are very far apart (roughly, the length of a paragraph) should only be linked causally if the link is either very clear or very explicit.  
 
-Remember as well that SUBEVENT, CAUSES, and PRECONDITIONS relations
-are mutually exclusive, and one event pair can only have one of these
-relations. Therefore, if an event pair has more than one of these
-three relations, there is an order of importance.
-If the relation is clearly some sort of outcome or causation (cause
-or precondition) of an event, then default to the CAUSES or PRECONDITIONS
-reading, as they are easier to consistently capture. If torn between
-CAUSES and PRECONDITIONS, check the special cases
-section to see if there are special hints for your phenomenon, and
-otherwise default to CAUSES.
 
-To sum up, CAUSES implies that the occurrence of one EVENT is *sufficient*
-to trigger another, whereas PRECONDITIONS only states one EVENT was
-*necessary* for another to later take place.
+### Temporal order (Non-causal, non-CONTAINS) relations only leave the sentence in specific circumstances
 
-Once this distinction is fully understood, proper annotation is simply
-a matter of understanding the temporal nature of each, and creating
-the proper annotations.
+Because relations such as You should avoid annotating temporal ordering relations (such as BEFORE, OVERLAP or BEGINS-IN) across sentences. 
+
+The exception to this, ususally, will be adjacent sentences in which the main events to the two sentences are related.  When those adjacent sentences define a clear temporal order, but cannot be represented as having one contain another or one cause another, you may link them using BEFORE. 
+
+
+
+
+
+
+
+
+
 
 
 
@@ -3206,35 +3098,287 @@ bounds, and thus, are SIMULTANEOUS, but we will generate those links
 later. Only mark SIMULTANEOUS for non-coreferent EVENTs.*
 
 
-### Expressing TLINK Types in Point Algebra
 
-A more precise (although perhaps more esoteric) way to express temporal
-relations is using point algebra. In the style of [Allen 1983](https://en.wikipedia.org/wiki/Allen%27s_interval_algebra),
-we can take the start and end of event A to be A- and A+, respectively,
-and compare those points to the start and end of EVENT B, B- and B+,
-using < ("less than") and > ("greater than") to indicate position
-on the timeline.
 
-Given this notation, our TLINK types can be expressed as below:
 
-| Relation |  Notation | Meaning | 
-| -------- | --------- | ------- |
-| BEFORE  | A+ < B-  | A is before B | 
-| CONTAINS  | (A- < B-) AND (A+ > B+)  | A contains B |
-| CONTAINS-SUBEVENT  | (A- < B-) AND (A+ > B+) | A contains B |
-| OVERLAP  | (A- < B- < A+) OR (B- < A- < B+)  | A and B overlap |
-| BEGINS-ON  | A+ = B-  | B begins-on A |
-| ENDS-ON  | A- = B+  | B ends-on A |
-| SIMULTANEOUS | A- = B- AND A+ = B+  | A is simultaneous with B |
 
-Note that our definitions of OVERLAP and SIMULTANEOUS are symmetrical,
-in that "A OVERLAP B" and "B OVERLAP A" mean the same thing.
-For OVERLAP, which EVENT starts first is not recoverable from the
-annotation without prior knowledge of both A- and B-.
+### BEFORE/PRECONDITIONS
+
+As such, if you understand two EVENTs to have a relationship of preconditioning,
+your sole choice is to create a BEFORE/PRECONDITIONS link.
+
+- **She** **unlocked** the **vault**, **disabled** the
+**cameras**, and **distracted** the **guard** so that **he**
+could **steal** the **gold**. \a. **unlocked** BEFORE/PRECONDITIONS
+**steal** 
+> **disabled** BEFORE/PRECONDITIONS **steal**
+
+> **distracted** BEFORE/PRECONDITIONS **steal**
+
+Because preconditions are defined as EVENTs which must have happened
+in order for a later EVENT to happen, temporally speaking, all PRECONDITIONS
+must start BEFORE the EVENT which they precondition.
+
+
+### BEFORE/CAUSES
+
+If the relation between two EVENTs is causal, that is, that one EVENT
+\textit{necessarily} causes the other, you must evaluate its temporality.
+
+In many cases, the causing EVENT will have ended before the effect
+fully takes place. In these cases, BEFORE/CAUSE is the only prudent
+annotation.
+
+- The **bear's** **visit** forced the **city** to **adopt**
+a new **trash-can** **design**. \a. **visit** BEFORE/CAUSE
+**adopt**
+
+It is clearly the case that the adoption did not happen while the
+bear was still in town, so the cause is BEFORE the effect, and BEFORE/CAUSE
+is prudent.
+
+- **France's** **declaration** caused **tension** with **Russia**.
+\a. **declaration** BEFORE/CAUSE **tension**
+
+The declaration did not, itself, cause tension with Russia in the
+same way that an earthquake causes damage. Instead, its interpretation
+and analysis by the Russians caused the tension. This means that there
+was a non-trivial lag between cause and effect, and that BEFORE/CAUSE
+is prudent.
+
+- **Switching** **textbooks** led to **improvements** in
+**scores**. \a. **switching** BEFORE/CAUSE **improvements**
+
+Again, it is not the case that the improvement occurred \textit{during
+the switch, so BEFORE/CAUSE is prudent.
+
+- **He** **shot** and **killed** the **attacking** **soldier**.
+\a. **shot** BEFORE/CAUSE **killed**
+
+**shot** here refers to the act of discharging a firearm. Even assuming
+an immediate and painless death for the attacker, there is a (very
+small) lag between the discharge and the death. Put differently, it
+is not the case that at any point, this specific shot and killing
+were occuring at the same moment. So, BEFORE/CAUSE.
+
+- The **bus** **kneeled** to allow **access** to the elderly
+**man**. \a. **kneeled** BEFORE/CAUSE **access**
+
+Although kneeling has a non-trivial duration, we have no reason to
+believe that the elderly man entered the bus mid-kneel. Thus, BEFORE/CAUSE.
+
+So, if it is the case that the causing EVENT ended before (even if
+milliseconds before) the EVENT it caused, BEFORE/CAUSE is the only
+prudent choice.
+
+
+### OVERLAP/CAUSES
+
+OVERLAP/CAUSES is intended for those cause/effect pairs where the
+cause, during its inherent duration, is continuously or periodically
+resulting in the effect. Put differently, there is a temporal overlap,
+where the cause is ongoing, and the effect is already partly or completely
+present.
+
+- The **earthquake** **destroyed** the **palace**. \a.
+**earthquake** OVERLAP/CAUSES **destroyed**
+
+At some point in time, the destruction had begun while the earth was
+still quaking, and thus, the two EVENTs are in an OVERLAP/CAUSES relationship.
+
+- **His** **coldness** made **Kerri** **uncomfortable**.
+\a. **coldness** OVERLAP/CAUSES **uncomfortable**
+
+Her discomfort and his coldness are both durative EVENTs, and it is
+extremely likely that she began feeling discomfort before his coldness
+had ended. Thus, OVERLAP/CAUSES.
+
+- The **attacks** resulted in 89 **deaths**. \a. **attacks**
+OVERLAP/CAUSES **deaths**
+
+It's likely that deaths occurred during each individual attack, and
+when taken as a plural sum, it is certain that the span of the "attacks"
+contains at least one death.
+
+Note that the semantics of participating EVENTs have a strong role
+in the choice of BEFORE/CAUSES vs. OVERLAP/CAUSES. For instance:
+
+- The **explosion** caused mass **hysteria**. \a. **explosion**
+BEFORE/CAUSE **hysteria**
+
+Here, it's fairly clear that the hysteria began after the explosion,
+rather than the physical blast causing the hysteria as it propagated.
+Compare to:
+
+- The **explosion** caused many **injuries**. \a. **explosion**
+OVERLAP/CAUSE **injuries**
+
+Here, the blast itself, the physical reality of the expanding gas
+and debris, caused injuries. Although other injuries may have occurred
+after the explosion (due to trampling in the evacuating crowd, or
+collapse of damaged structures), it is still the case that some of
+the injuries occurred while the explosion was in progress.
+
+Finally, remember that OVERLAP/CAUSES does NOT imply that the effect
+is contained within the span of the cause. Take, for example, the
+temporal relationship between an earthquake, and the destruction it
+causes. It is certain that some destruction, if not the majority,
+occurs while the earthquake itself is ongoing, that is, the ground
+is still shaking. However, in any earthquake, there is damage which
+occurs well after the shaking has stopped, whether by subsequent collapse
+of weakened structures, fires, looting, or any of the myriad other
+things which can go wrong.
+
+So, although the earthquake OVERLAPs a non-trivial part of the destruction,
+it is BEFORE other destruction. In these cases, remember that OVERLAP
+means only that there is an overlap, and that in situations like the
+earthquake described above here, OVERLAP is accurate, while BEFORE
+is not. Thus, when a cause is both BEFORE and OVERLAPping the effect,
+OVERLAP should be used.
+
+:bangbang: *If you find yourself attempting
+to justify OVERLAP/CAUSES by saying "Well, there was probably a
+few milliseconds of hysteria which started before the end of the bomb's
+explosion..." or "Maybe he was injured slightly by the shockwave
+ahead of the sub-sonic bullet which hadn't yet left the barrel, thus,
+during the **shot**...", stop. OVERLAP/CAUSES is intended for
+those causal EVENTs which are durative and causing an effect throughout
+their duration, rather than for those with coincidental or miniscule
+overlap between cause and effect. These annotations will be difficult
+enough without adding this additional agony.*
+
+
+
+
+
+
+### Distinguishing "Cause" from "Precondition"
+
+In our view of causality, we claim that "X CAUSES Y" if (and only
+if), according to the writer, the particular EVENT Y was inevitable
+given the particular EVENT X. Put differently, the existence of X
+was not just helpful in allowing Y to happen, nor associated with
+Y, but the occurrence of X triggered or immediately necessitated the
+occurrence of Y:
+
+- The **rockfall** made the **over-full** **dam** **burst**,
+**flooding** the **town** below. \a. **rockfall** BEFORE/CAUSES
+**burst** 
+> **burst** BEFORE/CAUSES **flooding**
+
+Here, the rockfall is what immediately caused the burst (although
+the over-full nature of the dam may have preconditioned it), just
+as the burst caused the flooding. Put differently, had the rocks not
+fallen, and had the dam not burst, according to the author, there
+would have been neither bursting nor flooding.
+
+- The **sheriff** **fired** **her** **gun**, **killing**
+the **injured** **deer**. \a. **fired** BEFORE/CAUSES **killing**
+
+> **sheriff** IDENTICAL **her**
+
+Here, although the injury may have eventually led to the deer's demise,
+the killing was caused directly and immediately by the firing of the
+gun.
+
+- **Christchurch**, the first **city** **established** in
+**New Zealand**, had endured a **series** of **earthquakes**
+that **destroyed** **its** **infrastructure**, **homes** and
+**communities**. 
+> **earthquakes** OVERLAP/CAUSES **destroyed** 
+> Coreference relations: **Christchurch** APPOSITIVE **city**
+>  **Christchurch** IDENTICAL **its**
+> WHOLE **New Zealand**: PART **Christchurch** 
+> WHOLE **its**: PARTs **infrastructure**, **homes**, **communities**
+> SET **series**: MEMBER **earthquakes**
+
+In that last example, it is the case that the destruction would not have happened
+without the earthquake, and that once the earthquake began (and through
+its duration, hence OVERLAP/CAUSES), the destruction was inevitable.
+
+- Although **it** took *many years*, the **discovery** of
+**Uranium** outside **Moab** would eventually **revitalize**
+the local **economy**. 
+**discovery** BEFORE/CAUSE **revitalize** 
+**it** IDENTICAL **revitalize**
+
+This shows an example where, although there was significant time
+lag between the cause (the discovery of Uranium and the effect: revitalization),
+we are led to believe that in this case, the discovery did directly
+and inevitably trigger revitalization, and therefore, the link is
+causal.
+
+So, again, causality is marked in our schema only if EVENT Y was inevitable
+given this particular instance of EVENT X.
+
+Preconditioning, in our view of the world, carries no such inevitability.
+In RED, we annotate "X PRECONDITIONS Y" if, according to the writer,
+had the particular EVENT X not happened, the particular EVENT Y would
+not have been able to happen. Put differently, although a preconditioning
+EVENT is not *sufficient* to cause another EVENT, its occurrence
+is *necessary* in order for the other EVENT to have happened.
+
+- The **rockfall** made the **over-full** **dam** **burst**,
+**flooding** the **town** below. \a. **rockfall** BEFORE/CAUSES
+**burst** 
+> **burst** BEFORE/CAUSES **flooding** \b{.
+***over-full** BEFORE/PRECONDITIONS **burst**
+
+Here, we are led to believe that the over-full nature of the dam helped
+promote bursting, and thus, was a precondition of the burst itself.
+However, the over-fullness of the dam alone, in this particular case,
+was not enough to cause the burst, thus, is only a precondition.
+
+- The **sheriff** **loaded** **her** **rifle**, then **fired**
+at the **target**. \a. **loaded** BEFORE/PRECONDITION **fired**
+
+> **sheriff** IDENTICAL **her**
+
+Were the rifle not loaded, it could not have fired, and therefore,
+loading is a precondition to firing (although the firing is separately
+caused).
+
+- The **strikes** came in **retaliation** for recent terrorist
+**attacks**. \a. **attacks** BEFORE/PRECONDITIONS **retaliation**
+
+> **strikes** IDENTICAL **retaliation**
+
+In \Last, although something else (a pilot pushing a button, or a
+general's orders) was the direct cause of the strikes, we are told
+(via the meaning of "retaliation") that the strikes would not
+have happened were it not for the attacks.
+
+Similarly, note that occaisionally an ongoing state can be a motivation
+or other precondition for an action; in those cases, you can use OVERLAP/PRECONDITION:
+
+- I feel that they are **punishing** him for his **condition**
+by keeping him after school, \a. **condition** OVERLAP/PRECONDITIONS
+**punishing**
+
+Remember as well that SUBEVENT, CAUSES, and PRECONDITIONS relations
+are mutually exclusive, and one event pair can only have one of these
+relations. Therefore, if an event pair has more than one of these
+three relations, there is an order of importance.
+If the relation is clearly some sort of outcome or causation (cause
+or precondition) of an event, then default to the CAUSES or PRECONDITIONS
+reading, as they are easier to consistently capture. If torn between
+CAUSES and PRECONDITIONS, check the special cases
+section to see if there are special hints for your phenomenon, and
+otherwise default to CAUSES.
+
+To sum up, CAUSES implies that the occurrence of one EVENT is *sufficient*
+to trigger another, whereas PRECONDITIONS only states one EVENT was
+*necessary* for another to later take place.
+
+Once this distinction is fully understood, proper annotation is simply
+a matter of understanding the temporal nature of each, and creating
+the proper annotations.
+
+
 
 ### Annotating TLINK Features
 
-### Annotating polarity of TLINKs
+#### Annotating polarity of TLINKs
 
 Polarity of TLINKs is identical to polarity
 in EVENTs, although naturally the applications will differ slightly.
@@ -3291,7 +3435,10 @@ carefully before creation.*
 
 
 
-### Annotating contextual modality of TLINKs
+
+
+
+#### Annotating contextual modality of TLINKs
 
 TLINKs can take the same
 contextual modalities as EVENTs: ACT, UNC, HYP, and GEN. These modalities,
@@ -3421,163 +3568,6 @@ but the default, ACTUAL. If you are considering marking a TLINK with
 UNC, HYP or GEN, double-check to make sure that it is the temporal
 relation itself which is uncertain, hypothetical, or generic, rather
 than just the EVENTs within it.*
-
-
-
-
-
-
-
-
-
-
-
-
-
-#### BEFORE/PRECONDITIONS
-
-As such, if you understand two EVENTs to have a relationship of preconditioning,
-your sole choice is to create a BEFORE/PRECONDITIONS link.
-
-- **She** **unlocked** the **vault**, **disabled** the
-**cameras**, and **distracted** the **guard** so that **he**
-could **steal** the **gold**. \a. **unlocked** BEFORE/PRECONDITIONS
-**steal** 
-> **disabled** BEFORE/PRECONDITIONS **steal**
-
-> **distracted** BEFORE/PRECONDITIONS **steal**
-
-Because preconditions are defined as EVENTs which must have happened
-in order for a later EVENT to happen, temporally speaking, all PRECONDITIONS
-must start BEFORE the EVENT which they precondition.
-
-
-#### BEFORE/CAUSES
-
-If the relation between two EVENTs is causal, that is, that one EVENT
-\textit{necessarily} causes the other, you must evaluate its temporality.
-
-In many cases, the causing EVENT will have ended before the effect
-fully takes place. In these cases, BEFORE/CAUSE is the only prudent
-annotation.
-
-- The **bear's** **visit** forced the **city** to **adopt**
-a new **trash-can** **design**. \a. **visit** BEFORE/CAUSE
-**adopt**
-
-It is clearly the case that the adoption did not happen while the
-bear was still in town, so the cause is BEFORE the effect, and BEFORE/CAUSE
-is prudent.
-
-- **France's** **declaration** caused **tension** with **Russia**.
-\a. **declaration** BEFORE/CAUSE **tension**
-
-The declaration did not, itself, cause tension with Russia in the
-same way that an earthquake causes damage. Instead, its interpretation
-and analysis by the Russians caused the tension. This means that there
-was a non-trivial lag between cause and effect, and that BEFORE/CAUSE
-is prudent.
-
-- **Switching** **textbooks** led to **improvements** in
-**scores**. \a. **switching** BEFORE/CAUSE **improvements**
-
-Again, it is not the case that the improvement occurred \textit{during
-the switch, so BEFORE/CAUSE is prudent.
-
-- **He** **shot** and **killed** the **attacking** **soldier**.
-\a. **shot** BEFORE/CAUSE **killed**
-
-**shot** here refers to the act of discharging a firearm. Even assuming
-an immediate and painless death for the attacker, there is a (very
-small) lag between the discharge and the death. Put differently, it
-is not the case that at any point, this specific shot and killing
-were occuring at the same moment. So, BEFORE/CAUSE.
-
-- The **bus** **kneeled** to allow **access** to the elderly
-**man**. \a. **kneeled** BEFORE/CAUSE **access**
-
-Although kneeling has a non-trivial duration, we have no reason to
-believe that the elderly man entered the bus mid-kneel. Thus, BEFORE/CAUSE.
-
-So, if it is the case that the causing EVENT ended before (even if
-milliseconds before) the EVENT it caused, BEFORE/CAUSE is the only
-prudent choice.
-
-
-#### OVERLAP/CAUSES
-
-OVERLAP/CAUSES is intended for those cause/effect pairs where the
-cause, during its inherent duration, is continuously or periodically
-resulting in the effect. Put differently, there is a temporal overlap,
-where the cause is ongoing, and the effect is already partly or completely
-present.
-
-- The **earthquake** **destroyed** the **palace**. \a.
-**earthquake** OVERLAP/CAUSES **destroyed**
-
-At some point in time, the destruction had begun while the earth was
-still quaking, and thus, the two EVENTs are in an OVERLAP/CAUSES relationship.
-
-- **His** **coldness** made **Kerri** **uncomfortable**.
-\a. **coldness** OVERLAP/CAUSES **uncomfortable**
-
-Her discomfort and his coldness are both durative EVENTs, and it is
-extremely likely that she began feeling discomfort before his coldness
-had ended. Thus, OVERLAP/CAUSES.
-
-- The **attacks** resulted in 89 **deaths**. \a. **attacks**
-OVERLAP/CAUSES **deaths**
-
-It's likely that deaths occurred during each individual attack, and
-when taken as a plural sum, it is certain that the span of the "attacks"
-contains at least one death.
-
-Note that the semantics of participating EVENTs have a strong role
-in the choice of BEFORE/CAUSES vs. OVERLAP/CAUSES. For instance:
-
-- The **explosion** caused mass **hysteria**. \a. **explosion**
-BEFORE/CAUSE **hysteria**
-
-Here, it's fairly clear that the hysteria began after the explosion,
-rather than the physical blast causing the hysteria as it propagated.
-Compare to:
-
-- The **explosion** caused many **injuries**. \a. **explosion**
-OVERLAP/CAUSE **injuries**
-
-Here, the blast itself, the physical reality of the expanding gas
-and debris, caused injuries. Although other injuries may have occurred
-after the explosion (due to trampling in the evacuating crowd, or
-collapse of damaged structures), it is still the case that some of
-the injuries occurred while the explosion was in progress.
-
-Finally, remember that OVERLAP/CAUSES does NOT imply that the effect
-is contained within the span of the cause. Take, for example, the
-temporal relationship between an earthquake, and the destruction it
-causes. It is certain that some destruction, if not the majority,
-occurs while the earthquake itself is ongoing, that is, the ground
-is still shaking. However, in any earthquake, there is damage which
-occurs well after the shaking has stopped, whether by subsequent collapse
-of weakened structures, fires, looting, or any of the myriad other
-things which can go wrong.
-
-So, although the earthquake OVERLAPs a non-trivial part of the destruction,
-it is BEFORE other destruction. In these cases, remember that OVERLAP
-means only that there is an overlap, and that in situations like the
-earthquake described above here, OVERLAP is accurate, while BEFORE
-is not. Thus, when a cause is both BEFORE and OVERLAPping the effect,
-OVERLAP should be used.
-
-:bangbang: *If you find yourself attempting
-to justify OVERLAP/CAUSES by saying "Well, there was probably a
-few milliseconds of hysteria which started before the end of the bomb's
-explosion..." or "Maybe he was injured slightly by the shockwave
-ahead of the sub-sonic bullet which hadn't yet left the barrel, thus,
-during the **shot**...", stop. OVERLAP/CAUSES is intended for
-those causal EVENTs which are durative and causing an effect throughout
-their duration, rather than for those with coincidental or miniscule
-overlap between cause and effect. These annotations will be difficult
-enough without adding this additional agony.*
 
 
 
@@ -3990,6 +3980,34 @@ One context that is *not* valid evidence for BEFORE/OVERLAP (being somewhat slip
 
 ### Permissable Evidence for Uncertain/Hedged
 
+## Theoretical Footnoes
+
+
+### Expressing TLINK Types in Point Algebra
+
+A more precise (although perhaps more esoteric) way to express temporal
+relations is using point algebra. In the style of [Allen 1983](https://en.wikipedia.org/wiki/Allen%27s_interval_algebra),
+we can take the start and end of event A to be A- and A+, respectively,
+and compare those points to the start and end of EVENT B, B- and B+,
+using < ("less than") and > ("greater than") to indicate position
+on the timeline.
+
+Given this notation, our TLINK types can be expressed as below:
+
+| Relation |  Notation | Meaning | 
+| -------- | --------- | ------- |
+| BEFORE  | A+ < B-  | A is before B | 
+| CONTAINS  | (A- < B-) AND (A+ > B+)  | A contains B |
+| CONTAINS-SUBEVENT  | (A- < B-) AND (A+ > B+) | A contains B |
+| OVERLAP  | (A- < B- < A+) OR (B- < A- < B+)  | A and B overlap |
+| BEGINS-ON  | A+ = B-  | B begins-on A |
+| ENDS-ON  | A- = B+  | B ends-on A |
+| SIMULTANEOUS | A- = B- AND A+ = B+  | A is simultaneous with B |
+
+Note that our definitions of OVERLAP and SIMULTANEOUS are symmetrical,
+in that "A OVERLAP B" and "B OVERLAP A" mean the same thing.
+For OVERLAP, which EVENT starts first is not recoverable from the
+annotation without prior knowledge of both A- and B-.
 
 
 
