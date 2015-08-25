@@ -450,7 +450,7 @@ us "find" the rest of the phrase in question, or in other words,
 the **syntactic head**. Consider a syntactic dependency tree of the above sentence in this
 regard 
 
-![DP](dependencygraph.png)
+![DP](figures/dependencygraph.png)
 
 One might imagine that grabbing "stance" subsumes the whole bundle of dependents, "the stance on the civil war".  Grabbing "stance" in that sense essentially can be thought of as also grabbing its dependents. 
 
@@ -2317,7 +2317,7 @@ Instead, we will be avoiding such a "spiderweb" of temporal relations by attempt
 
 Temporal structure of a narrative is often hierarchical. If, on a particular Tuesday, you go on a series of errands, one of which is going to the store, and during that visit you get milk, you could say that that Tuesday temporally contains the errands; that they temporally contain your trip to the store, and that it temporally contains the event of getting milk.  
 
-![nesting1](narratcon.png)
+![nesting1](figures/narratcon.png)
 
 The importance of that is that if someone were to know that an event happened before Tuesday, they then inherently know that it also happened before *all of Tuesday's events*.  
 
