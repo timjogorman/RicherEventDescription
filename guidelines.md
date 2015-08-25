@@ -70,6 +70,7 @@
     - [Narrative Containment](#narrative-containment)
     - [Temporal Containers vs Subevent Containers](#temporal-containers-vs-subevent-containers)
     - [Causation and Precondition Annotation](#causation-and-precondition-annotation)
+      - [Distinguishing "Cause" from "Precondition"](#distinguishing-cause-from-precondition)
   - [Rules for actually assigning TLINKS](#rules-for-actually-assigning-tlinks)
     - [Choosing the Anchors of Narrative Containers](#choosing-the-anchors-of-narrative-containers)
     - [Events should have a single container whenever possible](#events-should-have-a-single-container-whenever-possible)
@@ -82,7 +83,9 @@
     - [ALINKs trump causation](#alinks-trump-causation)
   - [How distant can relations be?  How explicit does the evidence need to be?](#how-distant-can-relations-be--how-explicit-does-the-evidence-need-to-be)
     - [TLINK all explicitly stated temporal relations.](#tlink-all-explicitly-stated-temporal-relations)
-    - [Don't mark temporal order (BEFORE, BEGINS-ON, etc) that lacks explicit evidence in the text](#dont-mark-temporal-order-before-begins-on-etc-that-lacks-explicit-evidence-in-the-text)
+    - [Don't mark temporal order (BEFORE, BEGINS-ON, etc) based purely on inference - look for evidence in the text](#dont-mark-temporal-order-before-begins-on-etc-based-purely-on-inference---look-for-evidence-in-the-text)
+    - [For causation, you should also look for evidence -- but coordination or adjacent sentences often count as evidence of casuation](#for-causation-you-should-also-look-for-evidence----but-coordination-or-adjacent-sentences-often-count-as-evidence-of-casuation)
+    - [Causation from non-explicit, inferrable contexts should be left out unless extremely certain](#causation-from-non-explicit-inferrable-contexts-should-be-left-out-unless-extremely-certain)
     - [Causal relations can cross sentence boundaries](#causal-relations-can-cross-sentence-boundaries)
     - [Temporal order (Non-causal, non-CONTAINS) relations only leave the sentence in specific circumstances](#temporal-order-non-causal-non-contains-relations-only-leave-the-sentence-in-specific-circumstances)
       - [Sources of information are generally not part of a causal chain](#sources-of-information-are-generally-not-part-of-a-causal-chain)
@@ -99,7 +102,6 @@
     - [BEFORE/PRECONDITIONS](#beforepreconditions)
     - [BEFORE/CAUSES](#beforecauses)
     - [OVERLAP/CAUSES](#overlapcauses)
-    - [Distinguishing "Cause" from "Precondition"](#distinguishing-cause-from-precondition)
     - [Annotating TLINK Features](#annotating-tlink-features)
       - [Annotating polarity of TLINKs](#annotating-polarity-of-tlinks)
       - [Annotating contextual modality of TLINKs](#annotating-contextual-modality-of-tlinks)
@@ -2390,6 +2392,132 @@ BEFORE/CAUSES, OVERLAP/CAUSES, BEFORE/PRECONDITIONS, and OVERLAP/PRECONDITIONS.
 
 
 
+
+#### Distinguishing "Cause" from "Precondition"
+
+In our view of causality, we claim that "X CAUSES Y" if (and only
+if), according to the writer, the particular EVENT Y was inevitable
+given the particular EVENT X. Put differently, the existence of X
+was not just helpful in allowing Y to happen, nor associated with
+Y, but the occurrence of X triggered or immediately necessitated the
+occurrence of Y:
+
+- The **rockfall** made the **over-full** **dam** **burst**,
+**flooding** the **town** below. \a. **rockfall** BEFORE/CAUSES
+**burst** 
+> **burst** BEFORE/CAUSES **flooding**
+
+Here, the rockfall is what immediately caused the burst (although
+the over-full nature of the dam may have preconditioned it), just
+as the burst caused the flooding. Put differently, had the rocks not
+fallen, and had the dam not burst, according to the author, there
+would have been neither bursting nor flooding.
+
+- The **sheriff** **fired** **her** **gun**, **killing**
+the **injured** **deer**. \a. **fired** BEFORE/CAUSES **killing**
+
+> **sheriff** IDENTICAL **her**
+
+Here, although the injury may have eventually led to the deer's demise,
+the killing was caused directly and immediately by the firing of the
+gun.
+
+- **Christchurch**, the first **city** **established** in
+**New Zealand**, had endured a **series** of **earthquakes**
+that **destroyed** **its** **infrastructure**, **homes** and
+**communities**. 
+> **earthquakes** OVERLAP/CAUSES **destroyed** 
+> Coreference relations: **Christchurch** APPOSITIVE **city**
+>  **Christchurch** IDENTICAL **its**
+> WHOLE **New Zealand**: PART **Christchurch** 
+> WHOLE **its**: PARTs **infrastructure**, **homes**, **communities**
+> SET **series**: MEMBER **earthquakes**
+
+In that last example, it is the case that the destruction would not have happened
+without the earthquake, and that once the earthquake began (and through
+its duration, hence OVERLAP/CAUSES), the destruction was inevitable.
+
+- Although **it** took *many years*, the **discovery** of
+**Uranium** outside **Moab** would eventually **revitalize**
+the local **economy**. 
+**discovery** BEFORE/CAUSE **revitalize** 
+**it** IDENTICAL **revitalize**
+
+This shows an example where, although there was significant time
+lag between the cause (the discovery of Uranium and the effect: revitalization),
+we are led to believe that in this case, the discovery did directly
+and inevitably trigger revitalization, and therefore, the link is
+causal.
+
+So, again, causality is marked in our schema only if EVENT Y was inevitable
+given this particular instance of EVENT X.
+
+Preconditioning, in our view of the world, carries no such inevitability.
+In RED, we annotate "X PRECONDITIONS Y" if, according to the writer,
+had the particular EVENT X not happened, the particular EVENT Y would
+not have been able to happen. Put differently, although a preconditioning
+EVENT is not *sufficient* to cause another EVENT, its occurrence
+is *necessary* in order for the other EVENT to have happened.
+
+- The **rockfall** made the **over-full** **dam** **burst**,
+**flooding** the **town** below. \a. **rockfall** BEFORE/CAUSES
+**burst** 
+> **burst** BEFORE/CAUSES **flooding** \b{.
+***over-full** BEFORE/PRECONDITIONS **burst**
+
+Here, we are led to believe that the over-full nature of the dam helped
+promote bursting, and thus, was a precondition of the burst itself.
+However, the over-fullness of the dam alone, in this particular case,
+was not enough to cause the burst, thus, is only a precondition.
+
+- The **sheriff** **loaded** **her** **rifle**, then **fired**
+at the **target**. \a. **loaded** BEFORE/PRECONDITION **fired**
+
+> **sheriff** IDENTICAL **her**
+
+Were the rifle not loaded, it could not have fired, and therefore,
+loading is a precondition to firing (although the firing is separately
+caused).
+
+- The **strikes** came in **retaliation** for recent terrorist
+**attacks**. \a. **attacks** BEFORE/PRECONDITIONS **retaliation**
+
+> **strikes** IDENTICAL **retaliation**
+
+In \Last, although something else (a pilot pushing a button, or a
+general's orders) was the direct cause of the strikes, we are told
+(via the meaning of "retaliation") that the strikes would not
+have happened were it not for the attacks.
+
+Similarly, note that occaisionally an ongoing state can be a motivation
+or other precondition for an action; in those cases, you can use OVERLAP/PRECONDITION:
+
+- I feel that they are **punishing** him for his **condition**
+by keeping him after school, \a. **condition** OVERLAP/PRECONDITIONS
+**punishing**
+
+Remember as well that SUBEVENT, CAUSES, and PRECONDITIONS relations
+are mutually exclusive, and one event pair can only have one of these
+relations. Therefore, if an event pair has more than one of these
+three relations, there is an order of importance.
+If the relation is clearly some sort of outcome or causation (cause
+or precondition) of an event, then default to the CAUSES or PRECONDITIONS
+reading, as they are easier to consistently capture. If torn between
+CAUSES and PRECONDITIONS, check the special cases
+section to see if there are special hints for your phenomenon, and
+otherwise default to CAUSES.
+
+To sum up, CAUSES implies that the occurrence of one EVENT is *sufficient*
+to trigger another, whereas PRECONDITIONS only states one EVENT was
+*necessary* for another to later take place.
+
+Once this distinction is fully understood, proper annotation is simply
+a matter of understanding the temporal nature of each, and creating
+the proper annotations.
+
+
+
+
 ## Rules for actually assigning TLINKS
 
 Temporal Links (TLINKs), as previously mentioned, are relations you
@@ -2626,7 +2754,7 @@ temporal language is used, no TLINK should be created, and annotator
 knowledge should not be used to fill these TLINKs in.
 
 
-### Don't mark temporal order (BEFORE, BEGINS-ON, etc) that lacks explicit evidence in the text
+### Don't mark temporal order (BEFORE, BEGINS-ON, etc) based purely on inference - look for evidence in the text
 
 Because of the difficulty of capturing detail within a given narrative
 container, not all relations between EVENTs will be captured. For
@@ -2635,6 +2763,31 @@ instance, in the following example, containment alone doesn't tell us the relati
 > During the [conference] there was a [session] in which they [thanked] Mr. Smith and a catered [dinner]
 
 In many cases, sufficient world knowledge, inference or research may let an annotator guess what the order of these events is.  However, unless there is explicit grammatical evidence for the ordering -- most obviously, prepositions and connectives like "Before", or thing like "and then" -- do not infer anything about the relationships between them. 
+
+
+### For causation, you should also look for evidence -- but coordination or adjacent sentences often count as evidence of casuation
+
+Consider examples like:
+
+- The race organizers **ran** out of gatorade and **switched** to distributing water
+- A *blizzard* hit chicago and we were *rerouted* to detroit.
+
+One might read causation (CAUSE or PRECONDITION) from such examples, despite the lack of an explicit indicator of causation such as "because of".  Despite the lack of explicit encoding of causation, feel free to mark these as having a causation relation when they pass the paraprase test below.
+
+The core of the paraphrase test is whether you can add an explicit connective such as "therefore", "thus" or "so" into the sentence without feeling any real change in the meaning of the sentence itself.  
+
+- The race organizers **ran** out of gatorade and *so* **switched** to distributing water
+- A *blizzard* hit chicago and *therefore* we were *rerouted* to detroit.
+
+
+### Causation from non-explicit, inferrable contexts should be left out unless extremely certain
+
+There are contexts in which inferrable causation may be allowable, but *do not guess*.  In particular, having an event that prototypically causes another event is *not* sufficient for a causation label.  
+
+- John, who smoked cigarettes his entire life, died of lung cancer last year
+> NO relation marked between smoking and cancer -- the possibility of connection is not explicit in the text
+
+
 
 
 ### Causal relations can cross sentence boundaries
@@ -3250,132 +3403,6 @@ enough without adding this additional agony.*
 
 
 
-
-
-### Distinguishing "Cause" from "Precondition"
-
-In our view of causality, we claim that "X CAUSES Y" if (and only
-if), according to the writer, the particular EVENT Y was inevitable
-given the particular EVENT X. Put differently, the existence of X
-was not just helpful in allowing Y to happen, nor associated with
-Y, but the occurrence of X triggered or immediately necessitated the
-occurrence of Y:
-
-- The **rockfall** made the **over-full** **dam** **burst**,
-**flooding** the **town** below. \a. **rockfall** BEFORE/CAUSES
-**burst** 
-> **burst** BEFORE/CAUSES **flooding**
-
-Here, the rockfall is what immediately caused the burst (although
-the over-full nature of the dam may have preconditioned it), just
-as the burst caused the flooding. Put differently, had the rocks not
-fallen, and had the dam not burst, according to the author, there
-would have been neither bursting nor flooding.
-
-- The **sheriff** **fired** **her** **gun**, **killing**
-the **injured** **deer**. \a. **fired** BEFORE/CAUSES **killing**
-
-> **sheriff** IDENTICAL **her**
-
-Here, although the injury may have eventually led to the deer's demise,
-the killing was caused directly and immediately by the firing of the
-gun.
-
-- **Christchurch**, the first **city** **established** in
-**New Zealand**, had endured a **series** of **earthquakes**
-that **destroyed** **its** **infrastructure**, **homes** and
-**communities**. 
-> **earthquakes** OVERLAP/CAUSES **destroyed** 
-> Coreference relations: **Christchurch** APPOSITIVE **city**
->  **Christchurch** IDENTICAL **its**
-> WHOLE **New Zealand**: PART **Christchurch** 
-> WHOLE **its**: PARTs **infrastructure**, **homes**, **communities**
-> SET **series**: MEMBER **earthquakes**
-
-In that last example, it is the case that the destruction would not have happened
-without the earthquake, and that once the earthquake began (and through
-its duration, hence OVERLAP/CAUSES), the destruction was inevitable.
-
-- Although **it** took *many years*, the **discovery** of
-**Uranium** outside **Moab** would eventually **revitalize**
-the local **economy**. 
-**discovery** BEFORE/CAUSE **revitalize** 
-**it** IDENTICAL **revitalize**
-
-This shows an example where, although there was significant time
-lag between the cause (the discovery of Uranium and the effect: revitalization),
-we are led to believe that in this case, the discovery did directly
-and inevitably trigger revitalization, and therefore, the link is
-causal.
-
-So, again, causality is marked in our schema only if EVENT Y was inevitable
-given this particular instance of EVENT X.
-
-Preconditioning, in our view of the world, carries no such inevitability.
-In RED, we annotate "X PRECONDITIONS Y" if, according to the writer,
-had the particular EVENT X not happened, the particular EVENT Y would
-not have been able to happen. Put differently, although a preconditioning
-EVENT is not *sufficient* to cause another EVENT, its occurrence
-is *necessary* in order for the other EVENT to have happened.
-
-- The **rockfall** made the **over-full** **dam** **burst**,
-**flooding** the **town** below. \a. **rockfall** BEFORE/CAUSES
-**burst** 
-> **burst** BEFORE/CAUSES **flooding** \b{.
-***over-full** BEFORE/PRECONDITIONS **burst**
-
-Here, we are led to believe that the over-full nature of the dam helped
-promote bursting, and thus, was a precondition of the burst itself.
-However, the over-fullness of the dam alone, in this particular case,
-was not enough to cause the burst, thus, is only a precondition.
-
-- The **sheriff** **loaded** **her** **rifle**, then **fired**
-at the **target**. \a. **loaded** BEFORE/PRECONDITION **fired**
-
-> **sheriff** IDENTICAL **her**
-
-Were the rifle not loaded, it could not have fired, and therefore,
-loading is a precondition to firing (although the firing is separately
-caused).
-
-- The **strikes** came in **retaliation** for recent terrorist
-**attacks**. \a. **attacks** BEFORE/PRECONDITIONS **retaliation**
-
-> **strikes** IDENTICAL **retaliation**
-
-In \Last, although something else (a pilot pushing a button, or a
-general's orders) was the direct cause of the strikes, we are told
-(via the meaning of "retaliation") that the strikes would not
-have happened were it not for the attacks.
-
-Similarly, note that occaisionally an ongoing state can be a motivation
-or other precondition for an action; in those cases, you can use OVERLAP/PRECONDITION:
-
-- I feel that they are **punishing** him for his **condition**
-by keeping him after school, \a. **condition** OVERLAP/PRECONDITIONS
-**punishing**
-
-Remember as well that SUBEVENT, CAUSES, and PRECONDITIONS relations
-are mutually exclusive, and one event pair can only have one of these
-relations. Therefore, if an event pair has more than one of these
-three relations, there is an order of importance.
-If the relation is clearly some sort of outcome or causation (cause
-or precondition) of an event, then default to the CAUSES or PRECONDITIONS
-reading, as they are easier to consistently capture. If torn between
-CAUSES and PRECONDITIONS, check the special cases
-section to see if there are special hints for your phenomenon, and
-otherwise default to CAUSES.
-
-To sum up, CAUSES implies that the occurrence of one EVENT is *sufficient*
-to trigger another, whereas PRECONDITIONS only states one EVENT was
-*necessary* for another to later take place.
-
-Once this distinction is fully understood, proper annotation is simply
-a matter of understanding the temporal nature of each, and creating
-the proper annotations.
-
-
-
 ### Annotating TLINK Features
 
 #### Annotating polarity of TLINKs
@@ -3930,6 +3957,7 @@ relation.
 | support verbs | After ~~undergoing~~ extensive **transformation**... | no, just **transformation** | | |
 | support verbs | at that time, he ~~experienced~~  **discomfort**... | no, just **discomfort** | | |
 | support verbs | The **earthquake** ~~struck~~ during the parade | no strike, just **earthquake** | | |
+| trying | This was a deliberate **effort** to **sabotage** the election | yes | use HYPOTHETICAL for e2 | trying to do something counts as a /PRECONDITION |
 | usage of objects |  Police **used** tear ~~gas~~ to disperse the ... | just "used" (but "gas" is an entity) | | |
 | willingness | He is **willing** to **meet** with our Pauahi Wing Queens Hospital. | yes | default to HYPOTHETICAL for e2 | one of the two PRECONDITION relations |
 
