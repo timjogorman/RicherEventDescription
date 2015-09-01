@@ -3924,32 +3924,21 @@ Remember that hedges are NOT events, but merely good evidence for using UNCERTAI
 ### Edge case guidelines for Relations
 
 
-| Rel 1 | Rel 2        | Test         | example | example  relation |  
-| ----- | ------------ | ------------ | ------------ | ------------ |
-| Cause | Precondition | if it's part of a long causal chain that might or  might not have resulted in the event, just PRECONDITION |  The **rockfall** made the **over-full** **dam** **burst** | **over-full** BEFORE/PRECONDITIONS **burst** |
-| Cause | Precondition | if the causation is direct and explicit, it's CAUSE |  The **rockfall** made the **over-full** **dam** **burst** | **rockfall** BEFORE/CAUSE **burst** | 
-| Contains | Contains-Subevent | if event A could be seen as a subpart of the larger event (is the same type of event, etc.), use CONTAINS-SUBEVENT | During the **speech**, he **discussed** the Iraq war. | **speech** CONTAINS/SUBEVENT **discussed** |
+| Contrast       | Test         | example | example  relation |  
+| -------------- | ------------ | ------------ | ------------ |
+| Cause vs Precondition | if it's part of a long causal chain that might or  might not have resulted in the event, just PRECONDITION |  The **rockfall** made the **over-full** **dam** **burst** | **over-full** BEFORE/PRECONDITIONS **burst** |
+| Cause vs Precondition | if the causation is direct and explicit, it's CAUSE |  The **rockfall** made the **over-full** **dam** **burst** | **rockfall** BEFORE/CAUSE **burst** | 
+| Contains vs Contains-Subevent | if event B could be literally seen as a smaller sample of event A (same type, etc.) use CONTAINS-SUBEVENT | During the **speech**, he **discussed** the Iraq war. | **speech** CONTAINS/SUBEVENT **discussed** |
+| Contains vs Contains-Subevent | if event B might be part of a "script" or description of how one does event A, use CONTAINS-SUBEVENT | The loudest part of *making* coffee is *grinding* the beans | **making** CONTAINS/SUBEVENT **grinding** |
+| Contains vs Contains-Subevent | if event B might be part of a "script" or description of how one does event A, use CONTAINS-SUBEVENT | The loudest part of *making* coffee is *grinding* the beans | **making** CONTAINS/SUBEVENT **grinding** |
+| Set/Member vs Contains-Subevent | if event A **could be viewed as** a single, contiguous event containing many instances like event B, use contains-Subevent | During the **testimonies**, the eye-witness *explained* what they saw  | **testimonies** CONTAINS/SUBEVENT **explained** |
+| Set/Member vs Contains-Subevent | if event A **must be viewed as** a colection of temporally disconnected events, and event B is an instance one of them, use SET/MEMBER | During the three **trials**, only the last **trial** had admissable evidence  | **trials** SET/MEMBER **trial** |
+| Set/Member vs Contains-Subevent | if event A **must be viewed as** a colection of temporally disconnected events, and event B is **a subevent of** one of them, (*and there is no mention of that instance to point to*), use CONTTAINS/SUBEVENT | During the three **trials**, the expert only **testified** once  | **trials** CONTAINS/SUBEVENT **testified** |
+| Contains-Subevent vs PRECONDITION | if event B is the goal of event A, and is accomplished during event A, **and event B refers to the actual event that was accomplished during A**, then used CONTAINS/SUBEVENT  | We **took** a county road, managing to **dodge** the rush-hour traffic  | **took** CONTAINS/SUBEVENT **dodge** |
+| Contains-Subevent vs PRECONDITION | if event B refers to the goal of event A, but **refers to the goal of event A rather than a particular event within A**, then use PRECONDITION (or NO relation; event B in this case should often be HYPOTHETICAL)  | To **avoid** the rush hour, we **took** back roads | **avoid** OVERLAP/PRECONDITION **took** |
 
+:interrobang: *The relation example with "To avoid the rush hour, we took back roads" is a complicated one, and may be subject to change.  Relations in which "A a verb if desiring for event B" are clearly PRECONDITION, but "A is the goal of B", as with purpose infinitives, is somewhat unclear*
 
-#### CONTAINS-SUBEVENT from PRECONDITIONS
-
-A second, related question is how to handle the PURPOSE or INTENT of an event:
-
-- I [talked] to him to [get] information about the transaction. 
-- To [avoid] the traffic jam  coming into town, we [took] a county road.
-
-For these, one might imagine there being a "subevent" reading or a "precondition" reading.  
-
-
-#### Distinguishing CONTAINS from CONTAINS-SUBEVENT
-
-The hard cases of distinguishing CONTAINS from CONTAINS-SUBEVENT will fall into a few categories.  
-
-The first are cases in which two events, taken out of context, would *not* be considered related, but which may be tightly related when considered in context.  For example:
-
-- e
-
-One way to evaluate this is to consider whether there could be a paraphrase of either event that could make the event/subevent system more transparently linked.  For example:
 
 
 
