@@ -967,12 +967,12 @@ University to pay graduate teachers a living wage.
 - She is not interested in pursuing chemotherapy at this time
 but is interested in **continued** surveillance.
 
-It is worth pointing out that in the last example, considered alongside \ref{twin},
+It is worth pointing out that in the last example,
 shows the interaction between DocTimeRel and ALINK to cover the idea
 of "already happening, and will now continue.
 
 There is one specific situation which must be discussed. EVENTs with
-a Contextual Modality of GENERIC (discussed in \ref{generic}) will
+a Contextual Modality of GENERIC will
 always have a DocTimeRel of OVERLAP, as stated truths are, presumably,
 true at Document Time. See the following:
 
@@ -1563,8 +1563,7 @@ Similarly odd, Pre- and Post- expressions ("preoperative", "post-exposure",
 "post-surgery", "prenatal", "pre-prandial") all actually
 designate specific temporal spans ("The time before the surgery",
 "The time after exposure") related to an implicit EVENT, and thus,
-are TIMEX3s, marked with the class PREPOSTEXP. Usage of this TIMEX3
-is discussed in more detail in Section \ref{prepostexp}.
+are TIMEX3s, marked with the class PREPOSTEXP. 
 
 - Patient underwent a partial hemicolectomy in July 2009. *Postoperative\
 scarring noted during exam.
@@ -1791,7 +1790,7 @@ A is IDENT to C. .
 The canonical example of this, and perhaps the bulk of IDENT annotation
 work, will be the marking of pronominal antecedents:
 
-- Mr. **Smith**$_{N1}$ complained of a headache. **He**$_{N2}$
+- Mr. **Smith**<sub>e1</sub> complained of a headache. **He**<sub>e1</sub>
 also had a sore throat.
 
 Yet in many instances on will be linking together lexical nouns that
@@ -1799,9 +1798,9 @@ refer to the same thing. Two different ways of refering to the same
 thing -- like Michele Obama, she, and First Lady in the example below
 -- belong in the same chain.
 
-- **Michele Obama**$_{e1}$ is a busy **lady**, **she**$_{e1}$
+- **Michele Obama<sub>e1</sub>** is a busy **lady**, **she**<sub>e1</sub>
 visits many schools around the country during the year. Just last
-week, the **First Lady**$_{e1}$ was in Wisconsin teaching kids
+week, the **First Lady**<sub>e1</sub> was in Wisconsin teaching kids
 why it is important to eat healthy and exercise.
 
 Yet the above example also illustrates this question of what to
@@ -1832,29 +1831,52 @@ Two entities have an APPOSITIVE relation if two NPs having the same
 semantic meaning occur adjacent to one another, separated only by
 punctuation - almost always a comma, colon, dash, or parenthesis.
 
-Remember that when we talk about adjacency, you have to think about
-the larger noun phrases that each single entity mention represents,
-including relative clauses. So the example in \ref{apposlong} is
-an appositive, even though the head words are not next to each other.
-This may make sense if one looks at the syntactic tree -- note that
-their separate noun phrases are split:
+:exclamation: **Remember that we need punctuation!**
+
+While actual linguistic analysis may consider many other things to be "apposition", our definition absolutely requires the presence of punctuation separating the two parts of an apposition construction.  This is purely for the sake of consistency.
+
+What this means is that you will find many cases in which a title is followed by a proper name; because of the span rules, the entity mention should ONLY be the proper name itself.  Only when there is an apposition construction should these be treated as separate entities split up by a comma:
+
+- I met the **President**, **Barack Obama**
+> **President** APPOSITION **Barack Obama**
+
+- I met President **Barack Obama**.
+
+- I met police officer **Jimmy McNulty**.
+
+:exclamation: **Adjacent phrases, not just adjacent words**
+
+We are linking any two appositive references to the same entity separated by a comma.  That does not mean that the two minimal-span entity mentions must be next to each other!  You will often have a mention with a relative clause involved with apposition, and that also is an allowable apposition link: 
 
 - My **friend** who works there, **John Smith**, makes bread.
 
-- \Tree [.S [.NP [.NP [.NP [.DT my ] [.NN friend ] ] [.RelativeClause who works there ]] [.NP John Smith ] ] [.VP makes bread ]]
+:exclamation: **APPOSITION is a directed relation with a HEAD and ATTRIBUTE**
 
 Unlike IDENT chains, which may contain many different referents in
-the same relationship, this is a relationship with only two points.
-The leftmost term must always be the HEAD and the right mention is
-the ATTRIBUTE, except when one of the two phrases is a proper name,
-in which case the proper name must be the HEAD regardless of position:
+the same relationship, APPOSITION is a two-term relation with only two possible mentions, and the mentions have different roles, that of the HEAD and the ATTRIBUTE.  
 
-- The U.S. **President**$_{\textsc{attribute}}$, **Barack
-Obama**$_{\textsc{headsc}}$
+If one of the two mentions is a proper name, it is automatically the HEAD.  Otherwise, the leftmost term must be the HEAD and the right mention the ATTRIBUTE:
+
+- I met the **President**<sub>attribute</sub>, **Barack Obama**<sub>head</sub>
+
 
 We will only consider the Head of an APPOSITIVE relation as eligible
 to participate in other relations with entities outside the APPOSITIVE
-relation, not the ATTRIBUTE.
+relation.  *Even if one of the mentions seems more contextually appropriate, you must use the head*. For example:
+
+- They jailed all three demonstrators.  One demonstrator, John Smith, has posted bail, but the other two have not.
+> **demonstrator**<sub>attribute</sub> APPOSITION **John Smith**<sub>head</sub>
+> **demonstrators** SET/MEMBER  **John Smith**
+:no_entry_sign: ~demonstrators SET/MEMBER demonstator~
+
+
+In some cases, APPOSITIVES may include multiple entities. In the case
+that there are more than 2 markables in the apposition, we will nest
+these using multiple, separate APPOS relations.
+
+- **AUTHOR**: Company **President**, **Mr. Johnson**
+
+
 
 There are a number of specific nominal constructions that we will
 count as APPOSITION. One is any sequence of titles -- either in normal
@@ -1869,22 +1891,6 @@ Unit conversions are also considered appositives.
 In some cases, APPOSITIVES may include multiple entities. In the case
 that there are more than 2 markables in the apposition, we will nest
 these using multiple, separate APPOS relations.
-
-- **AUTHOR**: Company **President**, **Mr. Johnson**
-
-We would create one APPOSITIVE in which **Mr. Johnson** would be
-the Head, and **President** would be the Attribute. Then, we would
-create a second APPOSITIVE with **President** as the Head, and **AUTHOR**
-as the Attribute. In these cases, we still would only include the
-HEAD of the first APPOSITIVE in other relations, thus, **AUTHOR**
-and **President** would not be eligible for inclusion in any other
-relation. You probably noticed that due to the nature of the nesting
-and the specificity of the proper name **Mr. Johnson**, the nesting
-worked right-to-left instead of left-to-right. We could not have had
-**President** be the attribute of both APPOSITIVE relations. The
-proper name takes precedent in determining APPOSITIVE phrases with
-multiple ENTITYs, as it is more specific on the specificity hierarchy:
-\\
 
 
 \centerline{Proper noun > pronoun > definite NP > indefinite specific
