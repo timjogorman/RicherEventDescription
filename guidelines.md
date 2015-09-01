@@ -70,7 +70,6 @@
     - [Narrative Containment](#narrative-containment)
     - [Temporal Containers vs Subevent Containers](#temporal-containers-vs-subevent-containers)
     - [Causation and Precondition Annotation](#causation-and-precondition-annotation)
-      - [Distinguishing "Cause" from "Precondition"](#distinguishing-cause-from-precondition)
   - [Rules for actually assigning TLINKS](#rules-for-actually-assigning-tlinks)
     - [Choosing the Anchors of Narrative Containers](#choosing-the-anchors-of-narrative-containers)
     - [Events should have a single container whenever possible](#events-should-have-a-single-container-whenever-possible)
@@ -123,6 +122,10 @@
     - [Hard Cases when determining Markablability](#hard-cases-when-determining-markablability)
     - [Complex Predicates](#complex-predicates)
     - [Distinguishing Reporting events from Hedges](#distinguishing-reporting-events-from-hedges)
+    - [Edge case guidelines for Relations](#edge-case-guidelines-for-relations)
+      - [CONTAINS-SUBEVENT from PRECONDITIONS](#contains-subevent-from-preconditions)
+      - [Distinguishing CONTAINS from CONTAINS-SUBEVENT](#distinguishing-contains-from-contains-subevent)
+      - [Distinguishing "Cause" from "Precondition"](#distinguishing-cause-from-precondition)
   - [Allowable explicit grammatical evidence](#allowable-explicit-grammatical-evidence)
     - [Permissable Evidence for BEFORE/OVERLAP](#permissable-evidence-for-beforeoverlap)
     - [Rules for Reporting verbs implying uncertain/hedged](#rules-for-reporting-verbs-implying-uncertainhedged)
@@ -1351,7 +1354,8 @@ they'll be two separate TIMEX3s, but two adjacent TIMEX3s which together
 specify a single time can be treated as a single span. Look at the
 contrast in \Next:
 
-- \a. I'll come by to check on her at *3:30pm Tuesday* \b{.
+- 
+> I'll come by to check on her at *3:30pm Tuesday* \b{.
 I'll come by to check on her at *3:30pm* and on *Tuesday\
 
 In (b), we know that the doctor is referring to two different timepoints,
@@ -2056,7 +2060,7 @@ relations in the following:
 discussed treatment options for **her**$_{M2-1}$ cancer. **We**
 also reviewed in **our**$_{S2}$ discussion the results of **her**$_{M2-2}$
 recent CT-scan. **My**$_{M1}$ recommendation is adjuvant chemotherapy.
-\a. SET **We**$_{S1}$: MEMBERs **I**$_{M1}$, **patient**$_{M2}$,
+> SET **We**$_{S1}$: MEMBERs **I**$_{M1}$, **patient**$_{M2}$,
 **her**$_{M2-1}$ 
 > SET **our**$_{S2}$: MEMBERs **her**$_{M2-2}$,
 **My**$_{M1}$
@@ -2085,7 +2089,8 @@ or WHOLE/PART relationship. They can, however, be SET/MEMBER, as in
 of a local clinical trial in which **patients**$_{GENERIC}$ with
 **cancer**$_{GENERIC}$ recovered successfully on the **drug**
 without reoccurrence. Given **her** colon **cancer**<sub>ACTUAL</sub>
-and the success of the **drug**, **I** recommend **it**. \a.
+and the success of the **drug**, **I** recommend **it**. 
+>
 SET **patients**: MEMBER **Mrs. Ambry** 
 > **Mrs. Ambry**
 IDENTICAL **her** 
@@ -2101,17 +2106,21 @@ Email addresses (and other person-specific identifiers) can be linked
 to their referent humans using IDENTICAL or APPOSITIVE.
 
 - You should contact **Bill Franklin** for more information.
-**He**'s **bill.franklin@hotmail.gov** \a. **Bill Franklin**
+**He**'s **bill.franklin@hotmail.gov** 
+> **Bill Franklin**
 IDENTICAL **He**, **bill.franklin@hotmail.gov**
 
 - **George Maddox** (**exampleguy6969@hotmail.gov**) should
-be able to help you out. \a. **George Maddox** APPOSITIVE **exampleguy6969@hotmail.gov**
+be able to help you out. 
+> **George Maddox** APPOSITIVE **exampleguy6969@hotmail.gov**
 
 - Did you ask **Herbie** (**prairiedog1564** on here)? **He**
-might know! \a. **Herbie** APPOSITIVE **prairiedog1564**, **He**
+might know! 
+> **Herbie** APPOSITIVE **prairiedog1564**, **He**
 
 - Ms. **Jenny Tutone** (SSN: **867-53-0900**) was arrested
-last week. \a. **Jenny Tutone** IDENTICAL **867-53-0900**
+last week. 
+> **Jenny Tutone** IDENTICAL **867-53-0900**
 
 Phone numbers are not person-specific, and thus, are not eligible
 for these relations.
@@ -2148,7 +2157,8 @@ use the non-specific BRIDGING link:
 with the murder of a local blacksmith. The **alleged killer** is
 being held without bond. The **killer** reportedly had a large tattoo
 of a squid on **his** face, similar to the one present in **Mr.
-Holbein's** booking photo. \a. **Hans Holbein** IDENTICAL **man**,
+Holbein's** booking photo. 
+> **Hans Holbein** IDENTICAL **man**,
 **alleged killer**,**Mr. Holbein's** 
 > **killer** IDENTICAL **his** 
 > **killer** BRIDGING **Mr. Holbein's**
@@ -2393,130 +2403,6 @@ BEFORE/CAUSES, OVERLAP/CAUSES, BEFORE/PRECONDITIONS, and OVERLAP/PRECONDITIONS.
 
 
 
-#### Distinguishing "Cause" from "Precondition"
-
-In our view of causality, we claim that "X CAUSES Y" if (and only
-if), according to the writer, the particular EVENT Y was inevitable
-given the particular EVENT X. Put differently, the existence of X
-was not just helpful in allowing Y to happen, nor associated with
-Y, but the occurrence of X triggered or immediately necessitated the
-occurrence of Y:
-
-- The **rockfall** made the **over-full** **dam** **burst**,
-**flooding** the **town** below. \a. **rockfall** BEFORE/CAUSES
-**burst** 
-> **burst** BEFORE/CAUSES **flooding**
-
-Here, the rockfall is what immediately caused the burst (although
-the over-full nature of the dam may have preconditioned it), just
-as the burst caused the flooding. Put differently, had the rocks not
-fallen, and had the dam not burst, according to the author, there
-would have been neither bursting nor flooding.
-
-- The **sheriff** **fired** **her** **gun**, **killing**
-the **injured** **deer**. \a. **fired** BEFORE/CAUSES **killing**
-
-> **sheriff** IDENTICAL **her**
-
-Here, although the injury may have eventually led to the deer's demise,
-the killing was caused directly and immediately by the firing of the
-gun.
-
-- **Christchurch**, the first **city** **established** in
-**New Zealand**, had endured a **series** of **earthquakes**
-that **destroyed** **its** **infrastructure**, **homes** and
-**communities**. 
-> **earthquakes** OVERLAP/CAUSES **destroyed** 
-> Coreference relations: **Christchurch** APPOSITIVE **city**
->  **Christchurch** IDENTICAL **its**
-> WHOLE **New Zealand**: PART **Christchurch** 
-> WHOLE **its**: PARTs **infrastructure**, **homes**, **communities**
-> SET **series**: MEMBER **earthquakes**
-
-In that last example, it is the case that the destruction would not have happened
-without the earthquake, and that once the earthquake began (and through
-its duration, hence OVERLAP/CAUSES), the destruction was inevitable.
-
-- Although **it** took *many years*, the **discovery** of
-**Uranium** outside **Moab** would eventually **revitalize**
-the local **economy**. 
-**discovery** BEFORE/CAUSE **revitalize** 
-**it** IDENTICAL **revitalize**
-
-This shows an example where, although there was significant time
-lag between the cause (the discovery of Uranium and the effect: revitalization),
-we are led to believe that in this case, the discovery did directly
-and inevitably trigger revitalization, and therefore, the link is
-causal.
-
-So, again, causality is marked in our schema only if EVENT Y was inevitable
-given this particular instance of EVENT X.
-
-Preconditioning, in our view of the world, carries no such inevitability.
-In RED, we annotate "X PRECONDITIONS Y" if, according to the writer,
-had the particular EVENT X not happened, the particular EVENT Y would
-not have been able to happen. Put differently, although a preconditioning
-EVENT is not *sufficient* to cause another EVENT, its occurrence
-is *necessary* in order for the other EVENT to have happened.
-
-- The **rockfall** made the **over-full** **dam** **burst**,
-**flooding** the **town** below. \a. **rockfall** BEFORE/CAUSES
-**burst** 
-> **burst** BEFORE/CAUSES **flooding** \b{.
-***over-full** BEFORE/PRECONDITIONS **burst**
-
-Here, we are led to believe that the over-full nature of the dam helped
-promote bursting, and thus, was a precondition of the burst itself.
-However, the over-fullness of the dam alone, in this particular case,
-was not enough to cause the burst, thus, is only a precondition.
-
-- The **sheriff** **loaded** **her** **rifle**, then **fired**
-at the **target**. \a. **loaded** BEFORE/PRECONDITION **fired**
-
-> **sheriff** IDENTICAL **her**
-
-Were the rifle not loaded, it could not have fired, and therefore,
-loading is a precondition to firing (although the firing is separately
-caused).
-
-- The **strikes** came in **retaliation** for recent terrorist
-**attacks**. \a. **attacks** BEFORE/PRECONDITIONS **retaliation**
-
-> **strikes** IDENTICAL **retaliation**
-
-In \Last, although something else (a pilot pushing a button, or a
-general's orders) was the direct cause of the strikes, we are told
-(via the meaning of "retaliation") that the strikes would not
-have happened were it not for the attacks.
-
-Similarly, note that occaisionally an ongoing state can be a motivation
-or other precondition for an action; in those cases, you can use OVERLAP/PRECONDITION:
-
-- I feel that they are **punishing** him for his **condition**
-by keeping him after school, \a. **condition** OVERLAP/PRECONDITIONS
-**punishing**
-
-Remember as well that SUBEVENT, CAUSES, and PRECONDITIONS relations
-are mutually exclusive, and one event pair can only have one of these
-relations. Therefore, if an event pair has more than one of these
-three relations, there is an order of importance.
-If the relation is clearly some sort of outcome or causation (cause
-or precondition) of an event, then default to the CAUSES or PRECONDITIONS
-reading, as they are easier to consistently capture. If torn between
-CAUSES and PRECONDITIONS, check the special cases
-section to see if there are special hints for your phenomenon, and
-otherwise default to CAUSES.
-
-To sum up, CAUSES implies that the occurrence of one EVENT is *sufficient*
-to trigger another, whereas PRECONDITIONS only states one EVENT was
-*necessary* for another to later take place.
-
-Once this distinction is fully understood, proper annotation is simply
-a matter of understanding the temporal nature of each, and creating
-the proper annotations.
-
-
-
 
 ## Rules for actually assigning TLINKS
 
@@ -2679,7 +2565,8 @@ There can be multiple causes and preconditions for a single event:
 
 - After **loading** **his** **pistol** and **chambering**
 a **round**, the **instructor** **pulled** the **trigger**
-and **fired** a **shot** as a **demonstration**. \a. **loading**
+and **fired** a **shot** as a **demonstration**. 
+> **loading**
 BEFORE/PRECONDITION **fired** 
 > **chambering** BEFORE/PRECONDITION
 **fired** 
@@ -2690,7 +2577,7 @@ EVENTs:
 
 - **He** has **seen** **people** **decapitated** by barrel
 **bombs** and **others** who **lost** **their** **limbs**.
-\a. **bombs** OVERLAPS/CAUSES **decapitated** 
+> **bombs** OVERLAPS/CAUSES **decapitated** 
 > **bombs**
 OVERLAPS/CAUSES **lost** 
 > **others** IDENTICAL **their**
@@ -2846,12 +2733,14 @@ For quoted speech or reporting, assume that the narrator or writer
 is reliable, unless otherwise indicated:
 
 - On *Sunday*, he **said**, **one** of the **bombs** **wrecked**
-the family's home. \a. **one** OVERLAPS/CAUSES **wrecked** \b{.
+the family's home. 
+> **one** OVERLAPS/CAUSES **wrecked** \b{.
 *Sunday* CONTAINS **wrecked** 
 > **bombs** SET/MEMBER **one**
 
 - **Frank** **claims** that an **alien** mind-control **beam**
-made **him** **rob** the **bank**. \a. **beam** OVERLAP/CAUSES
+made **him** **rob** the **bank**. 
+> **beam** OVERLAP/CAUSES
 **rob** 
 > **Frank** IDENTICAL **him** 
 > **claims**
@@ -3015,7 +2904,8 @@ funnel **clouds**.
 
 - **Colonoscopy** (*January 7, 2010*): Fair/adequate **prep.**,
 Limited **Colonoscopy** to the distal sigmoid due to an obstructive
-**lesion**. Diminutive **polyps** of the rectosigmoid. \a. **Colonoscopy**
+**lesion**. Diminutive **polyps** of the rectosigmoid. 
+> **Colonoscopy**
 CONTAINS-SUBEVENT **prep.**
 
 If there is no such link of necessity, or if this event is a part
@@ -3023,10 +2913,11 @@ of this particular instance, but is not expected in the majority of
 instances, the relationship is simply containment:
 
 - There was a **thunderstorm** during the marathon **battle**.
-\a. **battle** CONTAINS **thunderstorm**
+> **battle** CONTAINS **thunderstorm**
 
 - During *Friday's* **surgery**, the patient's heartrate **spiked**
-when she **fell** off the table. \a. **surgery** CONTAINS **fell**
+when she **fell** off the table. 
+> **surgery** CONTAINS **fell**
 
 > **surgery** CONTAINS **spiked** 
 > *Friday* CONTAINS
@@ -3034,11 +2925,13 @@ when she **fell** off the table. \a. **surgery** CONTAINS **fell**
 > (**spiked** BEGINS-ON **fell**) -- Discussed
 below in Section \ref{corefannotation}.
 
-- The **earthquake** occurred during the **parade**. \a.
+- The **earthquake** occurred during the **parade**. 
+>
 **parade** CONTAINS **earthquake**
 
 - There was a large **interruption** when the colonel and his
-guards **burst** into the parliament **debates**. \a. **debates**
+guards **burst** into the parliament **debates**. 
+> **debates**
 CONTAINS **interruption** 
 > **debates** CONTAINS **burst**
 
@@ -3093,7 +2986,8 @@ OVERLAP is also used for linking TIMEX3s of type SET with other EVENTs,
 as in \Next:
 
 - We will keep her on rate-control **medications** 100 mg *twice
-daily* \a. *twice daily* OVERLAP **medications**
+daily* 
+> *twice daily* OVERLAP **medications**
 
 :bangbang: *OVERLAP provides relatively little information for the actual
 processing of text compared to our other temporal relations. If you
@@ -3121,13 +3015,14 @@ usually be marked with BEFORE instead.
 Note that BEGINS-ON is to be used only where there is no causal relationship.
 
 - *2008* marked the **start** of the rebels' brutal **campaign**
-\a. **start** BEGINS-ON *2008\
+> **start** BEGINS-ON *2008\
 
-- She has had Abdominal **Cramping** since *January*. \a.
+- She has had Abdominal **Cramping** since *January*. 
+>
 **Cramping** BEGINS-ON *January\
 
 - He reports intermittent chest **pain** since his prior **MI**.
-\a. **MI** BEFORE **pain**
+> **MI** BEFORE **pain**
 
 
 ### ENDS-ON
@@ -3138,16 +3033,19 @@ which have a non-trivial temporal span. Relations with punctual EVENTs
 will usually be marked with BEFORE instead.
 
 - The "occupy" **protests** largely **ended** when the
-weather grew too **cold** for **camping**. \a. **protests**
+weather grew too **cold** for **camping**. 
+> **protests**
 ENDS-ON **cold**
 
 - She has had no **bleeding** since her **stitches** were
-**removed**. \a. **bleeding**<sub>NEG</sub> ENDS-ON **removed**
+**removed**. 
+> **bleeding**<sub>NEG</sub> ENDS-ON **removed**
 
 Note that ENDS-ON can be used in concert with BEGINS-ON to mark a
 duration.
 
-- She was on **chemo** from *March* through *July*. \a.
+- She was on **chemo** from *March* through *July*. 
+>
 **chemo** BEGINS-ON *March* 
 > **chemo** ENDS-ON *July\
 
@@ -3170,13 +3068,13 @@ will be on high **alert**) or by necessity (I'll
 **drink** as long as my cup is **full**).
 
 - She **listened** to music during her whole **drive** home.
-\a. **listened** SIMULTANEOUS **drive**
+> **listened** SIMULTANEOUS **drive**
 
 In this case, she started a music-listening EVENT when she began her
 ride, and ended when the ride ended. There is a functional relationship.
 
 - Cell phones must be **turned** off while in **flight**.
-\a. **turned** SIMULTANEOUS **flight**
+> **turned** SIMULTANEOUS **flight**
 
 The start and end of **flight** represent the start and end of the
 prohibition, so, necessarily, SIMULTANEOUS.%
@@ -3185,7 +3083,8 @@ expression is "turned".%
 
 
 - For the duration of her **surgery**, the anesthesiologist
-**monitored** her pulse at the wrist. \a. **surgery** SIMULTANEOUS
+**monitored** her pulse at the wrist. 
+> **surgery** SIMULTANEOUS
 **monitored**
 
 The anesthesiologist's monitoring would necessarily start and end
@@ -3198,11 +3097,13 @@ and *when two EVENTs are unquestionably SIMULTANEOUS and questionably
 causal, we will mark the more specific SIMULTANEOUS relation, rather
 than using OVERLAP-CAUSE*.
 
-- While they **recorded**, the red light stayed **on**. \a.
+- While they **recorded**, the red light stayed **on**. 
+>
 **recorded** SIMULTANEOUS **on**
 
 - The whole time that John **raced** around the track, his **frightened**
-mother **clutched** her seat with white knuckles. \a. **raced**
+mother **clutched** her seat with white knuckles. 
+> **raced**
 SIMULTANEOUS **clutched** 
 > **raced** BEFORE-CAUSE **frightened**
 
@@ -3211,18 +3112,21 @@ but alas, the fear persists.
 
 There are many instances of false or one-sided simultaneity to avoid:
 
-- He was **sad** when she **visited**. \a. We're not sure
+- He was **sad** when she **visited**. 
+> We're not sure
 that the sadness began or ended when she arrived or left. OVERLAP.
 
-- The bombers **shouted** while they **ran**. \a. It's unlikely
+- The bombers **shouted** while they **ran**. 
+> It's unlikely
 that they began shouting when they began running, persisted throughout,
 and stopped when they stopped running. OVERLAP.
 
 - The Colorado fires **burned** throughout the **summer**.
-\a. Colorado did not catch fire on June 21st, and promptly extinguish
+> Colorado did not catch fire on June 21st, and promptly extinguish
 itself on September 23rd. **summer** CONTAINS **burned**
 
-- She **talked** with her Mom while I **made** dinner. \a.
+- She **talked** with her Mom while I **made** dinner. 
+>
 It is not asserted that she started the call when I picked up a spatula,
 nor hung up as the food hit plate. If you can get from context that
 the talking is CONTAINS, do it; otherwise, OVERLAP.
@@ -3262,7 +3166,8 @@ your sole choice is to create a BEFORE/PRECONDITIONS link.
 
 - **She** **unlocked** the **vault**, **disabled** the
 **cameras**, and **distracted** the **guard** so that **he**
-could **steal** the **gold**. \a. **unlocked** BEFORE/PRECONDITIONS
+could **steal** the **gold**. 
+> **unlocked** BEFORE/PRECONDITIONS
 **steal** 
 > **disabled** BEFORE/PRECONDITIONS **steal**
 
@@ -3283,7 +3188,8 @@ fully takes place. In these cases, BEFORE/CAUSE is the only prudent
 annotation.
 
 - The **bear's** **visit** forced the **city** to **adopt**
-a new **trash-can** **design**. \a. **visit** BEFORE/CAUSE
+a new **trash-can** **design**. 
+> **visit** BEFORE/CAUSE
 **adopt**
 
 It is clearly the case that the adoption did not happen while the
@@ -3291,7 +3197,7 @@ bear was still in town, so the cause is BEFORE the effect, and BEFORE/CAUSE
 is prudent.
 
 - **France's** **declaration** caused **tension** with **Russia**.
-\a. **declaration** BEFORE/CAUSE **tension**
+> **declaration** BEFORE/CAUSE **tension**
 
 The declaration did not, itself, cause tension with Russia in the
 same way that an earthquake causes damage. Instead, its interpretation
@@ -3300,13 +3206,14 @@ was a non-trivial lag between cause and effect, and that BEFORE/CAUSE
 is prudent.
 
 - **Switching** **textbooks** led to **improvements** in
-**scores**. \a. **switching** BEFORE/CAUSE **improvements**
+**scores**. 
+> **switching** BEFORE/CAUSE **improvements**
 
 Again, it is not the case that the improvement occurred \textit{during
 the switch, so BEFORE/CAUSE is prudent.
 
 - **He** **shot** and **killed** the **attacking** **soldier**.
-\a. **shot** BEFORE/CAUSE **killed**
+> **shot** BEFORE/CAUSE **killed**
 
 **shot** here refers to the act of discharging a firearm. Even assuming
 an immediate and painless death for the attacker, there is a (very
@@ -3315,7 +3222,8 @@ is not the case that at any point, this specific shot and killing
 were occuring at the same moment. So, BEFORE/CAUSE.
 
 - The **bus** **kneeled** to allow **access** to the elderly
-**man**. \a. **kneeled** BEFORE/CAUSE **access**
+**man**. 
+> **kneeled** BEFORE/CAUSE **access**
 
 Although kneeling has a non-trivial duration, we have no reason to
 believe that the elderly man entered the bus mid-kneel. Thus, BEFORE/CAUSE.
@@ -3333,20 +3241,22 @@ resulting in the effect. Put differently, there is a temporal overlap,
 where the cause is ongoing, and the effect is already partly or completely
 present.
 
-- The **earthquake** **destroyed** the **palace**. \a.
+- The **earthquake** **destroyed** the **palace**. 
+>
 **earthquake** OVERLAP/CAUSES **destroyed**
 
 At some point in time, the destruction had begun while the earth was
 still quaking, and thus, the two EVENTs are in an OVERLAP/CAUSES relationship.
 
 - **His** **coldness** made **Kerri** **uncomfortable**.
-\a. **coldness** OVERLAP/CAUSES **uncomfortable**
+> **coldness** OVERLAP/CAUSES **uncomfortable**
 
 Her discomfort and his coldness are both durative EVENTs, and it is
 extremely likely that she began feeling discomfort before his coldness
 had ended. Thus, OVERLAP/CAUSES.
 
-- The **attacks** resulted in 89 **deaths**. \a. **attacks**
+- The **attacks** resulted in 89 **deaths**. 
+> **attacks**
 OVERLAP/CAUSES **deaths**
 
 It's likely that deaths occurred during each individual attack, and
@@ -3356,14 +3266,16 @@ contains at least one death.
 Note that the semantics of participating EVENTs have a strong role
 in the choice of BEFORE/CAUSES vs. OVERLAP/CAUSES. For instance:
 
-- The **explosion** caused mass **hysteria**. \a. **explosion**
+- The **explosion** caused mass **hysteria**. 
+> **explosion**
 BEFORE/CAUSE **hysteria**
 
 Here, it's fairly clear that the hysteria began after the explosion,
 rather than the physical blast causing the hysteria as it propagated.
 Compare to:
 
-- The **explosion** caused many **injuries**. \a. **explosion**
+- The **explosion** caused many **injuries**. 
+> **explosion**
 OVERLAP/CAUSE **injuries**
 
 Here, the blast itself, the physical reality of the expanding gas
@@ -3403,6 +3315,12 @@ enough without adding this additional agony.*
 
 
 
+
+
+
+
+
+
 ### Annotating TLINK Features
 
 #### Annotating polarity of TLINKs
@@ -3429,22 +3347,26 @@ TLINKs are marked as NEG only when they are both explicitly asserted
 *and* asserted to be false.
 
 - The **bombing** did not take place on *the 18th* as expected,
-but on *the 24th*. \a. *18th* CONTAINS -- NEG **bombing** \b{.
+but on *the 24th*. 
+> *18th* CONTAINS -- NEG **bombing** \b{.
 *24th* CONTAINS -- POS **bombing**
 
 - The **earthquake** did not cause the **fire**, instead,
-**it** was caused by an electrical **short** . \a. **earthquake**
+**it** was caused by an electrical **short** . 
+> **earthquake**
 BEFORE/CAUSES -- NEG **fire** 
 > **short** BEFORE/CAUSES --
 POS **it** 
 > **earthquake** BEFORE -- POS **fire**
 
-- The **meeting** was not on *Thursday*. \a. *Thursday\
+- The **meeting** was not on *Thursday*. 
+> *Thursday\
 CONTAINS -- NEG **meeting**
 
 It is important to contrast these with the below:
 
-- The **meeting** on *Thursday* didn't occur. \a. *Thursday\
+- The **meeting** on *Thursday* didn't occur. 
+> *Thursday\
 CONTAINS -- POS **meeting<sub>ACTUAL,NEG</sub>
 
 In the negated TLINKs, the EVENTs themselves are not negated, but
@@ -3508,20 +3430,23 @@ as part of the timeline, but be marked so that they can be easily
 differentiated from known facts.
 
 - He likely **escaped** on the *18th* during a *guard change*,
-although authorities cannot be sure. \a. *18th* CONTAINS **guard
+although authorities cannot be sure. 
+> *18th* CONTAINS **guard
 change** <ACTUAL> 
 > **guard change** CONTAINS **escaped**
 <UNCERTAIN>
 
 - The chairman will, in all likelihood, **step** down on *Monday*.
-\a. *Monday* CONTAINS **step** <UNCERTAIN>
+> *Monday* CONTAINS **step** <UNCERTAIN>
 
 - We have every reason to expect that her incision will **heal**
-before her **tournament**. \a. **heal** BEFORE **tournament**
+before her **tournament**. 
+> **heal** BEFORE **tournament**
 <UNCERTAIN>
 
 - The **fire**, very likely caused by a lightning **strike**,
-is **growing** due to high **winds**. \a. **strike** BEFORE/CAUSE
+is **growing** due to high **winds**. 
+> **strike** BEFORE/CAUSE
 **fire** <UNCERTAIN> 
 > **winds** OVERLAP/CAUSE **growing**
 <ACTUAL> 
@@ -3536,17 +3461,20 @@ Again, this is unrelated to the modality of the EVENTs, and is only
 when the temporal relation itself is hypothetical, theoretical, or
 otherwise dependent on an external factor.
 
-- Her **surgery** may take place on the *18th*. \a. *18th\
+- Her **surgery** may take place on the *18th*. 
+> *18th\
 CONTAINS **surgery** <HYPOTHETICAL>
 
 - If the **explosion** was caused by a natural gas **leak**,
-the insurance will not **cover** the **reconstruction**. \a.
+the insurance will not **cover** the **reconstruction**. 
+>
 **leak** BEFORE/CAUSE **explosion** <HYPOTHETICAL> 
 > **explosion**
 BEFORE/PRECONDITIONS **reconstruction** <ACTUAL>
 
 - Obama's **visit**, if **it** occurs on a *weekday*, is
-expected to cause traffic **headaches**. \a. **it** OVERLAPS/CAUSE
+expected to cause traffic **headaches**. 
+> **it** OVERLAPS/CAUSE
 **headaches** <HYPOTHETICAL> 
 > *weekday* CONTAINS **it**
 <HYPOTHETICAL>
@@ -3556,8 +3484,10 @@ HYPOTHETICAL, as hypothetical EVENTs are not necessarily members of
 hypothetical relations. See the below example:
 
 - If the group **attacks** during the **Olympics**, Russia
-has promised swift **retaliations**. \a. **Olympics**$_{\text{ACT}}$
-CONTAINS **attacks**$_{\text{HYP}}$ <HYPOTHETICAL> \a. **attacks**$_{\text{HYP}}$
+has promised swift **retaliations**. 
+> **Olympics**$_{\text{ACT}}$
+CONTAINS **attacks**$_{\text{HYP}}$ <HYPOTHETICAL> 
+> **attacks**$_{\text{HYP}}$
 BEFORE/CAUSE **retaliation**$_{\text{HYP}}$ <ACTUAL>
 
 In this example, we have a hypothetical attack, an actual Olympic
@@ -3579,16 +3509,19 @@ Generic temporal information (which is true in any document) is marked
 with GENERIC:
 
 - **Attacks** in the region generally don't occur on *Holy
-days* \a. *Holy days* CONTAINS **attacks**$_{\text{NEG}}$ <GENERIC>
+days* 
+> *Holy days* CONTAINS **attacks**$_{\text{NEG}}$ <GENERIC>
 
 - US Presidential **Elections** are held on the *Tuesday after
-the first Monday in November* \a. *Tuesday after the first Monday
+the first Monday in November* 
+> *Tuesday after the first Monday
 in November* CONTAINS **Elections** <GENERIC>
 
 ... but remember that specific mentions do not get <GENERIC>:
 
 - The last US Presidential **Election** was held on *November
-4th, 2008* \a. *November 4th, 2008* CONTAINS **Election** <ACTUAL>
+4th, 2008* 
+> *November 4th, 2008* CONTAINS **Election** <ACTUAL>
 
 :bangbang: *As with TLINK polarity, TLINK modality is seldom anything
 but the default, ACTUAL. If you are considering marking a TLINK with
@@ -3680,7 +3613,7 @@ of", yet temporally outside of, another event.
 
 - After a week of attempted repairs, the palace **collapsed**
 Friday, the most disheartening part of the already-terrible **earthquake**.
-\a. **earthquake** BEFORE-CAUSE **collapsed** 
+> **earthquake** BEFORE-CAUSE **collapsed** 
 > **earthquake**
 BRIDGING **collapsed**
 
@@ -3724,7 +3657,7 @@ relations in the following:
 discussed treatment options for **her**$_{M2-1}$ cancer. **We**
 also reviewed in **our**$_{S2}$ discussion the results of **her**$_{M2-2}$
 recent CT-scan. **My**$_{M1}$ recommendation is adjuvant chemotherapy.
-\a. SET **We**$_{S1}$: MEMBERs **I**$_{M1}$, **patient**$_{M2}$,
+> SET **We**$_{S1}$: MEMBERs **I**$_{M1}$, **patient**$_{M2}$,
 **her**$_{M2-1}$ 
 > SET **our**$_{S2}$: MEMBERs **her**$_{M2-2}$,
 **My**$_{M1}$
@@ -3746,7 +3679,8 @@ or WHOLE/PART relationship. They can, however, be SET/MEMBER, as in
 of a local clinical trial in which **patients**$_{GENERIC}$ with
 **cancer**$_{GENERIC}$ recovered successfully on the **drug**
 without reoccurrence. Given **her** colon **cancer**<sub>ACTUAL</sub>
-and the success of the **drug**, **I** recommend **it**. \a.
+and the success of the **drug**, **I** recommend **it**. 
+>
 SET **patients**: MEMBER **Mrs. Ambry** 
 > **Mrs. Ambry**
 IDENTICAL **her** 
@@ -3787,24 +3721,29 @@ INITIATES, REINITIATES, and TERMINATES.
 CONTINUES is used when an aspectual event shows the continuation of
 another event:
 
-- We **continue** to **fight** tyranny in all its forms. \a.
+- We **continue** to **fight** tyranny in all its forms. 
+>
 **continue** CONTINUES **fight**
 
 - The rebels have announced that they will **keep** **pressing**
-towards Damascus. \a. **keep** CONTINUES **pressing**
+towards Damascus. 
+> **keep** CONTINUES **pressing**
 
 - The patient will **remain** on **dialysis** until her condition
-**changes**. \a. **remain** CONTINUES **dialysis** 
+**changes**. 
+> **remain** CONTINUES **dialysis** 
 > **remain**
 ENDS-ON **changes**
 
 - She is not interested in pursuing chemotherapy at this time
-but is interested in **continued** **surveillance**. \a. **continued**
+but is interested in **continued** **surveillance**. 
+> **continued**
 CONTINUES **surveillance**
 
 - We will **continue** to **monitor** heart rate and rhythm
 along with serial cardiac markers and electrocardiograms to rule her
-out for any cardiac involvement. \a. **continue** CONTINUES **monitor**
+out for any cardiac involvement. 
+> **continue** CONTINUES **monitor**
 
 **INITIATES**
 
@@ -3812,16 +3751,16 @@ INITIATES is used when an aspectual event indicates the start or initiation
 of another event:
 
 - *2008* marked the **start** of the rebels' brutal **campaign**.
-\a. **start** BEGINS-ON *2008* 
+> **start** BEGINS-ON *2008* 
 > **start** INITIATES **campaign**
 
 - Patient will **begin** a high-fiber **diet** upon **release**.
-\a. **begin** INITIATES **diet** 
-> **begin** BEGINS-ON
-**release**
+> **begin** INITIATES **diet** 
+> **begin** BEGINS-ON **release**
 
 - We will **start** Ms. Miller on a normal saline **infusion**
-at 75 an hour for a total of 1 L. \a. **start** INITIATES **infusion**
+at 75 an hour for a total of 1 L. 
+> **start** INITIATES **infusion**
 
 Note that INITIATES carries an implied sort of causality (beginning
 something, by definition, causes it to start). This causality need
@@ -3834,20 +3773,19 @@ REINITIATES is used when an aspectual event indicates that another
 event will be restarted or reinitiated:
 
 - The latest **bombing** broke the treaty, **resurrecting**
-**violence** throughout the city. \a. **resurrecting** REINITIATES
-**violence**
+**violence** throughout the city. 
+> **resurrecting** REINITIATES **violence**
 
 - **Levaquin** 750 mg p.o. q. day (will **restart** *today*)
-\a. **restart** REINITIATES **Levaquin** 
-> *today* CONTAINS
-**restart**
+> **restart** REINITIATES **Levaquin** 
+> *today* CONTAINS **restart**
 
 - His anterior chest **rash** has not **reoccurred** since
 the **PCN** VK was **discontinued** *24-hours ago*.
 >  **discontinued** TERMINATES **PCN** 
 > **discontinued** BEFORE **reoccurred**<sub>NEG</sub>
 
-> **discontinued** OVERLAP *24-hours ago\
+> **discontinued** OVERLAP *24-hours ago
 
 As with INITIATES, reinitiates carries an implied sort of causality.
 This causality need not be marked, so long as the ALINK is present.
@@ -3859,18 +3797,19 @@ TERMINATES is used when an aspectual event indicates the ending of
 another event:
 
 - The latest **treaty** should finally **end** the **bloodshed**.
-\a. **end** TERMINATES **bloodshed**
+> **end** TERMINATES **bloodshed**
 
 - Because of this **reaction**, **Allegra** will be **discontinued**.
-\a. **discontinued** TERMINATES **Allegra**
+> **discontinued** TERMINATES **Allegra**
 
 - We will **hold** her **heparin** until after the **surgery**.
-\a. **hold** TERMINATES **heparin** 
+> **hold** TERMINATES **heparin** 
 > **hold** ENDS-ON
 **surgery**
 
 - Patient **nausea** was successfully **stopped** by 1-mg
-**Ativan** p.r.n. \a. **stopped** TERMINATES **nausea**
+**Ativan** p.r.n. 
+> **stopped** TERMINATES **nausea**
 
 :bangbang: *ALINKs are much less common than TLINKs, usually only a few
 per document, but they are no less important and easy to overlook.
@@ -3944,7 +3883,7 @@ relation.
 | Type | example |  two events? | markable features   | relation? |
 | ---- | --- | --- | --- | --- |
 | denial of a fact  | the mayor denies any involvement with the cartels | yes | make second event UNCERTAIN/HEDGED | no relation |
-| denial, which it means "prevent"  | the troops denied the protestors entry to the square | yes | make second event NEG-ACTUAL | no relation |
+| denial, which it means "prevent"  | the troops denied the protestors entry to the square | yes | make second event NEG-ACTUAL | mark a CAUSE (is causing the negation) |
 | denouncement  | The international community was quick to **denounce** the **bombing** | yes | make second event ACTUAL (unless other cues say otherwise) | no relation |
 | endorsement  |  Three different countries have **endorsed** the trade **agreement**. | yes | no effect -- likely ACTUAL for e2 | no relation (unless endorsement/support enacts the endorsed thing) |
 | light verbs | John **took** a **bath** | no, only BATH |  | |
@@ -3975,6 +3914,185 @@ Remember that hedges are NOT events, but merely good evidence for using UNCERTAI
 | Reporting | actual reporting  | NYT first reported the strike in october | |
 | Reporting | prepositional reporting | **according to* John, they closed in February | | 
 | Reporting AND evidence for UNCERTAIN/HEDGED | reporting verbs that imply doubt | North Korea claims that they can hit NYC | see [Examples of reporting verbs implying uncertain/hedged](#Rules for Reporting verbs implying uncertain/hedged)
+
+
+
+
+
+
+
+### Edge case guidelines for Relations
+
+
+| Rel 1 | Rel 2        | Test         | example | example  relation |  
+| ----- | ------------ | ------------ | ------------ | ------------ |
+| Cause | Precondition | if it's part of a long causal chain that might or  might not have resulted in the event, just PRECONDITION |  The **rockfall** made the **over-full** **dam** **burst** | **over-full** BEFORE/PRECONDITIONS **burst** |
+| Cause | Precondition | if the causation is direct and explicit, it's CAUSE |  The **rockfall** made the **over-full** **dam** **burst** | **rockfall** BEFORE/CAUSE **burst** | 
+| Contains | Contains-Subevent | if event A could be seen as a subpart of the larger event (is the same type of event, etc.), use CONTAINS-SUBEVENT | During the **speech**, he **discussed** the Iraq war. | **speech** CONTAINS/SUBEVENT **discussed** |
+
+
+#### CONTAINS-SUBEVENT from PRECONDITIONS
+
+A second, related question is how to handle the PURPOSE or INTENT of an event:
+
+- I [talked] to him to [get] information about the transaction. 
+- To [avoid] the traffic jam  coming into town, we [took] a county road.
+
+For these, one might imagine there being a "subevent" reading or a "precondition" reading.  
+
+
+#### Distinguishing CONTAINS from CONTAINS-SUBEVENT
+
+The hard cases of distinguishing CONTAINS from CONTAINS-SUBEVENT will fall into a few categories.  
+
+The first are cases in which two events, taken out of context, would *not* be considered related, but which may be tightly related when considered in context.  For example:
+
+- e
+
+One way to evaluate this is to consider whether there could be a paraphrase of either event that could make the event/subevent system more transparently linked.  For example:
+
+
+
+#### Distinguishing "Cause" from "Precondition"
+
+In our view of causality, we claim that "X CAUSES Y" if (and only
+if), according to the writer, the particular EVENT Y was inevitable
+given the particular EVENT X. Put differently, the existence of X
+was not just helpful in allowing Y to happen, nor associated with
+Y, but the occurrence of X triggered or immediately necessitated the
+occurrence of Y:
+
+- The **rockfall** made the **over-full** **dam** **burst**,
+**flooding** the **town** below. 
+> **rockfall** BEFORE/CAUSES
+**burst** 
+> **burst** BEFORE/CAUSES **flooding**
+
+Here, the rockfall is what immediately caused the burst (although
+the over-full nature of the dam may have preconditioned it), just
+as the burst caused the flooding. Put differently, had the rocks not
+fallen, and had the dam not burst, according to the author, there
+would have been neither bursting nor flooding.
+
+- The **sheriff** **fired** **her** **gun**, **killing**
+the **injured** **deer**. 
+> **fired** BEFORE/CAUSES **killing**
+
+> **sheriff** IDENTICAL **her**
+
+Here, although the injury may have eventually led to the deer's demise,
+the killing was caused directly and immediately by the firing of the
+gun.
+
+- **Christchurch**, the first **city** **established** in
+**New Zealand**, had endured a **series** of **earthquakes**
+that **destroyed** **its** **infrastructure**, **homes** and
+**communities**. 
+> **earthquakes** OVERLAP/CAUSES **destroyed** 
+> Coreference relations: **Christchurch** APPOSITIVE **city**
+>  **Christchurch** IDENTICAL **its**
+> WHOLE **New Zealand**: PART **Christchurch** 
+> WHOLE **its**: PARTs **infrastructure**, **homes**, **communities**
+> SET **series**: MEMBER **earthquakes**
+
+In that last example, it is the case that the destruction would not have happened
+without the earthquake, and that once the earthquake began (and through
+its duration, hence OVERLAP/CAUSES), the destruction was inevitable.
+
+- Although **it** took *many years*, the **discovery** of
+**Uranium** outside **Moab** would eventually **revitalize**
+the local **economy**. 
+**discovery** BEFORE/CAUSE **revitalize** 
+**it** IDENTICAL **revitalize**
+
+This shows an example where, although there was significant time
+lag between the cause (the discovery of Uranium and the effect: revitalization),
+we are led to believe that in this case, the discovery did directly
+and inevitably trigger revitalization, and therefore, the link is
+causal.
+
+So, again, causality is marked in our schema only if EVENT Y was inevitable
+given this particular instance of EVENT X.
+
+Preconditioning, in our view of the world, carries no such inevitability.
+In RED, we annotate "X PRECONDITIONS Y" if, according to the writer,
+had the particular EVENT X not happened, the particular EVENT Y would
+not have been able to happen. Put differently, although a preconditioning
+EVENT is not *sufficient* to cause another EVENT, its occurrence
+is *necessary* in order for the other EVENT to have happened.
+
+- The **rockfall** made the **over-full** **dam** **burst**,
+**flooding** the **town** below. 
+> **rockfall** BEFORE/CAUSES
+**burst** 
+> **burst** BEFORE/CAUSES **flooding**
+>  **over-full** BEFORE/PRECONDITIONS **burst**
+
+Here, we are led to believe that the over-full nature of the dam helped
+promote bursting, and thus, was a precondition of the burst itself.
+However, the over-fullness of the dam alone, in this particular case,
+was not enough to cause the burst, thus, is only a precondition.
+
+- The **sheriff** **loaded** **her** **rifle**, then **fired**
+at the **target**. 
+> **loaded** BEFORE/PRECONDITION **fired**
+
+> **sheriff** IDENTICAL **her**
+
+Were the rifle not loaded, it could not have fired, and therefore,
+loading is a precondition to firing (although the firing is separately
+caused).
+
+- The **strikes** came in **retaliation** for recent terrorist
+**attacks**. 
+> **attacks** BEFORE/PRECONDITIONS **retaliation**
+
+> **strikes** IDENTICAL **retaliation**
+
+In \Last, although something else (a pilot pushing a button, or a
+general's orders) was the direct cause of the strikes, we are told
+(via the meaning of "retaliation") that the strikes would not
+have happened were it not for the attacks.
+
+Similarly, note that occaisionally an ongoing state can be a motivation
+or other precondition for an action; in those cases, you can use OVERLAP/PRECONDITION:
+
+- I feel that they are **punishing** him for his **condition**
+by keeping him after school, 
+> **condition** OVERLAP/PRECONDITIONS
+**punishing**
+
+Remember as well that SUBEVENT, CAUSES, and PRECONDITIONS relations
+are mutually exclusive, and one event pair can only have one of these
+relations. Therefore, if an event pair has more than one of these
+three relations, there is an order of importance.
+If the relation is clearly some sort of outcome or causation (cause
+or precondition) of an event, then default to the CAUSES or PRECONDITIONS
+reading, as they are easier to consistently capture. If torn between
+CAUSES and PRECONDITIONS, check the special cases
+section to see if there are special hints for your phenomenon, and
+otherwise default to CAUSES.
+
+To sum up, CAUSES implies that the occurrence of one EVENT is *sufficient*
+to trigger another, whereas PRECONDITIONS only states one EVENT was
+*necessary* for another to later take place.
+
+Once this distinction is fully understood, proper annotation is simply
+a matter of understanding the temporal nature of each, and creating
+the proper annotations.
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
