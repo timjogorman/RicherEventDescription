@@ -3907,8 +3907,7 @@ relation.
 Remember that hedges are NOT events, but merely good evidence for using UNCERTAIN/HEDGED on the events they modify
 
 | Reporting, Hedging or Separate Event? | type | example |  Reasoning |
-| ---- | --- | --- |
-| I [found] it difficult to put down
+| ---- | --- | --- | --- |
 | Separate Event | denial  | the mayor denies any involvement with the cartels |  |
 | Reporting | revealing/showing  | examination shows a decreased pulse |  |
 | Reporting | actual reporting  | NYT first reported the strike in october | |
@@ -3937,7 +3936,7 @@ Remember that hedges are NOT events, but merely good evidence for using UNCERTAI
 | Contains-Subevent vs PRECONDITION | if event B is the goal of event A, and is accomplished during event A, **and event B refers to the actual event that was accomplished during A**, then used CONTAINS/SUBEVENT  | We **took** a county road, managing to **dodge** the rush-hour traffic  | **took** CONTAINS/SUBEVENT **dodge** |
 | Contains-Subevent vs PRECONDITION | if event B refers to the goal of event A, but **refers to the goal of event A rather than a particular event within A**, then use PRECONDITION (or NO relation; event B in this case should often be HYPOTHETICAL)  | To **avoid** the rush hour, we **took** back roads | **avoid** OVERLAP/PRECONDITION **took** |
 
-:interrobang: *The relation example with "To avoid the rush hour, we took back roads" is a complicated one, and may be subject to change.  Relations in which "A a verb if desiring for event B" are clearly PRECONDITION, but "A is the goal of B", as with purpose infinitives, is somewhat unclear*
+:interrobang: **feedback welcome:** *The relation example with "To avoid the rush hour, we took back roads" is a complicated one, and may be subject to change.  While relations like "I want to buy milk",  are clearly want PRECONDITION milk, direct motivation links (like "went to the store to get milk") are somewhat unclear.  These should be very rare, as they almost always are 
 
 
 
