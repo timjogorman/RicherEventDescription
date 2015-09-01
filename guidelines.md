@@ -1867,6 +1867,7 @@ relation.  *Even if one of the mentions seems more contextually appropriate, you
 - They jailed all three demonstrators.  One demonstrator, John Smith, has posted bail, but the other two have not.
 
 > **demonstrator**<sub>attribute</sub> APPOSITION **John Smith**<sub>head</sub>
+
 > **demonstrators** SET/MEMBER  **John Smith**
 
 :no_entry_sign: ~~demonstrators SET/MEMBER demonstator~~
@@ -1878,28 +1879,24 @@ these using multiple, separate APPOS relations.
 
 - **AUTHOR**: Company **President**, **Mr. Johnson**
 
+In such cases, you will still be making two-mention appositions, you will just make multiple ones.  Start either with the leftmost proper name, or the leftmost entity (i.e. start with the entity that will end up being the HEAD of the phrase) and progressively add links to the nearest unlinked apposition.  So
+
+- **AUTHOR**: Company **President**, **Mr. Johnson**
+> **president**<sub>attribute</sub> APPOSITION **Mr. Johnson**<sub>head</sub>
+> **AUTHOR**<sub>attribute</sub> APPOSITION **Mr. Johnson**<sub>head</sub>
 
 
-There are a number of specific nominal constructions that we will
-count as APPOSITION. One is any sequence of titles -- either in normal
-speech, or during the description of titles as in:
+There are a number of specific nominal constructions that will
+count as APPOSITION. One is any sequence of titles or degrees in which apposition is used, as in:
 
-- **Smith**$_{\textsc{head}}$, MD, FFF, **Pathologist**$_{\textsc{attribute}}$.
-
-Unit conversions are also considered appositives.
-
-- **37.00C**$_{\textsc{head}}$ (**98.60F**$_{\textsc{attribute}}$)
-
-In some cases, APPOSITIVES may include multiple entities. In the case
-that there are more than 2 markables in the apposition, we will nest
-these using multiple, separate APPOS relations.
+- **John Smith**<sub>head</sub>, **Pathologist**<sub>attribute</sub>.
+- **John Smith**<sub>head</sub>, **PhD**<sub>attribute</sub>.
 
 
-\centerline{Proper noun > pronoun > definite NP > indefinite specific
-NP > non-specific NP
+Unit conversions are also considered appositives (in the cases when those units are entities)
 
-If both ENTITYs have the same level of specificity, select the left-most
-ENTITY as the head.
+- Robbers stole **£10000000**<sub>head</sub> ( $1.5million **dollars**<sub>attribute</sub>) yesterday
+
 
 
 ### WHOLE/PART
