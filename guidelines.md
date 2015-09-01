@@ -1865,9 +1865,11 @@ to participate in other relations with entities outside the APPOSITIVE
 relation.  *Even if one of the mentions seems more contextually appropriate, you must use the head*. For example:
 
 - They jailed all three demonstrators.  One demonstrator, John Smith, has posted bail, but the other two have not.
+
 > **demonstrator**<sub>attribute</sub> APPOSITION **John Smith**<sub>head</sub>
 > **demonstrators** SET/MEMBER  **John Smith**
-:no_entry_sign: ~demonstrators SET/MEMBER demonstator~
+
+:no_entry_sign: ~~demonstrators SET/MEMBER demonstator~~
 
 
 In some cases, APPOSITIVES may include multiple entities. In the case
