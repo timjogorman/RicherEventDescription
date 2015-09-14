@@ -66,7 +66,7 @@
       - [Identity Annotation for very broadly GENERIC entities](#identity-annotation-for-very-broadly-generic-entities)
       - [IDENT over generic you, one, etc.](#ident-over-generic-you-one-etc)
 - [Event Relations Pass: Linking Events Together](#event-relations-pass-linking-events-together)
-  - [General Dimensions of TLINK annotation](#general-dimensions-of-tlink-annotation)
+  - [General Approach to TLINK annotation](#general-approach-to-tlink-annotation)
     - [Narrative Containment](#narrative-containment)
     - [Temporal Containers vs Subevent Containers](#temporal-containers-vs-subevent-containers)
     - [Causation and Precondition Annotation](#causation-and-precondition-annotation)
@@ -82,8 +82,10 @@
     - [ALINKs trump causation](#alinks-trump-causation)
   - [How distant can relations be?  How explicit does the evidence need to be?](#how-distant-can-relations-be--how-explicit-does-the-evidence-need-to-be)
     - [TLINK all explicitly stated temporal relations.](#tlink-all-explicitly-stated-temporal-relations)
-    - [Don't mark temporal order (BEFORE, BEGINS-ON, etc) based purely on inference - look for evidence in the text](#dont-mark-temporal-order-before-begins-on-etc-based-purely-on-inference---look-for-evidence-in-the-text)
-    - [For causation, you should also look for evidence -- but coordination or adjacent sentences often count as evidence of casuation](#for-causation-you-should-also-look-for-evidence----but-coordination-or-adjacent-sentences-often-count-as-evidence-of-casuation)
+    - [Temporal and Subevent Containers have no locality constraints](#temporal-and-subevent-containers-have-no-locality-constraints)
+    - [Don't mark temporal order (BEFORE, BEGINS-ON, etc) based purely on inference - you need evidence in the text](#dont-mark-temporal-order-before-begins-on-etc-based-purely-on-inference---you-need-evidence-in-the-text)
+      - [Nearby sentences or coordinated clauses count as "evidence", but only if you can add an explicit "then"](#nearby-sentences-or-coordinated-clauses-count-as-evidence-but-only-if-you-can-add-an-explicit-then)
+    - [Do causation links between coordinated clauses / adjacent sentences if they allow a so/thus/therefore paraphrase](#do-causation-links-between-coordinated-clauses--adjacent-sentences-if-they-allow-a-sothustherefore-paraphrase)
     - [Causation from non-explicit, inferrable contexts should be left out unless extremely certain](#causation-from-non-explicit-inferrable-contexts-should-be-left-out-unless-extremely-certain)
     - [Causal relations can cross sentence boundaries](#causal-relations-can-cross-sentence-boundaries)
     - [Temporal order (Non-causal, non-CONTAINS) relations only leave the sentence in specific circumstances](#temporal-order-non-causal-non-contains-relations-only-leave-the-sentence-in-specific-circumstances)
@@ -123,8 +125,6 @@
     - [Complex Predicates](#complex-predicates)
     - [Distinguishing Reporting events from Hedges](#distinguishing-reporting-events-from-hedges)
     - [Edge case guidelines for Relations](#edge-case-guidelines-for-relations)
-      - [CONTAINS-SUBEVENT from PRECONDITIONS](#contains-subevent-from-preconditions)
-      - [Distinguishing CONTAINS from CONTAINS-SUBEVENT](#distinguishing-contains-from-contains-subevent)
       - [Distinguishing "Cause" from "Precondition"](#distinguishing-cause-from-precondition)
   - [Allowable explicit grammatical evidence](#allowable-explicit-grammatical-evidence)
     - [Permissable Evidence for BEFORE/OVERLAP](#permissable-evidence-for-beforeoverlap)
@@ -2326,7 +2326,7 @@ If you glance at any story or newspaper article, however, you will find that a g
 
 Instead, we will be avoiding such a "spiderweb" of temporal relations by attempting to mark *small amounts* of *very informative* temporal relations between notes, using the idea of **narrative containers**.
 
-## General Dimensions of TLINK annotation
+## General Approach to TLINK annotation
 
 ### Narrative Containment
 
@@ -2645,8 +2645,11 @@ and **rash** will also be ALINKed. Note, though, that if no explicit
 temporal language is used, no TLINK should be created, and annotator
 knowledge should not be used to fill these TLINKs in.
 
+### Temporal and Subevent Containers have no locality constraints
 
-### Don't mark temporal order (BEFORE, BEGINS-ON, etc) based purely on inference - look for evidence in the text
+Remember that we are attempting, whenever possible, to structure our documents so that the hierarchical structure of the timeline can be used.  That means that regardless of where you see an event in the document, if it contains or is contained by another event or TIMEX3, you make link those with a CONTAINS or CONTAINS-SUBEVENT link.  
+
+### Don't mark temporal order (BEFORE, BEGINS-ON, etc) based purely on inference - you need evidence in the text
 
 Because of the difficulty of capturing detail within a given narrative
 container, not all relations between EVENTs will be captured. For
@@ -2656,20 +2659,30 @@ instance, in the following example, containment alone doesn't tell us the relati
 
 In many cases, sufficient world knowledge, inference or research may let an annotator guess what the order of these events is.  However, unless there is explicit grammatical evidence for the ordering -- most obviously, prepositions and connectives like "Before", or thing like "and then" -- do not infer anything about the relationships between them. 
 
+#### Nearby sentences or coordinated clauses count as "evidence", but only if you can add an explicit "then"
 
-### For causation, you should also look for evidence -- but coordination or adjacent sentences often count as evidence of casuation
+It will often feel like a temporal order is implied even though no explicit temporal words have occurred, simply because one sentence is positioned as following another.  We have a test for this: if you can add a "then" into the second clause *without  feeling like you've changed the meaning of the two sentences*, then feel free to temporally order these with BEFORE. If you cannot do this "then" test, then do not relate them.  
+
+Note that this should only encompass nearby sentences, but could theoretically go beyond a single sentence, *if and only if the first sentence contained many subevents*. For example:
+
+- We [took] the kids to the arcade.  They played ski-ball; they played pacman.  We **(then)** [went[ home exhausted.
+> **took** BEFORE **went**
+
+
+### Do causation links between coordinated clauses / adjacent sentences if they allow a so/thus/therefore paraphrase
 
 Consider examples like:
 
 - The race organizers **ran** out of gatorade and **switched** to distributing water
 - A *blizzard* hit chicago and we were *rerouted* to detroit.
 
-One might read causation (CAUSE or PRECONDITION) from such examples, despite the lack of an explicit indicator of causation such as "because of".  Despite the lack of explicit encoding of causation, feel free to mark these as having a causation relation when they pass the paraprase test below.
+One might read causation (CAUSE or PRECONDITION) from such examples, despite the lack of an explicit indicator of causation such as "because of".  Despite the lack of explicit encoding of causation, feel free to mark these as having a causation relation when they pass the paraprase test[] below.
 
 The core of the paraphrase test is whether you can add an explicit connective such as "therefore", "thus" or "so" into the sentence without feeling any real change in the meaning of the sentence itself.  
 
 - The race organizers **ran** out of gatorade and *so* **switched** to distributing water
 - A *blizzard* hit chicago and *therefore* we were *rerouted* to detroit.
+
 
 
 ### Causation from non-explicit, inferrable contexts should be left out unless extremely certain
@@ -3897,6 +3910,7 @@ relation.
 | reporting, absence of  | and the right hilar lesions were not **reported** as being **prominent**.  | yes | make second event UNCERTAIN/HEDGED if the absence of a report implies any doubt about its occurence  | no relation |
 | request | The Syrian rebels have repeatedly **requested** international **aid** | yes | default to HYPOTHETICAL for e2 |  one of the two PRECONDITION relations |
 | revealing/showing  | examination shows a decreased pulse | yes | make second event ACTUAL unless reporting verb marks doubt | REPORTING |
+| stimulus of emotions | the earthquake shook the buildling; the children were scared | yes | actual | the events PRECONDITION the emotions (ONLY when between actual events, not generics) |
 | seeming  | John seems to like chocolate | no | can be a hedge, and justification for marking UNCERTAIN/HEDGED | no relation |
 | support verbs | After ~~undergoing~~ extensive **transformation**... | no, just **transformation** | | |
 | support verbs | at that time, he ~~experienced~~  **discomfort**... | no, just **discomfort** | | |
@@ -3904,6 +3918,7 @@ relation.
 | trying | This was a deliberate **effort** to **sabotage** the election | yes | use HYPOTHETICAL for e2 | trying to do something counts as a /PRECONDITION |
 | usage of objects |  Police **used** tear ~~gas~~ to disperse the ... | just "used" (but "gas" is an entity) | | |
 | willingness | He is **willing** to **meet** with our Pauahi Wing Queens Hospital. | yes | default to HYPOTHETICAL for e2 | one of the two PRECONDITION relations |
+
 
 
 
@@ -3939,9 +3954,10 @@ Remember that hedges are NOT events, but merely good evidence for using UNCERTAI
 | Set/Member vs Contains-Subevent | if event A **must be viewed as** a colection of temporally disconnected events, and event B is an instance one of them, use SET/MEMBER | During the three **trials**, only the last **trial** had admissable evidence  | **trials** SET/MEMBER **trial** |
 | Set/Member vs Contains-Subevent | if event A **must be viewed as** a colection of temporally disconnected events, and event B is **a subevent of** one of them, (*and there is no mention of that instance to point to*), use CONTTAINS/SUBEVENT | During the three **trials**, the expert only **testified** once  | **trials** CONTAINS/SUBEVENT **testified** |
 | Contains-Subevent vs PRECONDITION | if event B is the goal of event A, and is accomplished during event A, **and event B refers to the actual event that was accomplished during A**, then used CONTAINS/SUBEVENT  | We **took** a county road, managing to **dodge** the rush-hour traffic  | **took** CONTAINS/SUBEVENT **dodge** |
-| Contains-Subevent vs PRECONDITION | if event B refers to the goal of event A, but **refers to the goal of event A rather than a particular event within A**, then use PRECONDITION (or NO relation; event B in this case should often be HYPOTHETICAL)  | To **avoid** the rush hour, we **took** back roads | **avoid** OVERLAP/PRECONDITION **took** |
+| Contains-Subevent vs PRECONDITION | if event B refers to the goal of event A, but **refers to the goal of event A rather than a particular event within A**, then use PRECONDITION (or NO relation; event B in this case should often be HYPOTHETICAL)  | To **avoid** the rush hour, we **took** backroads | **took** OVERLAP/PRECONDITION **avoid** |
+| Contains-Subevent vs PRECONDITION | if an event A could have a narrow reading in which is causes event B, or a larger reading in which it is a circumstance that contains event B, default to the causational reading |In the ensuing controvery, the chancellor ordered that the name to be changed | **controversy** BEFORE/PRECONDITION **order**
 
-:interrobang: **feedback welcome:** *The relation example with "To avoid the rush hour, we took back roads" is a complicated one, and may be subject to change.  While relations like "I want to buy milk",  are clearly want PRECONDITION milk, direct motivation links (like "went to the store to get milk") are somewhat unclear.  These should be very rare, as they almost always are 
+:interrobang: **feedback welcome:** *The relation example with "To avoid the rush hour, we took back roads" is a complicated one, and may be subject to change.  While relations like "I want to buy milk",  are clearly want PRECONDITION milk, direct motivation links (like "went to the store to get milk") are somewhat unclear.  These should be very rare, as they are often different modalities.
 
 
 
@@ -4147,7 +4163,6 @@ Note that our definitions of OVERLAP and SIMULTANEOUS are symmetrical,
 in that "A OVERLAP B" and "B OVERLAP A" mean the same thing.
 For OVERLAP, which EVENT starts first is not recoverable from the
 annotation without prior knowledge of both A- and B-.
-
 
 
 # Document Revision History
