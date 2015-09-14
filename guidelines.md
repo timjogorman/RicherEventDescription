@@ -77,6 +77,8 @@
     - [Don't mark temporal order relations (BEFORE) if they are implied by the DocTimeRel](#dont-mark-temporal-order-relations-before-if-they-are-implied-by-the-doctimerel)
     - [Do not link TIMEX3s to one another.](#do-not-link-timex3s-to-one-another)
     - [Only link GENERIC events to other GENERICS, HYPOTHETICAL to other HYPOTHETICALs](#only-link-generic-events-to-other-generics-hypothetical-to-other-hypotheticals)
+    - [Sources of information are generally not part of a causal chain](#sources-of-information-are-generally-not-part-of-a-causal-chain)
+    - [Assume the writer of the text is reliable](#assume-the-writer-of-the-text-is-reliable)
     - [Causation relations to ENTITIES with implicit EVENTS must reference the EVENT](#causation-relations-to-entities-with-implicit-events-must-reference-the-event)
     - [EVENTs may participate in many ordering links, many causal links, but should only have one CONTAINS relation](#events-may-participate-in-many-ordering-links-many-causal-links-but-should-only-have-one-contains-relation)
     - [ALINKs trump causation](#alinks-trump-causation)
@@ -89,8 +91,6 @@
     - [Causation from non-explicit, inferrable contexts should be left out unless extremely certain](#causation-from-non-explicit-inferrable-contexts-should-be-left-out-unless-extremely-certain)
     - [Causal relations can cross sentence boundaries](#causal-relations-can-cross-sentence-boundaries)
     - [Temporal order (Non-causal, non-CONTAINS) relations only leave the sentence in specific circumstances](#temporal-order-non-causal-non-contains-relations-only-leave-the-sentence-in-specific-circumstances)
-      - [Sources of information are generally not part of a causal chain](#sources-of-information-are-generally-not-part-of-a-causal-chain)
-      - [Assume the writer of the text is reliable](#assume-the-writer-of-the-text-is-reliable)
   - [Definitions and Prototypes of the TLINK sub-types](#definitions-and-prototypes-of-the-tlink-sub-types)
     - [BEFORE](#before)
     - [CONTAINS](#contains)
@@ -2537,6 +2537,51 @@ Here, because the **chemotherapy** is HYPOTHETICAL, it cannot be
 TLINKed to **surgery**, even given the explicit mention.
 
 
+### Sources of information are generally not part of a causal chain
+
+Many times, it is theoretically possible to think of a chain of events as being mediated by all of the sources of information involved.   For example, in the example sentence below, it the departure caused by the "cheating" or by the finding out?
+
+- John found out that Bill was cheating, and left.
+
+Similarly one might ask whether the sending of troops in the next example is caused by atrocities, or the revelation of atrocities:
+
+- "recent revelations of atrocities in the region caused the president to send in troops"
+
+For the sake of consistency and sanity, we will attempt to link between actual events (rather than sources of information or reports) whenever possible.  You can generally assume that the complexities added by the sources of information are approximated by REPORTING relations, rather than trying to capture their impact using causal relations.  
+
+Similarly, do not get into the causal relationships between communication and knowledge/revelation, such as:
+
+- **Obama's** **statement** **revealed** the **extent**
+of the **drone** **program**.
+
+Here, the statement does not CAUSE revelation (nor does the revelation CAUSE the extent).  
+
+:bangbang: *These rules are mainly to rule out unnecessary causal chains, where event A causes report B and report B causes event C.  However, sometimes (particularly with false reports, etc.), one simply cannot remove the claims from that equation, as the original event did not happen (as in "Bush's revelations of WMDs got us into Iraq") and the chain of causation really boils down to the report.  You can use causal links in this kind of exceptional circumstance.*
+
+
+### Assume the writer of the text is reliable
+
+For quoted speech or reporting, assume that the narrator or writer
+is reliable, unless otherwise indicated:
+
+- On *Sunday*, he **said**, **one** of the **bombs** **wrecked**
+the family's home. 
+> **one** OVERLAPS/CAUSES **wrecked** \b{.
+*Sunday* CONTAINS **wrecked** 
+> **bombs** SET/MEMBER **one**
+
+- **Frank** **claims** that an **alien** mind-control **beam**
+made **him** **rob** the **bank**. 
+> **beam** OVERLAP/CAUSES
+**rob** 
+> **Frank** IDENTICAL **him** 
+> **claims**
+REPORTING **beam**
+
+Remember, you are not a jury, and it is not your role to determine
+the accuracy of asserted causal claims, but to simply annotate them.
+
+
 
 
 ### Causation relations to ENTITIES with implicit EVENTS must reference the EVENT
@@ -2712,60 +2757,6 @@ Because relations such as You should avoid annotating temporal ordering relation
 
 The exception to this, ususally, will be adjacent sentences in which the main events to the two sentences are related.  When those adjacent sentences define a clear temporal order, but cannot be represented as having one contain another or one cause another, you may link them using BEFORE. 
 
-
-
-
-
-
-
-
-
-
-
-
-#### Sources of information are generally not part of a causal chain
-
-Many times, it is theoretically possible to think of a chain of events as being mediated by all of the sources of information involved.   For example, in the example sentence below, it the departure caused by the "cheating" or by the finding out?
-
-- John found out that Bill was cheating, and left.
-
-Similarly one might ask whether the sending of troops in the next example is caused by atrocities, or the revelation of atrocities:
-
-- "recent revelations of atrocities in the region caused the president to send in troops"
-
-For the sake of consistency and sanity, we will attempt to link between actual events (rather than sources of information or reports) whenever possible.  You can generally assume that the complexities added by the sources of information are approximated by REPORTING relations, rather than trying to capture their impact using causal relations.  
-
-Similarly, do not get into the causal relationships between communication and knowledge/revelation, such as:
-
-- **Obama's** **statement** **revealed** the **extent**
-of the **drone** **program**.
-
-Here, the statement does not CAUSE revelation (nor does the revelation CAUSE the extent).  
-
-:bangbang: *These rules are mainly to rule out unnecessary causal chains, where event A causes report B and report B causes event C.  However, sometimes (particularly with false reports, etc.), one simply cannot remove the claims from that equation, as the original event did not happen (as in "Bush's revelations of WMDs got us into Iraq") and the chain of causation really boils down to the report.  You can use causal links in this kind of exceptional circumstance.*
-
-
-#### Assume the writer of the text is reliable
-
-For quoted speech or reporting, assume that the narrator or writer
-is reliable, unless otherwise indicated:
-
-- On *Sunday*, he **said**, **one** of the **bombs** **wrecked**
-the family's home. 
-> **one** OVERLAPS/CAUSES **wrecked** \b{.
-*Sunday* CONTAINS **wrecked** 
-> **bombs** SET/MEMBER **one**
-
-- **Frank** **claims** that an **alien** mind-control **beam**
-made **him** **rob** the **bank**. 
-> **beam** OVERLAP/CAUSES
-**rob** 
-> **Frank** IDENTICAL **him** 
-> **claims**
-REPORTING **beam**
-
-Remember, you are not a jury, and it is not your role to determine
-the accuracy of asserted causal claims, but to simply annotate them.
 
 
 
