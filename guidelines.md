@@ -3876,7 +3876,7 @@ relation.
 | communications | This [article] is part of TIMES EXPRESS. | just an ENTITY, does not imply an event  | 
 
 
-### Hard Cases when determining Markablability
+### Hard Cases when determining Markability
 
 | Type | example | treatment | see
 | ---- | ------- | --------- | ----
@@ -3897,7 +3897,7 @@ relation.
 | endorsement  |  Three different countries have **endorsed** the trade **agreement**. | yes | no effect -- likely ACTUAL for e2 | no relation (unless endorsement/support enacts the endorsed thing) |
 | light verbs | John **took** a **bath** | no, only BATH |  | |
 | light verbs | The burglar **committed** a heinous **crime** | no, only **crime** |  | |
-| reporting  | NYT first reported the strike in october | yes | make second event ACTUAL unless reporting verb marks doubt | REPORTING |
+| reporting  | NYT first reported the strike in october | yes | make second event ACTUAL unless reporting verb also implies doubt (like "accused that") | REPORTING |
 | reporting, absence of  | and the right hilar lesions were not **reported** as being **prominent**.  | yes | make second event UNCERTAIN/HEDGED if the absence of a report implies any doubt about its occurence  | no relation |
 | request | The Syrian rebels have repeatedly **requested** international **aid** | yes | default to HYPOTHETICAL for e2 |  one of the two PRECONDITION relations |
 | revealing/showing  | examination shows a decreased pulse | yes | make second event ACTUAL unless reporting verb marks doubt | REPORTING |
