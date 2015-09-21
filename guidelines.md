@@ -1,3 +1,6 @@
+
+# Richer Event Description (RED) Annotation Guidelines (v.1.7)
+
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 **Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
@@ -121,8 +124,6 @@
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
-
-# Richer Event Description (RED) Annotation Guidelines (v.1.7)
 
 *Developed by Will Styler, Kevin Crooks, Mariah Hamang, and Tim O'Gorman
 as a synthesis of the THYME-TimeML guidelines, the Stanford Event
@@ -1276,7 +1277,7 @@ specific dates are annotated as TIMEX3 objects as well.
 
 Our approach to marking TIMEX3s is identical to that used in ISO-TimeML,
 and these guidelines are heavily based on the standard established
-in \cite{pustejovsky2010iso}.
+in (Pustejovsky et al 2010](http://lrec.elra.info/proceedings/lrec2010/pdf/55_Paper.pdf).
 
 Unlike with EVENTs, we will not be selecting headwords only. Instead,
 syntactically speaking, all TIMEX3 annotations should correspond to
@@ -1730,11 +1731,11 @@ and relations that show that they have a structural relationship,
 such as PART/WHOLE, SET/MEMBER, or the catch-all BRIDGING relation.
 
 These guidelines for coreference annotation have been adapted from
-the OntoNotes v. 7.0 (\cite{pradhan2007ontonotes}) and ODIE (2010)
+the [OntoNotes v. 7.0](http://www.aclweb.org/anthology/W12-4501) and ODIE (2010)
 guidelines as needed to accommodate the objectives of the RED schema.
-Additional concepts and information were synthesized from Poesio et
-al. 2004 (\cite{poesio2004centering}), Poesio 1997 (\cite{poesio1997conversational}),
-and Savova et al. 2011 (\cite{savova2011anaphoric}).
+Additional concepts and information were synthesized from [Poesio et
+al. 2004](http://www.aclweb.org/anthology/W04-2327), [Poesio 1997](http://people.ict.usc.edu/~traum/Papers/poesio97conversational.pdf),
+and [Savova et al. 2011](http://www.ncbi.nlm.nih.gov/pubmed/21459927).
 
 
 ### IDENTITY and APPOSITION of ENTITIES
@@ -3469,12 +3470,7 @@ than just the EVENTs within it.*
 
 While linking up events in terms of their temporal, causal and subevent
 structure, you will also be marking them for event coreference. These
-guidelines for coreference annotation have been adapted from the OntoNotes
-v. 7.0 (\cite{pradhan2007ontonotes}) and ODIE (2010) guidelines as
-needed to accommodate the objectives of the RED schema. Additional
-concepts and information were synthesized from Poesio et al. 2004
-(\cite{poesio2004centering}), Poesio 1997 (\cite{poesio1997conversational}),
-and Savova et al. 2011 (\cite{savova2011anaphoric}).
+guidelines for coreference annotation have been adapted from the sources mentioned above in the Entity Coreference section, along with [Hovy et al. 2013](https://www.cs.cmu.edu/~hovy/papers/13HLT-Events-workshop.pdf)
 
 
 ### IDENTITY
@@ -4078,4 +4074,4 @@ emphatics.
 - 7/27/14 -- Added `Avoid millisecond reasoning', `hypotheticals, negation
 and the past', and a made a few other repairs. - Will
 - 4/4/15 -- moved everything to github  - Tim
-
+- 4/4/15-9/21/15 -- numerous changes (viewable in version history); removed non-medical examples, added edge case guidelines, reorganized TLINK section  - Tim
