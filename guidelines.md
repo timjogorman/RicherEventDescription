@@ -13,27 +13,17 @@
         - [What is an ENTITY?](#what-is-an-entity)
         - [Differentiating ENTITY and EVENT](#differentiating-entity-and-event)
       - [When many words relate to one event](#when-many-words-relate-to-one-event)
-      - [Words implying many events](#words-implying-many-events)
-  - [Spans of Annotation](#spans-of-annotation)
+      - [When one word implies many events](#when-one-word-implies-many-events)
+    - [Spans of Annotation](#spans-of-annotation)
       - [Minimum Span Annotation](#minimum-span-annotation)
     - [Annotating Features on Entities and Events](#annotating-features-on-entities-and-events)
-    - [Entity Features - Polarity and Modality](#entity-features---polarity-and-modality)
-    - [Event Polarity and Modality](#event-polarity-and-modality)
-    - [Marking the relationship to document time (DocTimeRel)](#marking-the-relationship-to-document-time-doctimerel)
-        - [DocTimeRel in relation to speech](#doctimerel-in-relation-to-speech)
+      - [Entity Features - Polarity and Modality](#entity-features---polarity-and-modality)
+      - [Event Polarity and Modality](#event-polarity-and-modality)
+      - [Marking the relationship to document time (DocTimeRel)](#marking-the-relationship-to-document-time-doctimerel)
+          - [DocTimeRel in relation to speech](#doctimerel-in-relation-to-speech)
       - [Event Type, Aspect and Implicitness](#event-type-aspect-and-implicitness)
-      - [Annotating contextual aspect of EVENTs](#annotating-contextual-aspect-of-events)
-          - [N/A](#na)
-          - [INT - Intermittent](#int---intermittent)
-      - [Type of EVENTs](#type-of-events)
-          - [N/A](#na-1)
-          - [ASP - Aspectual](#asp---aspectual)
-          - [EVI - Evidential](#evi---evidential)
-      - [Annotating representation of EVENTs](#annotating-representation-of-events)
-          - [Default -- Explicit](#default----explicit)
-          - [Implicit](#implicit)
+      - [Annotating IMPLICITNESS of EVENTs](#annotating-implicitness-of-events)
       - [Annotating degree of EVENTs](#annotating-degree-of-events)
-      - [N/A, MST - Most and LTL - Little](#na-mst---most-and-ltl---little)
       - [Marking Difficult annotations](#marking-difficult-annotations)
   - [Temporal Expressions](#temporal-expressions)
     - [Identifying and Annotating TIMEX3s](#identifying-and-annotating-timex3s)
@@ -50,21 +40,17 @@
       - [Guidelines for finding DUPLICATE text](#guidelines-for-finding-duplicate-text)
   - [Entity Coreference Relations](#entity-coreference-relations)
     - [IDENTITY and APPOSITION of ENTITIES](#identity-and-apposition-of-entities)
-      - [IDENTICAL](#identical)
-      - [APPOSITIVE](#appositive)
     - [WHOLE/PART](#wholepart)
     - [SET-MEMBER](#set-member)
     - [BRIDGING](#bridging)
-    - [General Guidelines for Annotating Coreference](#general-guidelines-for-annotating-coreference)
+    - [General Guidelines for Entity Coreference](#general-guidelines-for-entity-coreference)
       - [Never link EVENTs to ENTITIES (except with BRIDGING)](#never-link-events-to-entities-except-with-bridging)
       - [WHOLE/PART, SET/MEMBER, and BRIDGING relations are inherited by IDENT](#wholepart-setmember-and-bridging-relations-are-inherited-by-ident)
-      - [Bridging relations are re-created for subsequent mentions](#bridging-relations-are-re-created-for-subsequent-mentions)
-      - [Use SET/MEMBER to define groups of people](#use-setmember-to-define-groups-of-people)
-      - [Don't link ACTUAL and GENERIC items](#dont-link-actual-and-generic-items)
-      - [Identifiers are people too](#identifiers-are-people-too)
-      - [If Identity is uncertain in the document, use BRIDGING (even if you know the truth)](#if-identity-is-uncertain-in-the-document-use-bridging-even-if-you-know-the-truth)
-      - [Identity Annotation for very broadly GENERIC entities](#identity-annotation-for-very-broadly-generic-entities)
-      - [IDENT over generic you, one, etc.](#ident-over-generic-you-one-etc)
+      - [GENERIC and HYPOTHETICAL entities only corefer to entities of the same modality](#generic-and-hypothetical-entities-only-corefer-to-entities-of-the-same-modality)
+      - [Email addresses and Usernames usually count as IDENT](#email-addresses-and-usernames-usually-count-as-ident)
+      - [Use BRIDGING if an IDENT link is uncertain in the document (even if you know the truth)](#use-bridging-if-an-ident-link-is-uncertain-in-the-document-even-if-you-know-the-truth)
+      - [Extremely broad categories (like "everyone" or "humanity") don't get SET/MEMBER](#extremely-broad-categories-like-everyone-or-humanity-dont-get-setmember)
+      - [However, link generic "you" or generic "one" instances into an IDENT chain](#however-link-generic-you-or-generic-one-instances-into-an-ident-chain)
 - [Event Relations Pass: Linking Events Together](#event-relations-pass-linking-events-together)
   - [General Approach to TLINK annotation](#general-approach-to-tlink-annotation)
     - [Narrative Containment](#narrative-containment)
@@ -110,10 +96,9 @@
     - [IDENTITY](#identity)
     - [SET-MEMBER](#set-member-1)
     - [BRIDGING](#bridging-1)
-    - [General Guidelines for Annotating Coreference](#general-guidelines-for-annotating-coreference-1)
+    - [General Guidelines for Annotating Coreference](#general-guidelines-for-annotating-coreference)
       - [Never link EVENTs to ENTITIES](#never-link-events-to-entities)
       - [SET/MEMBER, and BRIDGING relations are inherited by IDENT](#setmember-and-bridging-relations-are-inherited-by-ident)
-      - [Bridging relations are re-created for subsequent mentions](#bridging-relations-are-re-created-for-subsequent-mentions-1)
       - [Don't link ACTUAL and GENERIC events (use SET/MEMBER or BRIDGING)](#dont-link-actual-and-generic-events-use-setmember-or-bridging)
   - [Aspectual Link Annotation](#aspectual-link-annotation)
     - [ALINK sub-types](#alink-sub-types)
@@ -121,7 +106,7 @@
 - [Appendix](#appendix)
   - [Edge Case Guides](#edge-case-guides)
     - [Hard Cases in EVENT vs ENTITY distinctions](#hard-cases-in-event-vs-entity-distinctions)
-    - [Hard Cases when determining Markablability](#hard-cases-when-determining-markablability)
+    - [Hard Cases when determining Markability](#hard-cases-when-determining-markability)
     - [Complex Predicates](#complex-predicates)
     - [Distinguishing Reporting events from Hedges](#distinguishing-reporting-events-from-hedges)
     - [Edge case guidelines for Relations](#edge-case-guidelines-for-relations)
@@ -396,7 +381,7 @@ In real annotations, there may be more nuanced instances than this, in which it'
 - Markers of epistemic status, like "seems to" or "appears to", are not events. When in doubt, you should follow the nearest case in the [Reporting vs Hedging distinctions](#Distinguishing Reporting events from Hedges) in the appendix.
 
 
-####  Words implying many events
+####  When one word implies many events
 
 Sometimes a single word ends up implying many events, like the two colonoscopies implied in the following sentence (the hypothetical one and the one that occurred in the 1970s): 
 
@@ -410,7 +395,7 @@ We unfortunately will be annotating only one EVENT span per actual span in the c
 
 
 
-## Spans of Annotation
+### Spans of Annotation
 
 Once you have decided that a given phrase or word *qualifies* as an
 EVENT or ENTITY, you'll need to decide what `span' (section of the
@@ -572,7 +557,7 @@ When you mark each entity or event, you will need to label basic features
 on the events and entities. 
 
 
-### Entity Features - Polarity and Modality
+#### Entity Features - Polarity and Modality
 
 The majority of ENTITYs will be of the polarity POS for "positive",
 meaning that they are actual entities. This is the default value.
@@ -664,7 +649,7 @@ be getting married in a supermarket<sub>GEN</sub>
 
 The above example is not depicting "couples stacking shelves" as an entity which would functionally exist if certain conditions were met, but merely specifying a set of entities in the world.  Similarly you also may use UNCERTAIN/HEDGED for entities, but it follows the same constraint; it is only to be used when the actual existence of the entity is uncertain and being actively cast into doubt by the local context.
 
-### Event Polarity and Modality
+#### Event Polarity and Modality
 
 In order to express the polarity of an EVENT, the "polarity" attribute
 of an event is specified. Polarity in this schema is relatively straightforward,
@@ -871,7 +856,7 @@ When these refer to seemingly habitual events with a clear timespan, you can mak
 
 
 
-### Marking the relationship to document time (DocTimeRel)
+#### Marking the relationship to document time (DocTimeRel)
 
 DocTimeRel is short for "Document Creation Time Relation", and
 represents the temporal relation between the EVENT in question and
@@ -1003,7 +988,7 @@ This is not, however, any OVERLAP mention that extends into the past (after all,
 Be sure that any time you are using BEFORE-OVERLAP, the fact that an EVENT started before DOCTIME and continues is explicitly encoded by the language of the text (rather than through your own inference or world knowledge).  [Here is a list of the kinds of things that are admissable evidence for BEFORE/OVERLAP use](#Permissable Evidence for BEFORE/OVERLAP).  While this should not be considered a closed list, other kinds of evidence for BEFORE/OVERLAP should be similarly explicit. 
 
 
-##### DocTimeRel in relation to speech
+###### DocTimeRel in relation to speech
 
 When dealing with documents involving speech (as is often
 the case in newswire), there can be a number of conflicting signals
@@ -1021,23 +1006,17 @@ The most obvious example of that is direct speech.  In direct speech, there is o
 #### Event Type, Aspect and Implicitness
 
 
-#### Annotating contextual aspect of EVENTs
+**Annotating contextual aspect of EVENTs**
 
 We have two values for contextual aspect in the schema, N/A and INT.
 Please note that this is unrelated to grammatical aspect, and these
 two aspects give information about the temporal relations in the document,
 not about the grammatical forms used to express them.
 
-
-###### N/A
-
-N/A is our default value for contextual aspect, and simply represents
+**N/A** is our default value for contextual aspect, and simply represents
 that a given EVENT is not intermittent, and is true consistently.
 
-
-###### INT - Intermittent
-
-INT is used in situations where there may be a series of smaller events
+**INT**("Intermittent") is used in situations where there may be a series of smaller events
 within a single EVENT, rather than a single, constant event. Those
 events are usually marked with words like "intermittently" or
 "occasionally", and when such phrasing is used, the EVENT is marked
@@ -1077,7 +1056,7 @@ If you are unsure about the contextual aspect of a given EVENT, mark
 it as N/A.
 
 
-#### Type of EVENTs
+** Event Type of EVENTs**
 
 Some EVENTs do not actually represent real-world events, but instead,
 provide aspectual information (starting, stopping, continuing) about
@@ -1085,10 +1064,7 @@ other EVENTs. To differentiate these EVENTs from the traditional clinical
 EVENTs which occur on a timeline, we use the "type" marker. It
 has three values: "N/A", "ASP", and "EVI. 
 
-
-###### N/A
-
-N/A" is the default value, and represents the vast
+**N/A** is the default value, and represents the vast
 majority of EVENTs in the schema, and unless explicitly mentioned
 otherwise (below or in the ALINK section), represents all EVENTs used
 in examples in the Guidelines. Unless the EVENT is of the specific,
@@ -1110,9 +1086,7 @@ will be an EVENT of type N/A, with a span of "**recurrence**",
 as shown above. No ALINK annotations will be made here.
 
 
-###### ASP - Aspectual
-
-The next EVENT type is ASP, which is used to indicate an event whose
+**ASP** ("Aspectual"): The next EVENT type is ASP, which is used to indicate an event whose
 function is to emphasize or code the aspect of a later event, like
 "continues",restart", or "terminated.
 Every EVENT of type "aspectual" must later participate in an ALINK.
@@ -1167,9 +1141,7 @@ If an EVENT cannot be paraphrased using any of the words above, it
 is not aspectual.
 
 
-###### EVI - Evidential
-
-The other EVENT type is EVI, or "evidential", markings verbs of showing, demonstration, evidence, reporting, confirmation
+**EVI** (Evidential): The other EVENT type is EVI, or "evidential", markings verbs of showing, demonstration, evidence, reporting, confirmation
 or revelation.  An EVENT should be marked EVI *only* if it serves as the link
 between a source of knowledge or observation and a piece of knowledge
 gained from it, and can include any lexical items labeling that other examples are in question:
@@ -1205,24 +1177,20 @@ the same verbs as EVI over and over again, and will very quickly learn
 to recognize which verbs belong to this class and which do not.
 
 
-#### Annotating representation of EVENTs
+#### Annotating IMPLICITNESS of EVENTs
 
 Some EVENTs that we will mark are not necessarily explicit EVENTs,
 but rather, ENTITYs which are interpreted in context as representing
 an EVENT.
 
 
-###### Default -- Explicit
-
-This is the default value, and corresponds to an EVENT whose span
+**Default -- Explicit**: This is the default value, and corresponds to an EVENT whose span
 itself represents an EVENT:
 
 - There was an **attack** last week.
 
 
-###### Implicit
-
-The other possibility is an EVENT whose span looks like it should
+**Implicit**:  The other possibility is an EVENT whose span looks like it should
 only be a ENTITY, but which nonetheless represents an implicit EVENT
 derived by metonymy.
 
@@ -1257,10 +1225,7 @@ permits greater nuance in our representation of EVENTs than POS or
 NEG generally allows.
 
 
-#### N/A, MST - Most and LTL - Little
-
-
-Our three different degrees are N/A, MST, and LTL. N/A is used where
+**N/A, MST - Most and LTL - Little**: Our three different degrees are N/A, MST, and LTL. N/A is used where
 there is no need to mark either of the other two degrees on the EVENT,
 and is the default value for degree. These are used when there has
 been "a little" of an event, or a large (but not complete) change:
@@ -1535,7 +1500,7 @@ Finally, remember that two dates can be used to construct a duration,
 but, because each represents a single point in time (rather than duration),
 both will still be labeled DATE, rather than DURATION:
 
-- From *May 1st*$_{\text{DATE}}$ to *the 3rd*$_{\text{DATE}}$,
+- From *May 1st*<sub>DATE</sub> to *the 3rd*<sub>DATE</sub>,
 she will refrain from eating solid food.
 
 
@@ -1775,7 +1740,7 @@ and Savova et al. 2011 (\cite{savova2011anaphoric}).
 ### IDENTITY and APPOSITION of ENTITIES
 
 
-#### IDENTICAL 
+**IDENTICAL**
 
 Two entities have an IDENTICAL relation if they refer to the same
 discourse referent. The IDENTICAL relation has several important semantic
@@ -1812,20 +1777,14 @@ of the identities of two mentions (such as Clark Kent
 is Superman), then these are IDENT. 
 - If X is Y asserts a SET/MEMBER relations,
 mark it as such. The such as test is
-a good metric in this case -- you can restatae the relationship in
-\ref{Mobama} as busy ladies such as Michele Obama,
+a good metric in this case -- you can restate the relationship seen as busy ladies such as Michele Obama,
 but one can't say Supermen like Clark Kent 
-- If X is Y doesn't show Y as a set, and
-the two described entities are the identical, but the attribute is
-a role (Joe is the vice president),
-a defined role that is not a separate referent (Joe
-is the tallest man in the room), then use BRIDGING. 
-- If X is Y is very predicative (the Y
-is less of a separate referent and more of an attribute of X) and
-cannot be framed as a SET/MEMBER or BRIDGING relationship, then do
+- If X is Y is very predicative (such as "the house is red", where Y is purely an attribute of X), then do
 not mark any relation at all. 
+- If X is Y marks Y as being the currently the role of X, but is not permanently identical to X -- like "is the current vice president" or "is the person holding the talking stick" then make the relation BRIDGING.  Note that is only applies to equational clauses -- mentions like "The vice president" should just be in identity chains with the intended referent.  Remember for the purpose of making ident chains that Y in this case marks that role in general (rather than X being in that role)
 
-#### APPOSITIVE
+
+**APPOSITIVE**
 
 Two entities have an APPOSITIVE relation if two NPs having the same
 semantic meaning occur adjacent to one another, separated only by
@@ -1955,17 +1914,17 @@ A SET-MEMBER relationship exists when one entity or event can be thought
 of as one or several members of a larger group. SET-MEMBER relations
 can be between ENTITIES or between EVENTS.
 
-- The **trustees**$_{S}$ have to sign off on the ordinance
-before we proceed; however, the trustee **Mr. Gamal**$_{S}$ says
+- The **trustees**<sub>SET</sub> have to sign off on the ordinance
+before we proceed; however, the trustee **Mr. Gamal**<sub>MEMBER</sub> says
 agreement has been hard to come by.
 
-- **Patients**$_{S1}$ with **cancer**$_{S2}$ are advised
-to avoid this medication. Our **patient**$_{M1}$ has kidney **cancer**$_{M2}$
-and lung **cancer**$_{M2}$, so we will not prescribe it. 
+- **Patients**<sub>SET(1)</sub> with **cancer**<sub>SET(2)</sub> are advised
+to avoid this medication. Our **patient**<sub>MEMBER(1)</sub> has kidney **cancer**<sub>MEMBER(2)</sub>
+and lung **cancer**<sub>MEMBER(2)</sub>, so we will not prescribe it. 
 
 (Notice also that **Our** and **we** are in an IDENTICAL relation.)
 
-- Patient has two **arms**$_{S}$. Her left **arm**$_{M}$
+- Patient has two **arms**<sub>SET</sub>. Her left **arm**<sub>MEMBER</sub>
 is scarred.
 
 You should note that in most examples of SET-MEMBERship, the MEMBER
@@ -2017,7 +1976,7 @@ died Wednesday.
 Because BRIDGING is intended as a last resort, there are other contexts in which bridging may be used to link entities, but such new instances should be brought up for discussion to check if it is truly BRIDGING. 
 
 
-### General Guidelines for Annotating Coreference
+### General Guidelines for Entity Coreference
 
 
 #### Never link EVENTs to ENTITIES (except with BRIDGING)
@@ -2054,66 +2013,32 @@ mentions will be connected to their place as a PART or a MEMBER through
 spider-webbing.
 
 
-#### Bridging relations are re-created for subsequent mentions
-
-In bridging relations (i.e. WHOLE/PART, SET/MEMBER), any new mention
-of the WHOLE (or the SET) that is followed by mentions of the PARTs
-(or the MEMBERs) merits a new relation. For example, consider the
-relations in the following:
-
-- **I**$_{M1}$ met with the **patient**$_{M2}$ today. **We**$_{S1}$
-discussed treatment options for **her**$_{M2-1}$ cancer. **We**
-also reviewed in **our**$_{S2}$ discussion the results of **her**$_{M2-2}$
-recent CT-scan. **My**$_{M1}$ recommendation is adjuvant chemotherapy.
-> SET **We**$_{S1}$: MEMBERs **I**$_{M1}$, **patient**$_{M2}$,
-**her**$_{M2-1}$ 
-> SET **our**$_{S2}$: MEMBERs **her**$_{M2-2}$,
-**My**$_{M1}$
-
-In this example, **I**$_{M1}$ and **My**$_{M1}$ are IDENTICAL;
-**patient**$_{M2}$, **her**$_{M2-1}$, and **her**$_{M2-2}$
-are IDENTICAL; and **We**$_{S1}$, **We**, and **our**$_{S2}$
-are IDENTICAL.
-
-
-#### Use SET/MEMBER to define groups of people
-
-The members of groups of people (i.e. **we**, **they**, the **board**
-of directors, etc.) are always annotated with SET/MEMBER relations,
-as in \Last, not WHOLE/PART.
-
-
-#### Don't link ACTUAL and GENERIC items
+#### GENERIC and HYPOTHETICAL entities only corefer to entities of the same modality
 
 In analogy with the principle for not TLINKing HYP/GEN to ACT/UNCERTAIN
 events, ACTUAL and GENERIC items can never be in an IDENTICAL, APPOSITIVE,
-or WHOLE/PART relationship. They can, however, be SET/MEMBER, as in
-\Next:
+or WHOLE/PART relationship. They can, however, be SET/MEMBER, as in:
 
 - **I** discussed with **Mrs. Ambry**<sub>ACTUAL</sub> the results
-of a local clinical trial in which **patients**$_{GENERIC}$ with
-**cancer**$_{GENERIC}$ recovered successfully on the **drug**
+of a local clinical trial in which **patients**<sub>GENERIC</sub> with
+**cancer**<sub>GENERIC</sub> recovered successfully on the **drug**
 without reoccurrence. Given **her** colon **cancer**<sub>ACTUAL</sub>
 and the success of the **drug**, **I** recommend **it**. 
->
-SET **patients**: MEMBER **Mrs. Ambry** 
-> **Mrs. Ambry**
-IDENTICAL **her** 
-> SET **cancer**$_{GENERIC}$: MEMBER **cancer**<sub>ACTUAL</sub>
-
-> **I** IDENTICAL **I** \e. **drug** IDENTICAL **drug**,
-**it**
+> SET **patients**: MEMBER **Mrs. Ambry** 
+> **Mrs. Ambry** IDENTICAL **her** 
+> SET **cancer**<sub>GENERIC</sub>: MEMBER **cancer**<sub>ACTUAL</sub>
+> **I** IDENTICAL **I** 
+> **drug** IDENTICAL **drug**, **it**
 
 
-#### Identifiers are people too
+#### Email addresses and Usernames usually count as IDENT
 
 Email addresses (and other person-specific identifiers) can be linked
 to their referent humans using IDENTICAL or APPOSITIVE.
 
 - You should contact **Bill Franklin** for more information.
 **He**'s **bill.franklin@hotmail.gov** 
-> **Bill Franklin**
-IDENTICAL **He**, **bill.franklin@hotmail.gov**
+> **Bill Franklin** IDENTICAL **He**, **bill.franklin@hotmail.gov**
 
 - **George Maddox** (**exampleguy6969@hotmail.gov**) should
 be able to help you out. 
@@ -2131,7 +2056,7 @@ Phone numbers are not person-specific, and thus, are not eligible
 for these relations.
 
 
-#### If Identity is uncertain in the document, use BRIDGING (even if you know the truth)
+#### Use BRIDGING if an IDENT link is uncertain in the document (even if you know the truth)
 
 Occasionally, authors (or context) will suggest
 coreference or identity, or will explicitly state the uncertainty
@@ -2228,7 +2153,7 @@ and places involved, and asserted IDENTITY links can be made using
 BRIDGING.
 
 
-#### Identity Annotation for very broadly GENERIC entities
+#### Extremely broad categories (like "everyone" or "humanity") don't get SET/MEMBER
 
 Some set/member relations are so general that they define huge, all-encompassing
 sets. This is most clear when considering terms such as everything,
@@ -2255,7 +2180,7 @@ does not get set/member relations.
 one: These do not entail set/member
 relationships between themselves and the possible candidates. 
 
-#### IDENT over generic you, one, etc.
+#### However, link generic "you" or generic "one" instances into an IDENT chain
 
 We do, however, want to grab identity relations with very generic
 terms, and especially want identity relations with terms like you.
@@ -3440,26 +3365,21 @@ differentiated from known facts.
 
 - He likely **escaped** on the *18th* during a *guard change*,
 although authorities cannot be sure. 
-> *18th* CONTAINS **guard
-change** <ACTUAL> 
-> **guard change** CONTAINS **escaped**
-<UNCERTAIN>
+> *18th* CONTAINS<sub>ACTUAL</sub> **guard change**
+> **guard change** CONTAINS<sub>UNCERTAIN/HEDGED</sub> **escaped**
 
 - The chairman will, in all likelihood, **step** down on *Monday*.
-> *Monday* CONTAINS **step** <UNCERTAIN>
+> *Monday* CONTAINS<sub>UNCERTAIN/HEDGED</sub> **step**
 
 - We have every reason to expect that her incision will **heal**
 before her **tournament**. 
-> **heal** BEFORE **tournament**
-<UNCERTAIN>
+> **heal** BEFORE<sub>UNCERTAIN/HEDGED</sub> **tournament**
 
 - The **fire**, very likely caused by a lightning **strike**,
 is **growing** due to high **winds**. 
-> **strike** BEFORE/CAUSE
-**fire** <UNCERTAIN> 
-> **winds** OVERLAP/CAUSE **growing**
-<ACTUAL> 
-> **strike** BEFORE **growing** <ACTUAL>
+> **strike** BEFORE/CAUSE<sub>UNCERTAIN/HEDGED</sub> **fire**
+> **winds** OVERLAP/CAUSE<sub>ACTUAL</sub> **growing**
+> **strike** BEFORE<sub>ACTUAL</sub> **growing**
 
 
 **HYP - Hypothetical**
@@ -3471,22 +3391,18 @@ when the temporal relation itself is hypothetical, theoretical, or
 otherwise dependent on an external factor.
 
 - Her **surgery** may take place on the *18th*. 
-> *18th\
-CONTAINS **surgery** <HYPOTHETICAL>
+> *18th CONTAINS<sub>HYPOTHETICAL</sub> **surgery**
 
 - If the **explosion** was caused by a natural gas **leak**,
 the insurance will not **cover** the **reconstruction**. 
->
-**leak** BEFORE/CAUSE **explosion** <HYPOTHETICAL> 
-> **explosion**
-BEFORE/PRECONDITIONS **reconstruction** <ACTUAL>
+> **leak** BEFORE/CAUSE<sub>HYPOTHETICAL</sub> **explosion** 
+> **explosion** BEFORE/PRECONDITIONS<sub>ACTUAL</sub> **reconstruction**
 
 - Obama's **visit**, if **it** occurs on a *weekday*, is
 expected to cause traffic **headaches**. 
-> **it** OVERLAPS/CAUSE
-**headaches** <HYPOTHETICAL> 
-> *weekday* CONTAINS **it**
-<HYPOTHETICAL>
+> **it** OVERLAPS/CAUSE<sub>HYPOTHETICAL</sub> **headaches**
+> *weekday* CONTAINS<sub>HYPOTHETICAL</sub> **it**
+
 
 Great caution must be exercised before marking a relation itself as
 HYPOTHETICAL, as hypothetical EVENTs are not necessarily members of
@@ -3494,10 +3410,8 @@ hypothetical relations. See the below example:
 
 - If the group **attacks** during the **Olympics**, Russia
 has promised swift **retaliations**. 
-> **Olympics**$_{\text{ACT}}$
-CONTAINS **attacks**$_{\text{HYP}}$ <HYPOTHETICAL> 
-> **attacks**$_{\text{HYP}}$
-BEFORE/CAUSE **retaliation**$_{\text{HYP}}$ <ACTUAL>
+> **Olympics**<sub>ACT</sub> CONTAINS<sub>HYPOTHETICAL</sub> **attacks**<sub>HYP</sub>
+> **attacks**<sub>HYPH</sub> BEFORE/CAUSE<sub>ACTUAL</sub> **retaliation**<sub>HYP</sub>
 
 In this example, we have a hypothetical attack, an actual Olympic
 games, and a hypothetical retaliation. The timing of the attack is
@@ -3519,18 +3433,16 @@ with GENERIC:
 
 - **Attacks** in the region generally don't occur on *Holy
 days* 
-> *Holy days* CONTAINS **attacks**$_{\text{NEG}}$ <GENERIC>
+> *Holy days* CONTAINS<sub>NEG, GENERIC</sub> **attacks**
 
 - US Presidential **Elections** are held on the *Tuesday after
 the first Monday in November* 
-> *Tuesday after the first Monday
-in November* CONTAINS **Elections** <GENERIC>
+> *Tuesday after the first Monday in November* CONTAINS<sub>GENERIC</sub> **Elections**
 
 ... but remember that specific mentions do not get <GENERIC>:
 
-- The last US Presidential **Election** was held on *November
-4th, 2008* 
-> *November 4th, 2008* CONTAINS **Election** <ACTUAL>
+- The last US Presidential **Election** was held on *November 4th, 2008* 
+> *November 4th, 2008* CONTAINS<sub>ACTUAL</sub> **Election**
 
 :bangbang: *As with TLINK polarity, TLINK modality is seldom anything
 but the default, ACTUAL. If you are considering marking a TLINK with
@@ -3590,17 +3502,17 @@ SET-MEMBER can occur between multiple ACTUAL events when the SET is
 an actual agglomeration of instances that are not a temporally continguous
 unit, as in \Next 
 
-- A series of **earthquakes**$_{S}$ struck the province of
-Manokwari last Tuesday. The largest **earthquake**$_{M}$ alone
+- A series of **earthquakes**<sub>SET</sub> struck the province of
+Manokwari last Tuesday. The largest **earthquake**<sub>MEMBER</sub> alone
 caused \$73 million in damage.
 
 Other SET/MEMBER relations will be between generalizations and their
 instances
-\begin{examples
-- Presidents usually **\textsubscript{SET} pardon** a turkey for
-Thanksgiving, and today the lucky convict he **\textsubscript{MEMBER
-pardoned** was named Ginny Fawell. 
-\end{examples
+
+- Presidents usually **pardon<sub>SET</sub>** a turkey for
+Thanksgiving, and today the lucky convict he **
+pardoned<sub>MEMBER</sub>** was named Ginny Fawell. 
+
 
 ### BRIDGING
 
@@ -3611,11 +3523,11 @@ BRIDGING relation. For dealing with EVENT coreference, an important
 option that this opens up is when a text alledges that doing one event
 is analogous to doing another, either directly or in an attempt at
 metaphor:
-\begin{examples
+
 - John **\textsubscript{head} voted** to make waffles the state food,
 which **\textsubscript{attribute} amounts** to betraying all his
 campagin promises.
-\end{examples
+
 Because we define CONTAINS-SUBEVENT as involving temporal containment,
 you may also use BRIDGING for any subevent which seemed to be "part
 of", yet temporally outside of, another event.
@@ -3623,8 +3535,7 @@ of", yet temporally outside of, another event.
 - After a week of attempted repairs, the palace **collapsed**
 Friday, the most disheartening part of the already-terrible **earthquake**.
 > **earthquake** BEFORE-CAUSE **collapsed** 
-> **earthquake**
-BRIDGING **collapsed**
+> **earthquake** BRIDGING **collapsed**
 
 
 ### General Guidelines for Annotating Coreference
@@ -3655,28 +3566,6 @@ mentions will be connected to their place as a PART or a MEMBER through
 spider-webbing.
 
 
-#### Bridging relations are re-created for subsequent mentions
-
-In bridging relations (i.e. WHOLE/PART, SET/MEMBER), any new mention
-of the WHOLE (or the SET) that is followed by mentions of the PARTs
-(or the MEMBERs) merits a new relation. For example, consider the
-relations in the following:
-
-- **I**$_{M1}$ met with the **patient**$_{M2}$ today. **We**$_{S1}$
-discussed treatment options for **her**$_{M2-1}$ cancer. **We**
-also reviewed in **our**$_{S2}$ discussion the results of **her**$_{M2-2}$
-recent CT-scan. **My**$_{M1}$ recommendation is adjuvant chemotherapy.
-> SET **We**$_{S1}$: MEMBERs **I**$_{M1}$, **patient**$_{M2}$,
-**her**$_{M2-1}$ 
-> SET **our**$_{S2}$: MEMBERs **her**$_{M2-2}$,
-**My**$_{M1}$
-
-In this example, **I**$_{M1}$ and **My**$_{M1}$ are IDENTICAL;
-**patient**$_{M2}$, **her**$_{M2-1}$, and **her**$_{M2-2}$
-are IDENTICAL; and **We**$_{S1}$, **We**, and **our**$_{S2}$
-are IDENTICAL.
-
-
 #### Don't link ACTUAL and GENERIC events (use SET/MEMBER or BRIDGING)
 
 In analogy with the principle for not TLINKing HYP/GEN to ACT/UNCERTAIN
@@ -3685,18 +3574,15 @@ or WHOLE/PART relationship. They can, however, be SET/MEMBER, as in
 \Next:
 
 - **I** discussed with **Mrs. Ambry**<sub>ACTUAL</sub> the results
-of a local clinical trial in which **patients**$_{GENERIC}$ with
-**cancer**$_{GENERIC}$ recovered successfully on the **drug**
+of a local clinical trial in which **patients**<sub>GENERIC</sub> with
+**cancer**<sub>GENERIC</sub> recovered successfully on the **drug**
 without reoccurrence. Given **her** colon **cancer**<sub>ACTUAL</sub>
 and the success of the **drug**, **I** recommend **it**. 
->
-SET **patients**: MEMBER **Mrs. Ambry** 
-> **Mrs. Ambry**
-IDENTICAL **her** 
-> SET **cancer**$_{GENERIC}$: MEMBER **cancer**<sub>ACTUAL</sub>
-
-> **I** IDENTICAL **I** \e. **drug** IDENTICAL **drug**,
-**it**
+> SET **patients**: MEMBER **Mrs. Ambry** 
+> **Mrs. Ambry** IDENTICAL **her** 
+> SET **cancer**<sub>GENERIC</sub>: MEMBER **cancer**<sub>ACTUAL</sub>
+> **I** IDENTICAL **I** 
+>**drug** IDENTICAL **drug**, **it**
 
 
 ## Aspectual Link Annotation
@@ -3946,7 +3832,15 @@ Remember that hedges are NOT events, but merely good evidence for using UNCERTAI
 | Set/Member vs Contains-Subevent | if event A **must be viewed as** a colection of temporally disconnected events, and event B is **a subevent of** one of them, (*and there is no mention of that instance to point to*), use CONTTAINS/SUBEVENT | During the three **trials**, the expert only **testified** once  | **trials** CONTAINS/SUBEVENT **testified** |
 | Contains-Subevent vs PRECONDITION | if event B is the goal of event A, and is accomplished during event A, **and event B refers to the actual event that was accomplished during A**, then used CONTAINS/SUBEVENT  | We **took** a county road, managing to **dodge** the rush-hour traffic  | **took** CONTAINS/SUBEVENT **dodge** |
 | Contains-Subevent vs PRECONDITION | if event B refers to the goal of event A, but **refers to the goal of event A rather than a particular event within A**, then use PRECONDITION (or NO relation; event B in this case should often be HYPOTHETICAL)  | To **avoid** the rush hour, we **took** backroads | **took** OVERLAP/PRECONDITION **avoid** |
-| Contains-Subevent vs PRECONDITION | if an event A could have a narrow reading in which is causes event B, or a larger reading in which it is a circumstance that contains event B, default to wider reading in which CONTAINS is used |In the ensuing controvery, the chancellor ordered that the name to be changed | **controversy** CONTAINS **order**
+| Contains-Subevent vs PRECONDITION | if an event A could have a narrow reading in which is causes event B, or a larger reading in which it is a circumstance that contains event B, default to wider reading in which CONTAINS is used |In the ensuing controvery, the chancellor ordered that the name to be changed | **controversy** CONTAINS/SUBEVENT **order**
+
+:interrobang: To be added
+if the 'purpose' of something is to have a smaller event within it
+if the 'purpose' is to lead to a resultant state that will endure after the event
+if in doublt as to whether event B is a punctual event within event A or the state that starts at that puctual reading, default ot the punctual reading. 
+
+
+
 
 :interrobang: **feedback welcome:** *The relation example with "To avoid the rush hour, we took back roads" is a complicated one, and may be subject to change.  While relations like "I want to buy milk",  are clearly want PRECONDITION milk, direct motivation links (like "went to the store to get milk") are somewhat unclear.  These should be very rare, as they are often different modalities.
 
