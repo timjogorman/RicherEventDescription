@@ -246,7 +246,7 @@ This may be contrasted with verbs and nouns that amount of a purely
 grammatical encoding of relationships between elements. For verbs,
 many of the non-eventive cases will therefore be grammaticalized verbs
 such as **go**, **seem**, **have**, etc. -- for example, there
-is only one verb in example below:
+is only one EVENT in the example below:
 
 - Your dog *seems to have eaten* the cupcakes.
 
@@ -276,7 +276,7 @@ people, should therefore be viewed with skepticism in this regard. "I came home 
 the door was open" evokes an act of someon opening it; "He walked through
 the open door" does not. In short:
 
-> An Attribute in an EVENT when its use implies actual occcurrences -- such as the events leading up to its own existence. 
+> An Attribute is an EVENT when its use implies actual occurrences -- such as the events leading up to its own existence. 
 
 The second kind of attribute that needs to be annotated as an EVENT are attributes that don't, themselves, pass this test, but which are clearly coreferential with those that do, or which could have SET/MEMBER relationships with those that do.
 
@@ -290,9 +290,9 @@ discourse.
 Just like when finding events, you must first decide if there is one
 entity being mentioned or many. This can be a nuanced decision; consider our various "hospital" descriptions for edge cases:
 
-- **[<sub>Entity</sub> Boulder County Hospital]** said that most **[<sub>Entity</sub>those ]** seriously wounded now were treated at an emergency
+- **[<sub>Entity</sub> Boulder County Hospital]** said that **[<sub>Entity</sub>most]** of **[<sub>Entity</sub>those ]** seriously wounded now were treated at an emergency
 **[<sub>Entity</sub> unit]** at the **[<sub>Entity</sub> hospital]**.
-- The county **[<sub>Entity</sub> hospital]** said that most **[<sub>Entity</sub>those ]** seriously wounded now were treated at an emergency
+- The county **[<sub>Entity</sub> hospital]** said that **[<sub>Entity</sub>most]** of **[<sub>Entity</sub>those ]** seriously wounded now were treated at an emergency
 **[<sub>Entity</sub> unit]** at the **[<sub>Entity</sub> hospital]**.
 
 This gets at the first two very important distinctions we are making, namedly:
