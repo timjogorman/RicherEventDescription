@@ -139,8 +139,8 @@ Richer Event Description is an attempt to bring together a number
 of existing and well-researched veins of document annotation into
 a single representation of the events and participants in a discourse.
 It is not concerned with semantic role annotation in the traditional
-sense -- the relationships between events and the entities participating
-in them -- but rather the hierarchical structure of events, of time,
+sense – the relationships between events and the entities participating
+in them – but rather the hierarchical structure of events, of time,
 and of participants, and the tracking of those events and participants
 over a document. 
 
@@ -151,14 +151,14 @@ such as modality, and to mark temporal, causal, event-substructural
 and coreference relations between them. 
 
 The result of this annotation can be thought of as a timeline of events
-within a document -- with labels for when each event occurred and
-which are contained within another -- and a playbill of participants,
-so that every mention of an ongoing character, location etc. might
+within a document – with labels for when each event occurred and
+which are contained within another – and a playbill of participants,
+so that every mention of an ongoing character, location, etc., might
 be linked together into a continuous sense of an entity. The desired
 result, in this sense, is something which would result in a rich understanding
 of a document if combined with within-sentence understanding semantic
 roles, and is therefore focused upon the capture of relations not
-traditionally captured in semantic-role labelling tasks. 
+traditionally captured in semantic-role labeling tasks. 
 
 
 ### The Pipeline and General Intuitions of Annotation
@@ -173,15 +173,15 @@ annotation. The first stage in this pipeline will involve the annotation
 of events, entities, and the coreference and partial-coreference relationships
 between entities. Those annotations are then adjudicated by a third
 annotator, who makes a judgement call on all disagreements. The second
-stage of annotation marks the relationships between events-- both
+stage of annotation marks the relationships between events – both
 to show when those events are identical, and to mark relationships
-between related events -- over those adjudicated events.
+between related events – over those adjudicated events.
 
-The structure of such a pipeline is to help improve the consisistency
+The structure of such a pipeline is to help improve the consistency
 of the annotation process. It is important for annotators to think
 of such a question of consistency not simply in terms of avoiding
 absolute errors, but in terms of whether our annotations themselves
-are clear and predictable. Because document-level annotation involved
+are clear and predictable. Because document-level annotation involves
 a great deal of rich understanding of the context, and your understanding
 will often vary in subtle ways from your fellow annotators, we cannot
 simply annotate every relationship that you observe in the text in
@@ -208,10 +208,10 @@ There are two different kinds of actions done during the first stage
 of annotation. One is the annotation of events, entities and times, where you will be 
 differentiating what is worth keeping track of, and marking those events, entities and times
 with characteristic attributes. The other annotation being done is relationships between entities
--- coreference, part/whole relations, set/member relations and bridging
+– coreference, part/whole relations, set/member relations and bridging
 relations between entities.
 
-These exist in the same stage precisely so that the anotation
+These exist in the same stage precisely so that the annotation
 of both may be done at the same time. When initally learning to annotate,
 however, one is encouraged to start by annotating entities and events
 first, and then adding entity coreference links. As one gains competence
@@ -224,36 +224,36 @@ at the task, you are encouraged to attempt to combine these tasks as much as pos
 
 The first and most fundamental task in the first stage of annotation
 is to label EVENT and ENTITY instances. When first annotating, one should 
-thing of each such labelling act as *two* decisions: the first part being the decision
+thing of each such labeling act as *two* decisions: the first part being the decision
 about **whether** something should be annotated, and the second part being
 the decision about **what exact span of words** you should mark to designate
 it. 
 
 ##### What is an EVENT?
 
-We define an event as any occurrence, actions, processes or event
-states which deserve a place upon a timeline, and could have any syntactic realization -- as verbs, nominalizations,
+We define an event as any occurrence, action, process or event
+state which deserves a place upon a timeline, and could have any syntactic realization – as verbs, nominalizations,
 nouns, or even adjectives. It is important that one make the event/non-event
-determination independently of syntax: we will consider syntactic
+determination independently of syntax; we will consider syntactic
 considerations for what the span of annotation will be, but not
 for whether or not to consider something to be an event at all. Instead,
 at this stage you should focus on the semantic questions of what is
 actually happening, asking whether the words you are considering constitute
-a sequences of changes, transitions or states occurring in the world
+a sequence of changes, transitions or states occurring in the world
 (or some possible world). 
 
 This may be contrasted with verbs and nouns that amount of a purely
-grammatical encoding of relationships between elements. For verbs,
+grammatical encoding to relationships between elements. For verbs,
 many of the non-eventive cases will therefore be grammaticalized verbs
-such as **go**, **seem**, **have**, etc. -- for example, there
-is only one EVENT in the example below:
+such as **go**, **seem**, **have**, etc. – for example, there
+is only one EVENT in the sentence below:
 
 - Your dog *seems to have eaten* the cupcakes.
 
 In a more general sense, one can think of that criterion as being
 about distinguishing whether a particular mention (like "have"
-or "seems" above) constitutes its own event, or merely helps constitute
-description of a single event. For example, a light verb like "take
+or "seems" above) constitutes its own event, or merely helps constitute the
+description of a single event. For example, a light verb construction like "take
 a bath" does not constitute a separate "take" event and "bath"
 event, but rather combine to jointly signal the bath-taking event. 
 
@@ -268,22 +268,22 @@ Consider the range of circumstances below ,ranging from very eventive to not eve
 Hopefully the reader will agree that the last example is dramatically
 less "eventive" than the other instances. Yet naturally, all states
 **exist** on a timeline, so mere existence on a timeline is not
-suffient for this. However, the first two examples above do more than potentially having starts and ends; the 
+sufficient for this. However, the first two examples above do more than potentially have starts and ends; the 
 mention itself implies, to many readers, an event initiating the start of the attribute.
 
 Adjectives used as mere specifiers, to label or refer to particular
 people, should therefore be viewed with skepticism in this regard. "I came home and saw
-the door was open" evokes an act of someon opening it; "He walked through
+the door was open" evokes an act of someone opening it; "He walked through
 the open door" does not. In short:
 
-> An Attribute is an EVENT when its use implies actual occurrences -- such as the events leading up to its own existence. 
+> An Attribute is an EVENT when its use implies actual occurrences – such as the events leading up to its own existence. 
 
 The second kind of attribute that needs to be annotated as an EVENT are attributes that don't, themselves, pass this test, but which are clearly coreferential with those that do, or which could have SET/MEMBER relationships with those that do.
 
 ##### What is an ENTITY?
 
 For ENTITY annotation, we will be going through the text, finding
-all instances of things that consistute an ENTITY -- a participant,
+all instances of things that constitute an ENTITY – a participant,
 location, organization, or other entity that might be tracked in the
 discourse. 
 
@@ -295,13 +295,13 @@ entity being mentioned or many. This can be a nuanced decision; consider our var
 - The county **[<sub>Entity</sub> hospital]** said that **[<sub>Entity</sub>most]** of **[<sub>Entity</sub>those ]** seriously wounded now were treated at an emergency
 **[<sub>Entity</sub> unit]** at the **[<sub>Entity</sub> hospital]**.
 
-This gets at the first two very important distinctions we are making, namedly:
+This gets at the first two very important distinctions we are making, namely:
 
-> If a proper name contains words that might also refer to other objects in  the discourse, do not "nest" such mentions; Proper names can be treated as inseparable units. 
+> If a proper name contains words that might also refer to other objects in  the discourse, do not "nest" such mentions; proper names can be treated as inseparable units. 
 
 The second rule is:
 
-> If an entity reference contains a word that is merely clarifying the mention, but not an entity itself, then do not mark it, such as "county" in the mention above.  The exception to this is if that word is coreferential to a "real" mention of the same thing -- if "the county" was mentioned and clearly referential later in the document, then come back and tag this.
+> If an entity reference contains a word that is merely clarifying the mention, but not an entity itself, then do not mark it, such as "county" in the mention above.  The exception to this is if that word is coreferential to a "real" mention of the same thing – that is, if "the county" was mentioned and clearly referential later in the document – then come back and tag this.
 
 There is a special case of this, however, for instances like "Manokwari Hospital" below:
 
@@ -316,14 +316,14 @@ Do this even when the term is technically an adjectival pertainym, such as:
 
 Don't go overboard, however: when the actual named entity is not being evoked itself, but merely some stereotype, origin or style of that entity, then ignore it:
 
-- **[<sub>Entity</sub> I ]** like american **[<sub>Entity</sub> music ]**
-- **[<sub>Entity</sub> I ]** like indian **[<sub>Entity</sub>food ]**
+- **[<sub>Entity</sub> I ]** like American **[<sub>Entity</sub> music ]**
+- **[<sub>Entity</sub> I ]** like Indian **[<sub>Entity</sub>food ]**
 
-A good example to remember for this is that we don't want to be keeping track of the idea of "hot dog" in every mention of "hot dog stand", but that if we had a document that was somehow about "hot dogs" (say, reporting a recall of bad hot dogs), then we *do* want to keep track of it.  
+A good example to remember for this is that we don't want to be keeping track of the idea of "hot dog" in every mention of "hot dog stand", but if we had a document that was somehow about "hot dogs" (say, reporting a recall of bad hot dogs), then we *do* want to keep track of it.  
 
 A more technical definition is that for "clearly referential" things, we are doing what is called *singleton annotation*, marking a referent even if it occurs only once in the document.  For less referential entities, we are abandoning singleton annotation and *only* mark an entity if it is coreferential with more important mentions.  "Less referential", in this case, means mentions that serve to clarify what you are referring to or doing (and therefore might not be being referred to themselves). 
 
-:bangbang: *Remember that if something is subsumed by an event, make it an event!  Specifically, if a verb-object pair collectively constitute an event, such as a light verb or multi-word expression  -- "tell the truth", "take a bath", etc. -- then do not make the object an entity!*
+:bangbang: *Remember that if something is subsumed by an event, make it an event!  Specifically, if a verb-object pair such as a light verb or multi-word expression collectively constitutes an event – "tell the truth", "take a bath", etc. – then do not make the object an entity!*
 
 
 ##### Differentiating ENTITY and EVENT
@@ -338,18 +338,18 @@ The **revolution** might be considered either a group of people or a process of 
 
 > If in doubt about the EVENT/ENTITY distinction, default to EVENT.  
 
-We will, however, get more specific than this.  Many of these, like the mentions above, look like entities.  You can often have different answers for "when was this created" and "when does this start?", as the event they imply are usually different from the act of doing them.  In those cases, you will mark them as an EVENT, but show that they are implicit from an object, marking them with an IMPLICIT feature:
+We will, however, get more specific than this.  Many of these, like the mentions above, look like entities.  You can often have different answers for "When was this created?" and "When does this start?", as the event they imply are usually different from the act of doing them.  In those cases, you will mark them as an EVENT, but show that they are implicit from an object, marking them with an IMPLICIT feature:
 
 - He was **[<sub>event</sub> sentenced]** to *[<sub>duration</sub> five years]* of **[<sub>implicit-event</sub> prison]**
 
-Prototypically these should be events that are implied by the event -- something that happens in that location (as in the captivity state implied by "prison"), that is the traditional thing done with that entity (such as the "pill comsumption" implied by "Advil"), and so forth (see CITATION for what we are getting at here).  For some of these -- often marked in the specific phenomena guide -- you shoud also annotate them as an ENTITY, such as laws, rules, and very referential places that imply an event (such as "prison"), and mark coreference for both the event and the entity:
+Prototypically these should be events that are implied by the event – something that happens in that location (as in the captivity state implied by "prison"), that is the traditional thing done with that entity (such as the "pill consumption" implied by "Advil"), and so forth (see CITATION for what we are getting at here).  For some of these – often marked in the specific phenomena guide – you should also annotate them as an ENTITY, such as laws, rules, and very referential places that imply an event (such as "prison"), and mark coreference for both the event and the entity:
 
-- The nearby pipe **[<sub>implicit-event & entity</sub> bomb]** disrupted the festival. The **[<sub>implicit-event</sub> explosion]** from the **[<sub>entity</sub> device]** was heard for miles. 
+- The nearby pipe **[<sub>implicit-event & entity</sub> bomb]** disrupted the festival. The **[<sub>event</sub> explosion]** from the **[<sub>entity</sub> device]** was heard for miles. 
 
 -  **bomb<sub>event</sub>** IDENTICAL **explosion**
 -  **bomb<sub>entity</sub>** IDENTICAL **device**
 
-For others -- such as statements, messages, texts or medications -- the text is almost always referring to the event itself, and one should **only** annotate them as IMPLICIT EVENTS.  Examples of this are:
+For others – such as statements, messages, texts or medications – the text is almost always referring to the event itself, and one should **only** annotate them as IMPLICIT EVENTS.  Examples of this are:
 
 - "Make sure to eat something before your **[<sub>event</sub> vitamins]**."
 - "**[<sub>event</sub> Loperamide]** helped to calm her stomach."
@@ -365,12 +365,12 @@ annotate that entity as an ENTITY.
 
 #### When many words relate to one event 
 
-As mentioned in the prior section, if many words contribute to a single event or entity, we want them to all be represented by a single markable. Some of these will be relatively clear-cut, as with *light verbs*:
+As mentioned in the prior section, if many words contribute to a single event or entity, we want them all to be represented by a single markable. Some of these will be relatively clear-cut, as with *light verbs*:
 
 > John ~~took~~ a **[<sub>event</sub> bath]**.
 > The burglar ~~committed~~ a heinous **[<sub>event</sub> crime ]**. 
 
-These are most clear-cut with light verbs meeting the rule from Bonial (2014) that "the light verb plus its true predicate can often be paraphrased by a verbal form of the true predicate without loss of the core meaning of the expression. ".  In other words, "to give a lecture" is almost identical to "to lecture", "to give a look" is almost the same as "to look", etc.  For related reasons, we will also be not marking **support verb** constructions such as 
+These are most clear-cut with light verbs meeting the rule from Bonial (2014) that "the light verb plus its true predicate can often be paraphrased by a verbal form of the true predicate without loss of the core meaning of the expression. ".  In other words, "to give a lecture" is almost identical to "to lecture", "to give a look" is almost the same as "to look", etc.  For related reasons, we will also not be marking **support verb** constructions such as: 
 
 > The **earthquake** ~~occurred~~ during the **parade**.
 
@@ -378,8 +378,8 @@ In real annotations, there may be more nuanced instances than this, in which it'
 
 **General Rules for Complex Predicates**
 
-- If you encounter an idiom, simply mark the head verb in the idiom, and assume that the meaning of the phrase is carried by that verb. So "The chickens have **[come]** home to roost for Bush." simply has a [come], which stands for your interpretation of the coming-home-to-roost event.
-- Markers of epistemic status, like "seems to" or "appears to", are not events. When in doubt, you should follow the nearest case in the [Reporting vs Hedging distinctions](#Distinguishing Reporting events from Hedges) in the appendix.
+- If you encounter an idiom, simply mark the head verb in the idiom, and assume that the meaning of the phrase is carried by that verb. So "The chickens have **[come]** home to roost for Bush" simply has a [come], which stands for your interpretation of the coming-home-to-roost event.
+- Markers of epistemic status, like "seems to" or "appears to," are not events. When in doubt, you should follow the nearest case in the [Reporting vs Hedging distinctions](#Distinguishing Reporting events from Hedges) in the appendix.
 
 
 ####  When one word implies many events
@@ -388,7 +388,7 @@ Sometimes a single word ends up implying many events, like the two colonoscopies
 
 - Her main concern is that she does not wish to have a **colonoscopy**, which she had back in the 1970s.
 
-This also occurs with gapping phenomena, as in **raids**
+This also occurs with gapping phenomena, as in **raids**:
 
 - The **raids** in Phoenix **began** at 4am, in Denver, at 5.
 
@@ -399,7 +399,7 @@ We unfortunately will be annotating only one EVENT span per actual span in the c
 ### Spans of Annotation
 
 Once you have decided that a given phrase or word *qualifies* as an
-EVENT or ENTITY, you'll need to decide what `span' (section of the
+EVENT or ENTITY, you'll need to decide what "span" (section of the
 text) to annotate.
 
 For each ENTITY and EVENT annotation, you might have found a long
@@ -408,7 +408,7 @@ which designates that concept. We will not be annotating that
 entire string, but instead will designate a single
 word, the syntactic "head" of the phrase, which will represent that whole idea.
 
-Deciding whether or not a term should be one, many or no entities or events is entirely
+Deciding whether or not a term should be one, many, or no entities or events is entirely
 a semantic decision described above; the details here are merely a decision about the span which
 you should mark after that. A single noun phrase can have many ENTITYs
 or EVENTs (every word in "United States Olympics Organization Chairwoman"
