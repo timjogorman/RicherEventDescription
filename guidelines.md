@@ -466,7 +466,7 @@ and nothing more. Thus, look at the events in the following examples
 - The jury **finding** was in favor of the defendant.
 
 Note that we take the single verb or adjective even when when dealing
-with a multiword predication such as "throw up". The
+with a multiword predication such as "throw up." The
 exception to this tendency comes from "light verbs" and "support
 verbs" mentioned above, where the verb itself is ignored:
 
@@ -475,16 +475,16 @@ verbs" mentioned above, where the verb itself is ignored:
 - The burglar ~~committed~~ a heinous **<sub>event</sub>crime**. 
 
 The same rules for minimal-span annotation will also apply to nouns.
-Hopefully you will have some exposure to what the head of a noun phrases
+Hopefully you will have some exposure to what the head of a noun phrase
 is from syntactic courses, and this will be quite familiar. Start
 by examining the example for participants which you desire to annotate;
 say that you found the following:
 
 - The most recent IED attack outside the Green Zone in Baghdad
-- The shooting near the word-torn city
+- The shooting near the war-torn city
 - That recision biopsy analysis of the sigmoid colon today
 
-For each, rule out prepositional phrases and post-postitional adverbs:
+For each, rule out prepositional phrases and post-positional adverbs:
 
 - The most recent IED attack ~~outside the Green Zone in Baghdad~~
 - The shooting ~~near the war-torn city~~
@@ -502,10 +502,10 @@ spans you considered. The same examples should result in annotations such as:
 - The **[<sub>event</sub>shooting]** near the war-torn **[<sub>entity</sub> city]** 
 - That recision biopsy **[<sub>event</sub> analysis]** of the sigmoid **[<sub>entity</sub> colon]** *today*
 
-There will be two exceptions to this "minimal span" rule; proper
+There will be two exceptions to this "minimal span" rule: proper
 names and times. Proper names should be annotated with all name parts,
 so that "Bill Clinton" is not "Bill **Clinton**" but rather
-"**Bill Clinton**". Do not include determine determiners in
+"**Bill Clinton**." Do not include determiners in
 such terms:
 
 - The most recent IED **attack** outside the **Green Zone** in **Baghdad**.
