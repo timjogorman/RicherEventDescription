@@ -428,7 +428,7 @@ We will take the opposite approach, using a "minimum span" style of annotation i
 the kinds of annotations you see above, we will annotate everything (except proper nouns and times) using a single word,
 resulting in spans such as: 
 
-- The 7.6-magnitude **[<sub>event</sub> earthquake** caused severe **[<sub>event</sub> damage** to multiple **[<sub>entity</sub> buildings** *last July*.
+- The 7.6-magnitude **[<sub>event</sub> earthquake]** caused severe **[<sub>event</sub> damage]** to multiple **[<sub>entity</sub> buildings]** *last July*.
 
 - The **[<sub>entity</sub> U.S.]** **[<sub>entity</sub> President ]** **[<sub>event</sub> maintained ]** his **[<sub>event</sub> stance ]** on the civil **[<sub>event</sub> war ]**.
 
@@ -441,14 +441,14 @@ regard
 
 ![DP](figures/dependencygraph.png)
 
-One might imagine that grabbing "stance" subsumes the whole bundle of dependents, "the stance on the civil war".  Grabbing "stance" in that sense essentially can be thought of as also grabbing its dependents. 
+One might imagine that grabbing "stance" subsumes the whole bundle of dependents, "the stance on the civil war."  Grabbing "stance" in that sense essentially can be thought of as also grabbing its dependents. 
 
-If you find syntax trees complex and scary, don't worry: all you need to do is follow some basic rules for what
-we call "head finding", which generally just means that there is a word in each
-phrase which is subsistutable for the whole phrase.  One casual way to test this is to ask what lexical term would be used in
+If you find syntax trees complex and scary, don't worry: All you need to do is follow some basic rules for what
+we call "head finding," which generally just means that there is a word in each
+phrase which is substitutable for the whole phrase.  One casual way to test this is to ask what lexical term would be used in
 a repeated version of the same phrase. If you constantly talk about "John's
-insatiable hunger for more donuts", one might refer to that hunger
-as "his hunger", but not by "his donuts".
+insatiable hunger for more donuts," one might refer to that hunger
+as "his hunger," but not by "his donuts."
 
 For verb phrases and adjective phrases this will be simple, and there
 is no need to think of things in terms of **syntactic heads**
@@ -461,7 +461,7 @@ and nothing more. Thus, look at the events in the following examples
 - She's **unable** to **lift** her arms.
 - Since her last **surgery**, she has seemed **disoriented** and
 **moody**.
-- She feels slightly **weak** but has **resumed** most of her normal
+- She feels slightly **weak** but has **resumed** **most** of her normal
 **activities**.
 - The jury **finding** was in favor of the defendant.
 
