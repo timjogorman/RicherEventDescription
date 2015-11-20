@@ -760,12 +760,12 @@ it seems extremely likely.
 
 :bangbang: *Remember that this is for textually evidenced uncertainty. No amount of implausibility allows you to inject UNCERTAIN based upon your own opinions:*
 
-- *Yesterday*, I was **[<sub>ACTUAL</sub> abducted ]** by aliens.
+- Yesterday, I was **[<sub>ACTUAL</sub> abducted ]** by aliens.
 
 
 **Hypothetical Modality (HYP)**
 
-If ACTUAL is for modality marking certain things known about the world, and UNCERTAIN is for things which are simply unknown, HYPOTHETICAL modality is for situations involving possible worlds; where the cocurrence of the event (in the past or the future) is conditional upon specific (albeit perhaps not specified) event happening. This should fit your usual intuitions about conditionals
+If ACTUAL is for modality marking certain things known about the world, and UNCERTAIN is for things which are simply unknown, HYPOTHETICAL modality is for situations involving possible worlds; where the occurrence of the event (in the past or the future) is conditional upon another specific (albeit perhaps not specified) event happening. This should fit your usual intuitions about conditionals:
 
 - If the Israelis **strike<sub>HYP</sub>**, the US will surely be **dragged<sub>HYP</sub>**
 into a larger conflict.
@@ -775,15 +775,15 @@ into a larger conflict.
 - If she experiences a **fever<sub>HYP</sub>**, we will **treat<sub>HYP</sub>** **it<sub>HYP</sub>** on an outpatient basis.
 
 It is worth noting that, in this schema, an EVENT occurring in the future does not imply that the EVENT is HYP (although most hypothetical
-EVENTs will be AFTER DOCTIME); certain future events are ACTUAL.  Thus the following, though having DocTime AFTER, will be ACTUAL:
+EVENTs will be AFTER DOCTIME); certain future events are ACTUAL.  Thus the following, though having DocTimeRel AFTER, will be ACTUAL:
 
-- The **close<sub>ACTUAL</sub>** of Market Friday will **mark<sub>ACTUAL</sub>** the **end<sub>ACUTAL</sub>** of Mr. Johnson's long career.
+- The **close<sub>ACTUAL</sub>** of Market Friday will **mark<sub>ACTUAL</sub>** the **end<sub>ACTUAL</sub>** of Mr. Johnson's long career.
 
 Use HYPOTHETICAL in combination with NEG only when one is considering what would happen if the lack of that event occurs, such as:
 
 - The treaty will only hold if there are no more **attacks<sub>HYPOTHETICAL,NEG</sub>**".
 
-In contrast, "counterfactual" contexts -- in which is has been made clear that the even did not happen -- are not actually hypothetical, but ACTUAL-NEG, as one is certain that they did not happen.  Mark only the fact that they did not happen using ACTUAL-NEG (*this therefore means that we will not be making hypothetical annotations of the "what might have happened" causation chains often expressed with counterfactuals, either*)
+In contrast, "counterfactual" contexts – in which it has been made clear that the event did not happen – are not actually hypothetical, but ACTUAL-NEG, as one is certain that they did not happen.  Mark only the fact that they did not happen using ACTUAL-NEG (*this therefore means that we will not be making hypothetical annotations of the "what might have happened" causation chains often expressed with counterfactuals, either*):
 
 - Had they **withdrawn<sub>ACTUAL,NEG</sub>** the treaty would have **held<sub>ACTUAL,NEG</sub>**.
 
@@ -804,9 +804,9 @@ Here are some additional examples to solidify these patterns:
 
 **Generic Modality (GEN)**
 
-Generic event modality is used to refer to two separate kinds of generic eventualities; generalizations and classes of events. You do not need to distinguish the two:
+Generic event modality is used to refer to two separate kinds of generic eventualities: generalizations and classes of events. You do not need to distinguish the two:
 
-- In the **aftermath** of most **bombings<sub>GEN</sub>**, **trampling<sub>GEN</sub>** is a deadly **threat<sub>GEN</sub>**.
+- In the **aftermath<sub>GEN</sub>** of most **bombings<sub>GEN</sub>**, **trampling<sub>GEN</sub>** is a deadly **threat<sub>GEN</sub>**.
 
 - In New Zealand, bills must be **approved<sub>GEN</sub>** three times by
 Parliamentary **votes<sub>GEN</sub>** and then **receive<sub>GEN</sub>** Royal **Assent<sub>GEN</sub>** from the Governor-General.
@@ -824,7 +824,7 @@ specific reference or conditions.
 
 This provides an excellent test for GENERIC in practice: If a sentence
 would be true if copy-pasted into any contemporaneous article, note,
-or text, then it is most certainly GEN. For example, in:
+or text, then it is most certainly GEN. For example:
 
 - The terrorists **fled** Jordan via the Lebanese border.
 
@@ -902,7 +902,7 @@ BEFORE, AFTER, OVERLAP, and the combined relation BEFORE/OVERLAP.
 
 BEFORE is used where the event ended before the document itself was
 written. The bracketed events below would be marked as "BEFORE"
-(and all other EVENTs and TIMEX3s are unmarked):
+(all other EVENTs and TIMEX3s are unmarked):
 
 - The **[shooting]** **[shocked]** the small city.
 
@@ -917,13 +917,13 @@ the prior 9-16-03 **[study]**.
 OVERLAP is used for events or states which are
 happening or true at the time that the document was written:
 
-- The fires **continue** to **burn** in the Mountains, despite
+- The fires **continue** to burn in the mountains, despite
 today's **rain**.
 
 - Captain Smith of the Boulder County Sheriff's office is **requesting**
 that anybody with information come forward.
 
-- The patient **continues** to **do** well as an outpatient.
+- The patient **continues** to do well as an outpatient.
 
 - The patient is **alert**, **cooperative**, and **appears**
 to be in no acute **distress**.
@@ -944,7 +944,7 @@ the document time:
 home.
 
 - Thursday's planned **strike** will put **pressure** on the
-University to pay graduate teachers a living wage.
+University to **pay** graduate teachers a living wage.
 
 - **Levaquin** 750 mg p.o. q. day (will **restart** today)
 
@@ -953,9 +953,9 @@ University to pay graduate teachers a living wage.
 - She is not interested in pursuing chemotherapy at this time
 but is interested in **continued** surveillance.
 
-It is worth pointing out that in the last example,
-shows the interaction between DocTimeRel and ALINK to cover the idea
-of "already happening, and will now continue.
+It is worth pointing out that the last example
+shows the interaction between DocTimeRel and ALINKs to cover the idea
+of "already happening, and will now continue".
 
 There is one specific situation which must be discussed. EVENTs with
 a Contextual Modality of GENERIC will
@@ -984,7 +984,7 @@ shows no sign of stopping.
 
 - Based on last Thursday's MRI, her **swelling** is mostly gone.
 
-This is not, however, any OVERLAP mention that extends into the past (after all, nearly everything extends *a little* into the past) but rather only for events that have clear and explicit encoding of being true in the past and present.  The following lists define exactly which bits of evidence are allowable for this. This need for evidence also means that multiple mentions of the same event might vary between BEFORE and BEFORE/OVERLAP, or between BEFORE/OVERLAP and OVERLAP, and that is ok.
+This is not, however, any OVERLAP mention that extends into the past (after all, nearly everything extends *a little* into the past) but rather only events that have clear and explicit encoding of being true in the past and present.  The following lists define exactly which bits of evidence are allowable for this. This need for evidence also means that multiple mentions of the same event might vary between BEFORE and BEFORE/OVERLAP, or between BEFORE/OVERLAP and OVERLAP, and that is ok.
 
 Be sure that any time you are using BEFORE-OVERLAP, the fact that an EVENT started before DOCTIME and continues is explicitly encoded by the language of the text (rather than through your own inference or world knowledge).  [Here is a list of the kinds of things that are admissable evidence for BEFORE/OVERLAP use](#Permissable Evidence for BEFORE/OVERLAP).  While this should not be considered a closed list, other kinds of evidence for BEFORE/OVERLAP should be similarly explicit. 
 
