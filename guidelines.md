@@ -379,7 +379,7 @@ In real annotations, there may be more nuanced instances than this, in which it'
 **General Rules for Complex Predicates**
 
 - If you encounter an idiom, simply mark the head verb in the idiom, and assume that the meaning of the phrase is carried by that verb. So "The chickens have **[come]** home to roost for Bush" simply has a [come], which stands for your interpretation of the coming-home-to-roost event.
-- Markers of epistemic status, like "seems to" or "appears to," are not events. When in doubt, you should follow the nearest case in the [Reporting vs Hedging distinctions](#Distinguishing Reporting events from Hedges) in the appendix.
+- Markers of epistemic status, like "seems to" or "appears to", are not events. When in doubt, you should follow the nearest case in the [Reporting vs Hedging distinctions](#Distinguishing Reporting events from Hedges) in the appendix.
 
 
 ####  When one word implies many events
@@ -441,14 +441,14 @@ regard
 
 ![DP](figures/dependencygraph.png)
 
-One might imagine that grabbing "stance" subsumes the whole bundle of dependents, "the stance on the civil war."  Grabbing "stance" in that sense essentially can be thought of as also grabbing its dependents. 
+One might imagine that grabbing "stance" subsumes the whole bundle of dependents, "the stance on the civil war".  Grabbing "stance" in that sense essentially can be thought of as also grabbing its dependents. 
 
 If you find syntax trees complex and scary, don't worry: All you need to do is follow some basic rules for what
-we call "head finding," which generally just means that there is a word in each
+we call "head finding", which generally just means that there is a word in each
 phrase which is substitutable for the whole phrase.  One casual way to test this is to ask what lexical term would be used in
 a repeated version of the same phrase. If you constantly talk about "John's
-insatiable hunger for more donuts," one might refer to that hunger
-as "his hunger," but not by "his donuts."
+insatiable hunger for more donuts", one might refer to that hunger
+as "his hunger", but not by "his donuts".
 
 For verb phrases and adjective phrases this will be simple, and there
 is no need to think of things in terms of **syntactic heads**
@@ -466,7 +466,7 @@ and nothing more. Thus, look at the events in the following examples
 - The jury **finding** was in favor of the defendant.
 
 Note that we take the single verb or adjective even when when dealing
-with a multiword predication such as "throw up." The
+with a multiword predication such as "throw up". The
 exception to this tendency comes from "light verbs" and "support
 verbs" mentioned above, where the verb itself is ignored:
 
@@ -505,7 +505,7 @@ spans you considered. The same examples should result in annotations such as:
 There will be two exceptions to this "minimal span" rule: proper
 names and times. Proper names should be annotated with all name parts,
 so that "Bill Clinton" is not "Bill **Clinton**" but rather
-"**Bill Clinton**." Do not include determiners in
+"**Bill Clinton**". Do not include determiners in
 such terms:
 
 - The most recent IED **attack** outside the **Green Zone** in **Baghdad**.
@@ -546,7 +546,7 @@ fluoropyrimidine-based **chemotherapy**.
 
 Sometimes this head-finding will be difficult. For example, in clinical
 texts, one might find fragmentary phrases in which prepositions have
-been elided, as in "patient had CT chest pelvis." In such cases,
+been elided, as in "patient had CT chest pelvis". In such cases,
 do feel free to attempt various paraphrases of what the phrase means,
 and to pick the word that would be the head of those more full forms. 
 
@@ -560,7 +560,7 @@ on the events and entities.
 
 #### Entity Features - Polarity and Modality
 
-The majority of ENTITYs will be of the polarity POS for "positive,"
+The majority of ENTITYs will be of the polarity POS for "positive",
 meaning that they are actual entities. This is the default value.
 You will occasionally find purpose to mark an ENTITY of a NEG polarity,
 indicating that the ENTITY does not exist.
@@ -578,7 +578,7 @@ the entity is a specific real entity, a class of entities, etc. The
 majority of ENTITYs will be ACTUAL (they refer to real, specific entities), but one may define ENTITY as being GENERIC,
 HYPOTHETICAL, or UNCERTAIN/HEDGED as well. 
 
-The most obvious kind of GENERIC entity will be references to "kinds."
+The most obvious kind of GENERIC entity will be references to "kinds".
 Such generics in English are often bare plurals, but can be indefinites
 or definites too:
 
@@ -589,7 +589,7 @@ office **buildings**<sub>ACTUAL</sub>.
 a cardiac status similar to **Ms. James**<sub>ACTUAL</sub>.
 
 One easy way to distinguish GENERIC ENTITYs from ACTUAL ENTITYs is
-by "omniscient substitution." Consider "Union Leaders" in the examples
+by "omniscient substitution". Consider "Union Leaders" in the examples
 below:
 
 - Teddy Roosevelt met with Union Leaders before writing the bill.
@@ -708,15 +708,15 @@ lymph node aren't present. So, both EVENTs in both examples are negated.
 
 **Actual Modality (ACT)**
 
-Alongside Polarity, you are almost marking ContextualModality -- whether or not an event is asserting things about the ACTUAL world, about GENERIC tendencies of events, HYPOTHETICAL events or UNCERTAIN events.  The majority of EVENTs are ACTUAL, having already happened or been scheduled (without hedging) to happen:
+Alongside Polarity, you are also marking Contextual Modality – whether or not an event is asserting things about the ACTUAL world, about GENERIC tendencies of events, HYPOTHETICAL events or UNCERTAIN events.  The majority of EVENTs are ACTUAL, having already happened or been scheduled (without hedging) to happen:
 
-- The patient's new **tumor** is 3.5cm from the epiglottis.
+- The patient's new **tumor** is 3.5 cm from the epiglottis.
 
 - The patient did not **report** **nausea**.
 
 - His anterior chest rash has not **reoccurred**.
 
-Note that ACTUAL is about whether is it a claim in the "real world", and so NEG events are ususally ACTUAL as well .
+Note that ACTUAL is about whether it is a claim in the "real world", and so NEG events are usually ACTUAL as well .
 
 
 **Uncertain/Hedged Modality (UNC)**
@@ -745,14 +745,14 @@ are still underground.
 - All evidence seems to point to **kidnapping** in the disappearance
 of Dr. Charles.
 
-Note that full denial of an event, however is "NEG ACTUAL", as the denial is in the realm of certainty, so that following EVENTs would
+Note that full denial of an event, however, is "NEG ACTUAL", as the denial is in the realm of certainty, so that the following EVENTs would
 *not* be marked UNC:
 
 - She **denies**<sub>ACTUAL</sub> **vomiting<sub>ACTUAL,NEG</sub>
 
 - There is no **evidence<sub>ACTUAL,NEG</sub> of **MS<sub>ACTUAL,NEG</sub>
 
-If something is not quite negative, but close, is it almost always signalling UNCERTAIN:
+If something is not quite negative, but close, it is almost always signaling UNCERTAIN:
 
 - There is no concrete **diagnosis<sub>ACTUAL,NEG</sub>
 of **MS**<sub>UNC, POS</sub>, but given her **symptoms<sub>ACTUAL,POS</sub>,
