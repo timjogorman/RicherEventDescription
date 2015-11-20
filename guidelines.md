@@ -546,7 +546,7 @@ fluoropyrimidine-based **chemotherapy**.
 
 Sometimes this head-finding will be difficult. For example, in clinical
 texts, one might find fragmentary phrases in which prepositions have
-been elided, as in "patient had CT chest pelvis". In such cases,
+been elided, as in "patient had CT chest pelvis." In such cases,
 do feel free to attempt various paraphrases of what the phrase means,
 and to pick the word that would be the head of those more full forms. 
 
@@ -560,7 +560,7 @@ on the events and entities.
 
 #### Entity Features - Polarity and Modality
 
-The majority of ENTITYs will be of the polarity POS for "positive",
+The majority of ENTITYs will be of the polarity POS for "positive,"
 meaning that they are actual entities. This is the default value.
 You will occasionally find purpose to mark an ENTITY of a NEG polarity,
 indicating that the ENTITY does not exist.
@@ -578,7 +578,7 @@ the entity is a specific real entity, a class of entities, etc. The
 majority of ENTITYs will be ACTUAL (they refer to real, specific entities), but one may define ENTITY as being GENERIC,
 HYPOTHETICAL, or UNCERTAIN/HEDGED as well. 
 
-The most obvious kind of GENERIC entity will be references to "kinds".
+The most obvious kind of GENERIC entity will be references to "kinds."
 Such generics in English are often bare plurals, but can be indefinites
 or definites too:
 
@@ -589,7 +589,7 @@ office **buildings**<sub>ACTUAL</sub>.
 a cardiac status similar to **Ms. James**<sub>ACTUAL</sub>.
 
 One easy way to distinguish GENERIC ENTITYs from ACTUAL ENTITYs is
-by "omniscient substitution". Consider "Union Leaders" in the examples
+by "omniscient substitution." Consider "Union Leaders" in the examples
 below:
 
 - Teddy Roosevelt met with Union Leaders before writing the bill.
@@ -599,7 +599,7 @@ In the first, an omniscient person could put together a list of the
 specific persons he met with and replace it with that list:
 
 - Teddy Roosevelt met with *Samuel Gompers, John Lewis, Walter
-Reuther, A. Philip Randolph, and Jimmy Hoffa* before writi																														ng the bill.
+Reuther, A. Philip Randolph, and Jimmy Hoffa* before writing the bill.
 
 In the second, however, no such list could be made; it refers to the whole class of union leaders, and would thus be GENERIC.
 
@@ -614,9 +614,9 @@ But no referents (outside of every member, past present and future,
 of a generic class) could possibly be found for the below GENERIC
 ENTITYs:
 
-- **Criminals**<sub>GEN</sub> often plead "Not Guilty", even if they've
+- **Criminals**<sub>GEN</sub> often plead "Not Guilty," even if they've
 committed the crime.
-- **Participants**<sub>GEN</sub> in Triathlons generally experience significant
+- **Participants**<sub>GEN</sub> in triathlons generally experience significant
 chafing.
 - **Vandals**<sub>GEN</sub> should be punished severely if caught.
 
@@ -624,17 +624,17 @@ The complexity of that annotation will occur with entities which are
 sets, but where the set has been defined provisionally in context:
 
 - Young Denver **voters**<sub>GEN</sub> only turn out in high numbers during presidential elections.
-- My senior **class**<sub>ACTUAL</sub> performed quite well on the **SAT**<sub>GEN</sub>
+- My senior **class**<sub>ACTUAL</sub> performed quite well on the **SAT**<sub>ACTUAL</sub>
 
-For these, test whether you can paraphrase them using "the kind X that Ys" without changing the meaning. For example:
+For these, test whether you can paraphrase them using "the kind of X that Ys" without changing the meaning. For example:
 
 - same meaning: **The kind of young people in Denver that vote**<sub>GEN</sub> only turn out in high numbers during presidential elections.
 - changes meaning: **The kind of people that are in my senior class**<sub>ACTUAL</sub> performed quite well on **the SAT**<sub>ACTUAL</sub>
 
 A third kind of option for ENTITY modality is that of HYPOTHETICAL
 entities. Hypothetical entities are not just entities participating
-in a hypothetical situation -- all sorts of entities can be involved
-in hypothetical worls -- but rather an entity that would not exist
+in a hypothetical situation – all sorts of entities can be involved
+in hypothetical worlds – but rather an entity that would not exist
 outside of that hypothetical possible world. 
 
 - If he did have a Mustang<sub>hypothetical</sub>, he would wreck it.
@@ -646,7 +646,7 @@ this by whether you can paraphrase it with a true generalization instead:
 - I'm not saying that
 if a **couple**<sub>GEN</sub> both work stacking shelves, they should
 be getting married in a supermarket<sub>GEN</sub>
-> BECAUSE: this is paraphrasable with *I'm not saying that couples that work stacking shelves should get married in supermarkets*
+> BECAUSE: This is paraphrasable with *I'm not saying that couples that work stacking shelves should get married in supermarkets*
 
 The above example is not depicting "couples stacking shelves" as an entity which would functionally exist if certain conditions were met, but merely specifying a set of entities in the world.  Similarly you also may use UNCERTAIN/HEDGED for entities, but it follows the same constraint; it is only to be used when the actual existence of the entity is uncertain and being actively cast into doubt by the local context.
 
@@ -664,28 +664,28 @@ marker of positive polarity. This is used for an EVENT that did, in
 fact, occur. Most events annotated are of this polarity, and this
 is the default value. POS need not be specified in annotation.
 
-- Three **attacks** **occurred** last week.
+- Three **attacks** occurred last week.
 
 - Despite international **condemnation**, North Korea is now
-officially a nuclear **state**.
+officially a nuclear state.
 
 - The patient has **hepatosplenomegaly**.
 
 - PO **changes** right pterional **craniotomy**
 
-- The patient will **continue** treatment.
+- The patient will **continue** **treatment**.
 
 
 **Negative Polarity (NEG)**
 
 The opposite of POS, as you might guess, is NEG, which is used to
-indicate when the event didn't take place, or has an otherwise negative
+indicate that the event didn't take place, or has an otherwise negative
 polarity:
 
 - Three attacks occurred last week, but one **attack** was prevented.
 
 - There is no **sign** of the small plane, and rescuers located
-no **survivors**.
+no survivors.
 
 - Otherwise, he has not had any **nausea**, **vomiting**,
 **diarrhea**, chest **pain**, **shortness** of breath, or **fever**.
