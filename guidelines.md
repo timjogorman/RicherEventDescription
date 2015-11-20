@@ -993,7 +993,7 @@ Be sure that any time you are using BEFORE-OVERLAP, the fact that an EVENT start
 
 When dealing with documents involving speech (as is often
 the case in newswire), there can be a number of conflicting signals
-about what the time of an event is.  The general rule to follow is that you are still attempting to encode the relation of the document itself, *not to the speech event*. 
+about what the time of an event is.  The general rule to follow is that you are still attempting to encode to the relation of the document itself, *not to the speech event*. 
 
 The most obvious example of that is direct speech.  In direct speech, there is often no real cue as to the actual DocTimeRel of the spoken-of event, and thus one may need to utilize world knowledge, as in:
 
@@ -1057,16 +1057,16 @@ If you are unsure about the contextual aspect of a given EVENT, mark
 it as N/A.
 
 
-** Event Type of EVENTs**
+**Type of EVENTs**
 
-Some EVENTs do not actually represent real-world events, but instead,
+Some EVENTs do not actually represent real-world events, but instead
 provide aspectual information (starting, stopping, continuing) about
 other EVENTs. To differentiate these EVENTs from the traditional clinical
 EVENTs which occur on a timeline, we use the "type" marker. It
-has three values: "N/A", "ASP", and "EVI. 
+has three values: "N/A", "ASP", and "EVI". 
 
-**N/A** is the default value, and represents the vast
-majority of EVENTs in the schema, and unless explicitly mentioned
+**N/A** is the default value and represents the vast
+majority of EVENTs in the schema, and, unless explicitly mentioned
 otherwise (below or in the ALINK section), represents all EVENTs used
 in examples in the Guidelines. Unless the EVENT is of the specific,
 relatively closed class listed below under ASPECTUAL, or providing
@@ -1079,7 +1079,7 @@ like:
 
 - She has significant risk for tumor **recurrence**.
 
-recurrence" does actually carry some aspectual information
+"recurrence" does actually carry some aspectual information
 (the tumor would have restarted). However, because the word "recurrence"
 would not be aspectual in "she has risk of recurrence", we have
 chosen never to mark the word as an ASPECTUAL EVENT. Instead, this
@@ -1089,7 +1089,7 @@ as shown above. No ALINK annotations will be made here.
 
 **ASP** ("Aspectual"): The next EVENT type is ASP, which is used to indicate an event whose
 function is to emphasize or code the aspect of a later event, like
-"continues",restart", or "terminated.
+"continues", "restart", or "terminated".
 Every EVENT of type "aspectual" must later participate in an ALINK.
 
 - The community **continues** to worry about the possibility
@@ -1115,12 +1115,12 @@ A particularly good way of distinguishing between ASPECTUAL and non-aspectual
 EVENTs is by substitution. A true ASPECTUAL can always be substituted
 (even if losing some meaning) with similar ALINK triggers:
 
-- We **completed** treatment today
+- We **completed** treatment today.
 
 Here, **completed** could be rephrased as "We stopped/ended/finished/finalized/terminated
-treatment today. Compare that with:
+treatment today". Compare that with:
 
-- She **completed** the form
+- She **completed** the form.
 
 This **completed** cannot be replaced by "She stopped/ended/finished/finalized
 the form" without significant coercion of meaning, and thus, is
@@ -1142,7 +1142,7 @@ If an EVENT cannot be paraphrased using any of the words above, it
 is not aspectual.
 
 
-**EVI** (Evidential): The other EVENT type is EVI, or "evidential", markings verbs of showing, demonstration, evidence, reporting, confirmation
+**EVI** (Evidential): The other EVENT type is EVI, or "evidential", marking verbs of showing, demonstration, evidence, reporting, confirmation
 or revelation.  An EVENT should be marked EVI *only* if it serves as the link
 between a source of knowledge or observation and a piece of knowledge
 gained from it, and can include any lexical items labeling that other examples are in question:
@@ -1173,7 +1173,7 @@ It is worth reiterating that one does not mark the test, reporter,
 or perceiver as EVI; instead, you will mark the verb of perception,
 reporting, revelation, or indication as an EVI EVENT.
 
-Finally, much like aspectual \textsc{event}s, you will be likely marking
+Finally, much like ASPECTUAL, you will likely be marking
 the same verbs as EVI over and over again, and will very quickly learn
 to recognize which verbs belong to this class and which do not.
 
@@ -1181,11 +1181,11 @@ to recognize which verbs belong to this class and which do not.
 #### Annotating IMPLICITNESS of EVENTs
 
 Some EVENTs that we will mark are not necessarily explicit EVENTs,
-but rather, ENTITYs which are interpreted in context as representing
+but rather ENTITYs which are interpreted in context as representing
 an EVENT.
 
 
-**Default -- Explicit**: This is the default value, and corresponds to an EVENT whose span
+**Default – Explicit**: This is the default value, and corresponds to an EVENT whose span
 itself represents an EVENT:
 
 - There was an **attack** last week.
@@ -1197,18 +1197,18 @@ derived by metonymy.
 
 - I've prescribed 15mg **Levaquin** for a UTI.
 
-In \Last , "Levaquin" is an entity, but has an implicit "taking
+Here, "Levaquin" is an entity, but has an implicit "taking
 Levaquin" EVENT.
 
 - The **bomb** ended the festival three days early.
 
 Here, "bomb" is metonymic for the attack itself, in addition to
 representing the explosive device. The physical bomb did not end the
-festival, rather, its detonation.
+festival; rather, its detonation did.
 
 Because you may need to include IMPLICIT EVENTs' ENTITYs within larger
-coreference chains (and thus, will need a marked ENTITY annotation),
-please mark each METONYMIC EVENT both as an EVENT with the METONYMIC
+coreference chains (and thus will need a marked ENTITY annotation),
+please mark each IMPLICIT EVENT both as an EVENT with the IMPLICIT
 type specified, and as an ENTITY.
 
 
@@ -1219,7 +1219,7 @@ of an event is specified.
 
 In practice, degree is used as a companion to polarity, as a way of
 allowing us to say that something is "mostly" or "a little bit"
-true, rather than forcing us to call every EVENT 100\% positive or
+true, rather than forcing us to call every EVENT 100% positive or
 negative. Allowing something to be "a little true" ("She has
 slight pain") or "largely false" ("her scar is nearly gone")
 permits greater nuance in our representation of EVENTs than POS or
@@ -1247,13 +1247,13 @@ activities. (LTL)
 #### Marking Difficult annotations
 
 The RED schema includes a method for you, the annotator, to highlight
-annotations which are particularly difficult to make, or which they
+annotations which are particularly difficult to make, or which you
 feel fall on the border between different categories.
 
 The "Difficulty" marker automatically defaults to "None" for
 every EVENT created. However, if you feel unsure about any aspect
 of the annotation, whether the identification of the EVENT itself
-or the properties of it, they can change this marker to "DIFFICULT",
+or the properties of it, you can change this marker to "DIFFICULT",
 simply as an indicator of uncertainty in the annotation. This will
 serve to highlight the annotation for further examination.
 
