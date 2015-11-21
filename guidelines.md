@@ -2264,10 +2264,10 @@ While we build narrative containers using this temporal relation CONTAINS, the i
 or series of EVENTs may fall. These narrative containers are often
 represented (or "anchored") by dates or other temporal expressions,
 but may also be anchored by a reference to an EVENT capable of containing
-another EVENT -- a surgery might contain an incision, or a war may
+another EVENT – a surgery might contain an incision, or a war may
 contain battles. By focusing on placing events in progressively larger
 temporal buckets, you eliminate the need for most relationships between
-individual events -- if container A is BEFORE container B, we know
+individual events – if container A is BEFORE container B, we know
 that all events inside A are before the events in B, without needing
 to make those annotations manually. As such, rather than marking every
 possible temporal relation (TLINK) between each EVENT, we instead
