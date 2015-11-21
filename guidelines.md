@@ -1838,7 +1838,7 @@ these using multiple, separate APPOS relations.
 
 - **AUTHOR**: Company **President**, **Mr. Johnson**
 
-In such cases, you will still be making two-mention appositions, you will just make multiple ones.  Start either with the leftmost proper name, or the leftmost entity (i.e. start with the entity that will end up being the HEAD of the phrase) and progressively add links to the nearest unlinked apposition.  So
+In such cases, you will still be making two-mention appositions, you will just make multiple ones.  Start either with the leftmost proper name, or the leftmost entity (i.e. start with the entity that will end up being the HEAD of the phrase) and progressively add links to the nearest unlinked apposition.  So:
 
 - **AUTHOR**: Company **President**, **Mr. Johnson**
 > **president**<sub>attribute</sub> APPOSITION **Mr. Johnson**<sub>head</sub>
@@ -1852,7 +1852,7 @@ count as APPOSITION. One is any sequence of titles or degrees in which appositio
 - **John Smith**<sub>head</sub>, **PhD**<sub>attribute</sub>.
 
 
-Unit conversions are also considered appositives (in the cases when those units are entities)
+Unit conversions are also considered appositives (in the cases when those units are entities):
 
 - Robbers stole **£10000000**<sub>head</sub> ( $1.5million **dollars**<sub>attribute</sub>) yesterday
 
@@ -1874,8 +1874,8 @@ only one Entity is allowed to fill the WHOLE slot.
 and used too much **sugar**<sub>part</sub>.
 
 As with the CONTAINS-SUBEVENT TLINK, this relation can only be used
-for cases of compositionality, i.e. narrow readings. In order for
-an entity to be Part of another, it must be 100\% contained by the
+for cases of compositionality, i.e., narrow readings. In order for
+an entity to be Part of another, it must be 100% contained by the
 Whole, and compositionally part of it. Thus, the following examples
 do not contain any WHOLE/PART relations:
 
@@ -1883,27 +1883,28 @@ do not contain any WHOLE/PART relations:
 **Nepal**.
 
 - In the **house**, there are several **visitors**.
-Note that WHOLE/PART relationships are essentially *hierarchical},
+
+Note that WHOLE/PART relationships are essentially *hierarchical*,
 in that they may theoretically have a whole chain of relationships
-(a hair is part of a dog, a dog is part of a pack, spatial relations,
+(a hair is part of a dog, a dog is part of a pack, etc.) They are also used for spatial relations,
 such as:
 
 - We saw the **White house** while in **D.C.**.
 
 The difference between these two previous examples reveals
-a difficult boundary case that you will have to ponder -- what counts
+a difficult boundary case that you will have to ponder – what counts
 as compositionally part of a thing.
-This is particularly salient when the whole\textquotedbl{
+This is particularly salient when the WHOLE
 is a larger spatial entity such as a city, county or country. When
-in doubt, remember this compositionality\textquotedbl{
-idea. If the removal of the potential part\textquotedbl{
+in doubt, remember this compositionality
+idea: If the removal of the potential part
 would have the potential of changing the nature of the whole,
 even a slight bit, then one might consider it compositional and use
 WHOLE/PART. If, in contrast, the part is merely temporarily or arbitrarily
 located in the space of the other item, do not use WHOLE/PART.
 
 :bangbang: *Note that while IDENT, SET/MEMBER and BRIDGING will also be
-used to mark EVENTS, WHOLE/PART is only for ENTITIES. Relationship
+used to mark EVENTS, WHOLE/PART is only for ENTITIES. Relationships between EVENTs
 that you are tempted to mark as WHOLE/PART should probably be CONTAINS-SUBEVENT
 or SET/MEMBER instead.*
 
@@ -1956,7 +1957,9 @@ or questionable:
 
 - **John** was arrested last night, as authorities claim **he**
 is the **killer** of a local cobbler, found Monday. 
+
 > **John** IDENTICAL **he** 
+
 > **John** BRIDGING **killer**
 
 - **Grigory Kuznetsov**, long thought to be **"Rosebud"**,
@@ -1989,9 +1992,9 @@ you are tempted to do this, check that your Entity is not actually
 an Event, or that your Event is not actually an Entity, as the case
 may be.
 
-Occaisionally one will encounter an ENTITY and an EVENT which are
+Occasionally one will encounter an ENTITY and an EVENT which are
 essentially two facets of the same complex markable.
-Usually we strongly bias towards EVENTs, but this will occaisionally
+Usually we strongly bias towards EVENTs, but this will occasionally
 occur, and the two should be linked using BRIDGING. 
 
 >The company says it stores your **<sub>entity</sub> texts**
@@ -2000,8 +2003,7 @@ text** them
 
 > texts BRIDGING text
 
-#### WHOLE/PART, SET/MEMBER, and BRIDGING relations are inherited by IDENT
-chains
+#### WHOLE/PART, SET/MEMBER, and BRIDGING relations are inherited by IDENT chains
 
 If you have an IDENT chain represented by A-A-A-A-A, and A participates
 as the PART in a WHOLE/PART relation or as the MEMBER in a SET/MEMBER
@@ -2067,7 +2069,8 @@ with the murder of a local blacksmith. The **alleged killer** is
 being held without bond. The **killer** reportedly had a large tattoo
 of a squid on **his** face, similar to the one present in **Mr.
 Holbein's** booking photo. 
-> **Hans Holbein** IDENTICAL **man**, **alleged killer**,**Mr. Holbein's** 
+> **Hans Holbein** APPOSITIVE **man** 
+> **Hans Holbein** IDENTICAL **alleged killer**, **Mr. Holbein's** 
 > **killer** IDENTICAL **his**
 
 In this example, all that we can be sure of is the two IDENTICAL chains
@@ -2083,14 +2086,6 @@ over-zealous district attorney, we cannot know, but we know that there
 certainly is one. To mark an ambiguous relationship like this, we
 use the non-specific BRIDGING link:
 
-- **Hans Holbein**, a local **man**, was arrested in connection
-with the murder of a local blacksmith. The **alleged killer** is
-being held without bond. The **killer** reportedly had a large tattoo
-of a squid on **his** face, similar to the one present in **Mr.
-Holbein's** booking photo. 
-> **Hans Holbein** IDENTICAL **man**,
-**alleged killer**,**Mr. Holbein's** 
-> **killer** IDENTICAL **his** 
 > **killer** BRIDGING **Mr. Holbein's**
 
 By doing this (alongside the other necessary annotations), we've established
@@ -2173,9 +2168,9 @@ in the truly broad sense (so that they encompass all persons mentioned
 in the text), omit them from annotation. 
 - generic we, everyone,
 and people, when they do not describe
-a document-specific set like americans\textquotedbl{
+a document-specific set like "Americans"
 but rather some broader generic set like humanity,
-does not get set/member relations. 
+do not get set/member relations. 
 - someone, anyone,
 one: These do not entail set/member
 relationships between themselves and the possible candidates. 
@@ -2183,9 +2178,9 @@ relationships between themselves and the possible candidates.
 #### However, link generic "you" or generic "one" instances into an IDENT chain
 
 We do, however, want to grab identity relations with very generic
-terms, and especially want identity relations with terms like you.
-The question that arises -- especially with terms like you,
-one, etc. -- is whether these should
+terms, and especially want identity relations with terms like "you".
+The question that arises – especially with terms like you,
+one, etc. – is whether these should
 all be contained within the same IDENT chain.
 
 Many times with GENERIC you, as with
@@ -2194,12 +2189,12 @@ that would be true for any member of the set, and continue that hypothetical.
 In such a hypothetical, we want an identity chain between the same
 mentions. Put more concretely; given two mentions of generic you,
 you can usually replace the first with either somebody,
-one or anyone\textquotedbl{
+one or anyone
 in English. In that case, the question is whether later mentions can
-be replaced with pronoun such as they,
-he or she\textquotedbl{
+be replaced with pronouns such as they,
+he or she
 without changes in the implied meaning. If so, they deserve to be
-IDENT in the same chain; otherwise they are probably different. So
+IDENT in the same chain; otherwise they are probably different. So,
 for example:
 
 - If you get out on parole, what happens then, and how long does
@@ -2209,15 +2204,15 @@ your parole officer the next day?).
 
 rephrasing attempt:
 
-- If *someone} gets out on parole, what happens then, and
-how long does it last? (and, specifically, who takes *them
-home once *they} get out of jail, or do *they} just
-get turfed out and expected to check in with *their} parole
+- If *someone* gets out on parole, what happens then, and
+how long does it last? (and, specifically, who takes *them*
+home once *they* get out of jail, or do *they* just
+get turfed out and expected to check in with *their* parole
 officer the next day?).
 
-In consider two other sentences, presumably from the same document.
-While these both fit into the idea of GENERIC you, the second doesn't
-pass this same hypothetical somebody\textquotedbl{
+Consider two other sentences, presumably from the same document.
+While these both fit into the idea of GENERIC "you", the second doesn't
+pass this same hypothetical *somebody*
 test:
 
 - If you choose not to vote, then you choose to give your opponents
@@ -2227,9 +2222,9 @@ you bloody well expect to happen?
 the rephrasal attempt seems to change the meaning in this one, and
 thus these should be different IDENT chains:
 
-- If *someone} chooses not to vote, then *they
-choose to give *their} opponents all the power. This is another
-case of well what did *they} bloody well expect
+- If *someone* chooses not to vote, then *they*
+choose to give *their* opponents all the power. This is another
+case of well what did *they* bloody well expect
 to happen?
 
 
