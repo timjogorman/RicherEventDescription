@@ -1269,7 +1269,7 @@ step of the annotation process is to find and annotate TIMEX3 objects.
 These are definitive references to time, and will provide concrete
 temporal references throughout the document or section. Examples of
 these might be phrases like "today", "tomorrow", "24 hours
-ago", "at this time" and "early March. In addition,
+ago", "at this time" and "early March". In addition,
 specific dates are annotated as TIMEX3 objects as well.
 
 
@@ -1285,7 +1285,7 @@ a:
 
 - Noun phrase ("this weekend", "tomorrow", "yesterday",
 "Tuesday", "Last May", "May 16th", "6/9/1985"). 
-- Adjective phrase ("two-hour-long", "half-hour--as
+- Adjective phrase ("two-hour-long", "half-hour" – as
 in "a half-hour trip", "preoperative", "post-partum") 
 - Adverbial phrase ("lately", "recently", "shortly", "hourly",
 "intraoperatively"). 
@@ -1313,16 +1313,16 @@ extracted later.
 Note that post-expression adverbs (often "ago") are still captured
 in our spans, so:
 
-- Patient s/p lumpectomy *2 yrs ago\
+- Patient s/p lumpectomy *2 yrs ago*
 
 For the most part, if you have two separate temporal expressions,
 they'll be two separate TIMEX3s, but two adjacent TIMEX3s which together
 specify a single time can be treated as a single span. Look at the
-contrast in \Next:
+contrast in:
 
 - 
-> I'll come by to check on her at *3:30pm Tuesday* \b{.
-I'll come by to check on her at *3:30pm* and on *Tuesday\
+(a) I'll come by to check on her at *3:30pm Tuesday* (b)
+I'll come by to check on her at *3:30pm* and on *Tuesday*
 
 In (b), we know that the doctor is referring to two different timepoints,
 so we mark two TIMEX3s, whereas in (a), the "3:30pm" and "Tuesday"
@@ -1354,17 +1354,17 @@ Finally, please include in the TIMEX3 span things like time zone identifiers,
 time offsets, or other information which provides information which
 is helpful in establishing the point of time being discussed.
 
-- He posted *Jan. 5th, 2013 at 6:00pm -700 UTC*\textquotedbl{
+- He posted *Jan. 5th, 2013 at 6:00pm -700 UTC*
 
-- We'll talk at *5pm Mountain\
+- We'll talk at *5pm Mountain*
 
-- She called around *2pm (MDT)\
+- She called around *2pm (MDT)*
 
 - His email was sent at *6:59pm (-500)*.
 
 - Our meeting *tomorrow* is at *9pm Eastern/8pm Central*.
 
-- The collapse occurred *at 2am, plus or minus an hour or so*.
+- The collapse occurred at *2am, plus or minus an hour or so*.
 
 
 ### Annotating TIMEX3 class
@@ -1410,7 +1410,7 @@ six-months worth of adjuvant therapy.
 - Mr. Zegler was seen in the Hamilton University Medical Center
 with Dr. Carr *the middle of December 2009*.
 
-- Carotid artery disease, last checked *greater than two years\
+- Carotid artery disease, last checked *greater than two years*
 prior.
 
 - After *next week*, we will see where her pain level is.
@@ -1437,15 +1437,14 @@ DATE:
 #### TIME
 
 TIME is used for specific time points within a day, for instance,
-*3:00PM* or *23:45*, and once again can be relative (as in example
-\NNext):
+*3:00PM* or *23:45*, and once again can be relative:
 
-- The patient's MRI is scheduled for *5:30pm\
+- The patient's MRI is scheduled for *5:30pm*.
 
 - Following the patient's latest seizure *20 minutes ago*, we
 are re-evaluating her medications.
 
-- At *the time of consultation* there is no operative report
+- At *the time* of consultation there is no operative report
 or pathology available.
 
 - Surgery will need to be completed by *2:45* to have the biopsy
@@ -1488,7 +1487,7 @@ six-months* worth of adjuvant therapy.
 - In *the time* between now and the 15th, she should attend
 physical therapy whenever possible.
 
-Note that in \Last, both *now* and *the 15th* would also be TIMEX3s,
+Note that in the last example, both *now* and *the 15th* would also be TIMEX3s,
 but of type DATE.
 
 Remember again that more abstract temporal expressions ("lately",
@@ -1520,7 +1519,7 @@ colitis.
 
 Note that Quantifier only applies for number of occurrences of an
 EVENT, not for quantifiers like "She has *two* eyes" or
-"She lost *5* units of blood.
+"She lost *5* units of blood".
 
 
 #### PREPOSTEXP
@@ -1531,13 +1530,13 @@ designate specific temporal spans ("The time before the surgery",
 "The time after exposure") related to an implicit EVENT, and thus,
 are TIMEX3s, marked with the class PREPOSTEXP. 
 
-- Patient underwent a partial hemicolectomy in July 2009. *Postoperative\
+- Patient underwent a partial hemicolectomy in July 2009. *Postoperative*
 scarring noted during exam.
 
 - The patient exhibits *post-exposure* changes.
 
-These will not always begin with "pre-" or "post-.
-Terms like "intraoperatively" are PREPOSTEXP as well, as in \Next:
+These will not always begin with "pre-" or "post-".
+Terms like "intraoperatively" are PREPOSTEXP as well, as in:
 
 - *Intraoperatively*, there were no difficulties securing his
 airway. He received 4 liters of crystalloid, made 300 mL of urine
@@ -1547,7 +1546,7 @@ the OR out of concern for uremic platelet dysfunction.
 And sometimes, you will have bare expressions which clearly express
 the PREPOSTEXP meaning, but do not contain the whole expression.
 
-- Pulmonary recommendations for *pre*, *peri* and *postop\
+- Pulmonary recommendations for *pre*, *peri* and *postop*
 were made.
 
 
@@ -1561,7 +1560,7 @@ from DURATION ("all week") which only gives a timespan.
 
 Even though most sets could be interpreted as a QUANTIFIER and a DATE/TIME
 juxtaposed, we should mark them as a single span ("*twice monthly*"
-rather than "*twice* *monthly*").
+rather than "*twice*" "*monthly*").
 
 - Will administer Lariam *twice daily*.
 
@@ -1576,7 +1575,7 @@ bedtime*.
 - Simvastatin ZOCOR 20-mg tablet 1 tablet by mouth *one-time
 daily*.
 
-TIMEX3s of type SET should always be TLINKed to EVENTs using the TLINKs
+TIMEX3s of type SET should always be TLINKed to EVENTs using TLINKs
 of the type OVERLAP.
 
 
@@ -1591,7 +1590,7 @@ the below examples:
 - He **stopped** the polar bear's **rampage** in *twenty
 minutes*.
 
-In \LLast, "quickly" is quite clearly not a TIMEX3. It is not
+In the first example, "quickly" is quite clearly not a TIMEX3. It is not
 placeable on a timeline, it cannot be normalized to a date or time,
 and really, it doesn't tell us much about time, but about the stopping.
 Compare this to *twenty minutes*, which is clearly temporal. We
@@ -1603,20 +1602,20 @@ Compare these to the below sentences, where there's an ambiguity between
 reading the highlighted word or words as a straightforward DURATION
 TIMEX3, or as a manner adverb indicating speed of action:
 
-- I can write that report up in <5 minutes>. 
+- I can write that report up in **5 minutes**. 
 > The report will
 be ready at the time DOCTIME + 5 minutes. 
 > When requested, I can write it up quickly, likely within 5 minutes.
 
 - The party leader claims that Japan "can arm itself with nuclear
-weapons <overnight>" in response to the continued aggressions. 
+weapons **overnight**" in response to the continued aggressions. 
 >  Japan can arm itself with nuclear weapons in the period of time from
 dusk on the day of DOCTIME to dawn the next day. 
 > Japan can arm itself, whenever it chooses to, in around 12 hours, or, in a figurative
-sense, "abruptly.
+sense, "abruptly".
 
 In both, the first reading inteprets the marked expression
-as being DURATION TIMEX3s, which CONTAIN the EVENTs (`write' and `arm'),
+as being DURATION TIMEX3s, which CONTAIN the EVENTs ("write" and "arm"),
 and which can be concretely placed on a timeline. In the second readings,
 the marked expressions are effectively manner adverbs indicating "quickly",
 which float above the timeline, and thus, are not TIMEX3s at all.
@@ -1650,7 +1649,7 @@ overall DOCTIME**.
 
 Here, the **12/13/2010** would be marked as DOCTIME, as "start
 date" is the closest thing to the "Document Time" that we have
-for this record.
+for this record. (Do not doubly-annotate it as a DATE as well.)
 
 - Published **June 15th, 2013** by Jackson Teller-Morrow
 
@@ -1670,7 +1669,7 @@ SECTIONTIME, as all that follows it will be true as of this new timestamp.
 Some documents may have significant amounts of copy/pasted or automatically
 quoted text. If, as you are annotating, you come across a section
 or paragaph which is identical to one previously found (and fully
-annotated) in the document, you should *not} annotate EVENTs,
+annotated) in the document, you should *not* annotate EVENTs,
 TIMEX3s, ENTITYs, or any relations in that section or paragraph, and
 instead should select the entire paragraph or section which is repeated
 and mark with DUPLICATE.
@@ -1682,7 +1681,7 @@ As to avoid throwing out otherwise good data, DUPLICATE does have
 a few hard and fast laws of usage to keep in mind:
 - Even if a section or paragraph is repeated several times in a note,
 *the first instance of that section or paragraph which occurs
-must be fully annotated}. DUPLICATE is only used for subsequent repetitions. 
+must be fully annotated*. DUPLICATE is only used for subsequent repetitions. 
 - DUPLICATE text must stand off from novel text in some way. An inline
 quote or repetition does not qualify as DUPLICATE, even if it is a
 verbatim repetition. For example:
@@ -1724,9 +1723,9 @@ the text.
 
 
 While you are annotating the EVENT/ENTITY markables pass, we want
-you to also annotate all Coreference\textquotedbl{
-relations betweene ENTITIES. These can be thought of in two categories
--- relations that show that two things are the same (IDENT and APPOS)
+you to also annotate all coreference
+relations between ENTITYS. These can be thought of in two categories
+– relations that show that two things are the same (IDENT and APPOS)
 and relations that show that they have a structural relationship,
 such as PART/WHOLE, SET/MEMBER, or the catch-all BRIDGING relation.
 
@@ -1745,13 +1744,13 @@ and [Savova et al. 2011](http://www.ncbi.nlm.nih.gov/pubmed/21459927).
 
 Two entities have an IDENTICAL relation if they refer to the same
 discourse referent. The IDENTICAL relation has several important semantic
-characteristics(Following the MUC-7 specifications): 
+characteristics (following the MUC-7 specifications): 
 
-- The relation is symmetrical, i.e., non-directional: (if A is IDENT
-to B, then B is IDENT to A). This is different from relations like
-WHOLE/PART and SET/MEMBER, which are directional by defition. 
-- It is also transitive: if A is IDENT to B and B is IDENT to C, then
-A is IDENT to C. . 
+- The relation is symmetrical, i.e., non-directional: If A is IDENT
+to B, then B is IDENT to A. This is different from relations like
+WHOLE/PART and SET/MEMBER, which are directional by definition. 
+- It is also transitive: If A is IDENT to B and B is IDENT to C, then
+A is IDENT to C.  
 
 The canonical example of this, and perhaps the bulk of IDENT annotation
 work, will be the marking of pronominal antecedents:
@@ -1759,10 +1758,10 @@ work, will be the marking of pronominal antecedents:
 - Mr. **Smith**<sub>e1</sub> complained of a headache. **He**<sub>e1</sub>
 also had a sore throat.
 
-Yet in many instances on will be linking together lexical nouns that
-refer to the same thing. Two different ways of refering to the same
-thing -- like Michele Obama, she, and First Lady in the example below
--- belong in the same chain.
+Yet in many instances we will be linking together lexical nouns that
+refer to the same thing. Two different ways of referring to the same
+thing – like Michele Obama, she, and First Lady in the example below
+– belong in the same chain.
 
 - **Michele Obama<sub>e1</sub>** is a busy **lady**, **she**<sub>e1</sub>
 visits many schools around the country during the year. Just last
@@ -1777,12 +1776,12 @@ The fundamental rule we'll follow with this is the following:
 of the identities of two mentions (such as Clark Kent
 is Superman), then these are IDENT. 
 - If X is Y asserts a SET/MEMBER relations,
-mark it as such. The such as test is
-a good metric in this case -- you can restate the relationship seen as busy ladies such as Michele Obama,
-but one can't say Supermen like Clark Kent 
+mark it as such. The "such-as" test is
+a good metric in this case – you can re-state the relationship seen as "Busy ladies such as Michele Obama",
+but one can't say "Supermen like Clark Kent". 
 - If X is Y is very predicative (such as "the house is red", where Y is purely an attribute of X), then do
 not mark any relation at all. 
-- If X is Y marks Y as being the currently the role of X, but is not permanently identical to X -- like "is the current vice president" or "is the person holding the talking stick" then make the relation BRIDGING.  Note that is only applies to equational clauses -- mentions like "The vice president" should just be in identity chains with the intended referent.  Remember for the purpose of making ident chains that Y in this case marks that role in general (rather than X being in that role)
+- If X is Y marks Y as being the currently the role of X, but is not permanently identical to X – like "is the current vice president" or "is the person holding the talking stick" then make the relation BRIDGING.  Note that is only applies to equational clauses – mentions like "The vice president" should just be in identity chains with the intended referent.  Remember for the purpose of making ident chains that Y in this case marks that role in general (rather than X being in that role)
 
 
 **APPOSITIVE**
