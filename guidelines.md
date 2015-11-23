@@ -583,7 +583,7 @@ Such generics in English are often bare plurals, but can be indefinites
 or definites too:
 
 - **Terrorists**<sub>GEN</sub> in the **region**<sub>ACTUAL</sub> often attack
-office **buildings**<sub>ACTUAL</sub>.
+office **buildings**<sub>GENERIC</sub>.
 - The **lion**<sub>GEN</sub> is the proudest of **animals**<sub>GEN</sub>
 - We do not normally recommend surgery to **patients**<sub>GEN</sub> with
 a cardiac status similar to **Ms. James**<sub>ACTUAL</sub>.
