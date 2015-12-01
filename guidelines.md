@@ -2274,13 +2274,13 @@ possible temporal relation (TLINK) between each EVENT, we instead
 try to link all EVENTs to a narrative container, and then link those
 containers so that the contained EVENTs can be linked by inference.
 
-While TIMEX3 and EVENTs can be temporal containers, we also have another kind of temporal container; the DocTimeRel itself.   The "Tuesday" above is therefore a temporal "bucket" that is within a larger bucket of BEFORE -- the set of all events happening before the document creation time.
+While TIMEX3 and EVENTs can be temporal containers, we also have another kind of temporal container; the DocTimeRel itself.   The "Tuesday" above is therefore a temporal "bucket" that is within a larger bucket of BEFORE – the set of all events happening before the document creation time.
 
 
 
 ### Temporal Containers vs Subevent Containers
 
-Labeling temporal containment properly is primarily a task of marking which *temporal* spans contain other temporal spans.  This means, specifically, that we mark containment purely on whether it is temporally marked as containing other events when no semantic connection at all, such as:
+Labeling temporal containment properly is primarily a task of marking which *temporal* spans contain other temporal spans.  This means, specifically, that we mark containment purely on whether it is temporally marked as containing other events when there is no semantic connection at all, such as:
 
 > - While I was writing this paper, some couple has met, been married and had a child.
 > - In 1841, Martin Van Buren was elected and the First Opium War began
@@ -2288,11 +2288,11 @@ Labeling temporal containment properly is primarily a task of marking which *tem
 
 These are in contrast with temporal structure that also conveys a kind of "essential" structure between related events, as in:
 
-> - The battle of the bulge was an important battle in world war II
+> - The Battle of the Bulge was an important battle in World War II
 > - During the surgery, most of the tumor was excised.
 
 While the temporal span of "surgery" contains all of the events going on in the universe during that period of time,
-only some events -- such as the excision -- could be characterized as being subevents of that surgery, sharing participants, locations, and consequences with the larger event.  We will define these as a subtype of containment, CONTAINS-SUBEVENT.  
+only some events – such as the excision – could be characterized as being subevents of that surgery, sharing participants, locations, and consequences with the larger event.  We will define these as a subtype of containment, CONTAINS-SUBEVENT.  
 
 
 ### Causation and Precondition Annotation
@@ -2304,9 +2304,9 @@ orderings of different EVENTs, but to also annotate when one event
 At first glance, it may seem like an odd choice to mark causation
 and preconditioning as a subtype of temporal link rather than as a
 link of its own. However, causation and preconditioning are inherently
-temporal: a precondition necessarily must occur BEFORE the EVENT which
-it has preconditioned. In case of causation, the cause will start
-BEFORE the effect in the vast majority of cases, but the cause and
+temporal: A precondition necessarily must occur BEFORE the EVENT which
+it has preconditioned. The cause or precondition will start
+BEFORE the effect, but the cause or precondition and
 the effect can eventually OVERLAP, like running and sweating. Nevertheless,
 CAUSE indicates that the cause started BEFORE the effect, and thus,
 for causation and preconditioning, there is always a temporal relation
@@ -2314,7 +2314,7 @@ involved.
 
 So, rather than forcing annotators to first decide on the temporal
 relations between two events and then make a separate annotation indicating
-causality, we simply merge the two tasks: the annotator must decide
+causality, we simply merge the two tasks: The annotator must decide
 whether the pair is in any causal relationship, and if so, they are
 necessarily also in a BEFORE or OVERLAP relationship. Thus, we can
 save a step in annotation, and simplify the mental task of classifying
