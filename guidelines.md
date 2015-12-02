@@ -2340,12 +2340,12 @@ will display these links in this document using the following format:
 
 - **EVENT1** RELATION **EVENT2**
 
-The containment relations discussed above are expressed using two of these: CONTAINS and CONTAINS-SUBEVENT.  The remainder of the temporal links are BEFORE, OVERLAP, BEGINS-ON, ENDS-ON and SIMULTANEOUS, and two of those (BEFORE and OVERLAP) can also be subtyped into whether they also contain causal information (BEFORE/CAUSE, BEFORE/PRECONDITION, OVERLAP/CAUSE, OVERLAP/PRECONDITION).  
+The containment relations discussed above are expressed using either of these two links: CONTAINS and CONTAINS-SUBEVENT.  The remainder of the temporal links are BEFORE, OVERLAP, BEGINS-ON, ENDS-ON and SIMULTANEOUS, and two of those (BEFORE and OVERLAP) can also be subtyped into whether they also contain causal information (BEFORE/CAUSE, BEFORE/PRECONDITION, OVERLAP/CAUSE, OVERLAP/PRECONDITION).  
 
 Which relation to select will be detailed in specific sections that follow.  First, one must decide whether a relation should be annotated at all.  Without any constraint, one could see making TLINKs between every
 EVENT in the document, which leads to exponential growth of TLINKs
 and a tangle of relations which nobody, let alone a machine, would
-like to unpack.  So we use a series of rules -- structured to rely upon these intuitions about temporal containers -- in order to determine which things actually should get temporal links
+like to unpack.  So we use a series of rules – structured to rely upon these intuitions about temporal containers – in order to determine which things actually should get temporal links.
 
 ### Choosing the Anchors of Narrative Containers
 
@@ -2368,7 +2368,7 @@ TLINK it to a few other container anchors to avoid it being stranded.
 - If stuck between two possible containers, use the one with the larger
 temporal span. 
 
-- Remember that if an event contains multiple different "steps"  -- even if they are connected in a sequence -- they will be separate subevents. 
+- Remember that if an event contains multiple different "steps"  – even if they are connected in a sequence – they will be separate subevents. 
 
 
 ### Events should have a single container whenever possible
@@ -2380,25 +2380,27 @@ EVENT to the TIMEX3 or EVENT which represents that narrative container,
 using the appropriate link. 
 
 When annotating, not every EVENT will be a part of a detailed narrative
-container (i.e. one specific than just the BEFORE, AFTER or OVERLAP relation to DOCTIME). However,
+container (i.e., one more specific than just the BEFORE, AFTER, or OVERLAP relation to DOCTIME). However,
 it is vital that you, as an annotator, stop to ask yourself whether
 each EVENT you examine is a part of a narrative container, and whether
 you have marked that with a CONTAINS TLINK. 
 
-In this pursuit, you should almost never be marking more than one containing event.  We assume that if  you label that A contains B, and that B contains C, you do not need to also mark that A contains C.  For example, if Wednesday CONTAINS football game, and that football game CONTAINS a throwing event, we don't need to also know that the throwing event happened on Wednesday -- it's inferrable from the annotations already done. 
+In this pursuit, you should almost never be marking more than one containing event.  We assume that if  you label that A contains B, and that B contains C, you do not need to also mark that A contains C.  For example, if Wednesday CONTAINS football game, and that football game CONTAINS a throwing event, we don't need to also know that the throwing event happened on Wednesday – it's inferrable from the annotations already done. 
 
-### Avoid Redundant causation annotation -- think in terms of chains of causation
+### Avoid redundant causation annotation – think in terms of chains of causation
 
-In the same way that we are trying avoid redudancy by thinking of temporal structure as being "nested" into larger and larger containers whenever possible, we also want to think of causation as amounting to a series of chains of causation. In general, you may assume that:
+In the same way that we are trying to avoid redundancy by thinking of temporal structure as being "nested" into larger and larger containers whenever possible, we also want to think of causation as amounting to a series of chains of causation. In general, you may assume that:
 
 * If Event A CAUSES or PRECONDITIONS Event B, and Event B CAUSES or PRECONDITIONS Event C, we don't need to mark causation between A and C
 * If Event A CAUSES  or PRECONDITIONS Event B, and Event B CONTAINS-SUBEVENT Event C, we don't need to mark causation between A and C
 
-This means that an example such as the following only needs two causal relations -- while the burglaries do lead to an eventual "jailed" event, we can assume that it is inferrable:
+This means that an example such as the following only needs two causal relations – while the burglaries do lead to an eventual "jailed" event, we can assume that it is inferrable:
 
 - **He** was **jailed** after **pleading** guilty in **court**
 following a series of **burglaries**
+
 > **burglaries** BEFORE/PRECONDITIONS **pleading**
+
 > **pleading** BEFORE/CAUSES **jailed**
 
 Similarly:
@@ -2406,10 +2408,15 @@ Similarly:
 - The death toll from a **bombing** in Bangkok **rose** to
 three on Monday after a doctor **confirmed** that a six-year-old
 girl had **died** from her **injuries**. 
+
 > **bombing** OVERLAP/CAUSES **injuries** 
+
 > **injuries** BEFORE/CAUSES **died** 
+
 > **confirmed** REPORTS **died** 
+
 > **died** BEFORE/CAUSE **rose**
+
 > **confirmed** BEFORE/CAUSES **rose**
 
 Here, again, we can infer that bombing
@@ -2419,11 +2426,11 @@ capture the causal nature of the situation without specifying every
 small step.
 
 
-### Don't mark temporal order relations (BEFORE) if they are implied by the DocTimeRel
+### Don't mark temporal order relations (e.g., BEFORE) if they are implied by the DocTimeRel
 
-Remember that every EVENT  with a doctimerel of BEFORE is in a large narrative container (the events happening before the document time), every EVENT with a doctimerel of OVERLAP is in a container that defines the document time, and so forth, adn that these containers have a natural order.  Marking that a BEFORE event happens before and OVERLAP event, then is redundant information: we already know that due to the DocTimeRel containers that they are a part of.  
+Remember that every EVENT  with a DocTimeRel of BEFORE is in a large narrative container (the events happening before the document time), every EVENT with a DocTimeRel of OVERLAP is in a container that defines the document time, and so forth; and remember that these containers have a natural order.  Marking that a BEFORE event happens before an OVERLAP event, then, is redundant information – we already know that due to the DocTimeRel containers they are a part of.  
 
-This also means that TIMEX3s such as "now" or "in the past", if they are synonymoous with the DocTimeRel containers themselves, do not need to be linked to, as they provide no additional information about the event. 
+This also means that TIMEX3s such as "now" or "in the past", if they are synonymous with the DocTimeRel containers themselves, do not need to be linked to, as they provide no additional information about the event. 
 
 
 
@@ -2459,11 +2466,11 @@ TLINKed to **surgery**, even given the explicit mention.
 
 ### Sources of information are generally not part of a causal chain
 
-Many times, it is theoretically possible to think of a chain of events as being mediated by all of the sources of information involved.   For example, in the example sentence below, it the departure caused by the "cheating" or by the finding out?
+Many times, it is theoretically possible to think of a chain of events as being mediated by all of the sources of information involved.   For example, in the sentence below, is the departure caused by the "cheating" or by the finding out?
 
 - John found out that Bill was cheating, and left.
 
-Similarly one might ask whether the sending of troops in the next example is caused by atrocities, or the revelation of atrocities:
+Similarly, one might ask whether the sending of troops in the next example is caused by atrocities, or the revelation of atrocities:
 
 - "recent revelations of atrocities in the region caused the president to send in troops"
 
