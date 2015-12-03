@@ -2619,9 +2619,9 @@ knowledge should not be used to fill these TLINKs in.
 
 ### Temporal and Subevent Containers have no locality constraints
 
-Remember that we are attempting, whenever possible, to structure our documents so that the hierarchical structure of the timeline can be used.  That means that regardless of where you see an event in the document, if it contains or is contained by another event or TIMEX3, you make link those with a CONTAINS or CONTAINS-SUBEVENT link.  
+Remember that we are attempting, whenever possible, to structure our documents so that the hierarchical structure of the timeline can be used.  That means that regardless of where you see an event in the document, if it contains or is contained by another event or TIMEX3, you may link those with a CONTAINS or CONTAINS-SUBEVENT link.  
 
-### Don't mark temporal order (BEFORE, BEGINS-ON, etc) based purely on inference - you need evidence in the text
+### Don't mark temporal order (BEFORE, BEGINS-ON, etc.) based purely on inference – you need evidence in the text
 
 Because of the difficulty of capturing detail within a given narrative
 container, not all relations between EVENTs will be captured. For
@@ -2629,15 +2629,15 @@ instance, in the following example, containment alone doesn't tell us the relati
 
 > During the [conference] there was a [session] in which they [thanked] Mr. Smith and a catered [dinner]
 
-In many cases, sufficient world knowledge, inference or research may let an annotator guess what the order of these events is.  However, unless there is explicit grammatical evidence for the ordering -- most obviously, prepositions and connectives like "Before", or thing like "and then" -- do not infer anything about the relationships between them. 
+In many cases, sufficient world knowledge, inference or research may let an annotator guess what the order of these events is.  However, unless there is explicit grammatical evidence for the ordering – most obviously, prepositions and connectives like "before", or things like "and then" – do not infer anything about the relationships between them. 
 
 #### Nearby sentences or coordinated clauses count as "evidence", but only if you can add an explicit "then"
 
-It will often feel like a temporal order is implied even though no explicit temporal words have occurred, simply because one sentence is positioned as following another.  We have a test for this: if you can add a "then" into the second clause *without  feeling like you've changed the meaning of the two sentences*, then feel free to temporally order these with BEFORE. If you cannot do this "then" test, then do not relate them.  
+It will often feel like a temporal order is implied even though no explicit temporal words have occurred, simply because one sentence is positioned as following another.  We have a test for this: If you can add a "then" into the second clause *without  feeling like you've changed the meaning of the two sentences*, then feel free to temporally order these with BEFORE. If you cannot do this "then" test, then do not relate them.  
 
 Note that this should only encompass nearby sentences, but could theoretically go beyond a single sentence, *if and only if the first sentence contained many subevents*. For example:
 
-- We [took] the kids to the arcade.  They played ski-ball; they played pacman.  We **(then)** [went[ home exhausted.
+- We [took] the kids to the arcade.  They played ski-ball; they played pacman.  We **(then)** [went] home exhausted.
 > **took** BEFORE **went**
 
 
@@ -2648,7 +2648,7 @@ Consider examples like:
 - The race organizers **ran** out of gatorade and **switched** to distributing water
 - A *blizzard* hit chicago and we were *rerouted* to detroit.
 
-One might read causation (CAUSE or PRECONDITION) from such examples, despite the lack of an explicit indicator of causation such as "because of".  Despite the lack of explicit encoding of causation, feel free to mark these as having a causation relation when they pass the paraprase test[] below.
+One might read causation (CAUSE or PRECONDITION) from such examples, despite the lack of an explicit indicator of causation such as "because of".  Despite the lack of explicit encoding of causation, feel free to mark these as having a causation relation when they pass the paraphrase test below.
 
 The core of the paraphrase test is whether you can add an explicit connective such as "therefore", "thus" or "so" into the sentence without feeling any real change in the meaning of the sentence itself.  
 
@@ -2662,7 +2662,7 @@ The core of the paraphrase test is whether you can add an explicit connective su
 There are contexts in which inferrable causation may be allowable, but *do not guess*.  In particular, having an event that prototypically causes another event is *not* sufficient for a causation label.  
 
 - John, who smoked cigarettes his entire life, died of lung cancer last year
-> NO relation marked between smoking and cancer -- the possibility of connection is not explicit in the text
+> NO relation marked between smoking and cancer – the possibility of connection is not explicit in the text
 
 
 
@@ -2675,14 +2675,14 @@ Links like BEFORE/CAUSE can cross sentence boundaries, where necessary:
 two days. The children are **terrified** as a result, she **said**.
 > **rained** BEFORE/CAUSES **terrified**
 
-However, EVENTs that are very far apart (roughly, the length of a paragraph) should only be linked causally if the link is either very clear or very explicit.  
+However, EVENTs that are very far apart (roughly, the length of a paragraph or more) should only be linked causally if the link is either very clear or very explicit.  
 
 
-### Temporal order (Non-causal, non-CONTAINS) relations only leave the sentence in specific circumstances
+### Temporal order (non-causal, non-CONTAINS) relations only leave the sentence in specific circumstances
 
-Because relations such as You should avoid annotating temporal ordering relations (such as BEFORE, OVERLAP or BEGINS-IN) across sentences. 
+You should avoid annotating temporal ordering relations (such as BEFORE, OVERLAP or BEGINS-ON) across sentences. 
 
-The exception to this, ususally, will be adjacent sentences in which the main events to the two sentences are related.  When those adjacent sentences define a clear temporal order, but cannot be represented as having one contain another or one cause another, you may link them using BEFORE. 
+The exception to this, usually, will be adjacent sentences in which the main events of the two sentences are related.  When those adjacent sentences define a clear temporal order, but cannot be represented as having one contain another or one cause another, you may link them using the appropriate temporal ordering link. 
 
 
 
@@ -2693,7 +2693,7 @@ The exception to this, ususally, will be adjacent sentences in which the main ev
 
 ## Definitions and Prototypes of the TLINK sub-types
 
-There are ten different temporal relations often used in this schema,
+There are ten different temporal relations often used in this schema:
 BEFORE, BEFORE/CAUSES, OVERLAP/CAUSES, BEFORE/PRECONDITIONS, OVERLAP,
 SIMULTANEOUS, BEGINS-ON, ENDS-ON, CONTAINS, and CONTAINS-SUBEVENT.
 There is no default relation type for TLINKs.
@@ -2712,15 +2712,14 @@ BEFORE is fairly straightforward and simply orders two events in time.
 - His anterior chest **rash** has not **reoccurred** since
 the **PCN** VK was **discontinued** *24-hours ago*. 
 > **discontinued** BEFORE **reoccurred**<sub>NEG</sub> 
-> **rash** BEFORE **reoccurred**<sub>NEG</sub>
 > **rash** ENDS-ON **discontinued** (Discussed below.)
-> *24-hours ago* OVERLAP **discontinued**
+> *24-hours ago* CONTAINS **discontinued**
 
 (**PCN** will be linked to **discontinued**, 
 using an ALINK of the type TERMINATES, as described in [the Section on ALINKs](#alink-sub-types).
 
 When annotating, remember that "X occurred after Y" can be expressed
-by saying "Y occurred before X: 
+by saying "Y occurred before X": 
 
 - The **shooting** came shortly after the drug dealer's **release**. 
 >  **release** BEFORE **shooting**
@@ -2733,7 +2732,7 @@ stent **placement**.
 >  **visit** BEFORE **accident**
 
 - He had a **neckache** after **surgery**. 
-> **neckache** BEFORE **surgery**
+> **surgery** BEFORE **neckache**
 
 
 ### CONTAINS
