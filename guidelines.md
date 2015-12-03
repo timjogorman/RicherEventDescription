@@ -305,7 +305,7 @@ The second rule is:
 
 There is a special case of this, however, for instances like "Manokwari Hospital" below:
 
-- The nearest **[<sub>Entity</sub> Manokwari]** **[<sub>Entity</sub> Hospital ]** said that most of **[<sub>Entity</sub>those ]** seriously wounded now were treated at an emergency **[<sub>Entity</sub> unit]** at the **[<sub>Entity</sub> hospital]**.
+- The nearest **[<sub>Entity</sub> Manokwari]** **[<sub>Entity</sub> Hospital ]** said that **[<sub>Entity</sub>most]** of **[<sub>Entity</sub>those ]** seriously wounded now were treated at an emergency **[<sub>Entity</sub> unit]** at the **[<sub>Entity</sub> hospital]**.
 
 This is a separate term, because:
 > If a term is not part of a name, but it is a named reference to a real, unique, named entity in the world, then make it a separate entity. 
@@ -2491,17 +2491,17 @@ Here, the statement does not CAUSE revelation (nor does the revelation CAUSE the
 For quoted speech or reporting, assume that the narrator or writer
 is reliable, unless otherwise indicated:
 
-- On *Sunday*, he **said**, **one** of the **bombs** **wrecked**
-the family's home. 
-> **one** OVERLAPS/CAUSES **wrecked** \b{.
-*Sunday* CONTAINS **wrecked** 
+- On *Sunday*, **he** **said**, **one** of the **bombs** **wrecked**
+the **family**'s **home**. 
+> **one** OVERLAPS/CAUSES **wrecked**;
+> *Sunday* CONTAINS **wrecked**; 
 > **bombs** SET/MEMBER **one**
 
 - **Frank** **claims** that an **alien** mind-control **beam**
 made **him** **rob** the **bank**. 
 > **beam** OVERLAP/CAUSES
-**rob** 
-> **Frank** IDENTICAL **him** 
+**rob**;
+> **Frank** IDENTICAL **him**; 
 > **claims**
 REPORTING **beam**
 
@@ -2514,7 +2514,7 @@ the accuracy of asserted causal claims, but to simply annotate them.
 ### Causation relations to ENTITIES with implicit EVENTS must reference the EVENT
 
 Remember that if an inanimate object is described as a cause/effect/precondition,
-we are marking it as a IMPLICIT EVENT, so that it can be linked:
+we are marking it as an IMPLICIT EVENT, so that it can be linked:
 
 - The **drug** **raised** **her** **blood** **pressure**.
 > **drug** OVERLAPS/CAUSES **raised**
@@ -2523,7 +2523,7 @@ Here, the administration or the chemical effects of the the drug are
 causing the raise, rather than the drug itself. Thus, we can mark
 the drug as IMPLICIT.  
 
-However, when events that are also entities do agentive, entity-like things, that agency does NOT count as causation
+However, when events that are also entities do agentive, entity-like things, that agency does NOT count as causation:
 
 - The **Olympics** **demands** infrastructure improvements of the host country
 > Do **not** link "Olympics" and "demand" causally.
@@ -2559,14 +2559,14 @@ EVENTs:
 OVERLAPS/CAUSES **lost** 
 > **others** IDENTICAL **their**
 
-However, if an event is contained by multiple narrative containers, you should only be linking it to one -- see [the section on selecting narrative containers](#choosing-the-anchors-of-narrative-containers) for more information on which one to select.
+However, if an event is contained by multiple narrative containers, you should only be linking it to one – see [the section on selecting narrative containers](#choosing-the-anchors-of-narrative-containers) for more information on which one to select.
 
 
 
 ### ALINKs trump causation
 
 Do not create CAUSES/PRECONDITIONS links between the source (e.g.
-*started* and the target (e.g. *attacking*) of ALINKs:
+*started*) and the target (e.g. *attacking*) of ALINKs:
 
 - The **terrorists** **started** **attacking**. 
 > ALINK: **started** INITIATES **attacking**
@@ -2601,7 +2601,7 @@ got so much **better**.
 ## How distant can relations be?  How explicit does the evidence need to be? 
 
 
-### TLINK all explicitly stated temporal relations.
+### TLINK all explicitly stated temporal relations
 
 If the writer goes out of his or her way to make a temporal statement,
 a TLINK should be made to reflect that statement. So, if the sentence
