@@ -2767,8 +2767,10 @@ with actual military units.
 without and with gadolinium from *10-23-03*. 
 > *10-23-03* CONTAINS **examination**
 
-- An ENT performed the ** my** during *Friday*'s **surgery**.
+- An ENT performed the **myringotomy** during *Friday*'s **surgery**.
 > *Friday* CONTAINS **surgery**
+
+> **surgery** CONTAINS **myringotomy**
 
 - **Gengraf** 300-mg p.o. b.i.d. (**decreased** in *early
 June*) 
@@ -2794,7 +2796,7 @@ Limited **Colonoscopy** to the distal sigmoid due to an obstructive
 containment (things like part/whole, cause/effect, disorder/symptoms).
 However, the CONTAINS relation should only
 be used when there exists strict temporal containment (the temporal
-span of the container fully encompasses that of the contained).
+span of the container fully encompasses that of the contained).*
 
 
 
@@ -2803,7 +2805,7 @@ span of the container fully encompasses that of the contained).
 Similarly to the way that we've chosen to consider causality as a
 temporal relation, we are treating event/sub-event relations as temporal
 as well, as they too have an inherent (and necessary) temporal relation,
-this time, of CONTAINment.
+this time of CONTAINment.
 
 Anything that is truly a sub-event, an EVENT which is a necessary
 component part of a greater whole EVENT, will necessarily be temporally
@@ -2812,13 +2814,13 @@ an object is spatially contained (in most cases) within the whole
 of the object. Put differently, if the temporal span of one event
 does not contain the entire duration of another event, the two are
 not in a CONTAINS-SUBEVENT (nor CONTAINS) relation but rather, they
-are two different events, perhaps causally linked, or, perhaps just
+are two different events, perhaps causally linked, or perhaps just
 temporally linked.
 
 When one finds one EVENT which temporally contains another, one must
 decide whether they are simply in a CONTAINS relation, or whether
 they are in a CONTAINS-SUBEVENT relation. We've chosen to take a very
-narrow view of events and sub-events: if an EVENT is a necessary subpart
+narrow view of events and sub-events: If an EVENT is a necessary subpart
 of another event, as viewed in an encyclopedia or generic semantic
 representation of the larger EVENT's type, it is a sub-event.
 
@@ -2828,9 +2830,9 @@ representation of the larger EVENT's type, it is a sub-event.
 
 - During *Friday's* **surgery**, the patient's heartrate **spiked**
 during the initial **incision**. 
-> **surgery** CONTAINS-SUBEVENT
-> **surgery** CONTAINS **spiked** 
-> **incision**  CONTAINS **surgery**
+> *Friday* CONTAINS **surgery**
+> **surgery** CONTAINS–SUBEVENT **incision** 
+> **incision**  CONTAINS **spiked**
 
 - The **tornado** was accompanied by high **winds** and multiple
 funnel **clouds**. 
@@ -2853,12 +2855,10 @@ instances, the relationship is simply containment:
 - During *Friday's* **surgery**, the patient's heartrate **spiked**
 when she **fell** off the table. 
 > **surgery** CONTAINS **fell**
-
 > **surgery** CONTAINS **spiked** 
 > *Friday* CONTAINS
 **surgery** 
-> (**spiked** BEGINS-ON **fell**) -- Discussed
-below in Section \ref{corefannotation}.
+> (**spiked** BEGINS-ON **fell**)
 
 - The **earthquake** occurred during the **parade**. 
 >
@@ -2870,7 +2870,7 @@ guards **burst** into the parliament **debates**.
 CONTAINS **interruption** 
 > **debates** CONTAINS **burst**
 
-> (**interruption** BEGINS-ON **burst**) -- Discussed below.
+> (**interruption** BEGINS-ON **burst**) – Discussed below.
 
 :bangbang: *Remember, CONTAINS-SUBEVENT is still a CONTAINS temporal relation.
 If you have two items that are event/sub-event, but where the EVENT
@@ -2884,7 +2884,7 @@ notions of two things happening at the same time, but is less specific
 than CONTAINS or SIMULTANEOUS. This can refer to two nearly simultaneous
 events, an EVENT that occurs during another larger EVENT or time reference
 (but where containment is not entirely sure), or any other sense in
-which two events are occurring in the same time frame:
+which two events are occurring in the same timeframe:
 
 - While the mayor **spoke** to reporters about his latest anti-cartel
 **initiatives**, his home was being **raided** by state officials.
@@ -2918,7 +2918,7 @@ in some way, but where you are not sure (or do not have enough information
 to tell) whether there is containment of the events' boundaries.
 
 OVERLAP is also used for linking TIMEX3s of type SET with other EVENTs,
-as in \Next:
+as in:
 
 - We will keep her on rate-control **medications** 100 mg *twice
 daily* 
@@ -2927,7 +2927,7 @@ daily*
 :bangbang: *OVERLAP provides relatively little information for the actual
 processing of text compared to our other temporal relations. If you
 are reasonably sure that the relation is one of containment, you should
-use one of the CONTAINS relations instead, and often, one can represent
+use one of the CONTAINS relations instead, and often one can represent
 a potential OVERLAP more specifically using narrative containers and
 a bit of additional thought.*
 
@@ -2936,7 +2936,7 @@ a bit of additional thought.*
 
 Although these are included in the list of TLINKs during annotation,
 and carry the same temporal information and properties as BEFORE and
-OVERLAP, they carry additional causal meanings, and are fully explained
+OVERLAP, they carry additional causal meanings and so are fully explained
 in the causation section.
 
 
@@ -2950,11 +2950,11 @@ usually be marked with BEFORE instead.
 Note that BEGINS-ON is to be used only where there is no causal relationship.
 
 - *2008* marked the **start** of the rebels' brutal **campaign**
-> **start** BEGINS-ON *2008\
+> **start** BEGINS-ON *2008*
 
 - She has had Abdominal **Cramping** since *January*. 
 >
-**Cramping** BEGINS-ON *January\
+**Cramping** BEGINS-ON *January*
 
 - He reports intermittent chest **pain** since his prior **MI**.
 > **MI** BEFORE **pain**
@@ -2972,17 +2972,13 @@ weather grew too **cold** for **camping**.
 > **protests**
 ENDS-ON **cold**
 
-- She has had no **bleeding** since her **stitches** were
-**removed**. 
-> **bleeding**<sub>NEG</sub> ENDS-ON **removed**
-
 Note that ENDS-ON can be used in concert with BEGINS-ON to mark a
 duration.
 
 - She was on **chemo** from *March* through *July*. 
 >
 **chemo** BEGINS-ON *March* 
-> **chemo** ENDS-ON *July\
+> **chemo** ENDS-ON *July*
 
 
 ### SIMULTANEOUS
@@ -3012,9 +3008,8 @@ ride, and ended when the ride ended. There is a functional relationship.
 > **turned** SIMULTANEOUS **flight**
 
 The start and end of **flight** represent the start and end of the
-prohibition, so, necessarily, SIMULTANEOUS.%
-\footnote{Of course, the event is "turned off", but the head of this multi-word
-expression is "turned".%
+prohibition, so, necessarily, SIMULTANEOUS. (Of course, the event is "turned off", but the head of this multi-word
+expression is "turned".)
 
 
 - For the duration of her **surgery**, the anesthesiologist
@@ -3027,7 +3022,7 @@ with the surgery.
 
 In many cases of true simultaneity, there is a relationship which
 borders on causality. However, these are usually not true causality
-(representing strong correlation, rather than necessary causation),
+(they often represent strong correlation, rather than necessary causation),
 and *when two EVENTs are unquestionably SIMULTANEOUS and questionably
 causal, we will mark the more specific SIMULTANEOUS relation, rather
 than using OVERLAP-CAUSE*.
@@ -3040,7 +3035,7 @@ than using OVERLAP-CAUSE*.
 mother **clutched** her seat with white knuckles. 
 > **raced**
 SIMULTANEOUS **clutched** 
-> **raced** BEFORE-CAUSE **frightened**
+> **raced** OVERLAP-CAUSE **frightened**
 
 In this case, the clutching is likely to start and end with the racing,
 but alas, the fear persists.
@@ -3073,12 +3068,10 @@ exactly as part of a massive coincidence or conspiracy.
 
 Put differently, there are instances of SIMULTANEOUS out there, but
 they are rather like running into a celebrity at your local supermarket:
-your first reaction should be skepticism and doubt, and if you manage
+Your first reaction should be skepticism and doubt, and if you manage
 to remain convinced despite careful consideration, it's cause for
-celebration and excited Facebook posts%
-\footnote{The authors of these guidelines are not responsible for friends lost
-due to excited "SIMULTANEOUS EVENT/EVENT TLINK!!!" facebook posts%
-}.
+celebration and excited Facebook posts. (The authors of these guidelines are not responsible for friends lost
+due to excited "SIMULTANEOUS EVENT-EVENT TLINK!!!" facebook posts.)
 
 Unless you are sure that the start of the first EVENT is
 the start of the second, and similar for the end, use CONTAINS or
