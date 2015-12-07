@@ -341,19 +341,15 @@ The **revolution** might be considered either a group of people or a process of 
 We will, however, get more specific than this.  Many of these, like the mentions above, look like entities.  You can often have different answers for "When was this created?" and "When does this start?", as the event they imply are usually different from the act of doing them.  In those cases, you will mark them as an EVENT, but show that they are implicit from an object, marking them with an IMPLICIT feature:
 
 - He was **[<sub>event</sub> sentenced]** to *[<sub>duration</sub> five years]* of **[<sub>implicit-event</sub> prison]**
+- Make sure to eat something before your **[<sub>implicit-event & entity</sub> vitamins]**.
+- **[<sub>implicit-event & entity</sub> Loperamide]** helped to calm her stomach.
 
-Prototypically these should be events that are implied by the event – something that happens in that location (as in the captivity state implied by "prison"), that is the traditional thing done with that entity (such as the "pill consumption" implied by "Advil"), and so forth (see CITATION for what we are getting at here).  For some of these – often marked in the specific phenomena guide – you should also annotate them as an ENTITY, such as laws, rules, and very referential places that imply an event (such as "prison"), and mark coreference for both the event and the entity:
+Prototypically these should be events that are implied by the entity – something that happens in that location (as in the captivity state implied by "prison"), that is the traditional thing done with that entity (such as the "pill consumption" implied by "Advil"), and so forth (see CITATION for what we are getting at here).  All IMPLICIT EVENTs should also be marked as ENTITYs, and coreference links created for both the event and the entity if applicable:
 
 - The nearby pipe **[<sub>implicit-event & entity</sub> bomb]** disrupted the festival. The **[<sub>event</sub> explosion]** from the **[<sub>entity</sub> device]** was heard for miles. 
 
 -  **bomb<sub>event</sub>** IDENTICAL **explosion**
 -  **bomb<sub>entity</sub>** IDENTICAL **device**
-
-For others – such as statements, messages, texts or medications – the text is almost always referring to the event itself, and one should **only** annotate them as IMPLICIT EVENTS.  Examples of this are:
-
-- "Make sure to eat something before your **[<sub>event</sub> vitamins]**."
-- "**[<sub>event</sub> Loperamide]** helped to calm her stomach."
-
 
 
 
