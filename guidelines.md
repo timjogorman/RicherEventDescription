@@ -1793,7 +1793,7 @@ While actual linguistic analysis may consider many other things to be "appositio
 What this means is that you will find many cases in which a title is followed by a proper name; because of the span rules, the entity mention should ONLY be the proper name itself.  Only when there is an apposition construction should these be treated as separate entities split up by a comma:
 
 - I met the **President**, **Barack Obama**
-> **President** APPOSITION **Barack Obama**
+> **President** APPOSITIVE **Barack Obama**
 
 - I met President **Barack Obama**.
 
@@ -1805,10 +1805,10 @@ We are linking any two appositive references to the same entity separated by a c
 
 - My **friend** who works there, **John Smith**, makes bread.
 
-:exclamation: **APPOSITION is a directed relation with a HEAD and ATTRIBUTE**
+:exclamation: **APPOSITIVE is a directed relation with a HEAD and ATTRIBUTE**
 
 Unlike IDENT chains, which may contain many different referents in
-the same relationship, APPOSITION is a two-term relation with only two possible mentions, and the mentions have different roles, that of the HEAD and the ATTRIBUTE.  
+the same relationship, APPOSITIVE is a two-term relation with only two possible mentions, and the mentions have different roles, that of the HEAD and the ATTRIBUTE.  
 
 If one of the two mentions is a proper name, it is automatically the HEAD.  Otherwise, the leftmost term must be the HEAD and the right mention the ATTRIBUTE:
 
@@ -1821,7 +1821,7 @@ relation.  *Even if one of the mentions seems more contextually appropriate, you
 
 - They jailed all three demonstrators.  One demonstrator, John Smith, has posted bail, but the other two have not.
 
-> **demonstrator**<sub>attribute</sub> APPOSITION **John Smith**<sub>head</sub>
+> **demonstrator**<sub>attribute</sub> APPOSITIVE **John Smith**<sub>head</sub>
 
 > **demonstrators** SET/MEMBER  **John Smith**
 
@@ -1829,20 +1829,18 @@ relation.  *Even if one of the mentions seems more contextually appropriate, you
 
 
 In some cases, APPOSITIVES may include multiple entities. In the case
-that there are more than 2 markables in the apposition, we will nest
-these using multiple, separate APPOS relations.
+that there are more than two markables in the apposition, we will link the same head to each other mention
+using multiple, separate APPOS relations; so you will still be making two-mention appositions, you will just make multiple ones.  Start either with the leftmost proper name, or, in the absence of a proper noun, the leftmost entity (i.e., start with the entity that will end up being the HEAD of the phrase). Then link each following mention of the referent to this entity.  So:
 
 - **AUTHOR**: Company **President**, **Mr. Johnson**
 
-In such cases, you will still be making two-mention appositions, you will just make multiple ones.  Start either with the leftmost proper name, or the leftmost entity (i.e. start with the entity that will end up being the HEAD of the phrase) and progressively add links to the nearest unlinked apposition.  So:
+> **president**<sub>attribute</sub> APPOSITIVE **Mr. Johnson**<sub>head</sub>
 
-- **AUTHOR**: Company **President**, **Mr. Johnson**
-> **president**<sub>attribute</sub> APPOSITION **Mr. Johnson**<sub>head</sub>
-> **AUTHOR**<sub>attribute</sub> APPOSITION **Mr. Johnson**<sub>head</sub>
+> **AUTHOR**<sub>attribute</sub> APPOSITIVE **Mr. Johnson**<sub>head</sub>
 
 
 There are a number of specific nominal constructions that will
-count as APPOSITION. One is any sequence of titles or degrees in which apposition is used, as in:
+count as APPOSITIVE. One is any sequence of titles or degrees in which apposition is used, as in:
 
 - **John Smith**<sub>head</sub>, **Pathologist**<sub>attribute</sub>.
 - **John Smith**<sub>head</sub>, **PhD**<sub>attribute</sub>.
