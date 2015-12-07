@@ -2424,7 +2424,7 @@ small step.
 
 Remember that every EVENT  with a DocTimeRel of BEFORE is in a large narrative container (the events happening before the document time), every EVENT with a DocTimeRel of OVERLAP is in a container that defines the document time, and so forth; and remember that these containers have a natural order.  Marking that a BEFORE event happens before an OVERLAP event, then, is redundant information – we already know that due to the DocTimeRel containers they are a part of.  
 
-This also means that TIMEX3s such as *now* or *in the past*, if they are synonymous with the DocTimeRel containers themselves, do not need to be linked to any EVENTs via temporal ordering links (i.e., BEFORE, OVERLAP, BEGINS-ON, ENDS-ON), as they provide no additional information about the event. They may, however, be linked to EVENTs via containment where appropriate, as in: "**They**'re **watching** the **Cubs** **game** *now* – *now* CONTAINS **watching**.
+This also means that TIMEX3s such as *now* or *in the past*, if they are synonymous with the DocTimeRel containers themselves, do not need to be linked to any EVENTs via temporal ordering links (i.e., BEFORE, OVERLAP, BEGINS-ON, ENDS-ON), as they provide no additional information about the event. They may, however, be linked to EVENTs via containment where appropriate, as in: "**They**'re **watching** the **Cubs** **game** *now*" – *now* CONTAINS **watching**.
 
 
 
@@ -2622,7 +2622,7 @@ instance, in the following example, containment alone doesn't tell us the relati
 
 > During the [conference] there was a [session] in which they [thanked] Mr. Smith and a catered [dinner]
 
-In many cases, sufficient world knowledge, inference or research may let an annotator guess what the order of these events is.  However, unless there is explicit grammatical evidence for the ordering – most obviously, prepositions and connectives like "before", or things like "and then" – do not infer anything about the relationships between them. 
+In many cases, sufficient world knowledge, inference or research may let an annotator guess what the order of these events is.  However, unless there is explicit grammatical evidence for the ordering – most obviously, prepositions and connectives like "before", or things like "and then" – do not infer anything about the relationships between them.  Moreover, temporal order (non-causal, non-CONTAINS) relations only leave the sentence in specific circumstances.  The only time you should create temporal order links across sentence boundaries is if they pass the following test.
 
 #### Nearby sentences or coordinated clauses count as "evidence", but only if you can add an explicit "then"
 
@@ -2669,16 +2669,6 @@ two days. The children are **terrified** as a result, she **said**.
 > **rained** BEFORE/CAUSES **terrified**
 
 However, EVENTs that are very far apart (roughly, the length of a paragraph or more) should only be linked causally if the link is either very clear or very explicit.  
-
-
-### Temporal order (non-causal, non-CONTAINS) relations only leave the sentence in specific circumstances
-
-You should avoid annotating temporal ordering relations (such as BEFORE, OVERLAP or BEGINS-ON) across sentences. 
-
-The exception to this, usually, will be adjacent sentences in which the main events of the two sentences are related.  When those adjacent sentences define a clear temporal order, but cannot be represented as having one contain another or one cause another, you may link them using the appropriate temporal ordering link. 
-
-
-
 
 
 
