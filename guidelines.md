@@ -378,7 +378,7 @@ In real annotations, there may be more nuanced instances than this, in which it'
 
 **General Rules for Complex Predicates**
 
-- If you encounter an idiom, simply mark the head verb in the idiom, and assume that the meaning of the phrase is carried by that verb. So "The chickens have **[come]** home to roost for Bush" simply has a [come], which stands for your interpretation of the coming-home-to-roost event.
+- If you encounter an idiom, simply mark the head verb in the idiom, and assume that the meaning of the phrase is carried by that verb. So "The chickens have **[come]** home to roost for Bush" simply has a [come], which stands for your interpretation of the coming-home-to-roost event.  (Do not mark ENTITYs in idioms unless they will later participate in a relation with something else in the document. Typically this will be a BRIDGING relation. For example, in "By hiring Mary, we'll kill two birds with one stone," you'd mark **kill** as the EVENT, and you'd also mark **stone** as an ENTITY that will later have a BRIDGING relation with **hiring**. See the **BRIDGING** section for more on this relation.) 
 - Markers of epistemic status, like "seems to" or "appears to", are not events. When in doubt, you should follow the nearest case in the [Reporting vs Hedging distinctions](#Distinguishing Reporting events from Hedges) in the appendix.
 
 
