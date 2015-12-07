@@ -3114,55 +3114,55 @@ Here both [able] and [use] are HYPOTHETICAL, but we still have an OVERLAP/PRECON
 ### BEFORE/CAUSES
 
 If the relation between two EVENTs is causal, that is, that one EVENT
-\textit{necessarily} causes the other, you must evaluate its temporality.
+*necessarily* causes the other, you must evaluate its temporality.
 
 In many cases, the causing EVENT will have ended before the effect
-fully takes place. In these cases, BEFORE/CAUSE is the only prudent
+fully takes place. In these cases, BEFORE/CAUSES is the only prudent
 annotation.
 
 - The **bear's** **visit** forced the **city** to **adopt**
 a new **trash-can** **design**. 
-> **visit** BEFORE/CAUSE
+> **visit** BEFORE/CAUSES
 **adopt**
 
 It is clearly the case that the adoption did not happen while the
-bear was still in town, so the cause is BEFORE the effect, and BEFORE/CAUSE
+bear was still in town, so the cause is BEFORE the effect, and BEFORE/CAUSES
 is prudent.
 
 - **France's** **declaration** caused **tension** with **Russia**.
-> **declaration** BEFORE/CAUSE **tension**
+> **declaration** BEFORE/CAUSES **tension**
 
 The declaration did not, itself, cause tension with Russia in the
 same way that an earthquake causes damage. Instead, its interpretation
 and analysis by the Russians caused the tension. This means that there
-was a non-trivial lag between cause and effect, and that BEFORE/CAUSE
+was a non-trivial lag between cause and effect, and therefore BEFORE/CAUSE
 is prudent.
 
 - **Switching** **textbooks** led to **improvements** in
 **scores**. 
-> **switching** BEFORE/CAUSE **improvements**
+> **switching** BEFORE/CAUSES **improvements**
 
-Again, it is not the case that the improvement occurred \textit{during
-the switch, so BEFORE/CAUSE is prudent.
+Again, it is not the case that the improvement occurred *during*
+the switch, so BEFORE/CAUSES is prudent.
 
 - **He** **shot** and **killed** the **attacking** **soldier**.
-> **shot** BEFORE/CAUSE **killed**
+> **shot** BEFORE/CAUSES **killed**
 
 **shot** here refers to the act of discharging a firearm. Even assuming
 an immediate and painless death for the attacker, there is a (very
 small) lag between the discharge and the death. Put differently, it
 is not the case that at any point, this specific shot and killing
-were occuring at the same moment. So, BEFORE/CAUSE.
+were occurring at the same moment. So, BEFORE/CAUSES.
 
 - The **bus** **kneeled** to allow **access** to the elderly
 **man**. 
-> **kneeled** BEFORE/CAUSE **access**
+> **kneeled** BEFORE/CAUSES **access**
 
 Although kneeling has a non-trivial duration, we have no reason to
-believe that the elderly man entered the bus mid-kneel. Thus, BEFORE/CAUSE.
+believe that the elderly man entered the bus mid-kneel. Thus, BEFORE/CAUSES.
 
 So, if it is the case that the causing EVENT ended before (even if
-milliseconds before) the EVENT it caused, BEFORE/CAUSE is the only
+milliseconds before) the EVENT it caused, BEFORE/CAUSES is the only
 prudent choice.
 
 
@@ -3171,7 +3171,7 @@ prudent choice.
 OVERLAP/CAUSES is intended for those cause/effect pairs where the
 cause, during its inherent duration, is continuously or periodically
 resulting in the effect. Put differently, there is a temporal overlap,
-where the cause is ongoing, and the effect is already partly or completely
+where the cause is ongoing and the effect is already partly or completely
 present.
 
 - The **earthquake** **destroyed** the **palace**. 
@@ -3201,7 +3201,7 @@ in the choice of BEFORE/CAUSES vs. OVERLAP/CAUSES. For instance:
 
 - The **explosion** caused mass **hysteria**. 
 > **explosion**
-BEFORE/CAUSE **hysteria**
+BEFORE/CAUSES **hysteria**
 
 Here, it's fairly clear that the hysteria began after the explosion,
 rather than the physical blast causing the hysteria as it propagated.
@@ -3209,7 +3209,7 @@ Compare to:
 
 - The **explosion** caused many **injuries**. 
 > **explosion**
-OVERLAP/CAUSE **injuries**
+OVERLAP/CAUSES **injuries**
 
 Here, the blast itself, the physical reality of the expanding gas
 and debris, caused injuries. Although other injuries may have occurred
@@ -3218,8 +3218,8 @@ collapse of damaged structures), it is still the case that some of
 the injuries occurred while the explosion was in progress.
 
 Finally, remember that OVERLAP/CAUSES does NOT imply that the effect
-is contained within the span of the cause. Take, for example, the
-temporal relationship between an earthquake, and the destruction it
+is contained within the temporal span of the cause. Take, for example, the
+temporal relationship between an earthquake and the destruction it
 causes. It is certain that some destruction, if not the majority,
 occurs while the earthquake itself is ongoing, that is, the ground
 is still shaking. However, in any earthquake, there is damage which
