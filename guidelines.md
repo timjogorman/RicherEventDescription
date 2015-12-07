@@ -2597,19 +2597,18 @@ got so much **better**.
 
 ### TLINK all explicitly stated temporal relations
 
-If the writer goes out of his or her way to make a temporal statement,
-a TLINK should be made to reflect that statement. So, if the sentence
-reads:
+Typically we avoid creating links that are redundant with information already captured.  For example, as explained above, if one EVENT has a DocTimeRel of OVERLAP and the other EVENT has a DocTimeRel of AFTER, we do not create a BEFORE link between the two, because this information is already inferrable from their narrative containers.  
 
-- The patient **developed** a **rash** after **treatment**.
->  **treatment** BEFORE **rash** 
-> **treatment** BEFORE **developed**
+However, if the writer goes out of his or her way to make a temporal statement, a TLINK should be made to reflect that statement, whether or not it’s redundant.  For example:
 
-You should explicitly mark the treatment as being BEFORE both **developed**
-and **rash**, using a TLINK, regardless of the fact that **developed**
-and **rash** will also be ALINKed. Note, though, that if no explicit
-temporal language is used, no TLINK should be created, and annotator
-knowledge should not be used to fill these TLINKs in.
+A **United Nations** assessment **team** was **dispatched** to the **province** after two **quakes** **struck** west of **Manokwari** *Jan. 4*.
+
+Say two coreference chains containing **dispatched** and **struck** are temporally linked elsewhere in the document so we’ve already shown that **struck** BEFORE/PRECONDITIONS **dispatched**.  Because of the explicit temporal language here (in this case, the preposition *after*), you should still create a link between the two EVENTs.
+
+**She**’s **chowing** down on **spaghetti** and **meatballs** at the moment, but **she**’ll **call** **you** back after **eating** **dinner**.
+
+Here’s an example of where we would want to link EVENTs in spite of already knowing their temporal relationship from DocTimeRel; **eating** is OVERLAP and **call** is AFTER, but again, because of the explicit temporal statement, a BEFORE link should be made.
+
 
 ### Temporal and Subevent Containers have no locality constraints
 
