@@ -2628,7 +2628,7 @@ In many cases, sufficient world knowledge, inference or research may let an anno
 
 It will often feel like a temporal order is implied even though no explicit temporal words have occurred, simply because one sentence is positioned as following another.  We have a test for this: If you can add a "then" into the second clause *without  feeling like you've changed the meaning of the two sentences*, then feel free to temporally order these with BEFORE. If you cannot do this "then" test, then do not relate them.  
 
-Note that this should only encompass nearby sentences, but could theoretically go beyond a single sentence, *if and only if the first sentence contained many subevents*. For example:
+Note that in most cases this criterion should only be applied to sentences that are next to each other, but it could theoretically go beyond adjacent sentences *if and only if the first sentence contained many subevents*. For example:
 
 - We **took** the kids to the arcade.  They **played** ski-ball; they **played** pacman.  We [*then*] **went** home exhausted.
 - **took** CONTAINS-SUBEVENT **played**
