@@ -2618,11 +2618,11 @@ Remember that we are attempting, whenever possible, to structure our documents s
 
 Because of the difficulty of capturing detail within a given narrative
 container, not all relations between EVENTs will be captured. For
-instance, in the following example, containment alone doesn't tell us the relationship between [dinner] and [session]:
+instance, in the following example, containment alone doesn't tell us the relationship between **dinner** and **session**:
 
-> During the [conference] there was a [session] in which they [thanked] Mr. Smith and a catered [dinner]
+> During the **conference** there was a **session** in which they **thanked** Mr. Smith and a catered **dinner**
 
-In many cases, sufficient world knowledge, inference or research may let an annotator guess what the order of these events is.  However, unless there is explicit grammatical evidence for the ordering – most obviously, prepositions and connectives like "before", or things like "and then" – do not infer anything about the relationships between them.  Moreover, temporal order (non-causal, non-CONTAINS) relations only leave the sentence in specific circumstances.  The only time you should create temporal order links across sentence boundaries is if they pass the following test.
+In many cases, sufficient world knowledge, inference or research may let an annotator guess the order of these events.  However, unless there is explicit grammatical evidence for the ordering – most obviously, prepositions and connectives like "before", or things like "and then" – do not infer anything about the relationships between them.  Moreover, temporal order (non-causal, non-CONTAINS) relations only leave the sentence in specific circumstances.  The only time you should create temporal order links across sentence boundaries is if they pass the following test.
 
 #### Nearby sentences or coordinated clauses count as "evidence", but only if you can add an explicit "then"
 
@@ -2630,8 +2630,10 @@ It will often feel like a temporal order is implied even though no explicit temp
 
 Note that this should only encompass nearby sentences, but could theoretically go beyond a single sentence, *if and only if the first sentence contained many subevents*. For example:
 
-- We [took] the kids to the arcade.  They played ski-ball; they played pacman.  We **(then)** [went] home exhausted.
-> **took** BEFORE **went**
+- We **took** the kids to the arcade.  They **played** ski-ball; they **played** pacman.  We [*then*] **went** home exhausted.
+- **took** CONTAINS-SUBEVENT **played**
+- **took** CONTAINS-SUBEVENT **played**
+- **took** BEFORE **went**
 
 
 ### Do causation links between coordinated clauses / adjacent sentences if they allow a so/thus/therefore paraphrase
