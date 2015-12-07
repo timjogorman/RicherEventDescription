@@ -2411,7 +2411,7 @@ girl had **died** from her **injuries**.
 
 > **died** BEFORE/CAUSE **rose**
 
-> **confirmed** BEFORE/CAUSES **rose**
+> **confirmed** BEFORE **rose**
 
 Here, again, we can infer that bombing
 caused the death toll to rise, without explicitly marking all possible causation links. These chained annotations, much like narrative containers, allow us
@@ -2424,7 +2424,7 @@ small step.
 
 Remember that every EVENT  with a DocTimeRel of BEFORE is in a large narrative container (the events happening before the document time), every EVENT with a DocTimeRel of OVERLAP is in a container that defines the document time, and so forth; and remember that these containers have a natural order.  Marking that a BEFORE event happens before an OVERLAP event, then, is redundant information – we already know that due to the DocTimeRel containers they are a part of.  
 
-This also means that TIMEX3s such as "now" or "in the past", if they are synonymous with the DocTimeRel containers themselves, do not need to be linked to, as they provide no additional information about the event. 
+This also means that TIMEX3s such as *now* or *in the past*, if they are synonymous with the DocTimeRel containers themselves, do not need to be linked to any EVENTs via temporal ordering links (i.e., BEFORE, OVERLAP, BEGINS-ON, ENDS-ON), as they provide no additional information about the event. They may, however, be linked to EVENTs via containment where appropriate, as in: "**They**'re **watching** the **Cubs** **game** *now* – *now* CONTAINS **watching**.
 
 
 
