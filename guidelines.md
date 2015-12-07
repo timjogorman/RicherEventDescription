@@ -2932,14 +2932,6 @@ a potential OVERLAP more specifically using narrative containers and
 a bit of additional thought.*
 
 
-### BEFORE/CAUSES, OVERLAP/CAUSES, BEFORE/PRECONDITIONS and OVERLAP/PRECONDITIONS
-
-Although these are included in the list of TLINKs during annotation,
-and carry the same temporal information and properties as BEFORE and
-OVERLAP, they carry additional causal meanings and so are fully explained
-in the causation section.
-
-
 ### BEGINS-ON
 
 BEGINS-ON signals that the EVENT begins on the EVENT or TIMEX3 it
@@ -3083,14 +3075,14 @@ bounds, and thus, are SIMULTANEOUS, but we will generate those links
 later. Only mark SIMULTANEOUS for non-coreferent EVENTs.*
 
 
+### BEFORE/CAUSES, OVERLAP/CAUSES, BEFORE/PRECONDITIONS and OVERLAP/PRECONDITIONS
 
-
+These are temporal links that carry additional causal information. As such, when choosing between these links, you will have to consider two different questions: 1) whether EVENT A ends before EVENT B or temporally overlaps EVENT B; 2) whether EVENT A causes or preconditions EVENT B. EVENTs are in a causal relationship if EVENT A triggers or necessitates EVENT B.  EVENTs are in a preconditioning relationship if EVENT A enables the occurrence of EVENT B (i.e., EVENT B would not be possible without EVENT A), but EVENT B isn't *inevitable* given EVENT A. For more on this distinction, see the section on **Distinguishing "Cause" from "Precondition"**.
 
 
 ### BEFORE/PRECONDITIONS
 
-As such, if you understand two EVENTs to have a relationship of preconditioning,
-your sole choice is to create a BEFORE/PRECONDITIONS link.
+If you understand two EVENTs to have a relationship of preconditioning, and the preconditioning EVENT ends before the preconditioned EVENT, a BEFORE/PRECONDITIONS link is the appropriate choice.
 
 - **She** **unlocked** the **vault**, **disabled** the
 **cameras**, and **distracted** the **guard** so that **he**
@@ -3098,12 +3090,25 @@ could **steal** the **gold**.
 > **unlocked** BEFORE/PRECONDITIONS
 **steal** 
 > **disabled** BEFORE/PRECONDITIONS **steal**
-
 > **distracted** BEFORE/PRECONDITIONS **steal**
 
-Because preconditions are defined as EVENTs which must have happened
-in order for a later EVENT to happen, temporally speaking, all PRECONDITIONS
-must start BEFORE the EVENT which they precondition.
+The unlocking, disabling, and distracting EVENTs all occurred BEFORE the stealing EVENT (based on this text).  Moreover, they did not directly cause the stealing EVENT – he could’ve decided not to steal the gold after all – but rather they enabled it to take place.  So BEFORE/PRECONDITIONS is the suitable link here.
+
+
+### OVERLAP/PRECONDITIONS
+
+OVERLAP/PRECONDITIONS is used when the preconditioning EVENT temporally overlaps the preconditioned EVENT.  As is the case with causation, in a preconditioning context the EVENT that enables the other EVENT to occur will necessarily begin first, but doesn’t necessarily *end* before the enabled EVENT begins.  It’s in these cases that we use OVERLAP/PRECONDITIONS.
+
+*2 weeks ago* **I** finally **plucked** up the **courage** to **tell** **my** **husband** **I** could	no longer **put** up with **his** **drinking**.
+>**courage** OVERLAP/PRECONDITIONS **tell**
+
+Telling isn’t an inevitable result of courage, but without courage the telling would not have happened, so we have a preconditioning situation.  Moreover, it is unlikely the courage stopped before the telling began, or the speaker never would have started speaking at all.
+
+If **you** could **guarantee** **me** **I** would be **healthy** and **active** and **able** to
+be of some **use** to **someone**, **I** would be **ok** with **living** to 100.
+>**able** OVERLAP/PRECONDITIONS **use**
+
+Here both [able] and [use] are HYPOTHETICAL, but we still have an OVERLAP/PRECONDITIONS relation.  [use] is not inevitable if the author had the ability; just because someone is able to do something doesn't mean they're going to do it.  However, [use] doesn’t happen unless the ability is present, so we have a straightforward preconditions context.  Finally, the ability doesn’t end before the usefulness begins, so an OVERLAP/PRECONDITIONS link is warranted here.
 
 
 ### BEFORE/CAUSES
