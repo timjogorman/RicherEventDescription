@@ -2928,12 +2928,17 @@ usually be marked with BEFORE instead.
 
 Note that BEGINS-ON is to be used only where there is no causal relationship.
 
-- *2008* marked the **start** of the rebels' brutal **campaign**
-> **start** BEGINS-ON *2008*
-
 - She has had Abdominal **Cramping** since *January*. 
 >
 **Cramping** BEGINS-ON *January*
+
+But:
+
+- *2008* marked the **start** of the rebels' brutal **campaign**
+> *2008* CONTAINS **start**
+> **start** INITIATES **campaign**
+
+**start** has a trivial temporal span, so no BEGINS-ON relation here.  Also, note that **start** and **campaign** are connected via an ALINK (discussed below); there is no need to TLINK two EVENTs otherwise connected by an ALINK. 
 
 - He reports intermittent chest **pain** since his prior **MI**.
 > **MI** BEFORE **pain**
