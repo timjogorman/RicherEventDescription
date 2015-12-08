@@ -3756,7 +3756,7 @@ relation.
 | ---- | ------- | --------- | ----
 | marking participation | his **role** in **helping** to... | "role" is not an event | 
 | aspectual pre-nominals | The **renewed** **investigation** of Morsi | "renewed" is an event because it gets an ALINK | 
-| event as its goal | convicted for assault, not **attempted** **murder** | make BOTH events, "murder" is neg, actual "attempt"pos, actual | 
+| event as its goal | convicted for assault, not **attempted** **murder** | make BOTH events, "murder" is neg, actual "attempt" is pos, actual | 
 | mentions of time periods | he spent a brief *period* in the US | make period's phrase a TIMEX | 
 | mention of time periods with semantic content | John finished his probation **period** | these can be EVENT | 
 
@@ -3766,38 +3766,38 @@ relation.
 | Type | example |  two events? | markable features   | relation? |
 | ---- | --- | --- | --- | --- |
 | denial of a fact  | the mayor denies any involvement with the cartels | yes | make second event UNCERTAIN/HEDGED | no relation |
-| denial when it means "prevent"  | the troops denied the protestors entry to the square | yes | make second event NEG-ACTUAL | mark a CAUSE (is causing the negation) |
+| denial when it means "prevent"  | the troops denied the protestors entry to the square | yes | make second event NEG-ACTUAL | CAUSE (is causing the negation) |
 | denouncement  | The international community was quick to **denounce** the **bombing** | yes | make second event ACTUAL (unless other cues say otherwise) | no relation |
-| endorsement  |  Three different countries have **endorsed** the trade **agreement**. | yes | no effect -- likely ACTUAL for e2 | no relation (unless endorsement/support enacts the endorsed thing) |
-| light verbs | John **took** a **bath** | no, only BATH |  | |
+| endorsement  |  Three different countries have **endorsed** the trade **agreement**. | yes | no effect – likely ACTUAL for e2 | no relation (unless endorsement/support enacts the endorsed thing) |
+| light verbs | John **took** a **bath** | no, only **bath** |  | |
 | light verbs | The burglar **committed** a heinous **crime** | no, only **crime** |  | |
-| reporting  | NYT first reported the strike in october | yes | make second event ACTUAL unless reporting verb also implies doubt (like "accused that") | REPORTING |
+| reporting  | NYT first reported the strike in October | yes | make second event ACTUAL unless reporting verb also implies doubt (like "accused that") | REPORTING |
 | reporting, absence of  | and the right hilar lesions were not **reported** as being **prominent**.  | yes | make second event UNCERTAIN/HEDGED if the absence of a report implies any doubt about its occurence  | no relation |
-| request | The Syrian rebels have repeatedly **requested** international **aid** | yes | default to HYPOTHETICAL for e2 |  one of the two PRECONDITION relations |
-| revealing/showing  | examination shows a decreased pulse | yes | make second event ACTUAL unless reporting verb marks doubt | REPORTING |
-| stimulus of emotions | the earthquake shook the buildling; the children were scared | yes | actual | the events PRECONDITION the emotions (ONLY when between actual events, not generics) |
-| seeming  | John seems to like chocolate | no | can be a hedge, and justification for marking UNCERTAIN/HEDGED | no relation |
+| request | The Syrian rebels have repeatedly **requested** international **aid** | yes | default to HYPOTHETICAL for e2 |  one of the two PRECONDITION relations, if modalities are the same |
+| revealing/showing  | examination **shows** a **decreased** pulse | yes | make second event ACTUAL unless reporting verb marks doubt | REPORTING |
+| stimulus of emotions | the earthquake **shook** the buildling; the children were **scared** | yes | actual | the events PRECONDITION the emotions (ONLY when between actual events, not generics) |
+| seeming  | John seems to **like** chocolate | seems is not an EVENT | can be a hedge, and justification for marking UNCERTAIN/HEDGED | no relation |
 | support verbs | After ~~undergoing~~ extensive **transformation**... | no, just **transformation** | | |
 | support verbs | at that time, he ~~experienced~~  **discomfort**... | no, just **discomfort** | | |
 | support verbs | The **earthquake** ~~struck~~ during the parade | no strike, just **earthquake** | | |
-| trying | This was a deliberate **effort** to **sabotage** the election | yes | use HYPOTHETICAL for e2 | trying to do something counts as a /PRECONDITION |
+| trying | This was a deliberate **effort** to **sabotage** the election | yes | default to HYPOTHETICAL for e2 | trying to do something counts as a PRECONDITION if modalities match |
 | usage of objects |  Police **used** tear ~~gas~~ to disperse the ... | just "used" (but "gas" is an entity) | | |
-| willingness | He is **willing** to **meet** with our Pauahi Wing Queens Hospital. | yes | default to HYPOTHETICAL for e2 | one of the two PRECONDITION relations |
+| willingness | He is **willing** to **meet** with our Pauahi Wing Queens Hospital. | yes | default to HYPOTHETICAL for e2 | one of the two PRECONDITION relations if modalities match|
 
 
 
 
-### Distinguishing Reporting events from Hedges
+### Distinguishing Reporting Events from Hedges
 
 Remember that hedges are NOT events, but merely good evidence for using UNCERTAIN/HEDGED on the events they modify
 
 | Reporting, Hedging or Separate Event? | type | example |  Reasoning |
 | ---- | --- | --- | --- |
-| Separate Event | denial  | the mayor denies any involvement with the cartels |  |
-| Reporting | revealing/showing  | examination shows a decreased pulse |  |
-| Reporting | actual reporting  | NYT first reported the strike in october | |
-| Reporting | prepositional reporting | **according to* John, they closed in February | | 
-| Reporting AND evidence for UNCERTAIN/HEDGED | reporting verbs that imply doubt | North Korea claims that they can hit NYC | see [Examples of reporting verbs implying uncertain/hedged](#Rules for Reporting verbs implying uncertain/hedged)
+| Separate Event | denial  | the mayor **denies** any **involvement** with the cartels |  |
+| Reporting | revealing/showing  | examination **shows** a **decreased** pulse |  |
+| Reporting | actual reporting  | NYT first **reported** the **strike** in October | |
+| Reporting | prepositional reporting | **according** to John, they **closed** in February | | 
+| Reporting AND evidence for UNCERTAIN/HEDGED | reporting verbs that imply doubt | Mary **claims** she **ate** all the donuts | see [Examples of reporting verbs implying uncertain/hedged](#Rules for Reporting verbs implying uncertain/hedged)
 
 
 
