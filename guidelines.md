@@ -3433,7 +3433,8 @@ the first Monday in November*
 ... but remember that specific mentions do not get GENERIC:
 
 - The last US Presidential **Election** was held on *November 4th, 2008*
-- > *November 4th, 2008* CONTAINS<sub>ACTUAL</sub> **Election**
+
+> *November 4th, 2008* CONTAINS<sub>ACTUAL</sub> **Election**
 
 :bangbang: *As with TLINK polarity, TLINK modality is seldom anything
 but the default, ACTUAL. If you are considering marking a TLINK with
@@ -3460,44 +3461,45 @@ than just the EVENTs within it.*
 
 While linking up events in terms of their temporal, causal and subevent
 structure, you will also be marking them for event coreference. These
-guidelines for coreference annotation have been adapted from the sources mentioned above in the Entity Coreference section, along with [Hovy et al. 2013](https://www.cs.cmu.edu/~hovy/papers/13HLT-Events-workshop.pdf)
+guidelines for coreference annotation have been adapted from the sources mentioned above in the Entity Coreference section, along with [Hovy et al. 2013](https://www.cs.cmu.edu/~hovy/papers/13HLT-Events-workshop.pdf).
 
 
 ### IDENTITY
 
 Two events have an IDENTICAL relation if they refer to the same event
-in space and time. The IDENTICAL relation has several important semantic
-characteristics(Following the MUC-7 specifications):
+in space and time. The IDENTICAL relation has a few important semantic
+characteristics (following the MUC-7 specifications):
  
-- The relation is symmetrical, i.e., non-directional: (if A is IDENT
-to B, then B is IDENT to A). This is different from relations like
-WHOLE/PART and SET/MEMBER, which are directional by defition. 
-- It is also transitive: if A is IDENT to B and B is IDENT to C, then
-A is IDENT to C. . 
+- The relation is symmetrical, i.e., non-directional: If A is IDENT
+to B, then B is IDENT to A. This is different from relations like
+WHOLE/PART and SET/MEMBER, which are directional by definition. 
+- It is also transitive: If A is IDENT to B and B is IDENT to C, then
+A is IDENT to C. 
 
 ### SET-MEMBER
 
 A SET-MEMBER relationship exists when one event can be thought of
-as being an instane of a larger set of events. In annotating this
+as being an instance of a larger set of events. In annotating this
 over events, you are to decide between SET-MEMBER and CONTAINS-SUBEVENT.
 You should remember to use CONTAINS-SUBEVENT for all cases in which
 an event is temporally within, and part of the script of, a larger
-event. 
+event. (Remember the WHOLE/PART relation discussed earlier is not to be used for EVENTs.  If you are tempted to use WHOLE/PART for an EVENT-EVENT relation, it's likely you should use CONTAINS-SUBEVENT or SET-MEMBER instead.)
 
 SET-MEMBER can occur between multiple ACTUAL events when the SET is
 an actual agglomeration of instances that are not a temporally continguous
-unit, as in \Next 
+unit, as in: 
 
 - A series of **earthquakes**<sub>SET</sub> struck the province of
 Manokwari last Tuesday. The largest **earthquake**<sub>MEMBER</sub> alone
-caused \$73 million in damage.
+caused $73 million in damage.
 
 Other SET/MEMBER relations will be between generalizations and their
-instances
+instances:
 
 - Presidents usually **pardon<sub>SET</sub>** a turkey for
-Thanksgiving, and today the lucky convict he **
-pardoned<sub>MEMBER</sub>** was named Ginny Fawell. 
+Thanksgiving, and today the lucky convict he **pardoned<sub>MEMBER</sub>** was named Ginny Fawell.
+
+Observe that the SET **pardon** is a GENERIC EVENT and the MEMBER **pardoned** is ACTUAL. As with ENTITY coreference, SET-MEMBER is the only coreference relation (besides BRIDGING) that may include GENERIC and ACTUAL modalities in the same link.
 
 
 ### BRIDGING
@@ -3506,22 +3508,15 @@ As with entities, if you are unable to use one of the previously discussed
 links, but it is apparent that some sort of coreference link exists
 which entails that the events have some sort of link, then use the
 BRIDGING relation. For dealing with EVENT coreference, an important
-option that this opens up is when a text alledges that doing one event
+option that this opens up is when a text alleges that doing one event
 is analogous to doing another, either directly or in an attempt at
 metaphor:
 
-- John **\textsubscript{head} voted** to make waffles the state food,
-which **\textsubscript{attribute} amounts** to betraying all his
-campagin promises.
+- John **voted** to make waffles the state food, which amounts to **betraying** all his
+campaign promises.
 
-Because we define CONTAINS-SUBEVENT as involving temporal containment,
-you may also use BRIDGING for any subevent which seemed to be "part
-of", yet temporally outside of, another event.
+> **voted** BRIDGING **betraying**
 
-- After a week of attempted repairs, the palace **collapsed**
-Friday, the most disheartening part of the already-terrible **earthquake**.
-> **earthquake** BEFORE-CAUSE **collapsed** 
-> **earthquake** BRIDGING **collapsed**
 
 
 ### General Guidelines for Annotating Coreference
