@@ -3355,7 +3355,6 @@ differentiated from known facts.
 
 - He **escaped** on the *18th*, likely during a guard **change**,
 although authorities cannot be sure.
-
 > *18th* CONTAINS<sub>ACTUAL</sub> **change**
 > **change** CONTAINS<sub>UNCERTAIN/HEDGED</sub> **escaped**
 
@@ -3377,11 +3376,11 @@ is **growing** due to high **winds**.
 
 The third modality for TLINKs is HYP. This is useful when annotating
 theories, future possibilities, or other hypothetical temporal relations.
-Again, this is unrelated to the modality of the EVENTs, and is only
+Again, this is unrelated to the modality of the EVENTs, and should only be used
 when the temporal relation itself is hypothetical, theoretical, or
 otherwise dependent on an external factor.
 
-- Her **surgery** may take place on the *18th*. 
+- Her **surgery** may take place on the *18th*.
 > *18th CONTAINS<sub>HYPOTHETICAL</sub> **surgery**
 
 - If the **explosion** was caused by a natural gas **leak**,
@@ -3390,7 +3389,7 @@ the insurance will not **cover** the **reconstruction**.
 > **explosion** BEFORE/PRECONDITIONS<sub>ACTUAL</sub> **reconstruction**
 
 - Obama's **visit**, if **it** occurs on a *weekday*, is
-expected to cause traffic **headaches**. 
+expected to cause traffic **headaches**.
 > **it** OVERLAPS/CAUSE<sub>HYPOTHETICAL</sub> **headaches**
 > *weekday* CONTAINS<sub>HYPOTHETICAL</sub> **it**
 
