@@ -3707,21 +3707,21 @@ they report. For instance:
 
 - A Kurdish newspaper **said**<sub>REPORTING EVENT</sub> Wednesday that Iraqi members
 of an Al Qaeda-linked group, a Kurd and an Arab, **blew**<sub>REPORTED EVENT</sub>
-themselves up in northern Iraq on February 1, **killing**
+themselves up in northern Iraq on February 1, **killing**<sub>REPORTED EVENT</sub>
 at least 105 people.
 
-- The newspaper **added**$_{R}$ that bin Mahmud is the brother
+- The newspaper **added**<sub>REPORT</sub> that bin Mahmud is the brother
 of a man whose alias is Abdullah Al-Shami, an Ansar al-Islam leader
-who was **killed**$_{E}$ last year while **fighting**$_{E}$
-a US-backed **onslaught**$_{E}$ by the PUK that **forced**$_{E}$
+who was **killed**<sub>EVENT</sub> last year while **fighting**<sub>EVENT</sub>
+a US-backed **onslaught**<sub>EVENT</sub> by the PUK that **forced**<sub>EVENT</sub>
 the group out of its enclave near the Iranian border at the end of
 March last year.
 
 Here, we are linking the Report itself with the Event that was reported.
 The EVENTs that can serve as a Report appear to be a restricted class,
 mostly the verbs "say", "tell", and "report", and will
-always be an EVENT of the type EVI. The events serving as Event, what
-was being reported, are restricted to only the EVENTs in the remainder
+always be an EVENT of the type EVI. The events serving as Event (what
+was being reported) are restricted to only the EVENTs in the remainder
 of the sentence, unless we have some explicit rationale we can point
 to that the report does not cover an in-sentence event, or that the
 report continues outside the sentence boundary. In the latter case,
