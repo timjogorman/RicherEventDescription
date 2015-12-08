@@ -3728,9 +3728,9 @@ report continues outside the sentence boundary. In the latter case,
 it should only be for cases of direct quotations including multiple
 sentences.
 
-- Mr. Jones **said**$_{R}$, "I'm not **sure**$_{E}$ when
-our company will go **public**$_{E}$. It will not be before we
-**acquire**$_{E}$ Vandelay Industries.\textquotedbl{
+- Mr. Jones **said**<sub>REPORT</sub> "I'm not **sure**<sub>EVENT</sub> when
+our company will go **public**<sub>EVENT</sub>. It will not be before we
+**acquire**<sub>EVENT</sub> Vandelay Industries.
 
 If there are multiple EVENTs reported by the same EVI event, as in
 the examples above, only one REPORTING link will be created, with
@@ -3746,17 +3746,17 @@ relation.
 
 | Type | example | treatment | see
 | ---- | ------- | --------- | ----
-| communications | I finished an article for submission | EVENT - make these eventive when can be paraphrased with write/read/send  | 
-| communications | This [article] is part of TIMES EXPRESS. | just an ENTITY, does not imply an event  | 
+| communications | I finished an **article** for submission | EVENT - make these eventive when can be paraphrased with write/read/send  | 
+| communications | This **article** is part of TIMES EXPRESS. | just an ENTITY, does not imply an event  | 
 
 
-### Hard Cases when determining Markability
+### Hard cases when determining markability
 
 | Type | example | treatment | see
 | ---- | ------- | --------- | ----
 | marking participation | his **role** in **helping** to... | "role" is not an event | 
 | aspectual pre-nominals | The **renewed** **investigation** of Morsi | "renewed" is an event because it gets an ALINK | 
-| event as its goal | for assault, not ** attempted** **murder** | make BOTH events, "murder" is neg, "attempt" actual | 
+| event as its goal | convicted for assault, not **attempted** **murder** | make BOTH events, "murder" is neg, "attempt" actual | 
 | mentions of time periods | he spent a brief period in the US | make period's phrase a TIMEX | 
 | mention of time periods with semantic content | john finished his probation period | these can be EVENT | 
 
