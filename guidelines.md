@@ -3259,8 +3259,7 @@ Polarity is used and applicable with TLINKs of all types.
 
 As with EVENTs, the default and most common polarity value used is
 POS. This is the marker of positive polarity. This is used for a temporal
-specification that is not negated. Most TLINKs are of this polarity,
-and this is the default value. POS need not be specified in annotation.
+specification that is not negated. POS need not be specified in annotation.
 
 All examples in this guideline, unless otherwise marked, represent
 POS TLINKs.
@@ -3273,29 +3272,29 @@ TLINKs are marked as NEG only when they are both explicitly asserted
 
 - The **bombing** did not take place on *the 18th* as expected,
 but on *the 24th*. 
-> *18th* CONTAINS -- NEG **bombing** \b{.
-*24th* CONTAINS -- POS **bombing**
+> *18th* CONTAINS – NEG **bombing**
+*24th* CONTAINS – POS **bombing**
 
-- The **earthquake** did not cause the **fire**, instead,
+- The **earthquake** did not cause the **fire**; instead,
 **it** was caused by an electrical **short** . 
 > **earthquake**
-BEFORE/CAUSES -- NEG **fire** 
-> **short** BEFORE/CAUSES --
+BEFORE/CAUSES – NEG **fire** 
+> **short** BEFORE/CAUSES –
 POS **it** 
-> **earthquake** BEFORE -- POS **fire**
+> **earthquake** BEFORE – POS **fire**
 
 - The **meeting** was not on *Thursday*. 
-> *Thursday\
-CONTAINS -- NEG **meeting**
+> *Thursday
+CONTAINS – NEG **meeting**
 
-It is important to contrast these with the below:
+It is important to contrast these with the following:
 
 - The **meeting** on *Thursday* didn't occur. 
-> *Thursday\
-CONTAINS -- POS **meeting<sub>ACTUAL,NEG</sub>
+> *Thursday
+CONTAINS – POS **meeting<sub>ACTUAL,NEG</sub>**
 
 In the negated TLINKs, the EVENTs themselves are not negated, but
-instead, the temporal relation \textit{itself} is negated. It is quite
+instead, the temporal relation *itself* is negated. It is quite
 possible (and in fact, far more common) to have negated EVENTs occuring
 as a part of a POS TLINK. These most often occur as links between
 two POS EVENTs, which are specified as NOT having a certain temporal
@@ -3327,7 +3326,7 @@ itself is uncertain, hypothetical or generic.
 **ACT - Actual**
 
 The first modality for TLINKs is ACTUAL, which is used most of the
-time, and is the default option (that need not be specifically marked).
+time and is the default option (and need not be specifically marked).
 An overwhelming majority of TLINKs are ACTUAL, and are asserted as
 true without any hedging or hypotheticality.
 
@@ -3340,7 +3339,7 @@ ACTUAL TLINKs.
 TLINKs, like EVENTs, are marked as UNCertain when we can point to
 some explicit lexical or phrasal trigger that indicates some degree
 of uncertainty about the reality of the temporal relation. These TLINKs
-are presented with a sort of tacit claim that they're \textit{probably
+are presented with a sort of tacit claim that they're probably
 real (unlike hypotheticals, which are explicitly irrealis), but where
 the author is unsure.
 
@@ -3354,12 +3353,13 @@ is very important that these uncertain temporal relations be included
 as part of the timeline, but be marked so that they can be easily
 differentiated from known facts.
 
-- He likely **escaped** on the *18th* during a *guard change*,
+- He **escaped** on the *18th*, likely during a guard **change**,
 although authorities cannot be sure. 
-> *18th* CONTAINS<sub>ACTUAL</sub> **guard change**
-> **guard change** CONTAINS<sub>UNCERTAIN/HEDGED</sub> **escaped**
+> *18th* CONTAINS<sub>ACTUAL</sub> **change**
 
-- The chairman will, in all likelihood, **step** down on *Monday*.
+> **change** CONTAINS<sub>UNCERTAIN/HEDGED</sub> **escaped**
+
+- The chairman is going to **step** down, likely this coming *Monday*.
 > *Monday* CONTAINS<sub>UNCERTAIN/HEDGED</sub> **step**
 
 - We have every reason to expect that her incision will **heal**
@@ -3369,7 +3369,9 @@ before her **tournament**.
 - The **fire**, very likely caused by a lightning **strike**,
 is **growing** due to high **winds**. 
 > **strike** BEFORE/CAUSE<sub>UNCERTAIN/HEDGED</sub> **fire**
+
 > **winds** OVERLAP/CAUSE<sub>ACTUAL</sub> **growing**
+
 > **strike** BEFORE<sub>ACTUAL</sub> **growing**
 
 
