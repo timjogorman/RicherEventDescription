@@ -3571,16 +3571,16 @@ and the success of the **drug**, **I** recommend **it**.
 
 ## Aspectual Link Annotation
 
-The next annotation performed on the data is the ALINK (or "aspectual
+The other annotation performed on the data is the ALINK (or "aspectual
 link") annotation. ALINKs are created between an aspectual EVENT
-and a non-aspectual EVENT. Any EVENT previously marked with the class
+and a non-aspectual EVENT. (Refer back to section **Type of EVENTs** for more detail.) Any EVENT previously marked with the class
 ASPECTUAL will be ALINKed to another, non-aspectual event, and you
 will never make an ALINK which includes a TIMEX3 or two non-aspectual
 EVENTS. ALINKs only occur when you have an aspectual EVENT, and are
 much less common in the text than TLINK annotations. Relatively few
 EVENTs will have an associated ALINK.
 
-As with TLINKs, they are created interactively, and have the basic
+As with TLINKs, they are created interactively and have the following basic
 form:
 
 - EVENT1 **aspectual relation** EVENT2
@@ -3591,7 +3591,7 @@ cross a sentence boundary.
 
 ### ALINK sub-types
 
-There are four different aspectual relations used in the schema, CONTINUES,
+There are four different aspectual relations used in the schema: CONTINUES,
 INITIATES, REINITIATES, and TERMINATES.
 
 
@@ -3611,8 +3611,8 @@ towards Damascus.
 - The patient will **remain** on **dialysis** until her condition
 **changes**. 
 > **remain** CONTINUES **dialysis** 
-> **remain**
-ENDS-ON **changes**
+> 
+**remain** ENDS-ON **changes**
 
 - She is not interested in pursuing chemotherapy at this time
 but is interested in **continued** **surveillance**. 
