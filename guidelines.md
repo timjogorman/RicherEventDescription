@@ -3692,8 +3692,8 @@ another event:
 
 - We will **hold** her **heparin** until after the **surgery**.
 > **hold** TERMINATES **heparin** 
-> **hold** ENDS-ON
-**surgery**
+> 
+**hold** ENDS-ON **surgery**
 
 - Patient **nausea** was successfully **stopped** by 1-mg
 **Ativan** p.r.n. 
