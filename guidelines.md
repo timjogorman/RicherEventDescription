@@ -3354,9 +3354,9 @@ as part of the timeline, but be marked so that they can be easily
 differentiated from known facts.
 
 - He **escaped** on the *18th*, likely during a guard **change**,
-although authorities cannot be sure. 
-> *18th* CONTAINS<sub>ACTUAL</sub> **change**
+although authorities cannot be sure.
 
+> *18th* CONTAINS<sub>ACTUAL</sub> **change**
 > **change** CONTAINS<sub>UNCERTAIN/HEDGED</sub> **escaped**
 
 - The chairman is going to **step** down, likely this coming *Monday*.
@@ -3369,9 +3369,7 @@ before her **tournament**.
 - The **fire**, very likely caused by a lightning **strike**,
 is **growing** due to high **winds**. 
 > **strike** BEFORE/CAUSE<sub>UNCERTAIN/HEDGED</sub> **fire**
-
 > **winds** OVERLAP/CAUSE<sub>ACTUAL</sub> **growing**
-
 > **strike** BEFORE<sub>ACTUAL</sub> **growing**
 
 
