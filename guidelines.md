@@ -3811,9 +3811,8 @@ Remember that hedges are NOT events, but merely good evidence for using UNCERTAI
 | Contrast       | Test         | example | example  relation |  
 | -------------- | ------------ | ------------ | ------------ |
 | Cause vs Precondition | if it's part of a long causal chain that might or  might not have resulted in the event, just PRECONDITION |  The **rockfall** made the **over-full** dam **burst** | **over-full** BEFORE/PRECONDITIONS **burst** |
-| Cause vs Precondition | if the causation is direct and explicit, it's CAUSE |  The **rockfall** made the **over-full** **dam** **burst** | **rockfall** BEFORE/CAUSE **burst** | 
+| Cause vs Precondition | if the causation is direct and explicit, it's CAUSE |  The **rockfall** made the **over-full** dam **burst** | **rockfall** BEFORE/CAUSE **burst** | 
 | Contains vs Contains-Subevent | if event B could be literally seen as a smaller sample of event A (same type, etc.) use CONTAINS-SUBEVENT | During the **speech**, he **discussed** the Iraq war. | **speech** CONTAINS/SUBEVENT **discussed** |
-| Contains vs Contains-Subevent | if event B might be part of a "script" or description of how one does event A, use CONTAINS-SUBEVENT | The loudest part of *making* coffee is *grinding* the beans | **making** CONTAINS/SUBEVENT **grinding** |
 | Contains vs Contains-Subevent | if event B might be part of a "script" or description of how one does event A, use CONTAINS-SUBEVENT | The loudest part of *making* coffee is *grinding* the beans | **making** CONTAINS/SUBEVENT **grinding** |
 | Set/Member vs Contains-Subevent | if event A **could be viewed as** a single, contiguous event containing many instances like event B, use contains-Subevent | During the **testimonies**, the eye-witness *explained* what they saw  | **testimonies** CONTAINS/SUBEVENT **explained** |
 | Set/Member vs Contains-Subevent | if event A **must be viewed as** a colection of temporally disconnected events, and event B is an instance one of them, use SET/MEMBER | During the three **trials**, only the last **trial** had admissable evidence  | **trials** SET/MEMBER **trial** |
