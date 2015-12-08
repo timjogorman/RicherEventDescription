@@ -3671,7 +3671,7 @@ the **PCN** VK was **discontinued** *24-hours ago*.
 > 
 **discontinued** BEFORE **reoccurred**<sub>NEG</sub>
 >
-**discontinued** OVERLAPs *24-hours ago*
+*24-hours ago* CONTAINS **discontinued**
 >
 **reoccurred** REINITIATES<sub>NEG</sub> **rash**
 
