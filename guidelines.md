@@ -3636,11 +3636,12 @@ of another event:
 
 - Patient will **begin** a high-fiber **diet** upon **release**.
 > **begin** INITIATES **diet**
-
-> **begin** BEGINS-ON **release**
+> 
+**begin** BEGINS-ON **release**
 
 - We will **start** Ms. Miller on a normal saline **infusion**
-at 75 an hour for a total of 1 L. 
+at 75 an hour for a total of 1 L.
+
 > **start** INITIATES **infusion**
 
 Note that INITIATES carries an implied sort of causality (beginning
