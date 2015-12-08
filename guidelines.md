@@ -3657,19 +3657,25 @@ event will be restarted or reinitiated:
 - The latest **bombing** broke the treaty, **resurrecting**
 **violence** throughout the city. 
 > **resurrecting** REINITIATES **violence**
+>
+**bombing** BEFORE/CAUSES **resurrecting**
 
 - **Levaquin** 750 mg p.o. q. day (will **restart** *today*)
 > **restart** REINITIATES **Levaquin** 
-> *today* CONTAINS **restart**
+> 
+*today* CONTAINS **restart**
 
 - His anterior chest **rash** has not **reoccurred** since
 the **PCN** VK was **discontinued** *24-hours ago*.
 >  **discontinued** TERMINATES **PCN** 
-> **discontinued** BEFORE **reoccurred**<sub>NEG</sub>
+> 
+**discontinued** BEFORE **reoccurred**<sub>NEG</sub>
+>
+**discontinued** OVERLAPs *24-hours ago*
+>
+**reoccurred** REINITIATES<sub>NEG</sub> **rash**
 
-> **discontinued** OVERLAP *24-hours ago
-
-As with INITIATES, reinitiates carries an implied sort of causality.
+As with INITIATES, REINITIATES carries an implied sort of causality.
 This causality need not be marked, so long as the ALINK is present.
 
 
