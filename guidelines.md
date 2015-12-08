@@ -3641,8 +3641,8 @@ of another event:
 
 - We will **start** Ms. Miller on a normal saline **infusion**
 at 75 an hour for a total of 1 L.
-
-> **start** INITIATES **infusion**
+> 
+**start** INITIATES **infusion**
 
 Note that INITIATES carries an implied sort of causality (beginning
 something, by definition, causes it to start). This causality need
