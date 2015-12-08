@@ -3400,7 +3400,8 @@ hypothetical relations. See the below example:
 
 - If the group **attacks** during the **Olympics**, Russia
 has promised swift **retaliations**. 
-> **Olympics**<sub>ACT</sub> CONTAINS<sub>HYPOTHETICAL</sub> **attacks**<sub>HYP</sub>
+
+> **Olympics**<sub>ACT</sub> CONTAINS<sub>ACTUAL</sub> **attacks**<sub>HYP</sub>
 > **attacks**<sub>HYPH</sub> BEFORE/CAUSE<sub>ACTUAL</sub> **retaliation**<sub>HYP</sub>
 
 In this example, we have a hypothetical attack, an actual Olympic
@@ -3421,18 +3422,18 @@ information when no specific information is yet available.
 Generic temporal information (which is true in any document) is marked
 with GENERIC:
 
-- **Attacks** in the region generally don't occur on *Holy
+- **Attacks** in the region generally don't occur on *holy
 days* 
-> *Holy days* CONTAINS<sub>NEG, GENERIC</sub> **attacks**
+> *holy days* CONTAINS<sub>NEG, GENERIC</sub> **attacks**
 
 - US Presidential **Elections** are held on the *Tuesday after
 the first Monday in November* 
 > *Tuesday after the first Monday in November* CONTAINS<sub>GENERIC</sub> **Elections**
 
-... but remember that specific mentions do not get <GENERIC>:
+... but remember that specific mentions do not get GENERIC:
 
-- The last US Presidential **Election** was held on *November 4th, 2008* 
-> *November 4th, 2008* CONTAINS<sub>ACTUAL</sub> **Election**
+- The last US Presidential **Election** was held on *November 4th, 2008*
+- > *November 4th, 2008* CONTAINS<sub>ACTUAL</sub> **Election**
 
 :bangbang: *As with TLINK polarity, TLINK modality is seldom anything
 but the default, ACTUAL. If you are considering marking a TLINK with
