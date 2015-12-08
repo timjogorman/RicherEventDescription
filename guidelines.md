@@ -3673,7 +3673,7 @@ the **PCN** VK was **discontinued** *24-hours ago*.
 >
 *24-hours ago* CONTAINS **discontinued**
 >
-**reoccurred** REINITIATES<sub>NEG</sub> **rash**
+**reoccurred**<sub>NEG</sub> REINITIATES **rash**
 
 As with INITIATES, REINITIATES carries an implied sort of causality.
 This causality need not be marked, so long as the ALINK is present.
