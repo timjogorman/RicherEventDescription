@@ -3756,9 +3756,9 @@ relation.
 | ---- | ------- | --------- | ----
 | marking participation | his **role** in **helping** to... | "role" is not an event | 
 | aspectual pre-nominals | The **renewed** **investigation** of Morsi | "renewed" is an event because it gets an ALINK | 
-| event as its goal | convicted for assault, not **attempted** **murder** | make BOTH events, "murder" is neg, "attempt" actual | 
-| mentions of time periods | he spent a brief period in the US | make period's phrase a TIMEX | 
-| mention of time periods with semantic content | john finished his probation period | these can be EVENT | 
+| event as its goal | convicted for assault, not **attempted** **murder** | make BOTH events, "murder" is neg, actual "attempt"pos, actual | 
+| mentions of time periods | he spent a brief *period* in the US | make period's phrase a TIMEX | 
+| mention of time periods with semantic content | John finished his probation **period** | these can be EVENT | 
 
 
 ### Complex Predicates
@@ -3766,7 +3766,7 @@ relation.
 | Type | example |  two events? | markable features   | relation? |
 | ---- | --- | --- | --- | --- |
 | denial of a fact  | the mayor denies any involvement with the cartels | yes | make second event UNCERTAIN/HEDGED | no relation |
-| denial, which it means "prevent"  | the troops denied the protestors entry to the square | yes | make second event NEG-ACTUAL | mark a CAUSE (is causing the negation) |
+| denial when it means "prevent"  | the troops denied the protestors entry to the square | yes | make second event NEG-ACTUAL | mark a CAUSE (is causing the negation) |
 | denouncement  | The international community was quick to **denounce** the **bombing** | yes | make second event ACTUAL (unless other cues say otherwise) | no relation |
 | endorsement  |  Three different countries have **endorsed** the trade **agreement**. | yes | no effect -- likely ACTUAL for e2 | no relation (unless endorsement/support enacts the endorsed thing) |
 | light verbs | John **took** a **bath** | no, only BATH |  | |
