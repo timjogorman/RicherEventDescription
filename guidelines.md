@@ -3705,9 +3705,9 @@ you will need to create at least one ALINK.*
 Reporting Annotations link EVIDENTIAL EVENTs to those EVENTs that
 they report. For instance:
 
-- A Kurdish newspaper **said**$_{R}$ Wednesday that Iraqi members
-of an Al Qaeda- linked group, a Kurd and an Arab, **blew**$_{E}$
-themselves up in northern Iraq on February 1, **killing**$_{E}$
+- A Kurdish newspaper **said**<sub>REPORTING EVENT</sub> Wednesday that Iraqi members
+of an Al Qaeda-linked group, a Kurd and an Arab, **blew**<sub>REPORTED EVENT</sub>
+themselves up in northern Iraq on February 1, **killing**
 at least 105 people.
 
 - The newspaper **added**$_{R}$ that bin Mahmud is the brother
