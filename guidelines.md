@@ -3630,11 +3630,13 @@ INITIATES is used when an aspectual event indicates the start or initiation
 of another event:
 
 - *2008* marked the **start** of the rebels' brutal **campaign**.
-> **start** BEGINS-ON *2008* 
-> **start** INITIATES **campaign**
+> *2008* CONTAINS **start** 
+> 
+**start** INITIATES **campaign**
 
 - Patient will **begin** a high-fiber **diet** upon **release**.
-> **begin** INITIATES **diet** 
+> **begin** INITIATES **diet**
+
 > **begin** BEGINS-ON **release**
 
 - We will **start** Ms. Miller on a normal saline **infusion**
