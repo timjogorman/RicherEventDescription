@@ -3690,17 +3690,12 @@ another event:
 - Because of this **reaction**, **Allegra** will be **discontinued**.
 > **discontinued** TERMINATES **Allegra**
 
-- We will **hold** her **heparin** until after the **surgery**.
-> **hold** TERMINATES **heparin** 
-> 
-**hold** ENDS-ON **surgery**
-
 - Patient **nausea** was successfully **stopped** by 1-mg
-**Ativan** p.r.n. 
+**Ativan** p.r.n.
 > **stopped** TERMINATES **nausea**
 
-:bangbang: *ALINKs are much less common than TLINKs, usually only a few
-per document, but they are no less important and easy to overlook.
+:bangbang: *ALINKs are much less common than TLINKs – there are usually only a few
+per document – but they are no less important and easy to overlook.
 Remember that any time you have an EVENT which has the type ASPECTUAL,
 you will need to create at least one ALINK.*
 
