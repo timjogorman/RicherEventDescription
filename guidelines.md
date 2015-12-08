@@ -3523,23 +3523,22 @@ campaign promises.
 
 
 
-#### Never link EVENTs to ENTITIES
+#### Never link EVENTs to ENTITYs
 
-In all coreference relations (IDENTICAL, APPOSITIVE, WHOLE/PART, AND
+In all coreference relations (IDENTICAL, APPOSITIVE, WHOLE/PART, and
 SET-MEMBER), Entities can be linked to Entities, and Events can be
 link to Events, but Entities and Events will never be linked within
 the same coreference relation. If you encounter an occasion where
 you are tempted to do this, check that your Entity is not actually
 an Event, or that your Event is not actually an Entity, as the case
-may be.
+may be.  You may, however, link Entities and Events with a BRIDGING relation when necessary.
 
 
-#### SET/MEMBER, and BRIDGING relations are inherited by IDENT
-chains
+#### SET/MEMBER, WHOLE/PART and BRIDGING relations are inherited by IDENT chains
 
 If you have an IDENT chain represented by A-A-A-A-A, and A participates
 as the PART in a WHOLE/PART relation or as the MEMBER in a SET/MEMBER
-relation, conceptually, all mentions of A are PARTs of the WHOLE or
+relation, then conceptually, all mentions of A are PARTs of the WHOLE or
 MEMBERs of the SET, too. You do not need to include every mention
 of A as a PART of the WHOLE or as a MEMBER of the SET. Only the most
 recent mention of A ought to be included in the relation. The other
@@ -3551,18 +3550,22 @@ spider-webbing.
 
 In analogy with the principle for not TLINKing HYP/GEN to ACT/UNCERTAIN
 events, ACTUAL and GENERIC items can never be in an IDENTICAL, APPOSITIVE,
-or WHOLE/PART relationship. They can, however, be SET/MEMBER, as in
-\Next:
+or WHOLE/PART relationship. They can, however, be SET/MEMBER:
 
 - **I** discussed with **Mrs. Ambry**<sub>ACTUAL</sub> the results
 of a local clinical trial in which **patients**<sub>GENERIC</sub> with
 **cancer**<sub>GENERIC</sub> recovered successfully on the **drug**
 without reoccurrence. Given **her** colon **cancer**<sub>ACTUAL</sub>
-and the success of the **drug**, **I** recommend **it**. 
-> SET **patients**: MEMBER **Mrs. Ambry** 
-> **Mrs. Ambry** IDENTICAL **her** 
+and the success of the **drug**, **I** recommend **it**.
+
+> SET **patients**: MEMBER **Mrs. Ambry**
+
+> **Mrs. Ambry** IDENTICAL **her**
+
 > SET **cancer**<sub>GENERIC</sub>: MEMBER **cancer**<sub>ACTUAL</sub>
-> **I** IDENTICAL **I** 
+
+> **I** IDENTICAL **I**
+
 >**drug** IDENTICAL **drug**, **it**
 
 
