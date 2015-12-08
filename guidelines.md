@@ -2932,16 +2932,16 @@ Note that BEGINS-ON is to be used only where there is no causal relationship.
 >
 **Cramping** BEGINS-ON *January*
 
+-As soon as we **spoke**, he became **oriented** and was perfectly fine.
+> **oriented** BEGINS-ON **spoke**
+
 But:
 
 - *2008* marked the **start** of the rebels' brutal **campaign**
 > *2008* CONTAINS **start**
 > **start** INITIATES **campaign**
 
-**start** has a trivial temporal span, so no BEGINS-ON relation here.  Also, note that **start** and **campaign** are connected via an ALINK (discussed below); there is no need to TLINK two EVENTs otherwise connected by an ALINK. 
-
-- He reports intermittent chest **pain** since his prior **MI**.
-> **MI** BEFORE **pain**
+Note **start** has a trivial temporal span, so no BEGINS-ON relation here.  Also, **start** and **campaign** are connected via an ALINK (discussed below); there is no need to TLINK two EVENTs otherwise connected by an ALINK. 
 
 
 ### ENDS-ON
