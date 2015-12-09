@@ -2902,7 +2902,7 @@ In short, OVERLAP is meant for situations where two events overlap
 in some way, but where you are not sure (or do not have enough information
 to tell) whether there is containment of the events' boundaries.
 
-Because OVERLAP in particular lends itself to the creation of a high number of inferred and not-very-informative links, OVERLAP should be reserved for explictly, linguistically marked relations (e.g., "at the same time," "while" when it means temporal overlap as in the preceding examples, etc.).
+Because OVERLAP in particular lends itself to the creation of a high number of inferred and not-very-informative links, OVERLAP should be reserved for cases where there's explicit linguistic evidence in the text (e.g., "at the same time," "while" when it means temporal overlap as in the preceding examples, etc.).
 
 OVERLAP is also used for linking TIMEX3s of type SET with other EVENTs,
 as in:
