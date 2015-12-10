@@ -3814,22 +3814,22 @@ Remember that hedges are NOT events, but merely good evidence for using UNCERTAI
 | Cause vs Precondition | if the causation is direct and explicit, it's CAUSE |  The **rockfall** made the **over-full** dam **burst** | **rockfall** BEFORE/CAUSE **burst** | 
 | Contains vs Contains-Subevent | if event B could be literally seen as a smaller sample of event A (same type, etc.) use CONTAINS-SUBEVENT | During the **speech**, he **discussed** the Iraq war. | **speech** CONTAINS/SUBEVENT **discussed** |
 | Contains vs Contains-Subevent | if event B might be part of a "script" or description of how one does event A, use CONTAINS-SUBEVENT | The loudest part of *making* coffee is *grinding* the beans | **making** CONTAINS/SUBEVENT **grinding** |
-| Set/Member vs Contains-Subevent | if event A **could be viewed as** a single, contiguous event containing many instances like event B, use contains-Subevent | During the **testimonies**, the eye-witness *explained* what they saw  | **testimonies** CONTAINS/SUBEVENT **explained** |
-| Set/Member vs Contains-Subevent | if event A **must be viewed as** a colection of temporally disconnected events, and event B is an instance one of them, use SET/MEMBER | During the three **trials**, only the last **trial** had admissable evidence  | **trials** SET/MEMBER **trial** |
-| Set/Member vs Contains-Subevent | if event A **must be viewed as** a colection of temporally disconnected events, and event B is **a subevent of** one of them, (*and there is no mention of that instance to point to*), use CONTTAINS/SUBEVENT | During the three **trials**, the expert only **testified** once  | **trials** CONTAINS/SUBEVENT **testified** |
-| Contains-Subevent vs PRECONDITION | if event B is the goal of event A, and is accomplished during event A, **and event B refers to the actual event that was accomplished during A**, then used CONTAINS/SUBEVENT  | We **took** a county road, managing to **dodge** the rush-hour traffic  | **took** CONTAINS/SUBEVENT **dodge** |
+| Set/Member vs Contains-Subevent | if event A **could be viewed as** a single, contiguous event containing many instances like event B, use CONTAINS-SUBEVENT | During the **testimonies**, the eye-witness **explained** what they saw  | **testimonies** CONTAINS/SUBEVENT **explained** |
+| Set/Member vs Contains-Subevent | if event A **must be viewed as** a collection of temporally disconnected events, and event B is an instance one of them, use SET/MEMBER | During the three **trials**, only the last **trial** had admissable evidence  | **trials** SET/MEMBER **trial** |
+| Set/Member vs Contains-Subevent | if event A **must be viewed as** a collection of temporally disconnected events, and event B is **a subevent of** one of them, (*and there is no mention of that instance to point to*), use CONTTAINS/SUBEVENT | During the three **trials**, the expert only **testified** once  | **trials** CONTAINS/SUBEVENT **testified** |
+| Contains-Subevent vs PRECONDITION | if event B is the goal of event A, and is accomplished during event A, **and event B refers to the actual event that was accomplished during A**, then use CONTAINS/SUBEVENT  | We **took** a county road, managing to **dodge** the rush-hour traffic  | **took** CONTAINS/SUBEVENT **dodge** |
 | Contains-Subevent vs PRECONDITION | if event B refers to the goal of event A, but **refers to the goal of event A rather than a particular event within A**, then use PRECONDITION (or NO relation; event B in this case should often be HYPOTHETICAL)  | To **avoid** the rush hour, we **took** backroads | **took** OVERLAP/PRECONDITION **avoid** |
-| Contains-Subevent vs PRECONDITION | if an event A could have a narrow reading in which is causes event B, or a larger reading in which it is a circumstance that contains event B, default to wider reading in which CONTAINS is used |In the ensuing controvery, the chancellor ordered that the name to be changed | **controversy** CONTAINS/SUBEVENT **order**
+| Contains-Subevent vs PRECONDITION | if an event A could have a narrow reading in which it causes event B, or a larger reading in which it is a circumstance that contains event B, default to wider reading in which CONTAINS is used |In the ensuing **controversy**, the chancellor **ordered** that the name be changed | **controversy** CONTAINS/SUBEVENT **ordered**
 
-:interrobang: To be added
-if the 'purpose' of something is to have a smaller event within it
-if the 'purpose' is to lead to a resultant state that will endure after the event
-if in doublt as to whether event B is a punctual event within event A or the state that starts at that puctual reading, default ot the punctual reading. 
-
-
+:interrobang: To be added:
+if the 'purpose' of something is to have a smaller event within it;
+if the 'purpose' is to lead to a resultant state that will endure after the event;
+if in doubt as to whether event B is a punctual event within event A or the state that starts at that punctual reading, default to the punctual reading. 
 
 
-:interrobang: **feedback welcome:** *The relation example with "To avoid the rush hour, we took back roads" is a complicated one, and may be subject to change.  While relations like "I want to buy milk",  are clearly want PRECONDITION milk, direct motivation links (like "went to the store to get milk") are somewhat unclear.  These should be very rare, as they are often different modalities.
+
+
+:interrobang: **feedback welcome:** *The relation example with "To avoid the rush hour, we took back roads" is a complicated one, and may be subject to change.  While relations like "I want to buy milk"  are clearly ****want** PRECONDITIONS **buy**, direct motivation links (like "went to the store to get milk") are somewhat unclear.  These should be very rare, as they are often different modalities.
 
 
 
@@ -3857,7 +3857,8 @@ would have been neither bursting nor flooding.
 
 - The **sheriff** **fired** **her** **gun**, **killing**
 the **injured** **deer**. 
-> **fired** BEFORE/CAUSES **killing**
+> 
+**fired** BEFORE/CAUSES **killing**
 
 > **sheriff** IDENTICAL **her**
 
@@ -3866,7 +3867,7 @@ the killing was caused directly and immediately by the firing of the
 gun.
 
 - **Christchurch**, the first **city** **established** in
-**New Zealand**, had endured a **series** of **earthquakes**
+**New Zealand**, had endured a series of **earthquakes**
 that **destroyed** **its** **infrastructure**, **homes** and
 **communities**. 
 > **earthquakes** OVERLAP/CAUSES **destroyed** 
@@ -3874,20 +3875,20 @@ that **destroyed** **its** **infrastructure**, **homes** and
 >  **Christchurch** IDENTICAL **its**
 > WHOLE **New Zealand**: PART **Christchurch** 
 > WHOLE **its**: PARTs **infrastructure**, **homes**, **communities**
-> SET **series**: MEMBER **earthquakes**
 
 In that last example, it is the case that the destruction would not have happened
 without the earthquake, and that once the earthquake began (and through
-its duration, hence OVERLAP/CAUSES), the destruction was inevitable.
+its duration, hence OVERLAP), the destruction was inevitable.
 
 - Although **it** took *many years*, the **discovery** of
 **Uranium** outside **Moab** would eventually **revitalize**
 the local **economy**. 
-**discovery** BEFORE/CAUSE **revitalize** 
+**discovery** BEFORE/CAUSE **revitalize**
+
 **it** IDENTICAL **revitalize**
 
 This shows an example where, although there was significant time
-lag between the cause (the discovery of Uranium and the effect: revitalization),
+lag between the cause (the discovery of Uranium) and the effect (revitalization),
 we are led to believe that in this case, the discovery did directly
 and inevitably trigger revitalization, and therefore, the link is
 causal.
@@ -3900,7 +3901,7 @@ In RED, we annotate "X PRECONDITIONS Y" if, according to the writer,
 had the particular EVENT X not happened, the particular EVENT Y would
 not have been able to happen. Put differently, although a preconditioning
 EVENT is not *sufficient* to cause another EVENT, its occurrence
-is *necessary* in order for the other EVENT to have happened.
+is *necessary* in order for the other EVENT to happen.
 
 - The **rockfall** made the **over-full** **dam** **burst**,
 **flooding** the **town** below. 
@@ -3912,11 +3913,12 @@ is *necessary* in order for the other EVENT to have happened.
 Here, we are led to believe that the over-full nature of the dam helped
 promote bursting, and thus, was a precondition of the burst itself.
 However, the over-fullness of the dam alone, in this particular case,
-was not enough to cause the burst, thus, is only a precondition.
+was not enough to cause the burst, and thus is only a precondition.
 
 - The **sheriff** **loaded** **her** **rifle**, then **fired**
 at the **target**. 
-> **loaded** BEFORE/PRECONDITION **fired**
+> 
+**loaded** BEFORE/PRECONDITION **fired**
 
 > **sheriff** IDENTICAL **her**
 
