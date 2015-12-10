@@ -3920,7 +3920,8 @@ at the **target**.
 
 
 > **loaded** BEFORE/PRECONDITION **fired**
-> **sheriff** IDENTICAL **her**
+> 
+**sheriff** IDENTICAL **her**
 
 Were the rifle not loaded, it could not have fired, and therefore,
 loading is a precondition to firing (although the firing is separately
