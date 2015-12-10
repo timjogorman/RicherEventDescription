@@ -3985,29 +3985,29 @@ the proper annotations.
 
 | Context | Example |
 | ------- | ------- | 
-| Event has "have been Xing" or present tense "has" |  I have been doing yoga for years |
+| The EVENT has "have been Xing" or present tense "has" |  I have been doing yoga for years |
 | |  The fires have been burning for eight days |
 | |  He has felt good. |
-| There seems to be grammatical implication that the event is ongoing, and past-tense aspectual INITIATES verb exists that you will ALINK to | this *kicked off* what may be a long court *proceeding* |
-| event is explicitly/grammatically ongoing, and also has a link to a TIMEX3 before document time. | He has cancer, first noted in 1996 | 
-| The event is modified by the temporal use of "still" or "yet" | He still drive that old Ford he had in college. | 
-| Modified by an aspectual verbs that will have the aspectual link CONTINUES | That reporter keeps on investigating tobacco companies | 
+| There seems to be grammatical implication that the EVENT is ongoing, and a past-tense EVENT INITIATES or has a BEGINS-ON link to the EVENT in question | this **kicked** off what may be a long court **proceeding** |
+| The EVENT is explicitly/grammatically ongoing and also has a link to a TIMEX3 before document time. | He has cancer, first noted in 1996 | 
+| The event is modified by the temporal use of "still" or "yet" | He still drives that old Ford he had in college. | 
+| The EVENT is modified by an aspectual EVENT that it will participate in a CONTINUES ALINK with | That reporter keeps on investigating tobacco companies | 
 
-One context that is *not* valid evidence for BEFORE/OVERLAP (being somewhat slippery to pin down) is that of indirect speech acts.  While many would infer from the following example that the bankruptcy was true both today and yesterday, we cannot actually infer that from the sentence:
+One context that is *not* valid evidence for BEFORE/OVERLAP (being somewhat slippery to pin down) is that of indirect speech acts.  While many would infer from the following example that the bankruptcy was true both today and yesterday, we cannot actually infer that from the sentence. We interpret the DocTimeRel of reported EVENTs as being relative to DOCTIME, not the reporting EVENT.
 
-> - The boss said yesterday that we are bankrupt$_{\text{OVERLAP}}$.
-
-
-
-### Rules for Reporting verbs implying uncertain/hedged
-
-- The following verbs should probably imply UNCERTAIN/HEDGED: allege/allegation, accuse/accusation
-- The following verbs might seem to imply uncertainty, but aren't sufficient for uncertain/hedged: reports that, claims that, according to,... 
+> - The boss said yesterday that we are bankrupt<sub>OVERLAP</sub>.
 
 
-### Permissable Evidence for Uncertain/Hedged
 
-## Theoretical Footnoes
+### Rules for Reporting verbs implying UNCERTAIN/HEDGED
+
+- The following verbs usually imply UNCERTAIN/HEDGED: allege/allegation, accuse/accusation, claims that, ...
+- The following verbs might seem to imply uncertainty, but aren't sufficient for UNCERTAIN/HEDGED: reports that, according to,... 
+
+
+### Permissable Evidence for UNCERTAIN/HEDGED
+
+## Theoretical Footnotes
 
 
 ### Expressing TLINK Types in Point Algebra
