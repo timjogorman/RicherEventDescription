@@ -3844,10 +3844,12 @@ Y, but the occurrence of X triggered or immediately necessitated the
 occurrence of Y:
 
 - The **rockfall** made the **over-full** **dam** **burst**,
-**flooding** the **town** below. 
+**flooding** the **town** below.
+
 > **rockfall** BEFORE/CAUSES
 **burst** 
-> **burst** BEFORE/CAUSES **flooding**
+> 
+**burst** BEFORE/CAUSES **flooding**
 
 Here, the rockfall is what immediately caused the burst (although
 the over-full nature of the dam may have preconditioned it), just
@@ -3858,9 +3860,9 @@ would have been neither bursting nor flooding.
 - The **sheriff** **fired** **her** **gun**, **killing**
 the **injured** **deer**. 
 
-**fired** BEFORE/CAUSES **killing**
-
-> **sheriff** IDENTICAL **her**
+> **fired** BEFORE/CAUSES **killing**
+> 
+**sheriff** IDENTICAL **her**
 
 Here, although the injury may have eventually led to the deer's demise,
 the killing was caused directly and immediately by the firing of the
@@ -3869,12 +3871,18 @@ gun.
 - **Christchurch**, the first **city** **established** in
 **New Zealand**, had endured a series of **earthquakes**
 that **destroyed** **its** **infrastructure**, **homes** and
-**communities**. 
+**communities**.
+
 > **earthquakes** OVERLAP/CAUSES **destroyed** 
-> Coreference relations: **Christchurch** APPOSITIVE **city**
->  **Christchurch** IDENTICAL **its**
-> WHOLE **New Zealand**: PART **Christchurch** 
-> WHOLE **its**: PARTs **infrastructure**, **homes**, **communities**
+> Coreference relations: 
+> 
+**Christchurch** APPOSITIVE **city**
+> 
+**Christchurch** IDENTICAL **its**
+> 
+WHOLE **New Zealand**: PART **Christchurch** 
+> 
+WHOLE **its**: PARTs **infrastructure**, **homes**, **communities**
 
 In that last example, it is the case that the destruction would not have happened
 without the earthquake, and that once the earthquake began (and through
@@ -3884,7 +3892,8 @@ its duration, hence OVERLAP), the destruction was inevitable.
 **Uranium** outside **Moab** would eventually **revitalize**
 the local **economy**.
 
-**discovery** BEFORE/CAUSE **revitalize**
+>**discovery** BEFORE/CAUSE **revitalize**
+>
 **it** IDENTICAL **revitalize**
 
 This shows an example where, although there was significant time
@@ -3904,11 +3913,14 @@ EVENT is not *sufficient* to cause another EVENT, its occurrence
 is *necessary* in order for the other EVENT to happen.
 
 - The **rockfall** made the **over-full** **dam** **burst**,
-**flooding** the **town** below. 
+**flooding** the **town** below.
+
 > **rockfall** BEFORE/CAUSES
 **burst** 
-> **burst** BEFORE/CAUSES **flooding**
->  **over-full** BEFORE/PRECONDITIONS **burst**
+> 
+**burst** BEFORE/CAUSES **flooding**
+>  
+**over-full** BEFORE/PRECONDITIONS **burst**
 
 Here, we are led to believe that the over-full nature of the dam helped
 promote bursting, and thus, was a precondition of the burst itself.
@@ -3927,35 +3939,20 @@ Were the rifle not loaded, it could not have fired, and therefore,
 loading is a precondition to firing (although the firing is separately
 caused).
 
-- The **strikes** came in **retaliation** for recent terrorist
-**attacks**. 
-> **attacks** BEFORE/PRECONDITIONS **retaliation**
 
-> **strikes** IDENTICAL **retaliation**
-
-In \Last, although something else (a pilot pushing a button, or a
-general's orders) was the direct cause of the strikes, we are told
-(via the meaning of "retaliation") that the strikes would not
-have happened were it not for the attacks.
-
-Similarly, note that occaisionally an ongoing state can be a motivation
+Note that occasionally an ongoing state can be a motivation
 or other precondition for an action; in those cases, you can use OVERLAP/PRECONDITION:
 
 - I feel that they are **punishing** him for his **condition**
-by keeping him after school, 
+by keeping him after school.
+
 > **condition** OVERLAP/PRECONDITIONS
 **punishing**
 
 Remember as well that SUBEVENT, CAUSES, and PRECONDITIONS relations
 are mutually exclusive, and one event pair can only have one of these
-relations. Therefore, if an event pair has more than one of these
-three relations, there is an order of importance.
-If the relation is clearly some sort of outcome or causation (cause
-or precondition) of an event, then default to the CAUSES or PRECONDITIONS
-reading, as they are easier to consistently capture. If torn between
-CAUSES and PRECONDITIONS, check the special cases
-section to see if there are special hints for your phenomenon, and
-otherwise default to CAUSES.
+relations. Therefore, if an event pair could be read as having more than one of these
+three relations, first check the **Edge case guidelines for Relations** section above. If your phenomenon is not discussed there, there is an order of importance for these three relations. If CAUSE is plausible, use it above the other two. If the choice is between SUBEVENT and PRECONDITION, use SUBEVENT. In other words, the hierarchy is: CAUSE, SUBEVENT, PRECONDITIONS.
 
 To sum up, CAUSES implies that the occurrence of one EVENT is *sufficient*
 to trigger another, whereas PRECONDITIONS only states one EVENT was
