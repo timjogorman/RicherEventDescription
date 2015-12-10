@@ -3919,7 +3919,7 @@ was not enough to cause the burst, and thus is only a precondition.
 at the **target**. 
 
 
-**loaded** BEFORE/PRECONDITION **fired**
+> **loaded** BEFORE/PRECONDITION **fired**
 > **sheriff** IDENTICAL **her**
 
 Were the rifle not loaded, it could not have fired, and therefore,
