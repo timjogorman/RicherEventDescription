@@ -3857,7 +3857,7 @@ would have been neither bursting nor flooding.
 
 - The **sheriff** **fired** **her** **gun**, **killing**
 the **injured** **deer**. 
-> 
+
 **fired** BEFORE/CAUSES **killing**
 
 > **sheriff** IDENTICAL **her**
@@ -3882,9 +3882,9 @@ its duration, hence OVERLAP), the destruction was inevitable.
 
 - Although **it** took *many years*, the **discovery** of
 **Uranium** outside **Moab** would eventually **revitalize**
-the local **economy**. 
-**discovery** BEFORE/CAUSE **revitalize**
+the local **economy**.
 
+**discovery** BEFORE/CAUSE **revitalize**
 **it** IDENTICAL **revitalize**
 
 This shows an example where, although there was significant time
@@ -3917,9 +3917,9 @@ was not enough to cause the burst, and thus is only a precondition.
 
 - The **sheriff** **loaded** **her** **rifle**, then **fired**
 at the **target**. 
-> 
-**loaded** BEFORE/PRECONDITION **fired**
 
+
+**loaded** BEFORE/PRECONDITION **fired**
 > **sheriff** IDENTICAL **her**
 
 Were the rifle not loaded, it could not have fired, and therefore,
