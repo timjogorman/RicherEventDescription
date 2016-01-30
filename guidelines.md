@@ -2365,7 +2365,7 @@ temporal span.
 - Remember that if an event contains multiple different "steps"  – even if they are connected in a sequence – they will be separate subevents. 
 
 
-### Events should have a single container whenever possible
+### Avoid redundant CONTAINS relations
 
 As previously discussed, most EVENTs will fall into a narrative container
 of some kind. If a given EVENT is in a narrative container (like "August
@@ -2379,7 +2379,11 @@ it is vital that you, as an annotator, stop to ask yourself whether
 each EVENT you examine is a part of a narrative container, and whether
 you have marked that with a CONTAINS TLINK. 
 
-In this pursuit, you should almost never be marking more than one containing event.  We assume that if  you label that A contains B, and that B contains C, you do not need to also mark that A contains C.  For example, if Wednesday CONTAINS football game, and that football game CONTAINS a throwing event, we don't need to also know that the throwing event happened on Wednesday – it's inferrable from the annotations already done. 
+In this pursuit, you should pay attention to nested CONTAINS relations.  We assume that if  you label that A contains B, and that B contains C, you do not need to also mark that A contains C.  For example, if Wednesday CONTAINS football game, and that football game CONTAINS a throwing event, we don't need to also know that the throwing event happened on Wednesday – it's inferable from the annotations already done. 
+
+Note that this does not mean Wednesday can’t CONTAIN something besides the football game and the football game can’t CONTAIN something besides the throwing event.  You could, if necessary, have one link saying football game CONTAINS-SUBEVENT a throwing event, another link saying football game CONTAINS-SUBEVENT injury, and another link saying football game CONTAINS a badger running onto the field.  In fact, CONTAINS and CONTAINS-SUBEVENT relations are very informative links, and they should be made whenever it’s reasonable to do so.  The idea here is to be sure you are not creating *redundant* CONTAINS links for relations that can be inferred through nesting.
+
+
 
 ### Avoid redundant causation annotation – think in terms of chains of causation
 
@@ -2527,33 +2531,6 @@ Similarly, verbs that create entities like "dinner" should not be construed as c
 - **Kevin** **cooked** Thanksgiving **Dinner**. 
 > **cooked** BEFORE **dinner**
 
-
-
-
-### EVENTs may participate in many ordering links, many causal links, but should only have one CONTAINS relation
-
-There can be multiple causes and preconditions for a single event:
-
-- After **loading** **his** **pistol** and **chambering**
-a **round**, the **instructor** **pulled** the **trigger**
-and **fired** a **shot** as a **demonstration**. 
-> **loading**
-BEFORE/PRECONDITION **fired** 
-> **chambering** BEFORE/PRECONDITION
-**fired** 
-> **pulled** BEFORE/CAUSE **fired**
-
-Similarly, a single EVENT can cause or precondition several other
-EVENTs:
-
-- **He** has **seen** **people** **decapitated** by barrel
-**bombs** and **others** who **lost** **their** **limbs**.
-> **bombs** OVERLAPS/CAUSES **decapitated** 
-> **bombs**
-OVERLAPS/CAUSES **lost** 
-> **others** IDENTICAL **their**
-
-However, if an event is contained by multiple narrative containers, you should only be linking it to one – see [the section on selecting narrative containers](#choosing-the-anchors-of-narrative-containers) for more information on which one to select.
 
 
 
