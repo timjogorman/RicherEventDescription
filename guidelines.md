@@ -1944,17 +1944,11 @@ only one Entity is allowed to fill the SET slot.
 
 ### BRIDGING
 
-If you are unable to use one of the previously discussed links, but
-it is apparent that some sort of link exists which entails that the
-events have some sort of link, then use the BRIDGING relation.
-
-There are a few specific cases in which BRIDGING can (and should)
-regularly be used:
+BRIDGING is used in the following specific situations where it’s not tenable to use our other coreference links:
 
 
-Links of asserted identity, where the assertion is itself questioned
-or questionable: 
-
+1. **Links of asserted identity**, where the assertion is itself questioned
+or questionable (in other words, relations that would be IDENT if they weren’t hedged; relations where we simply don’t know if they are in reality identical or not): 
 
 - **John** was arrested last night, as authorities claim **he**
 is the **killer** of a local cobbler, found Monday. 
@@ -1967,8 +1961,7 @@ is the **killer** of a local cobbler, found Monday.
 a key Cold War CIA asset, died Friday. 
 > **Grigory Kuznetsov** BRIDGING **"Rosebud"**
 
-Links that would otherwise be IDENTITY or APPOSITION, but are no longer valid. For
-instance:
+2. **Links that are temporally bound**, that is, where the relation either used to be true, will be true, or is only temporarily true:
 
 - **Ratzinger** was **Pope** until his retirement in 2013.
 >  **Ratzinger** BRIDGING **Pope**
@@ -1977,7 +1970,39 @@ instance:
 died Wednesday. 
 >  **Greg Bear** BRIDGING **Head**
 
-Because BRIDGING is intended as a last resort, there are other contexts in which bridging may be used to link entities, but such new instances should be brought up for discussion to check if it is truly BRIDGING. 
+3. **Links of reframing/restating/equating**:
+
+This can show up in a variety of ways:
+
+a) When a text alleges that doing one event is analogous to doing another, either directly or in an attempt at metaphor:
+
+- John **voted** to make waffles the state food, which amounts to **betraying** all his campaign promises.
+
+>  **voted** BRIDGING **betraying**
+
+b) Between ENTITYs and EVENTs where one is a metaphor for the other, or where one reframes the other:
+
+- By **hiring** Mary, we’ll kill two birds with one **stone**
+
+>  **hiring** BRIDGING **stone**
+
+c) When a text suggests that two EVENTs are being equated:
+
+- Would anyone be kind enough to give him a **lift** southwards? If anyone is willing to **help** out a fellow hipforumer…
+>  **lift** BRIDGING **help**
+
+
+4. **Links between EVENTs about which the author and a source disagree**:
+
+- Mary claims she **ate** all the donuts, but she didn’t **eat** all the donuts.
+
+> **ate** BRIDGING **eat**
+
+Note that **ate** is BEFORE, POS, ACTUAL (it is reported as such by Mary and will be linked via REPORTING to **claims**; see REPORTING section for more on this); **eat** is BEFORE, NEG, ACTUAL.
+
+
+These are the only situations where BRIDGING may be used.  Potential new contexts for BRIDGING should be brought up for discussion.  Note that this is the only situation where EVENTs and ENTITYs may be linked to each other.  BRIDGING between EVENTs and ENTITYs should take place in the first pass; EVENT-EVENT BRIDGING should take place in the second pass.
+
 
 
 ### General Guidelines for Entity Coreference
