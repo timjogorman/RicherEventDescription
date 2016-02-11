@@ -758,6 +758,13 @@ it seems extremely likely.
 
 - Yesterday, I was **[<sub>ACTUAL</sub> abducted ]** by aliens.
 
+One specific construction is worth discussing here, and that is when an author prefaces a proposition with “I think.”  The difficulty here is that this has two different uses – in some cases, **think** is an EVIDENTIAL EVENT linking a source of knowledge (the author) to a piece of knowledge (whatever he/she thinks), but in other cases it’s a hedging device, indicating the following event is HEDGED.
+
+When “I think” is used as a hedging device, “think” itself should not be marked as an event.  It’s merely coding the author’s weakened adherence to the truth of the proposition, like the use of “probably” or “maybe.”  For instance, in “I think the Broncos are playing in the Super Bowl,” [playing] is UNC/HEDGED and “think” is not eventive at all.
+
+However, in cases where the author is offering an opinion, or emphasizing that he or she is the one who thinks something, [think] is an EVENT of Type EVIDENTIAL.  In a sentence like “I think it’s sad that donut shop closed,” the author isn’t saying, “The fact that the donut shop closed is probably sad but I’m not really sure” (which would be hedging).  The author is drawing attention to the fact that he/she thinks something even though the rest of the world might not think the same thing – in other words, it has less to do with truth value than with attribution, that is, linking a piece of information (the opinion) to the source (the author).
+
+Second- and third-person uses of “think” (“you think,” “she thinks”) should always be EVIDENTIAL EVENTs – the author is attributing information to another source.
 
 **Hypothetical Modality (HYP)**
 
