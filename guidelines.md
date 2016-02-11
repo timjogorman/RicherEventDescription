@@ -3774,7 +3774,7 @@ Remember that hedges are NOT events, but merely good evidence for using UNCERTAI
 | Reporting | revealing/showing  | examination **shows** a **decreased** pulse |  |
 | Reporting | actual reporting  | NYT first **reported** the **strike** in October | |
 | Reporting | prepositional reporting | **according** to John, they **closed** in February | | 
-| Reporting AND evidence for UNCERTAIN/HEDGED | reporting verbs that imply doubt | Mary **claims** she **ate** all the donuts | see [Examples of reporting verbs implying uncertain/hedged](#Rules for Reporting verbs implying uncertain/hedged)
+
 
 
 
