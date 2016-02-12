@@ -1969,6 +1969,8 @@ a key Cold War CIA asset, died Friday.
 died Wednesday. 
 >  **Greg Bear** BRIDGING **Head**
 
+Refer to the section on IDENTICAL above, the fourth case of "X is Y," for more on this.
+
 **3) Links of reframing/restating/equating**:
 
 This can show up in a variety of ways:
