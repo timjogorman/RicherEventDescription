@@ -1947,7 +1947,7 @@ only one Entity is allowed to fill the SET slot.
 BRIDGING is used in the following specific situations where it’s not tenable to use our other coreference links:
 
 
-1. **Links of asserted identity**, where the assertion is itself questioned
+- **Links of asserted identity**, where the assertion is itself questioned
 or questionable (in other words, relations that would be IDENT if they weren’t hedged; relations where we simply don’t know if they are in reality identical or not): 
 
 - **John** was arrested last night, as authorities claim **he**
@@ -1961,7 +1961,7 @@ is the **killer** of a local cobbler, found Monday.
 a key Cold War CIA asset, died Friday. 
 > **Grigory Kuznetsov** BRIDGING **"Rosebud"**
 
-2. **Links that are temporally bound**, that is, where the relation either used to be true, will be true, or is only temporarily true:
+- **Links that are temporally bound**, that is, where the relation either used to be true, will be true, or is only temporarily true:
 
 - **Ratzinger** was **Pope** until his retirement in 2013.
 >  **Ratzinger** BRIDGING **Pope**
@@ -1970,7 +1970,7 @@ a key Cold War CIA asset, died Friday.
 died Wednesday. 
 >  **Greg Bear** BRIDGING **Head**
 
-3. **Links of reframing/restating/equating**:
+- **Links of reframing/restating/equating**:
 
 This can show up in a variety of ways:
 
@@ -1992,7 +1992,7 @@ c) When a text suggests that two EVENTs are being equated:
 >  **lift** BRIDGING **help**
 
 
-4. **Links between EVENTs about which the author and a source disagree**:
+- **Links between EVENTs about which the author and a source disagree**:
 
 - Mary claims she **ate** all the donuts, but she didn’t **eat** all the donuts.
 
