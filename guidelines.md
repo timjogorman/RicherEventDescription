@@ -1991,6 +1991,7 @@ b) Between ENTITYs and EVENTs where one is a metaphor for the other, or where on
 c) When a text suggests that two EVENTs are being equated:
 
 - Would anyone be kind enough to give him a **lift** southwards? If anyone is willing to **help** out a fellow hipforumer…
+
 >  **lift** BRIDGING **help**
 
 
