@@ -3718,16 +3718,16 @@ a US-backed **onslaught**<sub>EVENT</sub> by the PUK that **forced**<sub>EVENT</
 the group out of its enclave near the Iranian border at the end of
 March last year.
 
-Here, we are linking the Report itself with the Event that was reported.
+Here, we are linking the Report itself with the Event(s) that are being reported.
 The EVENTs that can serve as a Report appear to be a restricted class,
 mostly the verbs "say", "tell", and "report", and will
-always be an EVENT of the type EVI. The events serving as Event (what
-was being reported) are restricted to only the EVENTs in the remainder
-of the sentence, unless we have some explicit rationale we can point
-to that the report does not cover an in-sentence event, or that the
-report continues outside the sentence boundary. In the latter case,
-it should only be for cases of direct quotations including multiple
-sentences.
+always be an EVENT of the type EVI. The events serving as Event (what was being reported) are restricted to only the EVENTs that are being asserted by the reporting EVENT, not background information.  For example, in the following sentence, “impasse” and “case” are EVENTs but are not included in the REPORTING link because they are not part of the new information being asserted by the saying event:
+
+- The Ecuadorean foreign minister is due to **travel**<sub>EVENT</sub> to London this month and has **offered**<sub>EVENT</sub> to **meet**<sub>EVENT</sub> his British counterpart to **discuss**<sub>EVENT</sub> the *impasse* over the Julian Assange *case*, officials from both countries **said**<sub>REPORT</sub>.
+
+Note, however, there is no problem in having an actual EVI EVENT report a hypothetical EVENT – **meet** and **discuss** are both HYPOTHETICAL.
+
+EVENTs from multiple sentences may be included in the same REPORTING link, but only for cases of direct quotation:
 
 - Mr. Jones **said**<sub>REPORT</sub> "I'm not **sure**<sub>EVENT</sub> when
 our company will go **public**<sub>EVENT</sub>. It will not be before we
@@ -3737,6 +3737,12 @@ If there are multiple EVENTs reported by the same EVI event, as in
 the examples above, only one REPORTING link will be created, with
 all of the reported events linked to the same EVI event in the same
 relation.
+
+Finally, if a Report contains another source’s Report, do nested REPORTING links:
+
+- “He **says**<sub>EVENT1, REPORT2</sub> he is **innocent**<sub>EVENT2</sub>,” Rondu **said**<sub>REPORT1</sub>.
+
+[said] REPORTs [says]; [says] REPORTs [innocent].
 
 
 # Appendix
