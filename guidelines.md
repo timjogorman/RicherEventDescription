@@ -2524,6 +2524,16 @@ Here, the statement does not CAUSE revelation (nor does the revelation CAUSE the
 
 :bangbang: *These rules are mainly to rule out unnecessary causal chains, where event A causes report B and report B causes event C.  However, sometimes (particularly with false reports, etc.), one simply cannot remove the claims from that equation, as the original event did not happen (as in "Bush's revelations of WMDs got us into Iraq") and the chain of causation really boils down to the report.  You can use causal links in this kind of exceptional circumstance.*
 
+Likewise, EVIDENTIAL EVENTs should generally not be included in temporal ordering links: 
+
+- The winner **said** he **ran** the race in honor of his mom.
+
+We do not need to create a TLINK showing that **ran** came before **said**.  However, these links may be made in the case of explicit temporal ordering language:
+
+- We already **told** people to return to their houses following the meteorological office **report**.
+
+Here the speaker is explicitly drawing attention to the temporal relationship the telling event has to another event (via "following"), so **report** BEFORE **told**.
+
 
 ### Assume the writer of the text is reliable
 
