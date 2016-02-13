@@ -1176,6 +1176,12 @@ It is worth reiterating that one does not mark the test, reporter,
 or perceiver as EVI; instead, you will mark the verb of perception,
 reporting, revelation, or indication as an EVI EVENT.
 
+In case of conflict, the modality of the EVENT that’s being reported, demonstrated, etc., by the EVI EVENT depends on the way it’s being reported by the source, not on the author’s perspective.  For example:
+
+Mary **claims** she **ate** all the donuts, but she didn’t **eat** all the donuts.
+
+**ate** is POS, ACTUAL, because that is what Mary is claiming; **eat** is NEG, ACTUAL.  The idea here is that the truth value of the reported EVENT is being assigned to the *source* of that information, not to the author.  The EVI EVENT and the EVENT it reports will later be linked via a REPORTING link (in the second pass of annotation).  (**ate** and **eat** will also be linked via BRIDGING; see section on BRIDGING below).
+
 Finally, much like ASPECTUAL, you will likely be marking
 the same verbs as EVI over and over again, and will very quickly learn
 to recognize which verbs belong to this class and which do not.
