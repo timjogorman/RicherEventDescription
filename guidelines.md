@@ -1914,7 +1914,7 @@ or SET/MEMBER instead.*
 
 A SET-MEMBER relationship exists when one entity or event can be thought
 of as one or several members of a larger group. SET-MEMBER relations
-can be between ENTITIES or between EVENTS.
+can be between ENTITIES or between EVENTS (more on EVENT SET-MEMBER relations below).
 
 - The **trustees**<sub>SET</sub> have to sign off on the ordinance
 before we proceed; however, the trustee **Mr. Gamal**<sub>MEMBER</sub> says
@@ -1944,7 +1944,7 @@ only one Entity is allowed to fill the SET slot.
 
 ### BRIDGING
 
-BRIDGING is used in the following specific situations where it’s not tenable to use our other coreference links:
+BRIDGING is used in the following specific situations where it’s not tenable to use our other coreference links. Examples of both ENTITY and EVENT BRIDGING will be presented here.
 
 **1) Links of asserted identity**, where the assertion is itself questioned
 or questionable (in other words, relations that would be IDENT if they weren’t hedged; relations where we simply don’t know if they are in reality identical or not): 
@@ -2004,7 +2004,7 @@ c) When a text suggests that two EVENTs are being equated:
 Note that **ate** is BEFORE, POS, ACTUAL (it is reported as such by Mary and will be linked via REPORTING to **claims**; see REPORTING section for more on this); **eat** is BEFORE, NEG, ACTUAL.
 
 
-These are the only situations where BRIDGING may be used.  Potential new contexts for BRIDGING should be brought up for discussion.  Note that this is the only situation where EVENTs and ENTITYs may be linked to each other.  BRIDGING between EVENTs and ENTITYs should take place in the first pass; EVENT-EVENT BRIDGING should take place in the second pass.
+These are the only situations where BRIDGING may be used.  Potential new contexts for BRIDGING should be brought up for discussion.  Note that this is the only situation where EVENTs and ENTITYs may be linked to each other (see example 3b).  BRIDGING between EVENTs and ENTITYs should take place in the first pass; EVENT-EVENT BRIDGING should take place in the second pass.
 
 
 
@@ -3516,18 +3516,7 @@ Observe that the SET **pardon** is a GENERIC EVENT and the MEMBER **pardoned** i
 
 ### BRIDGING
 
-As with entities, if you are unable to use one of the previously discussed
-links, but it is apparent that some sort of coreference link exists
-which entails that the events have some sort of link, then use the
-BRIDGING relation. For dealing with EVENT coreference, an important
-option that this opens up is when a text alleges that doing one event
-is analogous to doing another, either directly or in an attempt at
-metaphor:
-
-- John **voted** to make waffles the state food, which amounts to **betraying** all his
-campaign promises.
-
-> **voted** BRIDGING **betraying**
+See BRIDGING section under Entity Coreference Relations.
 
 
 
