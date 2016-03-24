@@ -1,7 +1,7 @@
 # RED+AMR Entity Coreference Pass Guidelines
 
 - We are labeling each entity we find as a Discourse Entity.
-- Usually these are mentioned many times in a document, and each coreferent mention is put into the same DiscourseEntity chain. 
+- Usually these are mentioned many times in a document, and each coreferent mention is put into the same Entity chain. 
 - We are making a simple distinction between whether they a single unique entity, a bunch of members of a set of entities, or the actual definition of a set.
 - We will also relate these Entity chains with relations like set/member and whole/part when they are related in ways that are not exactly coreference.
 - Are are **only** looking at entities (not "events") in this pass.  
@@ -51,7 +51,7 @@ For entities, we look for a participant, location, organization, or other kind o
   - Occasionally, these :wiki chains need to be re-examined.
       - "Someone stole my iPod" ... "I bought a new iPod to replace it"
       - Both might be (p / product :wiki iPod :name (n / name :op1 "iPod")), but should not be in the same chain
-      - Check the "wiki relation(if present)" box to override the assumption that they are coreferent with the :wiki link. 
+      - The "WikiRelation" box has a default to "IDENTICAL", but in these cases needs to be changed to "SetMember". 
 - If you mark whole/part relations without marking the part as being an entity, it will be assumed to be a singleton.
 
 ###### Attributes and parts can be Entities when relevant
