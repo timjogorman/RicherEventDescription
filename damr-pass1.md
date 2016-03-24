@@ -196,4 +196,153 @@ There is no asbestos in our products now . ''
 - t / thing = Kind (the whole class of things we produce)
 - w2 / we = Multiple (we treat we/they as a Multiple-type mention)
 
+## Partial Relations
+
+### WHOLE/PART
+
+Two entities exist in a WHOLE/PART relationship if one can be thought
+of as part of the other, larger composite entity. These can be simple
+or more abstract:
+
+- The **hand**<sub>part</sub> was broken when the boulder fell on
+his **arm**<sub>whole</sub>.
+
+Any number of PARTs may be included in a WHOLE/PART relation, although
+only one Entity is allowed to fill the WHOLE slot.
+
+- I didn't include enough **flour**<sub>part</sub> in this **cake**<sub>whole</sub>,
+and used too much **sugar**<sub>part</sub>.
+
+As with the CONTAINS-SUBEVENT TLINK, this relation can only be used
+for cases of compositionality, i.e., narrow readings. In order for
+an entity to be Part of another, it must be 100% contained by the
+Whole, and compositionally part of it. Thus, the following examples
+do not contain any WHOLE/PART relations:
+
+- **Mt. Everest** lies on the border between **China** and
+**Nepal**.
+
+- In the **house**, there are several **visitors**.
+
+Note that WHOLE/PART relationships are essentially *hierarchical*,
+in that they may theoretically have a whole chain of relationships
+(a hair is part of a dog, a dog is part of a pack, etc.) They are also used for spatial relations,
+such as:
+
+- We saw the **White house** while in **D.C.**.
+
+The difference between these two previous examples reveals
+a difficult boundary case that you will have to ponder – what counts
+as compositionally part of a thing.
+This is particularly salient when the WHOLE
+is a larger spatial entity such as a city, county or country. When
+in doubt, remember this compositionality
+idea: If the removal of the potential part
+would have the potential of changing the nature of the whole,
+even a slight bit, then one might consider it compositional and use
+WHOLE/PART. If, in contrast, the part is merely temporarily or arbitrarily
+located in the space of the other item, do not use WHOLE/PART.
+
+:bangbang: *Note that while IDENT, SET/MEMBER and BRIDGING will also be
+used to mark EVENTS, WHOLE/PART is only for ENTITIES. Relationships between EVENTs
+that you are tempted to mark as WHOLE/PART should probably be CONTAINS-SUBEVENT
+or SET/MEMBER instead.*
+
+
+### SET-MEMBER
+
+A SET-MEMBER relationship exists when one entity or event can be thought
+of as one or several members of a larger group. SET-MEMBER relations
+can be between ENTITIES or between EVENTS (more on EVENT SET-MEMBER relations below).
+
+- The **trustees**<sub>SET</sub> have to sign off on the ordinance
+before we proceed; however, the trustee **Mr. Gamal**<sub>MEMBER</sub> says
+agreement has been hard to come by.
+
+- **Patients**<sub>SET(1)</sub> with **cancer**<sub>SET(2)</sub> are advised
+to avoid this medication. Our **patient**<sub>MEMBER(1)</sub> has kidney **cancer**<sub>MEMBER(2)</sub>
+and lung **cancer**<sub>MEMBER(2)</sub>, so we will not prescribe it. 
+
+(Notice also that **Our** and **we** are in an IDENTICAL relation.)
+
+- Patient has two **arms**<sub>SET</sub>. Her left **arm**<sub>MEMBER</sub>
+is scarred.
+
+You should note that in most examples of SET-MEMBERship, the MEMBER
+will be a count noun, but in some cases, the MEMBER can itself be
+a group or another set.
+
+- **Terrorists** are among the most dangerous **criminals**,
+and **Al Nuri** is perhaps the most dangerous **terrorist** alive.
+> **Criminals** SET/MEMBER **Terrorists** 
+> **Terrorists** SET/MEMBER **Al Nuri**, **Terrorist**
+
+Any number of MEMBERs may be included in a SET/MEMBER relation, although
+only one Entity is allowed to fill the SET slot.
+
+
+### BRIDGING
+
+BRIDGING is used in the following specific situations where it’s not tenable to use our other coreference links. Examples of both ENTITY and EVENT BRIDGING will be presented here.
+
+**1) Links of asserted identity**, where the assertion is itself questioned
+or questionable (in other words, relations that would be IDENT if they weren’t hedged; relations where we simply don’t know if they are in reality identical or not): 
+
+- **John** was arrested last night, as authorities claim **he**
+is the **killer** of a local cobbler, found Monday. 
+
+> **John** IDENTICAL **he** 
+
+> **John** BRIDGING **killer**
+
+- **Grigory Kuznetsov**, long thought to be **"Rosebud"**,
+a key Cold War CIA asset, died Friday. 
+
+> **Grigory Kuznetsov** BRIDGING **"Rosebud"**
+
+**2) Links that are temporally bound**, that is, where the relation either used to be true, will be true, or is only temporarily true:
+
+- **Ratzinger** was **Pope** until his retirement in 2013.
+>  **Ratzinger** BRIDGING **Pope**
+
+- **Greg Bear**, former **Head** of the National Croquet society,
+died Wednesday. 
+>  **Greg Bear** BRIDGING **Head**
+
+Refer to the section on IDENTICAL above, the fourth case of "X is Y," for more on this.
+
+**3) Links of reframing/restating/equating**:
+
+This can show up in a variety of ways:
+
+a) When a text alleges that doing one event is analogous to doing another, either directly or in an attempt at metaphor:
+
+- John **voted** to make waffles the state food, which amounts to **betraying** all his campaign promises.
+
+>  **voted** BRIDGING **betraying**
+
+b) Between ENTITYs and EVENTs where one is a metaphor for the other, or where one reframes the other:
+
+- By **hiring** Mary, we’ll kill two birds with one **stone**
+
+>  **hiring** BRIDGING **stone**
+
+c) When a text suggests that two EVENTs are being equated:
+
+- Would anyone be kind enough to give him a **lift** southwards? If anyone is willing to **help** out a fellow hipforumer…
+
+>  **lift** BRIDGING **help**
+
+
+**4) Links between EVENTs about which the author and a source disagree**:
+
+- Mary claims she **ate** all the donuts, but she didn’t **eat** all the donuts.
+
+> **ate** BRIDGING **eat**
+
+Note that **ate** is BEFORE, POS, ACTUAL (it is reported as such by Mary and will be linked via REPORTING to **claims**; see REPORTING section for more on this); **eat** is BEFORE, NEG, ACTUAL.
+
+
+These are the only situations where BRIDGING may be used.  Potential new contexts for BRIDGING should be brought up for discussion.  Note that this is the only situation where EVENTs and ENTITYs may be linked to each other (see example 3b).  BRIDGING between EVENTs and ENTITYs should take place in the first pass; EVENT-EVENT BRIDGING should take place in the second pass.
+
 
