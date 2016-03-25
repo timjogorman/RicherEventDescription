@@ -144,7 +144,7 @@ There is no asbestos in our products now . ''
 - Is anything *quantifiable*, regardless of whether it's discretely countable ('there are 12 wugs') or a mass ('there are four pounds of wug', 'i have a jug of wugs',etc.). 
 - Ignore whether this is treated collectively or distributively
 
-### Kind
+### FullDefinition (Kind)
 
 - If "w / wug" is a definitional mention, everything that is a "wug" in context is part of "w". 
 - Generally default to "multiplicity" if not sure.
@@ -156,12 +156,12 @@ There is no asbestos in our products now . ''
 ###### If it's quantified over multiple times, it's almost assuredly "multiple"
 - Everyone (multiple) in the building got a sandwich (multiple)
 
-###### Generic indefinites get "kind" when referring to a whole set
+###### Generic indefinites get "FullDefinition" when referring to a whole set
 
-- A politician (kind) can't fool all the people (kind)  all the time.
+- A politician (FullDefinition) can't fool all the people (FullDefinition)  all the time.
 
-###### Generic "you" gets "kind"
-- Generic "you" (French *on*) gets "Kind" as well
+###### Generic "you"
+- Generic "you" (French *on*) gets "multiple"
 
 
 
@@ -193,7 +193,7 @@ There is no asbestos in our products now . ''
                          :ARG0 (w2 / we))))
 ```
 **entities**: 
-- t / thing = Kind (the whole class of things we produce)
+- t / thing = FullDefinition (the whole class of things we produce)
 - w2 / we = Multiple (we treat we/they as a Multiple-type mention)
 
 ## Partial Relations
