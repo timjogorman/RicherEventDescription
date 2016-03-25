@@ -85,22 +85,24 @@ For entities, we look for a participant, location, organization, or other kind o
 - For the sake of consistency, we treat these as referential and unique every time (*This is an exception to the referentiality rules above*). This allows us to be more consistent when we *do* get explicit mentions of one's workplace, school, hospital, etc.
 
 
-##### Differentiating Entities from Events
+##### Differentiating Entities from Events (is this something I'm annotating on this pass?)
 
 There are two core rules here:
 - If in doubt about the EVENT/ENTITY distinction, default to EVENT (i.e. don't mark it as anything in this pass).  
-   - Most things that get a predicate in AMR are either events or not referential at all. 
+   - If you can imagine a coreferential form of this that is clearly an event to you, then treat this one as an event as well
+   - Predicates (things with a Propbank roleset) are rarely part of entity chains; they should either be dealt with in the second pass are not referential at all. 
+   
 - If something represents both an ENTITY and an EVENT, you can annotate both -- as an ENTITY in this pass and then as an EVENT later. 
-   - This is NOT for things that are ambiguous, but for situations where an object is presented in the real world that also implies its associated event.
+   - This is NOT for things that are ambiguous (see above), but only for when **both and entity and an event are implied**. 
        - The nearby pipe **[<sub>event & entity</sub> bomb]** disrupted the festival.
        - I kept Mary's **[<sub>event & entity</sub> text]**.
-   - Examples of these "complex types":
+       - Some portion of these coreference chains will often *already* be split up using ```(t / thing :ARG1-of ...)``` constructions.
+   - Do this only when the entity reading is strongly implied:
      - Texts, messages etc. are not entities (only events) unless there is discussion of their recorded or stored form.
-     - Reports, summaries, etc.; if and only if one is talking about the physical or electronic form (I can't find the report)
-     - Laws, acts, rules etc.: Only when talking about a particular law or act, rather than a general prohibition.
-     - Weapons and their impact: Only when talking about the weapon/disease/virus rather than its deployment/consequences: I found [the virus] on my computer
-
-- Be exceedingly sparing with such "dual" annotations
+     - Reports, summaries, etc.; if and only if one is talking about the physical or electronic form (I can't find the report), the release of an official report, etc.
+     - Laws, acts, rules etc.: Only when talking about a particular law or act, rather than a general prohibition.  Being legal or against the law is more of a state than an entity. 
+     - Weapons and their impact: Only when talking about the weapon/disease/virus itself rather than its deployment/consequences: I found [the virus] on my computer.
+    - Be exceedingly sparing with such "dual" annotations
 
 ### Calibrating your instincts:
 
@@ -140,9 +142,12 @@ There is no asbestos in our products now . ''
 
 ### Multiple
 
-- Also does not refer to grammatical plural (although most plurals will be this). 
+- Anything that cannot pass the test of "there is just one X"
+- Also this is not synonymous with English grammatical plural, things that are plural will be Muliple (or the "FullDefinition" category below). 
 - Is anything *quantifiable*, regardless of whether it's discretely countable ('there are 12 wugs') or a mass ('there are four pounds of wug', 'i have a jug of wugs',etc.). 
-- Ignore whether this is treated collectively or distributively
+  - This means that even when there's variation between plural (as in "these data validate our hypothesis") and mass (as in "the data is inconclusive")
+- Ignore whether this is treated collectively or distributively!  Even for something extremely distributive, like "each mouse arrived on a different day", (m / mouse) stilll refers to many mice.  
+
 
 ### FullDefinition (Kind)
 
