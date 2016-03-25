@@ -147,7 +147,7 @@ There is no asbestos in our products now . ''
 ### FullDefinition (Kind)
 
 - If "w / wug" is a definitional mention, everything that is a "wug" in context is part of "w". 
-- Generally default to "multiplicity" if not sure.
+- Generally default to "multiple" if not sure -- this should be a rare class.
 - Can think of this as mentions of 'kind' 
 - Ignore whether this is treated collectively or distributively
 
