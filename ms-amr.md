@@ -155,7 +155,7 @@ Naturally, "same type of concept" should be based on your own general understand
 
 You will run into things that, on some technical understanding of meaning, might be sets that contain some large percentage of things mentioned in the document.  This does not mean they should be linked together.  
 
-**(a / and) is close enough**
+**You don't need to show that (a / and) is Set/Member with its :opX instances**
 
 There are many times in AMR where one mentions things like "John and Mary to the store" or "China and Japan are competing".  You can assume that "and" loosely encodes a set/member relationship; you don't need to add "set/member" to all of our coordination instances, nor to add it between "they" and "John" in "John and Mary went to the store.  They bought a cat."
 
