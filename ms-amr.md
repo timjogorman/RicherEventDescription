@@ -141,11 +141,11 @@ Making Set/member relations
 
 Set/Member is the same as include-91, and shouldn't be marked redundantly. 
 
-**Set/Member is the same as AMRs "include-91", and is both "Set/Member" and "Set/Subset"**
+**Set/Member should follow the same rules as "include-91", and is used for both "set/member" and "set/subset" phenomena**
 
 As mentioned above, you can link to *subsets* of a larger set, where it is not a single instance of the larger set, but many.
 
-**Set and Member should be roughly the same type of concept**
+**Set and Member should be roughly the same kind of thing**
 
 This is part of the definition -- you should be able say "<MemberOrSubset> is one of <Set>" or "<MemberOrSubset> are just some of <Set>".  A particular exception to this are collective reference to groups -- juries, populaces, etc. -- that have individual members.  Even though a given person is not an individual instance of 'populace', you can naturally treat 'populace' as a set.
 
