@@ -4,75 +4,103 @@
 Part I. Introduction
 ====================
 
-AMR captures “who is doing what to whom” in a sentence.  Each sentence is
-represented as a **rooted, directed, acyclic graph** with labels on edges
-(relations) and leaves (concepts).   
+Where AMR captures "who is doing what to whom" within a particular sentence, multi-sentence AMR simply extends that to capturing "who is doing what to whom" within larger spans of text.   In practice, this means that we are taking a document or utterance where each sentence has already been given an AMR, and linking them up to a bigger unified structure.
 
-Multi-sentence AMR takes those single-sentence AMR annotations and links the leaves (concepts) together when they refer to the same thing or the same situation, forming clusters of identical concepts, in a task analogous to coreference annotation (XXXXXXXXXXXXXXXXXXXXX).  It also annotates relations across sentence boundaries, encompassing both for "implicit argument" effects (as in XXXXXXXXXXXXXXXXXXXXXXXXXXX) and for bridging relations (XXXXX Clark 197X, Poesio XXX....).  
+This will be a task very grounded in how we do AMRs on single sentences.  For example, consider the three different instances of "b" in the following sentence:
 
-*Note from Tim: We might want to state how we're conceputalizing the output, as in "The result is formally a directed multigraph with cycles", but would need wording from Kevin, if we want to say anything about that at all.* 
+"The boy worried, fearing he would not get a present"
+```
+(w / worry-01
+      :ARG0 (f / fear-01
+            :ARG0 b
+            :ARG1 (g / get-01 :polarity -
+                  :ARG0 b
+                  :ARG1 (p / present)))
+      :ARG1 (b / boy))
+```
+
+This "b / boy" gets mentioned for every element where the "boy" is the proper argument.  This means that within-sentence AMR is handling not only pronouns (boy <-> he) but arguments of predicates such as "fear", where we know that the "boy" is the person who is afraid.
+
+If this sentence were to be split into two sentence, we want to be capturing roughly the same information.  
+
+"The boy was worried. He feared he would not get a present"
+```
+(w / worry-01
+      :ARG1 (b / boy)
+
+(f2 / fear-01
+      :ARG0 (h / he)
+      :ARG1 (g / get-01 :polarity -
+            :ARG0 h
+            :ARG1 (p / present)))
+```
+We lose two things when that happens:
+ - We need to now recover that "boy" and "he" are the same
+ - We need to now recover that the thing worried about (":ARG0") is "fear-01".
+
+More generally, the idea is that we need to:
+ 1) Do document-wide coreference between variables -- like "b / boy" and "h / he" -- so that we know when they refer to the same thing.
+ 2) We need to link unstated arguments -- such as the ":ARG0" of worry-01, above -- to the things they refer to.
+
+There is a third, related task.  If we had a single-sentence AMR that said:
+```
+"John had three cats, one of which was named Mittens"
+(h / have-03
+      :ARG0 (p / person :name (n / name :op1 "John"))
+      :ARG1 (c / cat :quant 3
+            :ARG2-of (i2 / include-91
+                  :ARG1 (c2 / cat :name (n2 / name :op1 "Mittens")))))
+```
+
+If we split this up into "John had three cats.  One cat was named Mittens", then the thing we are missing is not actually strict coreference, but rather is the relationship between "three cats" and "one", which we used "include-91" for above: 
+
+```
+"John had three cats.  One cat named Mittens"
+(h / have-03
+      :ARG0 (p / person :name (n / name :op1 "John"))
+      :ARG1 (c / cat :quant 3))
+
+(c2 / cat :name (n2 / name :op1 "Mittens"))
+```
+So we'll need this set/member ("include-91") relationship between the two as well, so that we can know that Mittens is a member of the set of three cats.  This gives us our third task:
+
+ 2) We need to link arguments with Set/Member and Part/Whole relations when appropriate (include-91 and have-part-91, in ARM lingo)
+
+
+Walking through some examples
+-----------------------------
+
+< Here's where we introduce the editor more thoroughly; I'm skipping that for now>
+
+
+General Guidelines -- What Should I Put in Identity Clusters?
+=============================================================
+
+"a / and" can be in a coreference chain when relevant
+-----------------------------------------------------
+Assume you have the following:
+```
+John and Mary ate dinner.
+(e / eat-01
+      :ARG0 (a / and
+            :op1 (p / person :name (n / name :op1 "John"))
+            :op2 (p2 / person :name (n2 / name :op1 "Mary")))
+      :ARG1 (d / dinner))
+
+They even ordered dessert.
+(o / order-01
+      :ARG0 (t / they)
+      :ARG1 (d2 / dessert)
+      :mod (e2 / even))
+
+Naturally, the "John and Mary" should be linked to "they".  There are two specific things to remember about how:
+ - "a / and"  can be used to represent the set of its arguments (in this case, John and Mary)
+ - You don't need to add a "Set/Member" relationship between "and" instances and their component parts -- you can assume that they are generally there.
 
 
 
-Overviewing the annotations
----------------------------
-
-We will consider a standard AMR such as the following: 
-![Example AMR graph](graph.png "The boy threw a ball to the girl.")
 
 
-
-
-
-
-It could be followed by:
-![Example AMR graph](graph2.png "She threw it back")
-
-When we talk about coreference, we are clustering mentions that are mentioned more than once in a document. "The girl" and "she" are presumably the same referent, as are "a ball" and "it".  So we will be adding them each to coreference clusters:
-
-![Example AMR graph](graph2.png "She threw it back")
-
-In our tool, that will involve creating an "Identical" object within the Anafora toolkit, and adding "g / girl" and "s / she" to that object.  We will create another that contains "b / ball" and "i / it".  
-
-![Example AMR graph](graph2.png "She threw it back") (this should show just "i / it" and "b / ball", with the girl and she already created.)
-
-
-You can see in the images above that our tool temporarily adds new arguments to each AMR, blue "implicit" arguments, showing roles that are possible for that predicate but not mentioned.  For example, the second "throw-01" has an unstated :ARG4, which is stated as "implict--- thrown to".  We can know in context that the entity thrown to is the "b / boy" referent in the first sentence, so we will again make an Identical object, just like with explicit mentions: 
-
-![Example AMR graph](graph2.png "She threw it back") (this should show the implicit link, with the other two already created)
-
-Let's explore an additional sentence, "her strong throw made the seams split". 
-
-One issue to see is that these "Identical" objects arent' two-way relations, but clusters of coreference variables and implicit argumetns.  One would just pull up the first coreference chain of "g / girl" and "s / she" and add this third "s / she" to it: 
-
-![Example AMR graph](graph2.png "her strong throw made the seams split") (this one change)
-
-The second is that we are clustering identical objects/persons, but all identical variables, including events and times. The second and third mentions of "throw-01", as two references to the same throwing event, would get coreferred like any other variable:
-
-![Example AMR graph](graph2.png "her strong throw made the seams split") (this one change)
-
-*The color coding between green, orange and beige variables is not rigid distinction, but *merely a visual aid*; variables are color-coded based on rough heuristics that guess whether that object will be more "thing-like" (green) or more "event-like" (orange) or someone likely to be coreferential at all (light beige).  You should never trust those encodings over your own human instincts about what is coreferential or what is not: they are there to be convenient, not to provide you hard-and-fast rules.*
-
-The second thing to discuss is that there's a relation between "the seams" and "the ball", which is not the kind of strict identity we want for "Identical", but which is still something we desire to capture.  We are annotating two **bridging relations**[bridging endnote], beyond the strict identity relations that we've talked about before: "Set/member" (the same as the "include-91" set operator in AMR) and "Whole/Part" (the same as the ":part" relation of the "have-part-91" relation within normal AMR).  
-
-![Example AMR graph](graph2.png "her strong throw made the seams split") (this one change)
-
-There are many, many details to this annotation, but this shows the core elemetns of this task.  
-
-Simulating normal (within-sentence) AMR distinctions
-----------------------------------------------------
-
-A core underlyign aspect of this approach is that we want all of the distinctions that we are making in this pass to be very similar to the distinctions that we are making in normal, within-setnence AMR.  For many issues we will be defining far more detailed guidelines, but those guidelines should generally confirm (or help explain) your intuititons about within-sentence AMR, rather than conflict with them. 
-
-Because of that, one underying "santity check" that you can often use is to act yourself, "If these two sentences were actually the same sentence, separated by an "and", would I be using the same variable for them?".  We will try to do our best to clearly identify any instances in the guideliens where that test doesn't work, so that you can default to trusting it. 
-
-
-Part II.  What should be coreferred?
-====================================
-
-The fundamental rule is that you will make an identity chain between two or more AMR variables or implicit arguments, *as long as there is at least one non-implicit AMR variable in the chain*[implicitness-endnode], and *as long as they refer to the same thing*. 
-
-The question of whether something is "Referring to the same thing" should be easy for most of these instances.  There are many details, however. 
 
 
 
@@ -94,6 +122,16 @@ In contrast, there are a bunch of things that we'll have to handle that are more
 ##### Decision Point: Identity or something else?  Allegations and identity linking are complicated. 
 
 I'm putting the pros and concs into an endnote.  Ideally we want this to be handled elegantly for within-sentence AMR, rather than coming up with a special case for cross-sentence AMR. Some can be in an "Alledge-Identity" or something, but it's complicated.
+
+
+
+
+
+
+
+
+
+
 
 
 ### Equational/Copular/predicative issues
@@ -152,6 +190,74 @@ Thus, you don't want to pretend that that property "idiot" is the same as "john"
 
 
 
+
+
+
+
+
+
+
+
+What Isn't Coreference
+======================
+
+Use Set/Member -- not coreference -- when related specific instances to kinds
+-----------------------------------------------------------------------------
+
+Two of these example sentences are:
+
+< picture of a boa constrictor swalloing an animal>
+
+< it said ...boa constrictors swallow their....> 
+
+
+"Subevent" phenomena do not count as identity, and aren't annotated in this pass
+--------------------------------------------------------------------------------
+
+Sometimes you might see two events that are different granularities of the same actual event.  One might see one mention of "chewing food" and another of "eating dinner".  If it's clear that one concept is *part of a number of events that constitute the other concept*, then they are **not** coreferent.  This matches what you will see if you look at our within-sentence AMRs; as a rule, we do not conflate different granularities of events; we simply mention them all, usually without clear links between them. 
+
+If it's any re-assurance, some of this data will undergo a later pass in which subevent relations **are** added.  So being strict about coreference when coreferring event-y concepts will be very helpful in providing later clean annotations. 
+
+
+
+True generics (synonymous with "one","everyone") should not be linked to implicits
+----------------------------------------------------------------------------------
+
+AMR annotations are full of concepts such as "recommend-01" (used for modal verbs like "should").  It might be tempting, when given a nice well-defined explicit generic like "people" or "society" or a generic "you", to link them to other generic "you" instances.  The kind of "you" mentions that you see in the following AMR (which could be replaced with "...going through one's  house...")
+
+The idea of some one going through your house is as bad as them taking Christmas presents.
+
+(i / idea 
+      :ARG1-of (b / bad-07 
+            :degree (e / equal) 
+            :compared-to (t / take-01 
+                  :ARG0 s 
+                  :ARG1 (p / present 
+                        :mod (f / festival :wiki "Christmas" :name (n / name :op1 "Christmas"))))) 
+      :topic (g / go-02 
+            :ARG0 (s / someone) 
+            :path (h / house 
+                  :poss (y / you)))) 
+
+- "you", when it applies to "anyone reading this sentence", should not be linked up with anything, nor should "one"
+- This is relatively low frequency, but it's important because many implicit arguments could be construed as having that meaning, and we *don't* want you do
+
+
+
+
+
+
+
+
+
+
+
+
+
+Decomposition Issues
+--------------------
+
+You'll notice that "picture", "drawing" and so forth are often represented in AMR as "thing :arg1-of draw-01".  This is a common treatment in AMR, especially for some kinds of nominalizations[endnote].  It also poses some problems: sometimes you will encounter systems in which one instance of, say, "drawing" is simply "drawing" and others where it is "thing :arg1-of draw-01", and others where it is "draw-01".  
 
 
 
@@ -356,12 +462,6 @@ For entities, we look for a participant, location, organization, or other kind o
 - Attributes and parts should be referential only when effected, or when they cause, enable or prevent some other activity
   - "This was a [racially] motivated attack", "we try to hire based on [competence]"
 
-###### Coordination
-
-- Every time "and" is part of a coreference chain, it's assumed to have a set/member relation to all of its "opX" children.
-- Do not label "and" coordination as a singleton entity unless it is coreferent, or there are strong reasons to consider it a collective unit. 
-   - Test: If this document was famous/important, would the referent of this "and" get a wikipedia entry?
-   - Test: If you were discussing the document, is this particular combination of entities easy to refer to?
 
 ###### Objects, sublocations, and low-prominence entities
 
