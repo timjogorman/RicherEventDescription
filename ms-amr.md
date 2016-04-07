@@ -124,35 +124,43 @@ If you are talking about one battle within a war, or one incision within an oper
 
 **DO link together dramatically different framings of the same underlying thing**
 
-Let's say you see the AMRs for "*Bill went to Trader Joes. The fool forgot to buy cookie butter.*"  There will be a "(f / fool)" and a "(p / person :name (n / name :op1 "Bill")), and it might seem like "fool" is going more than mere coreference. However, whenever something is a referring expression pointing to the particular thing or event in question, we are linking them together, even when they frame things differently. 
+Let's say you see the AMRs for "*Bill went to Trader Joes. The fool forgot to buy cookie butter.*"  There will be a "(f / fool)" and a "(p / person :name (n / name :op1 "Bill")).  While it's true that "(f / fool)" is going more than *merely* referring to Bill, it is nevertheless still referring to Bill, and thus should still be in the reference chain.  
 
+Do this for events when they are clearly referring to the same event, even if they are reframing that event.  If one sentence mentions "Bill's giving Sam a cookie" and another mentions "Bill's surrender to the forces of tyranny", if they refer to the actual same event, then they are the same. 
 
-**Wikified mentions are assumed to be linked already**
+**Wikified mentions are assumed to be linked to each other**
 
 Every entity with a ":wiki" link is going to be assumed to be linked up with every other mention.  That means that if you have an identity chain for "Bill Clinton", you don't need to link every instance of ```(p / person :name (n / name :op1 "Clinton"))``` together.  However, you still need to make links from at least one :wiki entry to the pronouns, implicit arguments, and other non-wikified mentions of that term that might exist.  
 
+Naturally, if something has ":wiki -", it does not count as wikified for these purposes. 
 
 Making Set/member relations
 ---------------------------
 
 **Don't mark Set/member between Identity Chains already linked by "Include-91"**
+
 Set/Member is the same as include-91, and shouldn't be marked redundantly. 
 
 **Set/Member is the same as AMRs "include-91", and is both "Set/Member" and "Set/Subset"**
+
 As mentioned above, you can link to *subsets* of a larger set, where it is not a single instance of the larger set, but many.
 
 **Set and Member should be roughly the same type of concept**
+
 This is part of the definition -- you should be able say "<MemberOrSubset> is one of <Set>" or "<MemberOrSubset> are just some of <Set>".  A particular exception to this are collective reference to groups -- juries, populaces, etc. -- that have individual members.  Even though a given person is not an individual instance of 'populace', you can naturally treat 'populace' as a set.
 
 Naturally, "same type of concept" should be based on your own general understandin of what is being talked about.  The literal "concept" that a variable refers to naturally can be different. 
 
 **Do not mark Set/Member with "extremely generic" mentions such as "one", "everybody", "everything", etc.**
+
 You will run into things that, on some technical understanding of meaning, might be sets that contain some large percentage of things mentioned in the document.  This does not mean they should be linked together.  
 
 **(a / and) is close enough**
+
 There are many times in AMR where one mentions things like "John and Mary to the store" or "China and Japan are competing".  You can assume that "and" loosely encodes a set/member relationship; you don't need to add "set/member" to all of our coordination instances, nor to add it between "they" and "John" in "John and Mary went to the store.  They bought a cat."
 
 **Do not mark "predicative" assertions about a mention**
+
 It may be obvious that the AMRs for sentence such as "John is foolish", only mention "John" once; foolish is merely a property of "John". 
 
 But if one were to run into examples like "John is a fool", or "I consider John a fool", there might be more of a temptation to link "fool" into the "John" identity chain.  You should resist that temptation.  Because we are already capturing the predicative relationship -- through predicates like "consider-01" or with :mod or :domain relations -- we don't need to also add a coreference link.  
@@ -163,6 +171,7 @@ Marking Part/Whole relations
 ----------------------------
 
 **Don't mark Part/Whole if any mentions are already linked with a :part-of relation**
+
 Like Set/member and "include-91", this is the same as "have-part-91", so don't be redundant. 
 
 **Part/Whole is about physical compositionality -- don't confuse it with "subevent" phenomena**
@@ -174,6 +183,7 @@ We are treating this entirely as being "X is a component part of Y".  Even thoug
 If someone is part of an organization, then the way to encode that is to link them together with implicit arguments on an instance of "have-org-role-91".  Part/Whole should only be used in the organizational senses when discussing company-company relations, like "Google is part of Alphabet". 
 
 **Part/Whole is not for mere spatial inclusion**
+
 The particular building your are sitting in might be, in some technical level, a part of your city, of your state, your nation, and the world. There's an extent to which 'being part of something', in that sense, is a hard-to-define concept.  But there are some prototypical entailments that should be largely present:
 - Compositionality: If one were to make up a list of component parts of the whole, 
 - If the entity is stored in reference, you'd imagine it stored in under the entry for the whole.  
