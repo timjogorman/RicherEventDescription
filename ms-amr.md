@@ -217,7 +217,7 @@ Consider a mention that later says:
       :ARG0 (b / bite-01)
       :ARG1 (t / they))
 ```
-This will show in our multi-sentence AMR annotations as
+This will show in our multi-sentence AMR Anafora annotations as:
 ```
 "They were worried about the bite"
 (w / worry-01
