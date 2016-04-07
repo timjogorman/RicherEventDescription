@@ -189,6 +189,46 @@ The particular building your are sitting in might be, in some technical level, a
 - If the entity is stored in reference, you'd imagine it stored in under the entry for the whole.  
 
 
+"Redundant" relationships
+=========================
+
+Redundant implicit arguments can be left out
+--------------------------------------------
+
+We will have a very specific idea of redundant: 
+
+An implicit argument is *redundant* if 
+- (A) Its predicate is in a coreference chain
+- (B) There is a prior mention of that predicate using the exact same roleset
+- (C) That identical predicate has the same numbered argument as the implicit argument itself. 
+- (D) There is only one referent (identity chain) that has shown up in that particular role, for that particular roleset, for that predicate's identity chain.
+
+In other words, if we have one part of a document in which one mentions:
+```
+"the cat was bitten by the dog"
+(b / bite-01 
+      :ARG0 (d / dog)
+      :ARG1 (c / cat))
+```
+Consider a mention that later says:
+```
+"They were worried about the bite"
+(w / worry-01
+      :ARG0 (b / bite-01)
+      :ARG1 (t / they))
+```
+Now this will show in AMR as
+```
+"They were worried about the bite"
+(w / worry-01
+      :ARG0 (b / bite-01 
+           :ARG0 (i / implicit-biter)
+           :ARG1 (i2 / implicit-biten))
+      :ARG1 (t / they))
+```      
+If you have linked the two bite-01 instances together, you are allowed to not 
+
+
 
 Special Cases and Additional Guidelines
 =======================================
