@@ -98,25 +98,39 @@ Making Identical Relations
 --------------------------
 
 **One "Identical" chain should contain all variables and implicit relations that refer to that thing**
+
 Re-entrancies within a sentence don't need to be linked (that's why we didn't give them markable boxes).  
 
-**You are co-referring all kinds of concepts, as long as what they refer to is identical**
-Namely, this means that you are linking not just people, places, things, etc, but also events and states.  While there are some things that we don't link (detailed in following sections), your default assumption is that everything that is "coreferential" should be linked up.
 
-**Each "Identical" chain needs at least one non-implicit instance**
+**You are co-referring all kinds of concepts, as long as what they refer to is identical**
+
+Namely, this means that you are linking not just people, places, things, etc, but also events and states.  Everything that's coreferential gets linked up!  (With a few exceptions described below). 
+
+
+**An "Identical" chain can't only have implicit mentions -- you need at least one non-implicit concept**
+
 You will run into instances where multiple implicit arguments clearly co-refer, but where there is no clear mention of who they refer to.  Do not go through and annotate these unless you have at least one non-implicit variable that is part of that chain.  
 
+
 **Be strict about coreference: check whether "Set/Member" is a better label**
+
 If what you are handling is actually and instance or a subset of a larger thing being referred to, don't conflate them into the same identity chain!  This will be particularly tricky with subsets, when you are talking about a group and get referents like "some of them...". Use Set/Member (which includes "set-subset" in its meaning) for such things.
 
+
 **Be strict about coreference: don't corefer subevents with larger events**
+
 If you are talking about one battle within a war, or one incision within an operation, or a particular discussion during a larger meeting, those are related by being what we call "Subevents".  It can sometimes be tempting to conflate these sometimes.  However, AMR instances do not, actually, merge these in AMR, and you should just leave them separate whenever possible.  Other, related annotation projects will actually annotate this "Subevent" data, so it will be cleaner for those projects if you don't consider such phenomena identical.
 
+
 **DO link together dramatically different framings of the same underlying thing**
+
 Let's say you see the AMRs for "*Bill went to Trader Joes. The fool forgot to buy cookie butter.*"  There will be a "(f / fool)" and a "(p / person :name (n / name :op1 "Bill")), and it might seem like "fool" is going more than mere coreference. However, whenever something is a referring expression pointing to the particular thing or event in question, we are linking them together, even when they frame things differently. 
 
+
 **Wikified mentions are assumed to be linked already**
+
 Every entity with a ":wiki" link is going to be assumed to be linked up with every other mention.  That means that if you have an identity chain for "Bill Clinton", you don't need to link every instance of ```(p / person :name (n / name :op1 "Clinton"))``` together.  However, you still need to make links from at least one :wiki entry to the pronouns, implicit arguments, and other non-wikified mentions of that term that might exist.  
+
 
 Making Set/member relations
 ---------------------------
