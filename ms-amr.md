@@ -217,17 +217,18 @@ Consider a mention that later says:
       :ARG0 (b / bite-01)
       :ARG1 (t / they))
 ```
-Now this will show in AMR as
+This will show in our multi-sentence AMR annotations as
 ```
 "They were worried about the bite"
 (w / worry-01
       :ARG0 (b / bite-01 
-           :ARG0 (i / implicit-biter)
-           :ARG1 (i2 / implicit-biten))
+           :ARG0 (i / implicit-biter_agent)
+           :ARG1 (i2 / implicit-entity_bitten))
       :ARG1 (t / they))
 ```      
-If you have linked the two bite-01 instances together, you are allowed to not 
+If you have linked the two bite-01 instances together, then both ```:ARG0 (i / implicit-biter_agent)``` and ```:ARG1 (i2 / implicit-entity_bitten)``` pass this test, and don't need to be annotated. 
 
+If you are at all uncertain about the identity of the referent, it is best to add this reference in.  We also need to emphasize that this **only** works if you have prior coreferent mentions of the **exact same predicate**.  
 
 
 Special Cases and Additional Guidelines
