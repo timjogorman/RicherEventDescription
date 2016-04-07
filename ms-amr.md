@@ -341,14 +341,15 @@ There are far more important political and economical reasons for military inter
 Handling Errors in the AMRs
 ===========================
 
+There are a bunch of issues that you might encounter that are essentially caused by issues in the original AMR annotation.  
+
 AMR missed a within-sentence reentrancy
 ---------------------------------------
-You **are** allowed to link within the same sentence, but only in the case of errors, where you believe the original AMR should have merged those into a single variable. 
+You **are** allowed to link within the same sentence, but only in the case of errors, where you believe the original AMR should have merged those into a single variable. Simply treat them like normal mentions, and link them to your identity chain normally. 
 
 AMR annotation has conflicting :wiki values for the same identity chain
 -----------------------------------------------------------------------
-If you run into this situation, annotate an identity chain as normal, but make sure that every instance of this term is brought into the same identity chain. This will be cause during Quality Control as long as you make sure that both different :wiki entries are represented, and we will need a record of all instances so that we can correct erroneous ones.  
-
+If you run into this situation, annotate an identity chain as normal, but make sure that every instance of this term is brought into the same identity chain. During quality control we will check for whether a given chain has multiple :wiki links; all you need to do is catch the error. 
 
 Removable components in equational clauses
 ------------------------------------------
@@ -370,7 +371,7 @@ You may run into cases where this kind of thing is instead annotated as
             :manner (h / hard-02))
       :domain (b / boy))
 ```
-**DISCUSSION POINT / PROPOSAL**: In this case, annotate BOTH mentions as coreferential; we will go through and see if we can merge them. 
+**DISCUSSION POINT / PROPOSAL**: In this case, annotate BOTH mentions as coreferential; we may go through and fix the issue. If you find yourself doing this often, however, bring it up immediately with your annotation team to make sure you are making the right judgement calls. 
 
 
 
@@ -386,9 +387,6 @@ You might see it sometimes done as:
 or even as:
 ```(d / draw-01)```
 
-There is an extent to which this is a **complex type** which is both referring to the event of drawing and the prduct of drawing.  *In an ideal document, it will be very clear what is being referred to in each instance*.  However, that willl not always be the case. 
-
-**DISCUSSION POINT / PROPOSAL**: (Actually, I have no idea what we should do when this comes up. Proposal forthcoming.)
-
+In these cases, we are essentially dealing with two, intertwined reference types -- the result of a drawing event, and the act of drawing.  If at all possible, you should simply assume that these are two separate identity chains, and try to assign each mention to one chain or the other. 
 
 
