@@ -246,7 +246,7 @@ As a general rule, you can avoid coreferring things that are "generic", but you 
 
 
 ```
-"I would suggest an economic block and the sharing of nuclear technology within this block to ensure their sovereignty from both military and economic war."
+I would suggest an economic block and the sharing of nuclear technology within this block to ensure their sovereignty from both military and economic war.
  (s / suggest-01 
 	:ARG0  (i / i) 
 	:ARG1  (a / and 
@@ -270,8 +270,9 @@ As a general rule, you can avoid coreferring things that are "generic", but you 
 
 Or the two mentions of "politics" in the following:
 
-# ::snt There are far more important political and economical reasons for military intervention or political sanctions.
+
 ```
+There are far more important political and economical reasons for military intervention or political sanctions.
  (r / reason 
 	:mod  (p / politics) 
 	:mod  (e / economy) 
@@ -347,19 +348,6 @@ or even as:
 There is an extent to which this is a **complex type** which is both referring to the event of drawing and the prduct of drawing.  *In an ideal document, it will be very clear what is being referred to in each instance*.  However, that willl not always be the case. 
 
 **DISCUSSION POINT / PROPOSAL**: (Actually, I have no idea what we should do when this comes up. Proposal forthcoming.)
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
