@@ -17,41 +17,45 @@ These are the same distinctions we make in normal AMR
 
 Remember that AMR does all within-sentence coreference, regardless of why you know that information.  This means that sometimes in AMR, we are merging two explicit mentions into the same AMR variable.  Remember that "He boy wants the girl to believe him" is AMRed as follows, with the "boy" and "him" merged together:
 
+```
 (w / want-01
    :ARG0 (b / boy)
    :ARG1 (b2 / believe-01
              :ARG0 (g / girl)
              :ARG1 b))
+```
 
 As another example, consider the three different instances of "b" in the following sentence:
 
-"The boy worried, fearing he would not get a present"
+"The boy ran off to California and arrived on Tuesday" 
 ```
-(w / worry-01
-      :ARG0 (f / fear-01
-            :ARG0 b
-            :ARG1 (g / get-01 :polarity -
-                  :ARG0 b
-                  :ARG1 (p / present)))
-      :ARG1 (b / boy))
+(a / and
+      :op1 (r / run-off-24
+            :ARG0 (b / boy)
+            :ARG1 (s / state :wiki "California" :name (n / name :op1 "California")))
+      :op2 (a2 / arrive-01
+            :ARG1 b
+            :ARG2 s
+            :time (d3 / date-entity :weekday "Tuesday")))
 ```
 
-In this form, we get three different instances of "b"; some of which are just knowable arguments (such as that the "boy" is the one doing the fearing").  If this sentence were to be split into two sentence, our within-sentences would lose a lot of that information:  
+If this sentence were to be split into two sentence, our within-sentences would lose some of the information:
 
-"The boy was worried. He feared he would not get a present"
-```
-(w / worry-01
-      :ARG1 (b / boy)
+"The boy ran off to California. He arrived on Tuesday" 
 
-(f2 / fear-01
-      :ARG0 (h / he)
-      :ARG1 (g / get-01 :polarity -
-            :ARG0 h
-            :ARG1 (p / present)))
 ```
-A strong guiding principle of this annotation is that **we are making links across sentences that AMR would make within the same sentence**.  This means that we need to recover specific information:
+(r2 / run-off-24
+      :ARG0 (b3 / boy)
+      :ARG1 (s / state :wiki "California" :name (n / name :op1 "California")))
+      
+(a3 / arrive-01
+      :ARG1 (h / he)
+      :time (d3 / date-entity :weekday "Tuesday"))      
+```
+
+Suddenly all you know about the :ARG0 of arrive is that it is a "he", and you lose the destination of arrival entirely, since it was now mentioned in that sentence. A strong guiding principle of this annotation is that **we are making links across sentences that AMR would make within the same sentence**.  This means that we need to recover specific information:
  - We need to now recover that "boy" and "he" are the same
- - We need to now recover that the thing worried about (":ARG0") is "fear-01".
+ - We need to now recover that the ```:ARG4``` (end point, destination) of arrive-01 is California.
 
 More generally, the idea is that we need to:
  1) Do document-wide coreference between variables -- like "b / boy" and "h / he" -- so that we know when they refer to the same thing.
@@ -186,7 +190,6 @@ If someone is part of an organization, then the way to encode that is to link th
 
 The particular building your are sitting in might be, in some technical level, a part of your city, of your state, your nation, and the world. There's an extent to which 'being part of something', in that sense, is a hard-to-define concept.  But there are some prototypical entailments that should be largely present:
 - Compositionality: If one were to make up a list of component parts of the whole, 
-- If the entity is stored in reference, you'd imagine it stored in under the entry for the whole.  
 
 
 "Redundant" relationships
