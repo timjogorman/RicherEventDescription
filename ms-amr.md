@@ -35,7 +35,7 @@ As another example, consider the three different instances of "b" in the followi
             :ARG1 (s / state :wiki "California" :name (n / name :op1 "California")))
       :op2 (a2 / arrive-01
             :ARG1 b
-            :ARG2 s
+            :ARG4 s
             :time (d3 / date-entity :weekday "Tuesday")))
 ```
 
