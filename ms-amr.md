@@ -32,7 +32,7 @@ As another example, consider the three different instances of "b" in the followi
 (a / and
       :op1 (r / run-off-24
             :ARG0 (b / boy)
-            :ARG1 (s / state :wiki "California" :name (n / name :op1 "California")))
+            :ARG2 (s / state :wiki "California" :name (n / name :op1 "California")))
       :op2 (a2 / arrive-01
             :ARG1 b
             :ARG4 s
@@ -46,20 +46,16 @@ If this sentence were to be split into two sentence, our within-sentences would 
 ```
 (r2 / run-off-24
       :ARG0 (b3 / boy)
-      :ARG1 (s / state :wiki "California" :name (n / name :op1 "California")))
+      :ARG2 (s / state :wiki "California" :name (n / name :op1 "California")))
       
 (a3 / arrive-01
       :ARG1 (h / he)
       :time (d3 / date-entity :weekday "Tuesday"))      
 ```
 
-Suddenly all you know about the :ARG0 of arrive is that it is a "he", and you lose the destination of arrival entirely, since it was now mentioned in that sentence. A strong guiding principle of this annotation is that **we are making links across sentences that AMR would make within the same sentence**.  This means that we need to recover specific information:
- - We need to now recover that "boy" and "he" are the same
- - We need to now recover that the ```:ARG4``` (end point, destination) of arrive-01 is California.
-
-More generally, the idea is that we need to:
- 1) Do document-wide coreference between variables -- like "b / boy" and "h / he" -- so that we know when they refer to the same thing.
- 2) We need to link unstated arguments -- such as the ":ARG0" of worry-01, above -- to the things they refer to.
+In that shift, you lose the knowledge that the :ARG0 of ```run-off-24``` and the :ARG1 of ```arrive-01``` are identical, getting only a "he". You also lose the knowledge of the destination that was arrived at.  Re-capturing this kind of information leads to a guiding principle of this annotation: **we are making links across sentences that AMR would make within the same sentence**.  This means that we need to recover specific information:
+ - We need to recover that "boy" and "he" are the same; more generally, we need to link together variables that refer to the same thing.
+ - We need to recover that the ```:ARG4``` (end point, destination) of arrive-01 is California; more generally, we need to link unfilled numbered arguments to their referents in other sentences.
 
 The third task -- marking set/member and part/whole relations -- will also be similar to within-sentence AMR intuitions. Imagine we had a single-sentence AMR that said:
 ```
