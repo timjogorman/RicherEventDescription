@@ -1,10 +1,12 @@
 Part I. Introduction
 ====================
 
-Where AMR captures "who is doing what to whom" within a particular sentence, multi-sentence AMR simply extends that to capturing "who is doing what to whom" within larger spans of text.   In practice, this means that we are taking a document or utterance where each sentence has already been given an AMR, and linking them up to a bigger unified structure.
+Where AMR captures "who is doing what to whom" within a particular sentence, multi-sentence AMR simply extends that to capturing "who is doing what to whom" within larger spans of text.   In practice, this means that we are taking a document or utterance where each sentence has already been given an AMR, and linking concepts from those individual AMRs together, in order to build up a bigger, unified representation.
 
-Core Task
----------
+*These guidelines assume an understanding of how AMR annotation is done.  [See the AMR guidelines](https://github.com/amrisi/amr-guidelines/blob/master/amr.md) to brush up on your understanding of AMR annotation.*
+
+The Core Task
+-------------
 
 We are doing three things in multisentence AMR:
 
@@ -25,7 +27,7 @@ Remember that AMR does all within-sentence coreference, regardless of why you kn
              :ARG1 b))
 ```
 
-As another example, consider the three different instances of "b" in the following sentence:
+As another example, consider the two different instances of "b" in the following sentence:
 
 "The boy ran off to California and arrived on Tuesday" 
 ```
@@ -39,25 +41,27 @@ As another example, consider the three different instances of "b" in the followi
             :time (d3 / date-entity :weekday "Tuesday")))
 ```
 
-If this sentence were to be split into two sentence, our within-sentences would lose some of the information:
-
-"The boy ran off to California. He arrived on Tuesday" 
+If this sentence were to be split into two sentences, our within-sentences would lose some of the information that we had in the first:
 
 ```
+"The boy ran off to California."
 (r2 / run-off-24
       :ARG0 (b3 / boy)
       :ARG2 (s / state :wiki "California" :name (n / name :op1 "California")))
-      
+
+"He arrived on Tuesday"       
 (a3 / arrive-01
       :ARG1 (h / he)
       :time (d3 / date-entity :weekday "Tuesday"))      
 ```
 
-In that shift, you lose the knowledge that the :ARG0 of ```run-off-24``` and the :ARG1 of ```arrive-01``` are identical, getting only a "he". You also lose the knowledge of the destination that was arrived at.  Re-capturing this kind of information leads to a guiding principle of this annotation: **we are making links across sentences that AMR would make within the same sentence**.  This means that we need to recover specific information:
- - We need to recover that "boy" and "he" are the same; more generally, we need to link together variables that refer to the same thing.
- - We need to recover that the ```:ARG4``` (end point, destination) of arrive-01 is California; more generally, we need to link unfilled numbered arguments to their referents in other sentences.
+That simple difference causes us to lose a number of pieces of information.   
 
-The third task -- marking set/member and part/whole relations -- will also be similar to within-sentence AMR intuitions. Imagine we had a single-sentence AMR that said:
+One thing lost is within-sentence coreference.  In normal AMR, the "boy" and "he" both simply get linked to a single variable ```(b3 / boy)```, so that multiple mentions of that boy would simply get *reentrancies* using the variable ```b3```.  Extending this to a document level means that we are doing *coreference*. 
+
+A second thing lost are inferrable semantic roles.  For example, in the original example, an annotator might infer that the destination of ```arrive-01``` is a knowable referent in context: California.  In general, AMR annotators dealing with a single sentence will use *reentrancies* to mark every single numbered semantic role like this that they can discern in context.   Extending this to a document level means that we are doing *implicit role resolution*. 
+
+Finally, AMR will sometimes mark the relationships that hold between different objects when they are not identical, but related due to being members of a larger set or parts of a larger whole. For example, a single-sentence AMR for the following sentence might look as follows, with "include-91" capturing a set relationship showing that the individual cat "Mittens" is part of a set of 3 cats:
 ```
 "John had three cats, one of which was named Mittens"
 (h / have-03
@@ -67,7 +71,7 @@ The third task -- marking set/member and part/whole relations -- will also be si
                   :ARG1 (c2 / cat :name (n2 / name :op1 "Mittens")))))
 ```
 
-If we split this up into "John had three cats.  One cat was named Mittens", then suddenly we are missing that "include-91" relation, and the underlying relationship between "three cats" and "one":
+If we split this up into "John had three cats.  One cat was named Mittens", then suddenly we are missing that "include-91" relation, and the underlying Set/Member relationship between "three cats" and "one":
 
 ```
 "John had three cats.  One cat named Mittens"
@@ -77,15 +81,37 @@ If we split this up into "John had three cats.  One cat was named Mittens", then
 
 (c2 / cat :name (n2 / name :op1 "Mittens"))
 ```
-So we'll need this set/member ("include-91") relationship between the two as well, so that we can know that Mittens is a member of the set of three cats.  This gives us our third task:
 
- 3) We need to link arguments with Set/Member and Part/Whole relations when appropriate (include-91 and have-part-91, in ARM lingo)
+The need for this kind of relationship gives us our third task: marking Whole/Part and Set/Member relations (part of a larger class of "Bridging" relationships often discussed in terms of coreference).  
+
 
 
 Walking through some examples
 -----------------------------
 
-< placeholder for more introductory examples >
+We will accomplish this by using a tool that works on top of the AMR annotations, Anafora. Because of the Anafora tool, each indexed concept with an AMR will have a little colored box, which we will add into coreference chains to do our annotations.  For example, the following AMR will be represented in Anafora as follows: 
+
+```
+They always need to have things explained . 
+ (n / need-01 
+	:ARG0  (t / they) 
+	:ARG1  (e / explain-01    
+	:time  (a / always)) 
+
+``` 
+![little prince example 1](lpp-intro1.png "An example of the annotation tool")
+
+You might notice that two arguments are actually added to the representation, "thing explained" and "explainer".  A pre-processing step during this annotation will ask our lexicon of predicates (from Propbank) for any numbered arguments unique to that predicate which have not yet been stated. These are added in blue to each AMR. 
+
+When you want to link two of these variables, you simply press "u" (or access "IdentityChain" in the menu from Schema > Identity > IdentityChain), and then press "1" (or click on the empty box to the right of the word "Mentions" in the right-hand panel). This gets you into a coreference mode, where any AMR concept that you click on is added to a coreference chain.  For example, you can see the result of linking two mentions together in the following example; "g / grown-up" and "t / they" are now coded as identical:
+
+![little prince example 1](lpp-intro2.png "An example of coreference annotation")
+
+The "implicit" boxes may be added to these chains just like any other concept.  
+
+You may add relations such as Set/Member by going to the menu selecting it (such as  Schema > Bridging > SetMember).  Then you click on the empty box to the right of "SuperSet" in the right-hand panel, and click on the concept that is your superset.  After that, you click on the box to the right of "MemberOrSubset" and click on any number of members of that set:
+
+![little prince example 1](lpp-intro3.png "An example of set/member annotation")
 
 
 General Guidelines -- What Should I Put in Identity Clusters?
@@ -186,6 +212,133 @@ If someone is part of an organization, then the way to encode that is to link th
 
 The particular building your are sitting in might be, in some technical level, a part of your city, of your state, your nation, and the world. There's an extent to which 'being part of something', in that sense, is a hard-to-define concept.  But there are some prototypical entailments that should be largely present:
 - Compositionality: If one were to make up a list of component parts of the whole, 
+
+
+Discourse Phenomena
+===================
+
+Anaphora referring to a mentioned event
+---------------------------------------
+
+In a given document, you might run into phases like "I didn't want to do that" or "that was fun", in which words and phrases like "do so", "that", "do that", etc. will refer back to prior events in context. 
+
+The core thing to remember is that if a variable clearly links to a single event, you should mark it as coreference with that event. For example:
+```
+Bob threatened to leave
+(t / threaten-01
+      :ARG0 (p / person :name (n / name :op1 "Bob"))
+      :ARG1 (l / leave-11
+            :ARG0 p))
+```
+
+There are a whole range of ways that this might be "referred to", and those might have different AMR treatments, such as:
+```
+Then he actually did so
+(d / do-02
+      :ARG0 (h / he)
+      :ARG1 (s / so)
+      :mod (a / actual))
+```
+
+```
+Then he actually did that
+(d / do-02
+      :ARG0 (h / he)
+      :ARG1 (s / so)
+      :mod (a / actual))
+```
+
+```
+Did it actually happen?
+(i / it :mode interrogative
+      :mod (a / actual))
+```
+
+```
+Did it actually happen?
+(e / event  :mode interrogative
+      :mod (a / actual))
+```
+
+If it's actually referring to the same thing, DO link them together.  Since the 'anaphoric' phrase like 'do so' or 'do that' will often be composed of many AMR concepts, we'll need to have rules for which one to use:
+
+For phases with a demonstrative like "this" or "that", or with "it", such as  "do that" , "that happened", "do it" , etc., use the demonstrative or pronoun:
+```
+"If they that..."
+(d / do-02
+     :ARG0 (t / they)
+     :ARG1 (t2 / that)
+  ....)
+```
+
+For phases with a support verb like "do-02" and "so", use the predicate rather than the "so":
+```
+"If they that..."
+(d / do-02
+     :ARG0 (t / they)
+     :ARG1 (t2 / that)
+  ....)
+```
+
+Vague Discourse Demonstratives
+------------------------------
+
+Consider an example like
+
+```
+"He stole money from people."
+(s / steal-01
+      :ARG0 (h / he)
+      :ARG1 (m / money)
+      :ARG2 (p / person))
+
+"He tried to blame it on Bill"
+(t / try-01
+      :ARG0 (h / he)
+      :ARG1 (b / blame-01
+            :ARG0 h
+            :ARG1 (p / person :name (n / name :op1 "Bill"))
+            :ARG2 (i2 / it)))
+
+"That's what he's charged with"
+(t / that
+      :ARG2-of (c / charge-05
+            :ARG1 (h / he)))
+```
+For such a small set of options, we may want to actually represent that as Set/Member relationship between "that" and the things that constitute the "that" relationship, the "steal-01" and "try-01".  But consider that this a slippery slope; instead of the first two sentences, one might have had a whole discourse describing the details of someone's crime; in that context, we would definitely not want 'that' to contain all the mentions in that entire discourse. 
+
+Because of that slippery slope, there needs to be a simple cut-off.  For simplicity, we'll just use two rules:
+- If there's a single thing (or "and" instance) that "that" refers to, make an identity chain and link them together. 
+- If the term refers equally to a very cleanly defined Set of different factors of the same type, constituting a stretch of prior AMRs (roughly 5 or less) without any AMRs that are tangential or details, and if you can genuinely view it as a Set with those members, then mark it as Set/Member.
+- Otherwise, do not annotate it as anything
+**AMR conference call discussion point** alternatively: - Otherwise, make a special "PriorDiscourse" chain, and only add this demonstrative to it.  
+
+Vague Discourse Reference with Implicit Arguments
+-------------------------------------------------
+
+Consider out of context a sentence like:
+```
+But we left early
+(c / contrast-01
+      :ARG2 (l / leave-11
+            :ARG0 (w / we)
+            :time (e / early)))
+```
+This will show up in the Anafora tool as having (amongst other implicit arguments) an argument for the "ARG1" of contrast -- the thing that "but" is contrasting with:
+
+```
+But we left early
+(c / contrast-01
+      :ARG1 (i / implicit-- first_item_in_comparison)
+      :ARG2 (l / leave-11
+            :ARG0 (w / we)
+            :time (e / early)))
+```
+
+Like the rules for reference using "that" and other such terms above, you should leave these completely alone if they don't have a clear referent or refer to a small, tractable number of events, using the definition of "small and tractable" that we're assuming above for "that".  
+
+**AMR conference call discussion point** alternatively: - It is does not fit that criteria, make a special "PriorDiscourse" chain, and only add this demonstrative to it.  
+
 
 
 "Redundant" relationships
