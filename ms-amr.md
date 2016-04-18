@@ -10,13 +10,13 @@
   - [Making Identical Relations](#making-identical-relations)
   - [Making Set/member relations](#making-setmember-relations)
   - [Marking Part/Whole relations](#marking-partwhole-relations)
-  - [True generics (synonymous with "one","everyone") should not be linked to implicits](#true-generics-synonymous-with-oneeveryone-should-not-be-linked-to-implicits)
-  - [Don't link up generics (that you wouldn't link in AMR)](#dont-link-up-generics-that-you-wouldnt-link-in-amr)
 - [Part III: Details ](#part-iii-details)
   - [Discourse Phenomena](#discourse-phenomena)
     - [Anaphora referring to a mentioned event](#anaphora-referring-to-a-mentioned-event)
     - [Vague Discourse Demonstratives](#vague-discourse-demonstratives)
     - [Vague Discourse Reference with Implicit Arguments](#vague-discourse-reference-with-implicit-arguments)
+  - [True generics (synonymous with "one","everyone") should not be linked to implicits](#true-generics-synonymous-with-oneeveryone-should-not-be-linked-to-implicits)
+  - [Don't link up generics (that you wouldn't link in AMR)](#dont-link-up-generics-that-you-wouldnt-link-in-amr)
   - ["Redundant" relationships](#redundant-relationships)
     - [Redundant implicit arguments can be left out](#redundant-implicit-arguments-can-be-left-out)
   - [What Does a Variable Mean?](#what-does-a-variable-mean)
@@ -244,86 +244,6 @@ If someone is part of an organization, then the way to encode that is to link th
 The particular building your are sitting in might be, in some technical level, a part of your city, of your state, your nation, and the world. There's an extent to which 'being part of something', in that sense, is a hard-to-define concept.  But there are some prototypical entailments that should be largely present:
 - Compositionality: If one were to make up a list of component parts of the whole, 
 
-True generics (synonymous with "one","everyone") should not be linked to implicits
-----------------------------------------------------------------------------------
-
-AMR annotations are full of concepts such as "recommend-01" (used for modal verbs like "should"), where the recommender isn't really clear, but might construed as being "people in  general recommend that...".  "John is funny" can be constued as "People find John funny".    It might be tempting, therefore, if you find a nice generic like "people" or "one" or "everyone", to link up all these implicit arguments to such as generic.  **Resist that urge!**.  Since that is a can of worms, consider it to be explicitly forbidden to link to such terms.
-
-Don't link up generics (that you wouldn't link in AMR)
-------------------------------------------------------
-
-As a clear-cut example, look at the AMR for the following sentence, and note that we have two different monetary amounts, each in a unit of "dollar". Indeed, both mentions of dollar are referring to teh same thing -- the general idea of US dollars.  But we nevertheless don't corefer them -- it would be wrong to replace "d2 / dollar" with a mere re-entrant variable "d3":
-
-```
-The government 's borrowing authority dropped at midnight Tuesday to $ 2.80 trillion from $ 2.87 trillion .
-
- (d4 / drop-01 
-	:ARG1  (t / thing 
-		:ARG1-of  (b / borrow-01 
-			:ARG0 g 
-			:ARG1-of  (a / authorize-01 
-				:ARG2  (g / government-organization 
-					:ARG0-of  (g2 / govern-01))))) 
-	:ARG3  (m2 / monetary-quantity 
-		:quant 2870000000000 
-		:unit  (d3 / dollar)) 
-	:ARG4  (m / monetary-quantity 
-		:quant 2800000000000 
-		:unit  (d2 / dollar)) 
-	:time  (d / date-entity 
-		:time "0 
-		:weekday  (w / wednesday))) 
-```
-
-We do not link these "dollar" elements.  While technically you might say that they are talking about the same generalized idea of dollars, nothing is added by linking them together. Another way to say this is that, since "dollar" is a generic word without need of context, coreference of "d3" and "d2" adds no information to our AMRs. 
-
-As a general rule, you can avoid coreferring things that are "generic", but you shouldn't be too strict about any exact definition of genericity; start with that definition and then try to calibrate to how this has been annotated in within-sentence AMR.  A good example of things that we are keeping slip are the two mentions of "economy" in the following AMR, used in "economic block" and "economic war":
-
-
-```
-I would suggest an economic block and the sharing of nuclear technology within this block to ensure their sovereignty from both military and economic war.
- (s / suggest-01 
-	:ARG0  (i / i) 
-	:ARG1  (a / and 
-		:op1  (b / block 
-			:mod  (e2 / economy)) 
-		:op2  (s2 / share-01 
-			:ARG0 b 
-			:ARG1  (t / technology 
-				:mod  (n / nucleus)))) 
-	:purpose  (e / ensure-01 
-		:ARG0 b 
-		:ARG1  (s3 / sovereignty 
-			:topic  (a2 / and 
-				:op1  (w / war-01 
-					:mod  (m / military) 
-					:mod  (e3 / economy)) 
-				:op2  (w2 / war-01) 
-				:mod  (b2 / both)) 
-			:poss b))) 
-```
-
-Or the two mentions of "politics" in the following:
-
-
-```
-There are far more important political and economical reasons for military intervention or political sanctions.
- (r / reason 
-	:mod  (p / politics) 
-	:mod  (e / economy) 
-	:mod  (i / important 
-		:degree  (m / more 
-			:degree  (f / far))) 
-	:ARG0-of  (c / cause-01 
-		:ARG1  (o / or 
-			:op1  (i2 / intervene-01 
-				:ARG0  (m2 / military)) 
-			:op2  (s / sanction-02 
-				:ARG2  (p2 / politics))))) 
-```
-
-
-
 
 Part III: Details 
 ================
@@ -451,6 +371,85 @@ But we left early
 Like the rules for reference using "that" and other such terms above, you should leave these completely alone if they don't have a clear referent or refer to a small, tractable number of events, using the definition of "small and tractable" that we're assuming above for "that".  
 
 **AMR conference call discussion point** alternatively: - It is does not fit that criteria, make a special "PriorDiscourse" chain, and only add this demonstrative to it.  
+
+True generics (synonymous with "one","everyone") should not be linked to implicits
+----------------------------------------------------------------------------------
+
+AMR annotations are full of concepts such as "recommend-01" (used for modal verbs like "should"), where the recommender isn't really clear, but might construed as being "people in  general recommend that...".  "John is funny" can be constued as "People find John funny".    It might be tempting, therefore, if you find a nice generic like "people" or "one" or "everyone", to link up all these implicit arguments to such as generic.  **Resist that urge!**.  Since that is a can of worms, consider it to be explicitly forbidden to link to such terms.
+
+Don't link up generics (that you wouldn't link in AMR)
+------------------------------------------------------
+
+As a clear-cut example, look at the AMR for the following sentence, and note that we have two different monetary amounts, each in a unit of "dollar". Indeed, both mentions of dollar are referring to teh same thing -- the general idea of US dollars.  But we nevertheless don't corefer them -- it would be wrong to replace "d2 / dollar" with a mere re-entrant variable "d3":
+
+```
+The government 's borrowing authority dropped at midnight Tuesday to $ 2.80 trillion from $ 2.87 trillion .
+
+ (d4 / drop-01 
+	:ARG1  (t / thing 
+		:ARG1-of  (b / borrow-01 
+			:ARG0 g 
+			:ARG1-of  (a / authorize-01 
+				:ARG2  (g / government-organization 
+					:ARG0-of  (g2 / govern-01))))) 
+	:ARG3  (m2 / monetary-quantity 
+		:quant 2870000000000 
+		:unit  (d3 / dollar)) 
+	:ARG4  (m / monetary-quantity 
+		:quant 2800000000000 
+		:unit  (d2 / dollar)) 
+	:time  (d / date-entity 
+		:time "0 
+		:weekday  (w / wednesday))) 
+```
+
+We do not link these "dollar" elements.  While technically you might say that they are talking about the same generalized idea of dollars, nothing is added by linking them together. Another way to say this is that, since "dollar" is a generic word without need of context, coreference of "d3" and "d2" adds no information to our AMRs. 
+
+As a general rule, you can avoid coreferring things that are "generic", but you shouldn't be too strict about any exact definition of genericity; start with that definition and then try to calibrate to how this has been annotated in within-sentence AMR.  A good example of things that we are keeping slip are the two mentions of "economy" in the following AMR, used in "economic block" and "economic war":
+
+
+```
+I would suggest an economic block and the sharing of nuclear technology within this block to ensure their sovereignty from both military and economic war.
+ (s / suggest-01 
+	:ARG0  (i / i) 
+	:ARG1  (a / and 
+		:op1  (b / block 
+			:mod  (e2 / economy)) 
+		:op2  (s2 / share-01 
+			:ARG0 b 
+			:ARG1  (t / technology 
+				:mod  (n / nucleus)))) 
+	:purpose  (e / ensure-01 
+		:ARG0 b 
+		:ARG1  (s3 / sovereignty 
+			:topic  (a2 / and 
+				:op1  (w / war-01 
+					:mod  (m / military) 
+					:mod  (e3 / economy)) 
+				:op2  (w2 / war-01) 
+				:mod  (b2 / both)) 
+			:poss b))) 
+```
+
+Or the two mentions of "politics" in the following:
+
+
+```
+There are far more important political and economical reasons for military intervention or political sanctions.
+ (r / reason 
+	:mod  (p / politics) 
+	:mod  (e / economy) 
+	:mod  (i / important 
+		:degree  (m / more 
+			:degree  (f / far))) 
+	:ARG0-of  (c / cause-01 
+		:ARG1  (o / or 
+			:op1  (i2 / intervene-01 
+				:ARG0  (m2 / military)) 
+			:op2  (s / sanction-02 
+				:ARG2  (p2 / politics))))) 
+```
+
 
 
 
