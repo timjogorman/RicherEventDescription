@@ -114,7 +114,7 @@ You may add relations such as Set/Member by going to the menu selecting it (such
 ![little prince example 1](lpp-intro3.png "An example of set/member annotation")
 
 
-General Guidelines -- What Should I Put in Identity Clusters?
+Part II: General Guidelines -- What Should I Put in Identity Clusters?
 =============================================================
 
 ::bangbang:: *Remember the above guiding principles: we are trying to re-enact AMR coreference distinctions whenever possible.  Because there are many additional complexities, we will be including many additional guidelines and special cases, but remember to speak up if you feel that your annotations are deviating from within-sentence AMR behavior.*
@@ -213,243 +213,6 @@ If someone is part of an organization, then the way to encode that is to link th
 The particular building your are sitting in might be, in some technical level, a part of your city, of your state, your nation, and the world. There's an extent to which 'being part of something', in that sense, is a hard-to-define concept.  But there are some prototypical entailments that should be largely present:
 - Compositionality: If one were to make up a list of component parts of the whole, 
 
-
-Discourse Phenomena
-===================
-
-Anaphora referring to a mentioned event
----------------------------------------
-
-In a given document, you might run into phases like "I didn't want to do that" or "that was fun", in which words and phrases like "do so", "that", "do that", etc. will refer back to prior events in context. 
-
-The core thing to remember is that if a variable clearly links to a single event, you should mark it as coreference with that event. For example:
-```
-Bob threatened to leave
-(t / threaten-01
-      :ARG0 (p / person :name (n / name :op1 "Bob"))
-      :ARG1 (l / leave-11
-            :ARG0 p))
-```
-
-There are a whole range of ways that this might be "referred to", and those might have different AMR treatments, such as:
-```
-Then he actually did so
-(d / do-02
-      :ARG0 (h / he)
-      :ARG1 (s / so)
-      :mod (a / actual))
-```
-
-```
-Then he actually did that
-(d / do-02
-      :ARG0 (h / he)
-      :ARG1 (s / so)
-      :mod (a / actual))
-```
-
-```
-Did it actually happen?
-(i / it :mode interrogative
-      :mod (a / actual))
-```
-
-```
-Did it actually happen?
-(e / event  :mode interrogative
-      :mod (a / actual))
-```
-
-If it's actually referring to the same thing, DO link them together.  Since the 'anaphoric' phrase like 'do so' or 'do that' will often be composed of many AMR concepts, we'll need to have rules for which one to use:
-
-For phases with a demonstrative like "this" or "that", or with "it", such as  "do that" , "that happened", "do it" , etc., use the demonstrative or pronoun:
-```
-"If they that..."
-(d / do-02
-     :ARG0 (t / they)
-     :ARG1 (t2 / that)
-  ....)
-```
-
-For phases with a support verb like "do-02" and "so", use the predicate rather than the "so":
-```
-"If they that..."
-(d / do-02
-     :ARG0 (t / they)
-     :ARG1 (t2 / that)
-  ....)
-```
-
-Vague Discourse Demonstratives
-------------------------------
-
-Consider an example like
-
-```
-"He stole money from people."
-(s / steal-01
-      :ARG0 (h / he)
-      :ARG1 (m / money)
-      :ARG2 (p / person))
-
-"He tried to blame it on Bill"
-(t / try-01
-      :ARG0 (h / he)
-      :ARG1 (b / blame-01
-            :ARG0 h
-            :ARG1 (p / person :name (n / name :op1 "Bill"))
-            :ARG2 (i2 / it)))
-
-"That's what he's charged with"
-(t / that
-      :ARG2-of (c / charge-05
-            :ARG1 (h / he)))
-```
-For such a small set of options, we may want to actually represent that as Set/Member relationship between "that" and the things that constitute the "that" relationship, the "steal-01" and "try-01".  But consider that this a slippery slope; instead of the first two sentences, one might have had a whole discourse describing the details of someone's crime; in that context, we would definitely not want 'that' to contain all the mentions in that entire discourse. 
-
-Because of that slippery slope, there needs to be a simple cut-off.  For simplicity, we'll just use two rules:
-- If there's a single thing (or "and" instance) that "that" refers to, make an identity chain and link them together. 
-- If the term refers equally to a very cleanly defined Set of different factors of the same type, constituting a stretch of prior AMRs (roughly 5 or less) without any AMRs that are tangential or details, and if you can genuinely view it as a Set with those members, then mark it as Set/Member.
-- Otherwise, do not annotate it as anything
-**AMR conference call discussion point** alternatively: - Otherwise, make a special "PriorDiscourse" chain, and only add this demonstrative to it.  
-
-Vague Discourse Reference with Implicit Arguments
--------------------------------------------------
-
-Consider out of context a sentence like:
-```
-But we left early
-(c / contrast-01
-      :ARG2 (l / leave-11
-            :ARG0 (w / we)
-            :time (e / early)))
-```
-This will show up in the Anafora tool as having (amongst other implicit arguments) an argument for the "ARG1" of contrast -- the thing that "but" is contrasting with:
-
-```
-But we left early
-(c / contrast-01
-      :ARG1 (i / implicit-- first_item_in_comparison)
-      :ARG2 (l / leave-11
-            :ARG0 (w / we)
-            :time (e / early)))
-```
-
-Like the rules for reference using "that" and other such terms above, you should leave these completely alone if they don't have a clear referent or refer to a small, tractable number of events, using the definition of "small and tractable" that we're assuming above for "that".  
-
-**AMR conference call discussion point** alternatively: - It is does not fit that criteria, make a special "PriorDiscourse" chain, and only add this demonstrative to it.  
-
-
-
-"Redundant" relationships
-=========================
-
-Redundant implicit arguments can be left out
---------------------------------------------
-
-We will have a very specific idea of redundant: 
-
-An implicit argument is *redundant* if 
-- (A) Its predicate is in a coreference chain
-- (B) There is a prior mention of that predicate using the exact same roleset
-- (C) That identical predicate has the same numbered argument as the implicit argument itself. 
-- (D) There is only one referent (identity chain) that has shown up in that particular role, for that particular roleset, for that predicate's identity chain.
-
-In other words, if we have one part of a document in which one mentions:
-```
-"the cat was bitten by the dog"
-(b / bite-01 
-      :ARG0 (d / dog)
-      :ARG1 (c / cat))
-```
-Consider a mention that later says:
-```
-"They were worried about the bite"
-(w / worry-01
-      :ARG0 (b / bite-01)
-      :ARG1 (t / they))
-```
-This will show in our multi-sentence AMR Anafora annotations as:
-```
-"They were worried about the bite"
-(w / worry-01
-      :ARG0 (b / bite-01 
-           :ARG0 (i / implicit-biter_agent)
-           :ARG1 (i2 / implicit-entity_bitten))
-      :ARG1 (t / they))
-```      
-If you have linked the two bite-01 instances together, then both ```:ARG0 (i / implicit-biter_agent)``` and ```:ARG1 (i2 / implicit-entity_bitten)``` pass this test, and don't need to be annotated. 
-
-If you are at all uncertain about the identity of the referent, it is best to add this reference in.  We also need to emphasize that this **only** works if you have prior coreferent mentions of the **exact same predicate**.  
-
-
-
-
-What Does a Variable Mean?
-==========================
-
-If you have a given AMR, it often makes sense to wonder what a particular variable "means".  For example, consider the "a2" in the following AMR:
-```
-We insist that you adhere to the contract or else we will sue you.
-(a / and 
-      :op1 (i / insist-01 
-            :ARG0 (w / we) 
-            :ARG1 (a2 / adhere-02 
-                  :ARG0 (y / you) 
-                  :ARG1 (c / contract))) 
-      :op2 (s / sue-02 
-            :ARG0 w 
-            :ARG1 y 
-            :condition (h / have-polarity-91 
-                  :ARG1 a2 
-                  :ARG2 -))) 
-```
-Is the "being insisted" part of the adherence?  What about the "have-polarity-91"?
-
-We will assume that a given variable like "a2" refers to *itself and every thing and relationship "under" it in the AMR tree*.  In this context, "a2" therefore refers to an event of adhering, given that "you" is the one following the rules and the "contract" is the set of rules followed.  Other relations -- like the "if you don't....", don't necessarily need to define *what it is* that these variables are.
-
-To give you an example for more 'thing-like' variables, we are just assuming that "c" in the below AMR simply refers to "social conservatives": because the polarity is not within the term
-```
-Not social conservatives.
-(h / have-polarity-91 
-      :ARG1 (c / conservative 
-            :mod (s / social)) 
-      :ARG2 -) 
-```
-
-In contrast, "s", having a ```:polarity -``` within the brackets of "s", can be assumed to inherently mean "racially insensitive":
-```
-Racially insensitive?
-
-(s / sensitive-03 :polarity - :mode interrogative 
-      :ARG1 (r / race)) 
-```
-
-:bangbang: Sometimes the AMR you've been given won't quite give you the variable or structure that you want -- you might want to link to a positive version of something, for example, but only have a negated version.  If two variables, under these underpretive rules, don't refer to the same thing, then don't mark them as coreferential. 
-
-
-
-
-
-Special Cases and Additional Guidelines
-=======================================
-
-Assertions of Identicality
---------------------------
-
-Hopefully it is clear from the prior guidelines that most "predicative" or "equational" constructions don't actually mean that you should link both mentions into the chain.  However, there is a tiny subset of cases where one really is getting links between two coreference chains, and claiming that those two chains are identical.  This is seen most clearly with things like:
-
-- Clark Kent is Superman!
-- I suspect Ted is the Zodiac killer.
-
-This can occur for cases where one is not named, when there is an ongoing discussion of whoever did a particular thing
-
-- I think mary is my secret santa.
-- People think that OJ is the killer.
-
-**DISCUSSION POINT / PROPOSAL**: We will treat these with this "marginal-identity-91" operator. 
-
-
 True generics (synonymous with "one","everyone") should not be linked to implicits
 ----------------------------------------------------------------------------------
 
@@ -531,6 +294,236 @@ There are far more important political and economical reasons for military inter
 
 
 
+Part III: Details 
+================
+
+
+Discourse Phenomena
+-------------------
+
+### Anaphora referring to a mentioned event
+
+
+In a given document, you might run into phases like "I didn't want to do that" or "that was fun", in which words and phrases like "do so", "that", "do that", etc. will refer back to prior events in context. 
+
+The core thing to remember is that if a variable clearly links to a single event, you should mark it as coreference with that event. For example:
+```
+Bob threatened to leave
+(t / threaten-01
+      :ARG0 (p / person :name (n / name :op1 "Bob"))
+      :ARG1 (l / leave-11
+            :ARG0 p))
+```
+
+There are a whole range of ways that this might be "referred to", and those might have different AMR treatments, such as:
+```
+Then he actually did so
+(d / do-02
+      :ARG0 (h / he)
+      :ARG1 (s / so)
+      :mod (a / actual))
+```
+
+```
+Then he actually did that
+(d / do-02
+      :ARG0 (h / he)
+      :ARG1 (s / so)
+      :mod (a / actual))
+```
+
+```
+Did it actually happen?
+(i / it :mode interrogative
+      :mod (a / actual))
+```
+
+```
+Did it actually happen?
+(e / event  :mode interrogative
+      :mod (a / actual))
+```
+
+If it's actually referring to the same thing, DO link them together.  Since the 'anaphoric' phrase like 'do so' or 'do that' will often be composed of many AMR concepts, we'll need to have rules for which one to use:
+
+For phases with a demonstrative like "this" or "that", or with "it", such as  "do that" , "that happened", "do it" , etc., use the demonstrative or pronoun:
+```
+"If they that..."
+(d / do-02
+     :ARG0 (t / they)
+     :ARG1 (t2 / that)
+  ....)
+```
+
+For phases with a support verb like "do-02" and "so", use the predicate rather than the "so":
+```
+"If they that..."
+(d / do-02
+     :ARG0 (t / they)
+     :ARG1 (t2 / that)
+  ....)
+```
+
+### Vague Discourse Demonstratives
+
+Consider an example like
+
+```
+"He stole money from people."
+(s / steal-01
+      :ARG0 (h / he)
+      :ARG1 (m / money)
+      :ARG2 (p / person))
+
+"He tried to blame it on Bill"
+(t / try-01
+      :ARG0 (h / he)
+      :ARG1 (b / blame-01
+            :ARG0 h
+            :ARG1 (p / person :name (n / name :op1 "Bill"))
+            :ARG2 (i2 / it)))
+
+"That's what he's charged with"
+(t / that
+      :ARG2-of (c / charge-05
+            :ARG1 (h / he)))
+```
+For such a small set of options, we may want to actually represent that as Set/Member relationship between "that" and the things that constitute the "that" relationship, the "steal-01" and "try-01".  But consider that this a slippery slope; instead of the first two sentences, one might have had a whole discourse describing the details of someone's crime; in that context, we would definitely not want 'that' to contain all the mentions in that entire discourse. 
+
+Because of that slippery slope, there needs to be a simple cut-off.  For simplicity, we'll just use two rules:
+- If there's a single thing (or "and" instance) that "that" refers to, make an identity chain and link them together. 
+- If the term refers equally to a very cleanly defined Set of different factors of the same type, constituting a stretch of prior AMRs (roughly 5 or less) without any AMRs that are tangential or details, and if you can genuinely view it as a Set with those members, then mark it as Set/Member.
+- Otherwise, do not annotate it as anything
+**AMR conference call discussion point** alternatively: - Otherwise, make a special "PriorDiscourse" chain, and only add this demonstrative to it.  
+
+### Vague Discourse Reference with Implicit Arguments
+
+Consider out of context a sentence like:
+```
+But we left early
+(c / contrast-01
+      :ARG2 (l / leave-11
+            :ARG0 (w / we)
+            :time (e / early)))
+```
+This will show up in the Anafora tool as having (amongst other implicit arguments) an argument for the "ARG1" of contrast -- the thing that "but" is contrasting with:
+
+```
+But we left early
+(c / contrast-01
+      :ARG1 (i / implicit-- first_item_in_comparison)
+      :ARG2 (l / leave-11
+            :ARG0 (w / we)
+            :time (e / early)))
+```
+
+Like the rules for reference using "that" and other such terms above, you should leave these completely alone if they don't have a clear referent or refer to a small, tractable number of events, using the definition of "small and tractable" that we're assuming above for "that".  
+
+**AMR conference call discussion point** alternatively: - It is does not fit that criteria, make a special "PriorDiscourse" chain, and only add this demonstrative to it.  
+
+
+
+"Redundant" relationships
+-------------------------
+
+### Redundant implicit arguments can be left out
+
+We will have a very specific idea of redundant: 
+
+An implicit argument is *redundant* if 
+- (A) Its predicate is in a coreference chain
+- (B) There is a prior mention of that predicate using the exact same roleset
+- (C) That identical predicate has the same numbered argument as the implicit argument itself. 
+- (D) There is only one referent (identity chain) that has shown up in that particular role, for that particular roleset, for that predicate's identity chain.
+
+In other words, if we have one part of a document in which one mentions:
+```
+"the cat was bitten by the dog"
+(b / bite-01 
+      :ARG0 (d / dog)
+      :ARG1 (c / cat))
+```
+Consider a mention that later says:
+```
+"They were worried about the bite"
+(w / worry-01
+      :ARG0 (b / bite-01)
+      :ARG1 (t / they))
+```
+This will show in our multi-sentence AMR Anafora annotations as:
+```
+"They were worried about the bite"
+(w / worry-01
+      :ARG0 (b / bite-01 
+           :ARG0 (i / implicit-biter_agent)
+           :ARG1 (i2 / implicit-entity_bitten))
+      :ARG1 (t / they))
+```      
+If you have linked the two bite-01 instances together, then both ```:ARG0 (i / implicit-biter_agent)``` and ```:ARG1 (i2 / implicit-entity_bitten)``` pass this test, and don't need to be annotated. 
+
+If you are at all uncertain about the identity of the referent, it is best to add this reference in.  We also need to emphasize that this **only** works if you have prior coreferent mentions of the **exact same predicate**.  
+
+
+
+
+What Does a Variable Mean?
+--------------------------
+
+If you have a given AMR, it often makes sense to wonder what a particular variable "means".  For example, consider the "a2" in the following AMR:
+```
+We insist that you adhere to the contract or else we will sue you.
+(a / and 
+      :op1 (i / insist-01 
+            :ARG0 (w / we) 
+            :ARG1 (a2 / adhere-02 
+                  :ARG0 (y / you) 
+                  :ARG1 (c / contract))) 
+      :op2 (s / sue-02 
+            :ARG0 w 
+            :ARG1 y 
+            :condition (h / have-polarity-91 
+                  :ARG1 a2 
+                  :ARG2 -))) 
+```
+Is the "being insisted" part of the adherence?  What about the "have-polarity-91"?
+
+We will assume that a given variable like "a2" refers to *itself and every thing and relationship "under" it in the AMR tree*.  In this context, "a2" therefore refers to an event of adhering, given that "you" is the one following the rules and the "contract" is the set of rules followed.  Other relations -- like the "if you don't....", don't necessarily need to define *what it is* that these variables are.
+
+To give you an example for more 'thing-like' variables, we are just assuming that "c" in the below AMR simply refers to "social conservatives": because the polarity is not within the term
+```
+Not social conservatives.
+(h / have-polarity-91 
+      :ARG1 (c / conservative 
+            :mod (s / social)) 
+      :ARG2 -) 
+```
+
+In contrast, "s", having a ```:polarity -``` within the brackets of "s", can be assumed to inherently mean "racially insensitive":
+```
+Racially insensitive?
+
+(s / sensitive-03 :polarity - :mode interrogative 
+      :ARG1 (r / race)) 
+```
+
+:bangbang: Sometimes the AMR you've been given won't quite give you the variable or structure that you want -- you might want to link to a positive version of something, for example, but only have a negated version.  If two variables, under these underpretive rules, don't refer to the same thing, then don't mark them as coreferential. 
+
+
+
+Assertions of Identicality
+--------------------------
+
+Hopefully it is clear from the prior guidelines that most "predicative" or "equational" constructions don't actually mean that you should link both mentions into the chain.  However, there is a tiny subset of cases where one really is getting links between two coreference chains, and claiming that those two chains are identical.  This is seen most clearly with things like:
+
+- Clark Kent is Superman!
+- I suspect Ted is the Zodiac killer.
+
+This can occur for cases where one is not named, when there is an ongoing discussion of whoever did a particular thing
+
+- I think mary is my secret santa.
+- People think that OJ is the killer.
+
+**DISCUSSION POINT / PROPOSAL**: We will treat these with this "marginal-identity-91" operator. 
 
 
 
@@ -538,8 +531,13 @@ There are far more important political and economical reasons for military inter
 
 
 
-Handling Errors in the AMRs
-===========================
+
+
+
+
+
+Part IV: Handling Errors in the AMRs
+====================================
 
 There are a bunch of issues that you might encounter that are essentially caused by issues in the original AMR annotation.  
 
