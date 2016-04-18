@@ -1,3 +1,34 @@
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+**Table of Contents**  *generated with [DocToc](https://github.com/thlorenz/doctoc)*
+
+- [Part I. Introduction](#part-i-introduction)
+  - [The Core Task](#the-core-task)
+  - [These are the same distinctions we make in normal AMR](#these-are-the-same-distinctions-we-make-in-normal-amr)
+  - [Walking through some examples](#walking-through-some-examples)
+- [Part II: General Guidelines -- What Should I Put in Identity Clusters?](#part-ii-general-guidelines----what-should-i-put-in-identity-clusters)
+  - [Making Identical Relations](#making-identical-relations)
+  - [Making Set/member relations](#making-setmember-relations)
+  - [Marking Part/Whole relations](#marking-partwhole-relations)
+  - [True generics (synonymous with "one","everyone") should not be linked to implicits](#true-generics-synonymous-with-oneeveryone-should-not-be-linked-to-implicits)
+  - [Don't link up generics (that you wouldn't link in AMR)](#dont-link-up-generics-that-you-wouldnt-link-in-amr)
+- [Part III: Details ](#part-iii-details)
+  - [Discourse Phenomena](#discourse-phenomena)
+    - [Anaphora referring to a mentioned event](#anaphora-referring-to-a-mentioned-event)
+    - [Vague Discourse Demonstratives](#vague-discourse-demonstratives)
+    - [Vague Discourse Reference with Implicit Arguments](#vague-discourse-reference-with-implicit-arguments)
+  - ["Redundant" relationships](#redundant-relationships)
+    - [Redundant implicit arguments can be left out](#redundant-implicit-arguments-can-be-left-out)
+  - [What Does a Variable Mean?](#what-does-a-variable-mean)
+  - [Assertions of Identicality](#assertions-of-identicality)
+- [Part IV: Handling Errors in the AMRs](#part-iv-handling-errors-in-the-amrs)
+  - [AMR missed a within-sentence reentrancy](#amr-missed-a-within-sentence-reentrancy)
+  - [AMR annotation has conflicting :wiki values for the same identity chain](#amr-annotation-has-conflicting-wiki-values-for-the-same-identity-chain)
+  - [Removable components in equational clauses](#removable-components-in-equational-clauses)
+  - [Decomposition Issues](#decomposition-issues)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+
 Part I. Introduction
 ====================
 
