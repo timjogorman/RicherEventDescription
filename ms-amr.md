@@ -383,6 +383,54 @@ If you have linked the two bite-01 instances together, then both ```:ARG0 (i / i
 If you are at all uncertain about the identity of the referent, it is best to add this reference in.  We also need to emphasize that this **only** works if you have prior coreferent mentions of the **exact same predicate**.  
 
 
+
+
+What Does a Variable Mean?
+==========================
+
+If you have a given AMR, it often makes sense to wonder what a particular variable "means".  For example, consider the "a2" in the following AMR:
+```
+We insist that you adhere to the contract or else we will sue you.
+(a / and 
+      :op1 (i / insist-01 
+            :ARG0 (w / we) 
+            :ARG1 (a2 / adhere-02 
+                  :ARG0 (y / you) 
+                  :ARG1 (c / contract))) 
+      :op2 (s / sue-02 
+            :ARG0 w 
+            :ARG1 y 
+            :condition (h / have-polarity-91 
+                  :ARG1 a2 
+                  :ARG2 -))) 
+```
+Is the "being insisted" part of the adherence?  What about the "have-polarity-91"?
+
+We will assume that a given variable like "a2" refers to *itself and every thing and relationship "under" it in the AMR tree*.  In this context, "a2" therefore refers to an event of adhering, given that "you" is the one following the rules and the "contract" is the set of rules followed.  Other relations -- like the "if you don't....", don't necessarily need to define *what it is* that these variables are.
+
+To give you an example for more 'thing-like' variables, we are just assuming that "c" in the below AMR simply refers to "social conservatives": because the polarity is not within the term
+```
+Not social conservatives.
+(h / have-polarity-91 
+      :ARG1 (c / conservative 
+            :mod (s / social)) 
+      :ARG2 -) 
+```
+
+In contrast, "s", having a ```:polarity -``` within the brackets of "s", can be assumed to inherently mean "racially insensitive":
+```
+Racially insensitive?
+
+(s / sensitive-03 :polarity - :mode interrogative 
+      :ARG1 (r / race)) 
+```
+
+:bangbang: Sometimes the AMR you've been given won't quite give you the variable or structure that you want -- you might want to link to a positive version of something, for example, but only have a negated version.  If two variables, under these underpretive rules, don't refer to the same thing, then don't mark them as coreferential. 
+
+
+
+
+
 Special Cases and Additional Guidelines
 =======================================
 
