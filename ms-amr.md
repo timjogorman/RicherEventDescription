@@ -145,10 +145,10 @@ You may add relations such as Set/Member by going to the menu selecting it (such
 ![little prince example 1](lpp-intro3.png "An example of set/member annotation")
 
 
-Part II: General Guidelines -- What Should I Put in Identity Clusters?
-=============================================================
+Part II: General Guidelines
+===========================
 
-::bangbang:: *Remember the above guiding principles: we are trying to re-enact AMR coreference distinctions whenever possible.  Because there are many additional complexities, we will be including many additional guidelines and special cases, but remember to speak up if you feel that your annotations are deviating from within-sentence AMR behavior.*
+:bangbang: *Remember the above guiding principles: we are trying to re-enact AMR coreference distinctions whenever possible.  Because there are many additional complexities, we will be including many additional guidelines and special cases, but remember to speak up if you feel that your annotations are deviating from within-sentence AMR behavior.*
 
 
 Making Identical Relations
@@ -191,6 +191,65 @@ Every entity with a ":wiki" link is going to be assumed to be linked up with eve
 
 Naturally, if something has ":wiki -", it does not count as wikified for these purposes. 
 
+
+**Do not mark "predicative" assertions about a mention**
+
+It may be obvious that the AMRs for sentence such as "John is foolish", only mention "John" once; foolish is merely a property of "John". Let's say that you get a sentence such as: 
+
+```
+Sally claimed that he was a fool
+(c / claim-01
+      :ARG0 (p / person :name (n / name :op1 "Sally"))
+      :ARG1 (f / fool
+            :domain (h / he)))
+```
+If you link "he" to an identity chain, *do not add "fool" to that chain*.  We already know what "fool" is in relation to John, as the ":domain" relation.  
+
+** Do not link titles and identity chains **
+Similar to the above note, let's say you have a sentence like:
+```
+The board nominated Sally to be the chair
+```
+This might get represented, ideally, as the following.  In such a case, you wouldn't want "chair" to be identical with Sally -- it's not a mention of "Sally", but a mention of the title/role given to Sally:
+```
+(n2 / nominate-01
+      :ARG0 (b / board)
+      :ARG1 (p2 / person :name (n3 / name :op1 "Sally"))
+      :ARG2 (h2 / have-org-role-91
+            :ARG0 p2
+            :ARG1 b
+            :ARG2 (c2 / chair)))
+```
+Furthermore, imagine you run into an AMR representing this more directly, such as the following.  For the same reasons noted above, do not link "chair" to Sally's identity chain: 
+```
+(n2 / nominate-01
+      :ARG0 (b / board)
+      :ARG1 (p2 / person :name (n3 / name :op1 "Sally"))
+      :ARG2 (c2 / chair))
+```
+
+** A general heuristic for within-sentence AMR links **
+
+If multiple variables within the same AMR are linked together, we want you to imagine that AMR *as if all but one of those variables are replaced with re-entrancies.  That is to say, imagine you made the (bad annotation) of marking both "f/ fool" and "h / he" as being in the same identity chain below: 
+```
+Sally claimed that he was a fool
+(c / claim-01
+      :ARG0 (p / person :name (n / name :op1 "Sally"))
+      :ARG1 (f / fool
+            :domain (h / he)))
+```
+
+What you are saying is that they are *the same*, and that one should be replaced by a link to the other.  In this case, this would result in:
+```
+Sally claimed that he was a fool
+(c / claim-01
+      :ARG0 (p / person :name (n / name :op1 "Sally"))
+      :ARG1 (f / fool
+            :domain f))
+```
+Try to use this heuristic if you find yourself wondering whether to annotate multiple mentions in the same sentence.  Actually imagine forming the sentence so that one identity chain is just re-entrant variables of the other.  If that does not seem acceptable, the two variables should not be considered identical. 
+
+
 Making Set/member relations
 ---------------------------
 
@@ -216,16 +275,11 @@ You will run into things that, on some technical understanding of meaning, might
 
 There are many times in AMR where one mentions things like "John and Mary to the store" or "China and Japan are competing".  You can assume that "and" loosely encodes a set/member relationship; you don't need to add "set/member" to all of our coordination instances, nor to add it between "they" and "John" in "John and Mary went to the store.  They bought a cat."
 
-**Do not mark "predicative" assertions about a mention**
-
-It may be obvious that the AMRs for sentence such as "John is foolish", only mention "John" once; foolish is merely a property of "John". 
-
-But if one were to run into examples like "John is a fool", or "I consider John a fool", there might be more of a temptation to link "fool" into the "John" identity chain.  You should resist that temptation.  Because we are already capturing the predicative relationship -- through predicates like "consider-01" or with :mod or :domain relations -- we don't need to also add a coreference link.  
-
-This will be hardest in instances like "John is the tallest man in the world". Even for these, we do not want these to be linked up.  For more details about this kind of particular edge case, see "assertions of identicality" in the Special Cases section
 
 Marking Part/Whole relations
 ----------------------------
+
+Two entities exist in a WHOLE/PART relationship if one can be thought of as part of the other, larger composite entity. 
 
 **Don't mark Part/Whole if any mentions are already linked with a :part-of relation**
 
@@ -239,10 +293,32 @@ We are treating this entirely as being "X is a component part of Y".  Even thoug
 
 If someone is part of an organization, then the way to encode that is to link them together with implicit arguments on an instance of "have-org-role-91".  Part/Whole should only be used in the organizational senses when discussing company-company relations, like "Google is part of Alphabet". 
 
+** Note that WHOLE/PART relationships are essentially hierarchical**
+
+These may theoretically have a whole chain of relationships (a hair is part of a dog, a dog is part of a pack, etc.).  If one sentence mentions "I hurt my left hand" and another sentence mentions "More specifically, my thumb hurts", you want to be able to capture that hierarchical structure -- that the thumb is part of the left hand, and that the left hand is part of the person. 
+
 **Part/Whole is not for mere spatial inclusion**
 
-The particular building your are sitting in might be, in some technical level, a part of your city, of your state, your nation, and the world. There's an extent to which 'being part of something', in that sense, is a hard-to-define concept.  But there are some prototypical entailments that should be largely present:
-- Compositionality: If one were to make up a list of component parts of the whole, 
+The particular building your are sitting in might be, in some technical level, a part of your city, of your state, your nation, and the world. But for the most part, AMR has not added inferential annotations for this kind of link, and so we will not be marking those links. Use part/whole only when the individual components truly do amount to parts of a whole -- a building might make up a university campus in a way that justified "part/whole" relation, for example, but doesn't deserve the same part/whole relationship to "the united states" or "the milky way".
+
+One of the tests for this that is expressive of the kind of annotations we want for AMR, is whether the part/whole relation is necessary for understanding what is being referred to (or could be).  If you say "the buildings" and someone asks "which buildings?" and you can answer "the buildings on campus", then you might want to mark the part/whole relationship between buildings and campus.  
+
+**Part/Whole is most necessary when this compositional part/whole information is needed for reference**
+
+The kinds of Part/whole relationships that we definitely want to make sure we catch are the ones that help a document make sense.  By this we mean that if we have something like the following, "d" in the second sentence is not just any instance of a door, but a specific door -- the door of the car.  These are the kinds of part/whole relations that we want to not miss.  
+```
+John raced to his car.
+(r / race-01
+      :ARG0 (p / person :name (n / name :op1 "John"))
+      :ARG2 (c / car
+            :poss p))
+
+He opened the door
+(o / open-01
+      :ARG0 (h / he)
+      :ARG1 (d / door))
+```
+
 
 
 Part III: Details 
@@ -493,6 +569,32 @@ If you have linked the two bite-01 instances together, then both ```:ARG0 (i / i
 
 If you are at all uncertain about the identity of the referent, it is best to add this reference in.  We also need to emphasize that this **only** works if you have prior coreferent mentions of the **exact same predicate**.  
 
+To emphasize the reasoning for we need to have seen the **exact same predicate** before, remember that our numbered arguments are *predicate specific*.  You might want to think of an example like "They were worried about the bite" as being defined by their PropBank definitions, like:
+```
+"They were worried about the bite"
+(w / worry-01
+      :ARG0[cause of worrying, troublesome topic] (b / bite-01)
+      :ARG1[worrier] (t / they))
+```
+Basically, an implicit argument annotation allows us to learn that this particular role, -- like ARG0[cause of worrying, troublesome topic] -- applies to the identity chain of that implicit argument.  If we already know *that*, then we don't need to keep annotating it.  If we have something coreferential with "worry" that is a different predicate, then we need to link the "bite" up to the (i / implicit--causer_of_concern), because none of the numbered arguments are coreferential -- we haven't seen them before:
+
+```
+"We assuaged their concerns"
+(a / assuage-01
+      :ARG0 (t / they)
+      :ARG1 (c2 / concern-01 
+            :ARG1 t
+            :ARG0[causer of concern] (i / implicit--causer_of_concern)))
+```
+If instead it was just another mention of "worry-01", then we could declare that we already know that the identity chain of 'worry' has a "ARG0 of worry-01" link to "bite-01", and therefore don't need to mark the additional link again:
+```
+"We assuaged their worries"
+(a / assuage-01
+      :ARG0 (t / they)
+      :ARG1 (c2 / worry-01 
+            :ARG1 t
+            :ARG0[causer of concern] (i / implicit--causer_of_concern)))
+```
 
 
 
@@ -537,6 +639,53 @@ Racially insensitive?
 ```
 
 :bangbang: Sometimes the AMR you've been given won't quite give you the variable or structure that you want -- you might want to link to a positive version of something, for example, but only have a negated version.  If two variables, under these underpretive rules, don't refer to the same thing, then don't mark them as coreferential. 
+
+
+
+How much can I consider modality?
+---------------------------------
+
+AMR annotation often varies in terms of whether we 
+
+If you have a given AMR, it often makes sense to wonder what a particular variable "means".  For example, consider the "a2" in the following AMR:
+```
+We insist that you adhere to the contract or else we will sue you.
+(a / and 
+      :op1 (i / insist-01 
+            :ARG0 (w / we) 
+            :ARG1 (a2 / adhere-02 
+                  :ARG0 (y / you) 
+                  :ARG1 (c / contract))) 
+      :op2 (s / sue-02 
+            :ARG0 w 
+            :ARG1 y 
+            :condition (h / have-polarity-91 
+                  :ARG1 a2 
+                  :ARG2 -))) 
+```
+Is the "being insisted" part of the adherence?  What about the "have-polarity-91"?
+
+We will assume that a given variable like "a2" refers to *itself and every thing and relationship "under" it in the AMR tree*.  In this context, "a2" therefore refers to an event of adhering, given that "you" is the one following the rules and the "contract" is the set of rules followed.  Other relations -- like the "if you don't....", don't necessarily need to define *what it is* that these variables are.
+
+To give you an example for more 'thing-like' variables, we are just assuming that "c" in the below AMR simply refers to "social conservatives": because the polarity is not within the term
+```
+Not social conservatives.
+(h / have-polarity-91 
+      :ARG1 (c / conservative 
+            :mod (s / social)) 
+      :ARG2 -) 
+```
+
+In contrast, "s", having a ```:polarity -``` within the brackets of "s", can be assumed to inherently mean "racially insensitive":
+```
+Racially insensitive?
+
+(s / sensitive-03 :polarity - :mode interrogative 
+      :ARG1 (r / race)) 
+```
+
+:bangbang: Sometimes the AMR you've been given won't quite give you the variable or structure that you want -- you might want to link to a positive version of something, for example, but only have a negated version.  If two variables, under these underpretive rules, don't refer to the same thing, then don't mark them as coreferential. 
+
 
 
 
