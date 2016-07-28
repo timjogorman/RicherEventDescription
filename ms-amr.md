@@ -601,7 +601,8 @@ If instead it was just another mention of "worry-01", then we could declare that
 What Does a Variable Mean?
 --------------------------
 
-If you have a given AMR, it often makes sense to wonder what a particular variable "means".  For example, consider the "a2" in the following AMR:
+Whenever possible, we want identity chains to be strict about questions like "modality" and "polarity"  -- claims about whether an entity or event is real, hypothetical, or is referring to some general class of things.   However, sometimes it might not be entirely clear what the real interpretation of a variable is.  For example, consider the "a2" in the following AMR:
+
 ```
 We insist that you adhere to the contract or else we will sue you.
 (a / and 
@@ -617,11 +618,10 @@ We insist that you adhere to the contract or else we will sue you.
                   :ARG1 a2 
                   :ARG2 -))) 
 ```
-Is the "being insisted" part of the adherence?  What about the "have-polarity-91"?
 
-We will assume that a given variable like "a2" refers to *itself and every thing and relationship "under" it in the AMR tree*.  In this context, "a2" therefore refers to an event of adhering, given that "you" is the one following the rules and the "contract" is the set of rules followed.  Other relations -- like the "if you don't....", don't necessarily need to define *what it is* that these variables are.
+When in doubt, try to interpret AMRs as if a variable like "a2" is defined by its concept ("adhere-02") and all of the arguments that are under it in the AMR (the ```:arg0 (y / you)``` and ```:arg1 ( c / contract)```), and try to decide on an interpretation of that AMR variable that makes the most sense in context.  In this case, you might interpret that as something like "the idea of you adhering to the contract" -- it being both the thing that's insisted upon, and the thing that, if not true, would cause a lawsuit.  
 
-To give you an example for more 'thing-like' variables, we are just assuming that "c" in the below AMR simply refers to "social conservatives": because the polarity is not within the term
+To give you another example for how to interpret a particular referent, consider something like "c" in the below AMR, simply referring to "social conservatives": because the polarity is not within the term
 ```
 Not social conservatives.
 (h / have-polarity-91 
@@ -638,16 +638,15 @@ Racially insensitive?
       :ARG1 (r / race)) 
 ```
 
-:bangbang: Sometimes the AMR you've been given won't quite give you the variable or structure that you want -- you might want to link to a positive version of something, for example, but only have a negated version.  If two variables, under these underpretive rules, don't refer to the same thing, then don't mark them as coreferential. 
+Be strict about identity -- if you are sure that one variable really refers to an event, and another variable in another sentence refers to the negation or that event, don't refer them together!  
 
+:bangbang: That does not mean that all coreferent mentions need to agree on polarity.  If one sentence says "John forbade is children from eating cookies" and another talked about how "he didn't allow his children to eat cookie", you are completely allowed to link the "f" meaning "forbid" and the "a" meaning "allow-01 :polarity -" together into the same identity chain.  
 
 
 How much can I consider modality?
 ---------------------------------
 
-AMR annotation often varies in terms of whether we 
-
-If you have a given AMR, it often makes sense to wonder what a particular variable "means".  For example, consider the "a2" in the following AMR:
+AMR annotation is not always consistent about coreference; sometimes different "versions" of a term will all be linked together under the same variable, and have different kinds of modality.   For example, consider the "a2" in the following AMR:
 ```
 We insist that you adhere to the contract or else we will sue you.
 (a / and 
@@ -702,17 +701,7 @@ This can occur for cases where one is not named, when there is an ongoing discus
 - I think mary is my secret santa.
 - People think that OJ is the killer.
 
-**DISCUSSION POINT / PROPOSAL**: We will treat these with this "marginal-identity-91" operator. 
-
-
-
-
-
-
-
-
-
-
+We currently do not have a consistent treatment of how such phenomena should be handled in multisentence AMR; for the most part, examples such as the ones above, will already have linked these elements (using either numbered arguments of a predicate, or through a ```:mod``` or ```:domain``` relation), and therefore do not need to be linked together.  However, if you encounter such phenomena, pass them up the chain for consideration. 
 
 
 Part IV: Handling Errors in the AMRs
@@ -748,8 +737,8 @@ You may run into cases where this kind of thing is instead annotated as
             :manner (h / hard-02))
       :domain (b / boy))
 ```
-**DISCUSSION POINT / PROPOSAL**: In this case, annotate BOTH mentions as coreferential; we may go through and fix the issue. If you find yourself doing this often, however, bring it up immediately with your annotation team to make sure you are making the right judgement calls. 
 
+In this case - instances where two terms are related by a ```:mod``` or ```:domain```, but should have been AMRed as having a single concept instead -- you may annotate BOTH mentions as coreferential; we will go through and fix the issue. Only do so if you are absolutely sure that is an AMR annotation error, however; otherwise link simply to the term that is treated as less predicative (as in "the boy" in the above example).   
 
 
 Decomposition Issues
