@@ -125,13 +125,13 @@
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 
-*Developed by Will Styler, Kevin Crooks, Mariah Hamang, and Tim O'Gorman
+*Developed by Martha Palmer, Will Styler, Kevin Crooks, and Tim O'Gorman
 as a synthesis of the THYME-TimeML guidelines, the Stanford Event
-coreference guidelines and the CMU Event coreference guidelines. These
-guidelines have been developed with substantial input from Eduard
-Hovy and Teruko Mitamura at Carnegie Mellon University, Rei Ikuta
-at the University of Colorado, Boulder, and benefited from the discussion
-at the NAACL Events Workshop.*
+coreference guidelines, and the CMU Event coreference guidelines. These
+guidelines have been developed with substantial input from James Pustejovsky 
+at Brandeis, Eduard Hovy and Teruko Mitamura at Carnegie Mellon University,
+Mariah Hamang, Kristin Wright-Bettner and Rei Ikuta at the University of Colorado, 
+Boulder, and benefited from the discussion at the NAACL Events Workshop.*
 
 ## Introduction
 
